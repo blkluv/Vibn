@@ -119,6 +119,11 @@
   resolved "https://registry.npmmirror.com/@esbuild/win32-x64/-/win32-x64-0.17.2.tgz#a7ce1ae475e14febb80e2690430e399491206a61"
   integrity sha512-QFJlhf73HCBjTqAWWSIlD8JQBtmue0Dd6UV+KGccycJ3HKj1dCkXdRKJGwc5bZWiI9hrxcWsVEa1kVFaltC4vQ==
 
+"@fontsource/brygada-1918@^4.5.13":
+  version "4.5.13"
+  resolved "https://registry.npmmirror.com/@fontsource/brygada-1918/-/brygada-1918-4.5.13.tgz#1662bb31cd7cb345d66764f7230426e2aee5a391"
+  integrity sha512-IXesv8NzOBvmi4yK4mcZUCk+HxUYW2VY+FZisLZTAAypdcklsHf9izbSSuEvWqw0s98OtoyUr5iudLXE8YgZQg==
+
 "@fontsource/inter@latest":
   version "4.5.15"
   resolved "https://registry.npmmirror.com/@fontsource/inter/-/inter-4.5.15.tgz#eed1873d68755d3b52d6fcfcfa3493118430a512"

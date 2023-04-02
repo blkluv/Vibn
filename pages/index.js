@@ -30,7 +30,7 @@ const Home = ({ posts }) => {
 
             <h1>About</h1>
 
-            <p className='mt-6 opacity-75 text-[1rem]'>I'm a senior grade 1 student from Yantai No.1 Middle School of Shandong. Meanwhile, a iker. A.k.a. Cloudflare233 online.
+            <p className='mt-6 opacity-75 text-[1rem]'>I'm a senior grade 1 student from Yantai No.1 Middle School. Meanwhile, a iker. A.k.a. Cloudflare233 online.
                 I love writing, talking and dreaming. Fulfilling my dream with all my effort. Mostly interested in math. </p>
 
             <p className='mt-6 opacity-75 text-[1rem]'>I'm currently working on finishing my schoolwork in the school library. Lie down on the bed, listening to music. Playing with soft toys. Admiring ker.

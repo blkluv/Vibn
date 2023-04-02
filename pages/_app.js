@@ -1,8 +1,9 @@
 import "../styles/globals.css";
 import "../styles/clock.css";
 
-import "@fontsource/tiro-bangla"
 import "@fontsource/inter/500.css"
+import "@fontsource/tiro-bangla/latin-400.css"
+import "@fontsource/tiro-bangla/latin-400-italic.css"
 
 import { useState } from "react";
 import { useEffect } from 'react'

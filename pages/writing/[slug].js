@@ -27,25 +27,20 @@ const Writing = ({ mdxSource, frontMatter }) => {
         >
             <div className="">
 
-                <Link href="/" className='inter opacity-75 text-sm mb-8'>← Back to home</Link>
 
-
-                <h1 className='mt-8 mb-6'>
+                <h1 className='mt-8 mb-1'>
                     {frontMatter.title}
                 </h1>
 
-                <time className='text-sm mt-6 mb-8 opacity-75 flex flex-row space-x-1'>
+                <time className='text-sm mt-1 mb-8 opacity-75 flex flex-row space-x-1'>
                     <span><Date dateString={time} /></span>
-                    <span>·</span>
-                    <span>{moment(parseInt(time), "YYYYMMDD").fromNow()}</span>
-                    <span>·</span>
-                    <span>{frontMatter.readingTime.text}</span>
                 </time>
 
-                <div className="mt-16 prose dark:prose-invert">
-                    <blockquote>
+                <div className="mt-16 prose prose-p:text-black prose-a:underline prose-li:text-black prose-ul:text-black prose-ol:text-black">
+                    <p className='italic'>
                         {frontMatter.description}
-                    </blockquote>
+                    </p>
+                    <hr />
                     <MathJaxProvider>
                         <MDXRemote
                             {...mdxSource}
