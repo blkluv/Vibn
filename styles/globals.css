@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  @apply w-0;
+}
+
+::selection {
+  @apply bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Tiro Bangla', serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply h-screen  bg-white dark:bg-zinc-950;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  @apply font-medium;
+}
+
+p {
+  @apply max-w-[37.5rem] mx-auto leading-[1.75] my-10 text-[1rem];
+}
+
+.prose p {
+  @apply max-w-[37.5rem] mx-auto leading-[1.75] my-10 text-base;
+}
+
+.prose img {
+  @apply w-full my-16;
+}
+
+a {
+  @apply underline;
+}
+
+.prose a {
+  @apply underline;
+  font-weight: 400;
+}
+
+.prose hr {
+  @apply dark:border-zinc-800;
+}
+
+.inter {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  @apply text-base;
+}
+
+time {
+  font-family: 'Inter', sans-serif;
+  @apply opacity-50;
+}
+
+.serif {
+  font-family: 'Tiro Bangla', serif;
+}
+
+.prose blockquote ::before {
+  content: none;
+}
+
+.prose pre {
+  @apply border dark:border-zinc-800 bg-white dark:bg-black text-zinc-800 dark:text-zinc-200;
+}
+
+.prose strong {
+  @apply font-medium;
+}
+
+.prose .math {
+  @apply overflow-x-auto;
+}
