@@ -13,8 +13,8 @@ export default function Footer() {
         };
     }, []);
     return (
-        <div className="font-normal opacity-80 bottom-0 w-full border-t dark:border-t-zinc-800 py-3">
-            <div className="max-w-[37.5rem] px-5 md:px-0 sm:px-0 mx-auto flex flex-row justify-between">
+        <div className="font-normal opacity-75 bottom-0 w-full border-t dark:border-t-zinc-800 py-3">
+            <div className="max-w-2xl px-5 md:px-0 sm:px-0 mx-auto flex flex-row justify-between">
                 <h1 className="opacity-75 mt-0.5">
                     {site.now}
                 </h1>

@@ -70,7 +70,7 @@ const Home = ({ posts }) => {
 
             <h1 className='mt-16'>Select Writing</h1>
 
-            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-6 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2023
                 </div>
@@ -109,51 +109,51 @@ const Home = ({ posts }) => {
 
             <h1 className='mt-16'>Putrid Experience</h1>
 
-            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-6 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2022-Now
                 </div>
 
                 <div className=''>
-                    <h2>Yantai No.1 Middle School</h2>
+                    <h2 className='underline'>Yantai No.1 Middle School</h2>
 
                     <p className='opacity-75 mt-4'>This is the place where I'm currently studying in. If you can reach the campus, get me in Class 2, senior grade 1!</p>
                 </div>
             </div>
 
-            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-8 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2018-2022
                 </div>
 
                 <div className=''>
-                    <h2>Yantai Zhifu Middle School</h2>
+                    <h2 className='underline'>Yantai Zhifu Middle School</h2>
 
                     <p className='opacity-75 mt-4'>This is the place where I studied there for 4 years. It had been a terrible experience.</p>
                 </div>
             </div>
 
-            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-8 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2013-2018
                 </div>
 
                 <div className=''>
-                    <h2>Putaoshan Primary School</h2>
+                    <h2 className='underline'>Putaoshan Primary School</h2>
 
                     <p className='opacity-75 mt-4'>This is the primary school! Happy childhood! I really miss the familiar campus.</p>
                 </div>
             </div>
 
-            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-8 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2007-2013
                 </div>
 
                 <div className=''>
-                    <h2>Born & Learn</h2>
+                    <h2 className='underline'>Born & Learn</h2>
 
-                    <p className='opacity-75 mt-4'>I did all the normal human did before, I can never end up as a donkey, right?</p>
+                    <p className='opacity-75 mt-4'>I did all the normal human did before, I can never end up being a dull donkey, right?</p>
                 </div>
             </div>
 

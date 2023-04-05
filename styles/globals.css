@@ -9,13 +9,6 @@
   font-weight: 400;
 }
 
-@font-face {
-  font-family: 'Founders Grotesk';
-  src: url(/fonts/founders-grotesk-medium.otf) format('opentype');
-  font-display: hidden;
-  font-weight: 500;
-}
-
 ::-webkit-scrollbar {
   @apply w-0;
 }
@@ -48,16 +41,14 @@ h4,
 h5,
 h6 {
   font-family: 'Founders Grotesk', sans-serif;
-  font-weight: 500;
-  @apply font-medium;
 }
 
 p {
-  @apply max-w-[37.5rem] mx-auto leading-[1.75] my-10 text-lg;
+  @apply max-w-[37.5rem] leading-[1.75] my-10 text-lg;
 }
 
 .prose p {
-  @apply max-w-[37.5rem] mx-auto leading-[1.75] my-10 text-lg;
+  @apply max-w-[37.5rem] leading-[1.75] my-10 text-lg;
 }
 
 .prose img {
@@ -65,11 +56,11 @@ p {
 }
 
 a {
-  @apply underline underline-offset-2;
+  @apply underline;
 }
 
 .prose a {
-  @apply underline underline-offset-2;
+  @apply underline;
   font-weight: 400;
 }
 
@@ -77,9 +68,7 @@ a {
   @apply border-zinc-300 dark:border-zinc-800 w-2/3 sm:w-1/3 mx-auto;
 }
 
-.prose blockquote {
-  font-family: 'Tiro Bangla', serif;
-}
+
 
 .prose .italic {
   font-family: 'Tiro Bangla', serif;

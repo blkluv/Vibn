@@ -6,6 +6,8 @@ description: How I choose web fonts and what fonts mean to a good website. Sans 
 location: 'Yantai, Shandong'
 ---
 
+> This article has been updated in 2023
+
 I used to using web font like Roboto by Google or YaHei by Microsoft. They are great web fonts in the history of the development of web. And nowadays, plenty of sites are still using the famous two guys for they are really great. For example, [The Offical Site of Microsoft](https://microsoft.com/)
 
 
@@ -13,11 +15,13 @@ Yes, serif fonts can give people a very graceful feeling, just like the Gothic a
 
 So, to avoid the hassle, I opted for a sans-serif font, which is a good thing, and allows for a more modern website design without feeling like you're reading an old newspaper. Yeah, I don't think anyone wants to watch this, especially with the fast pace of life these days. People just want quick access to information, of course, what they need.
 
+---
 
 When you open a font website, you will definitely feel God, how can there be so many fonts. Yes, even in sans serif fonts, the choice of different glyphs can feel dizzying. Finding a suitable font is not easy.
 
 I stumbled across GitHub one day when I discovered the Inter font and I fell in love with her because her glyphs fit my aesthetic "clean and sleek" very well. So I used it for a while. This is very pleasant.
 
+---
 
 According to MDN's tutorial, adding fonts is not a difficult task. However, due to network problems, choosing fonts often needs to consider the size of the font and whether to use CDN. For example, IBM's sans-serif font is about 50KB in size. This allows fonts to be loaded quickly without having to wait too long.
 
@@ -25,18 +29,14 @@ Below is an example of how to add font templates using the @font-face rule, used
 
 ```
 @font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/IBMPlexSans-Text.woff2") format("woff2"),
-    url("/IBMPlexSans-Italic.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "IBM Plex Sans Bold";
-  src: url("/IBMPlexSans-Bold.woff2") format("woff2");
+  font-family: 'Founders Grotesk';
+  src: url(/fonts/founders-grotesk.otf) format('opentype');
+  font-display: hidden;
+  font-weight: 400;
 }
 
 body {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Founders Grotesk", sans-serif;
 }
 
 h1,
@@ -45,9 +45,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "IBM Plex Sans Bold", sans-serif;
+  font-family: "Founders Grotesk", sans-serif;
   @apply -mt-4 -mb-4;
 }
 ```
+
+> Please use font-display at the same time
+
+---
 
 All in all, finding a suitable web font is not easy, and Lee Robinson wrote an article before that, for individuals, they should abandon hosted sites such as Google Fonts and switch to self-hosted fonts. This makes perfect sense, and developers should try to reduce the font size to transfer as much as possible, reduce the network load on the user as much as possible, improve the user experience, and make efforts to build a better Internet, which can be cumbersome, but it is really important.

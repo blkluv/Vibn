@@ -10,8 +10,7 @@ function cn(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Layout({ children, title }) {
-  const { theme, setTheme } = useTheme();
+const Layout = ({ children, title}) => {
   return (
     <div>
       <Head>
@@ -22,7 +21,7 @@ export default function Layout({ children, title }) {
         className={cn(
           'bg-white dark:bg-zinc-950 px-6 py-20 md:py-24 sm:py-28'
         )}>
-        <div className="max-w-[37.5rem] mx-auto">
+        <div className="max-w-2xl mx-auto">
           <div className="mb-6">
             <Link href="/" className="border-none">
               <div className="text-4xl">
@@ -32,7 +31,7 @@ export default function Layout({ children, title }) {
             </Link>
           </div>
 
-          <div className="opacity-75 text-base mb-16">
+          <div className="opacity-50 text-base mb-16">
             <p className="text-base  flex flex-row">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 mt-0.5">
                 <path d="M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z" />
@@ -55,3 +54,6 @@ export default function Layout({ children, title }) {
     </div >
   )
 }
+
+export default Layout
+
