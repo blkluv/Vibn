@@ -30,47 +30,47 @@ const Home = ({ posts }) => {
 
             <h1>About</h1>
 
-            <p className='mt-6 opacity-75 text-[1rem]'>I'm a senior grade 1 student from Yantai No.1 Middle School. Meanwhile, a iker. A.k.a. Cloudflare233 online.
+            <p className='mt-6 opacity-75'>I'm a senior grade 1 student from Yantai No.1 Middle School. Meanwhile, a iker. A.k.a. Cloudflare233 online.
                 I love writing, talking and dreaming. Fulfilling my dream with all my effort. Mostly interested in math. </p>
 
-            <p className='mt-6 opacity-75 text-[1rem]'>I'm currently working on finishing my schoolwork in the school library. Lie down on the bed, listening to music. Playing with soft toys. Admiring ker.
+            <p className='mt-6 opacity-75'>I'm currently working on finishing my schoolwork in the school library. Lie down on the bed, listening to music. Playing with soft toys. Admiring ker.
                 Still designing and coding, in consquence, building a better web.</p>
 
             <h1 className='mt-16'>Contact</h1>
 
-            <div className='mt-12 inter flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
+            <div className='mt-6 flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
                 <div className='w-full sm:w-1/4 opacity-50'>
                     GitHub
                 </div>
 
                 <div className='w-full'>
-                    <a className='opacity-75 text-[1rem] underline' href="https://github.com/Cloudflare233">@Cloudflare233</a>
+                    <a className='opacity-75 underline' href="https://github.com/Cloudflare233">@Cloudflare233</a>
                 </div>
             </div>
 
-            <div className='mt-4 inter flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
+            <div className='mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
                 <div className='w-full sm:w-1/4 opacity-50'>
                     QQ
                 </div>
 
                 <div className='w-full'>
-                    <a className='opacity-75 text-[1rem] underline'>@3041299667</a>
+                    <a className='opacity-75 underline'>@3041299667</a>
                 </div>
             </div>
 
-            <div className='mt-4 inter flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
+            <div className='mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
                 <div className='w-full sm:w-1/4 opacity-50'>
                     E-Mail
                 </div>
 
                 <div className='w-full'>
-                    <a className='opacity-75 text-[1rem] underline' href="mailto:Cloudflare233@yandex.com">Cloudflare233@yandex.com</a>
+                    <a className='opacity-75 underline' href="mailto:Cloudflare233@yandex.com">Cloudflare233@yandex.com</a>
                 </div>
             </div>
 
             <h1 className='mt-16'>Select Writing</h1>
 
-            <div className='mt-12 inter flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2023
                 </div>
@@ -88,7 +88,7 @@ const Home = ({ posts }) => {
                 </div>
             </div>
 
-            <div className='mt-12 inter flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2022
                 </div>
@@ -109,7 +109,7 @@ const Home = ({ posts }) => {
 
             <h1 className='mt-16'>Putrid Experience</h1>
 
-            <div className='mt-12 inter flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2022-Now
                 </div>
@@ -121,7 +121,7 @@ const Home = ({ posts }) => {
                 </div>
             </div>
 
-            <div className='mt-12 inter flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2018-2022
                 </div>
@@ -133,7 +133,7 @@ const Home = ({ posts }) => {
                 </div>
             </div>
 
-            <div className='mt-12 inter flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2013-2018
                 </div>
@@ -145,7 +145,7 @@ const Home = ({ posts }) => {
                 </div>
             </div>
 
-            <div className='mt-12 inter flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2007-2013
                 </div>

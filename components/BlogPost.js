@@ -17,9 +17,9 @@ const BlogPost = ({ title, date, year, description, slug }) => {
         <a className='underline w-full'>{title}</a>
       </Link>
 
-      <p className='my-2 text-sm opacity-50 flex flex-row'><span className='mr-1'>Published on</span> <Date dateString={time} /></p>
+      <p className='my-2 opacity-50 flex flex-row'><span className='mr-1'>Published on</span> <Date dateString={time} /></p>
 
-      <p className='mt-6 mb-4 serif opacity-80'>
+      <p className='mt-3 mb-4 opacity-80'>
         {description}
       </p>
     </div>

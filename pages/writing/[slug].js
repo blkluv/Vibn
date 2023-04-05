@@ -28,15 +28,15 @@ const Writing = ({ mdxSource, frontMatter }) => {
             <div className="">
 
 
-                <h1 className='mt-8 mb-1'>
+                <h1 className='text-lg mt-8 mb-1'>
                     {frontMatter.title}
                 </h1>
 
-                <time className='text-sm mt-1 mb-8 opacity-75 flex flex-row space-x-1'>
+                <time className='text-base mt-1 mb-8 opacity-75 flex flex-row space-x-1'>
                     <span><Date dateString={time} /></span>
                 </time>
 
-                <div className="mt-16 prose prose-p:text-black prose-a:underline prose-li:text-black prose-ul:text-black prose-ol:text-black">
+                <div className="mt-16 prose prose-zinc text-lg">
                     <p className='italic'>
                         {frontMatter.description}
                     </p>
