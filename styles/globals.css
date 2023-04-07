@@ -90,7 +90,7 @@ a {
 }
 
 .prose pre {
-  @apply border dark:border-zinc-800 bg-white dark:bg-black text-zinc-800 dark:text-zinc-200;
+  @apply text-base border dark:border-zinc-800 bg-white dark:bg-black text-zinc-800 dark:text-zinc-200;
 }
 
 .prose strong {
