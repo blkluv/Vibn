@@ -44,11 +44,11 @@ h6 {
 }
 
 p {
-  @apply max-w-[37.5rem] leading-[1.55] my-10 text-lg;
+  @apply max-w-[37.5rem] leading-[1.45] my-10 text-lg;
 }
 
 .prose p {
-  @apply max-w-[37.5rem] leading-[1.55] my-10 text-lg;
+  @apply max-w-[37.5rem] leading-[1.45] my-10 text-lg;
 }
 
 .prose img {
