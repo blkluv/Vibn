@@ -57,7 +57,7 @@ const Writing = ({ mdxSource, frontMatter }) => {
 
 
 
-                <div className="mt-16 text-xl">
+                <div className="mt-16 prose">
                     <MathJaxProvider>
                         <MDXRemote
                             {...mdxSource}
