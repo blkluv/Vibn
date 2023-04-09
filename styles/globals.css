@@ -21,16 +21,9 @@ html {
   scroll-behavior: smooth;
 }
 
-* {
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-  font-feature-settings: 'kern' 1, 'liga' 1;
-}
-
 body {
   font-family: 'Founders Grotesk', sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-feature-settings: 'onum' 1, 'liga' 1;
   @apply h-screen  bg-white dark:bg-zinc-950;
 }
 
@@ -44,11 +37,11 @@ h6 {
 }
 
 p {
-  @apply max-w-[37.5rem] leading-[1.75] my-10 text-lg;
+  @apply max-w-[37.5rem] leading-normal my-10 text-lg;
 }
 
 .prose p {
-  @apply max-w-[37.5rem] leading-[1.75] my-10 text-lg;
+  @apply max-w-[37.5rem] leading-normal my-10 text-xl opacity-75 text-black;
 }
 
 .prose img {
@@ -56,11 +49,11 @@ p {
 }
 
 a {
-  @apply underline;
+  @apply no-underline border-b-2 transition-all border-zinc-200 dark:border-zinc-800 dark:hover:border-zinc-600 hover:border-zinc-400 text-black dark:text-white;
 }
 
 .prose a {
-  @apply underline;
+  @apply no-underline border-b-2 transition-all border-zinc-200 hover:border-zinc-400 text-black;
   font-weight: 400;
 }
 
@@ -94,7 +87,7 @@ a {
 }
 
 .prose strong {
-  @apply font-medium;
+  @apply font-normal;
 }
 
 .prose .math {

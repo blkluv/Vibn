@@ -28,49 +28,49 @@ const Home = ({ posts }) => {
             title="Geng Yue"
         >
 
-            <h1>About</h1>
+            <h1 className='opacity-50'>About</h1>
 
-            <p className='mt-6 opacity-75'>I'm a senior grade 1 student from Yantai No.1 Middle School. Meanwhile, a iker. A.k.a. Cloudflare233 online.
+            <p className='mt-6 text-xl opacity-75'>I'm a senior grade 1 student from Yantai No.1 Middle School. Meanwhile, a iker. A.k.a. Cloudflare233 online.
                 I love writing, talking and dreaming. Fulfilling my dream with all my effort. Mostly interested in math. </p>
 
-            <p className='mt-6 opacity-75'>I'm currently working on finishing my schoolwork in the school library. Lie down on the bed, listening to music. Playing with soft toys. Admiring ker.
+            <p className='mt-6 text-xl opacity-75'>I'm currently working on finishing my schoolwork in the school library. Lie down on the bed, listening to music. Playing with soft toys. Admiring ker.
                 Still designing and coding, in consquence, building a better web.</p>
 
-            <h1 className='mt-16'>Contact</h1>
+            <h1 className='opacity-50 mt-16'>Contact</h1>
 
-            <div className='mt-6 flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
-                <div className='w-full sm:w-1/4 opacity-50'>
+            <div className='mt-6 text-xl flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
+                <div className='w-full sm:w-1/4 opacity-60'>
                     GitHub
                 </div>
 
                 <div className='w-full'>
-                    <a className='opacity-75 underline' href="https://github.com/Cloudflare233">@Cloudflare233</a>
+                    <a className='opacity-75 no-no-underline' href="https://github.com/Cloudflare233">@Cloudflare233</a>
                 </div>
             </div>
 
-            <div className='mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
-                <div className='w-full sm:w-1/4 opacity-50'>
+            <div className='mt-2 text-xl flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
+                <div className='w-full sm:w-1/4 opacity-60'>
                     QQ
                 </div>
 
                 <div className='w-full'>
-                    <a className='opacity-75 underline'>@3041299667</a>
+                    <a className='opacity-75 no-no-underline'>@3041299667</a>
                 </div>
             </div>
 
-            <div className='mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
-                <div className='w-full sm:w-1/4 opacity-50'>
+            <div className='mt-2 text-xl flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
+                <div className='w-full sm:w-1/4 opacity-60'>
                     E-Mail
                 </div>
 
                 <div className='w-full'>
-                    <a className='opacity-75 underline' href="mailto:Cloudflare233@yandex.com">Cloudflare233@yandex.com</a>
+                    <a className='opacity-75 no-underline' href="mailto:Cloudflare233@yandex.com">Cloudflare233@yandex.com</a>
                 </div>
             </div>
 
-            <h1 className='mt-16'>Select Writing</h1>
+            <h1 className='opacity-50 mt-16'>Select Writing</h1>
 
-            <div className='mt-6 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='text-xl mt-6 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2023
                 </div>
@@ -88,7 +88,7 @@ const Home = ({ posts }) => {
                 </div>
             </div>
 
-            <div className='mt-12 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-12 text-xl flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2022
                 </div>
@@ -107,53 +107,53 @@ const Home = ({ posts }) => {
             </div>
 
 
-            <h1 className='mt-16'>Putrid Experience</h1>
+            <h1 className='mt-16 opacity-50'>Putrid Experience</h1>
 
-            <div className='mt-6 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-6 text-xl flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2022-Now
                 </div>
 
                 <div className=''>
-                    <h2 className='underline'>Yantai No.1 Middle School</h2>
+                    <h2 className='no-underline'>Yantai No.1 Middle School</h2>
 
-                    <p className='opacity-75 mt-4'>This is the place where I'm currently studying in. If you can reach the campus, get me in Class 2, senior grade 1!</p>
+                    <p className='text-xl opacity-75 mt-4'>This is the place where I'm currently studying in. If you can reach the campus, get me in Class 2, senior grade 1!</p>
                 </div>
             </div>
 
-            <div className='mt-8 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-8 text-xl flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2018-2022
                 </div>
 
                 <div className=''>
-                    <h2 className='underline'>Yantai Zhifu Middle School</h2>
+                    <h2 className='no-no-underline'>Yantai Zhifu Middle School</h2>
 
-                    <p className='opacity-75 mt-4'>This is the place where I studied there for 4 years. It had been a terrible experience.</p>
+                    <p className='text-xl opacity-75 mt-4'>This is the place where I studied there for 4 years. It had been a terrible experience.</p>
                 </div>
             </div>
 
-            <div className='mt-8 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-8 text-xl flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2013-2018
                 </div>
 
                 <div className=''>
-                    <h2 className='underline'>Putaoshan Primary School</h2>
+                    <h2 className='no-no-underline'>Putaoshan Primary School</h2>
 
-                    <p className='opacity-75 mt-4'>This is the primary school! Happy childhood! I really miss the familiar campus.</p>
+                    <p className='text-xl opacity-75 mt-4'>This is the primary school! Happy childhood! I really miss the familiar campus.</p>
                 </div>
             </div>
 
-            <div className='mt-8 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
+            <div className='mt-8 text-xl flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
                 <div className='opacity-50 w-full sm:w-1/4 '>
                     2007-2013
                 </div>
 
                 <div className=''>
-                    <h2 className='underline'>Born & Learn</h2>
+                    <h2 className='no-no-underline'>Born & Learn</h2>
 
-                    <p className='opacity-75 mt-4'>I did all the normal human did before, I can never end up being a dull donkey, right?</p>
+                    <p className='text-xl opacity-75 mt-4'>I did all the normal human did before, I can never end up being a dull donkey, right?</p>
                 </div>
             </div>
 

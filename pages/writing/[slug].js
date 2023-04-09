@@ -27,20 +27,37 @@ const Writing = ({ mdxSource, frontMatter }) => {
         >
             <div className="">
 
+                <div className='border-b border-dashed border-zinc-400'>
+                    <div className='max-w-md'>
 
-                <h1 className='text-lg mt-8 mb-1'>
-                    {frontMatter.title}
-                </h1>
+                        <h1 className='text-3xl sm:text-4xl mt-8 mb-1'>
+                            {frontMatter.title}
+                        </h1>
 
-                <time className='text-base mt-1 mb-8 opacity-75 flex flex-row space-x-1'>
-                    <span><Date dateString={time} /></span>
-                </time>
+                        <p className='mt-6 text-lg sm:text-xl opacity-75'>
+                            {frontMatter.description}
+                        </p>
 
-                <div className="mt-16 prose prose-zinc text-lg">
-                    <p className='italic'>
-                        {frontMatter.description}
-                    </p>
-                    <hr />
+                        <div className='mb-6 flex flex-row space-x-10 mt-8 text-lg sm:text-xl'>
+                            <div className='flex flex-col'>
+                                <h2 className='opacity-50'>Published</h2>
+                                <time className='mt-1 mb-8 opacity-75 flex flex-row space-x-1'>
+                                    <span><Date dateString={time} /></span>
+                                </time>
+                            </div>
+                            <div className='flex flex-col'>
+                                <h2 className='opacity-50'>Reading Time</h2>
+                                <time className='mt-1 mb-8 opacity-75 flex flex-row space-x-1'>
+                                    <span>{frontMatter.readingTime.text}</span>
+                                </time>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div className="mt-16 text-xl prose prose-zinc text-lg">
                     <MathJaxProvider>
                         <MDXRemote
                             {...mdxSource}
