@@ -8,7 +8,6 @@ module.exports = {
     screens: {
       'sm': { 'min': '1360px', 'max': '4096px' },
       'md': { 'min': '768px', 'max': '1360px' }
-      // => @media (min-width: 640px and max-width: 767px) { ... }
     },
   },
   plugins: [

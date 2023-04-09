@@ -14,7 +14,7 @@ const BlogPost = ({ title, date, year, description, slug }) => {
         prefetch
         legacyBehavior
       >
-        <a className='no-underline w-full'>{title}</a>
+        <a>{title}</a>
       </Link>
 
       <p className='text-lg my-2 opacity-50 flex flex-row'><span className='mr-1'>Published on</span> <Date dateString={time} /></p>

@@ -28,28 +28,47 @@ const Home = ({ posts }) => {
             title="Geng Yue"
         >
 
-            <h1 className='opacity-50'>About</h1>
+            <h1 className='serif'>Geng Yue</h1>
 
-            <p className='mt-6 text-xl opacity-75'>I'm a senior grade 1 student from Yantai No.1 Middle School. Meanwhile, a iker. A.k.a. Cloudflare233 online.
-                I love writing, talking and dreaming. Fulfilling my dream with all my effort. Mostly interested in math. </p>
+            <p className='mt-8'>I'm a 16yo senior high student from <a href="http://www.ytyz.net/">Yantai No.1 Middle School</a>. I love singing, dancing, ropping and playing basketball.</p>
 
-            <p className='mt-6 text-xl opacity-75'>I'm currently working on finishing my schoolwork in the school library. Lie down on the bed, listening to music. Playing with soft toys. Admiring ker.
-                Still designing and coding, in consquence, building a better web.</p>
+            <p className='mt-8'>Meanwhile I'm a iker, always looking for another opportunity to express.</p>
 
-            <h1 className='opacity-50 mt-16'>Contact</h1>
+            <h1 className='text-sm sm:text-base opacity-75 mt-12'>Now</h1>
 
-            <div className='mt-6 text-xl flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
-                <div className='w-full sm:w-1/4 opacity-60'>
+            <p className='mt-8'>Rotting in the school's libray, like a jail.</p>
+
+            <div className='flex flex-row justify-between'>
+                <h1 className='text-sm sm:text-base opacity-75 mt-12'>Collection</h1>
+                <Link className='text-sm sm:text-base opacity-75 mt-12' href="/collection">View all →</Link>
+            </div>
+
+            <div className='snap-x flex flex-row space-x-4 overflow-x-auto mt-8'>
+                <img src="/collection/jj.jpg" className='rounded-lg grayscale' />
+                <img src="/collection/wgj.jpeg" className='rounded-lg grayscale' />
+                <img src="/collection/wgj-rain.jpg" className='rounded-lg grayscale' />
+            </div>
+
+
+
+            <div className='flex flex-row justify-between'>
+                <h1 className='text-sm sm:text-base opacity-75 mt-12'>Contact</h1>
+            </div>
+
+            <p className='mt-8'>I'm currently looking for <span className='serif'>no</span> opportunity. But I'm happy if you can contact me throughout the way below.</p>
+
+            <div className='mt-8 text-base sm:text-lg flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
+                <div className='w-full sm:w-1/2'>
                     GitHub
                 </div>
 
                 <div className='w-full'>
-                    <a className='opacity-75 no-no-underline' href="https://github.com/Cloudflare233">@Cloudflare233</a>
+                    <a className='opacity-75 no-no-underline' href="https://kgithub.com/Cloudflare233">@Cloudflare233</a>
                 </div>
             </div>
 
-            <div className='mt-2 text-xl flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
-                <div className='w-full sm:w-1/4 opacity-60'>
+            <div className='mt-4 text-base sm:text-lg flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
+                <div className='w-full sm:w-1/2'>
                     QQ
                 </div>
 
@@ -58,8 +77,8 @@ const Home = ({ posts }) => {
                 </div>
             </div>
 
-            <div className='mt-2 text-xl flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
-                <div className='w-full sm:w-1/4 opacity-60'>
+            <div className='mt-4 text-base sm:text-lg flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
+                <div className='w-full sm:w-1/2'>
                     E-Mail
                 </div>
 
@@ -68,100 +87,11 @@ const Home = ({ posts }) => {
                 </div>
             </div>
 
-            <h1 className='opacity-50 mt-16'>Select Writing</h1>
-
-            <div className='text-xl mt-6 flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
-                <div className='opacity-50 w-full sm:w-1/4 '>
-                    2023
-                </div>
-
-                <div className='flex flex-col space-y-6 w-full'>
-                    {filteredBlogPosts.map((frontMatter) => (
-                        <>
-                            {frontMatter.year === '2023' && (
-                                <BlogPost
-                                    key={frontMatter.title} {...frontMatter}
-                                />
-                            )}
-                        </>
-                    ))}
-                </div>
-            </div>
-
-            <div className='mt-12 text-xl flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
-                <div className='opacity-50 w-full sm:w-1/4 '>
-                    2022
-                </div>
-
-                <div className='flex flex-col space-y-6 w-full'>
-                    {filteredBlogPosts.map((frontMatter) => (
-                        <>
-                            {frontMatter.year === '2022' && (
-                                <BlogPost
-                                    key={frontMatter.title} {...frontMatter}
-                                />
-                            )}
-                        </>
-                    ))}
-                </div>
-            </div>
-
-
-            <h1 className='mt-16 opacity-50'>Putrid Experience</h1>
-
-            <div className='mt-6 text-xl flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
-                <div className='opacity-50 w-full sm:w-1/4 '>
-                    2022-Now
-                </div>
-
-                <div className=''>
-                    <h2 className='no-underline'>Yantai No.1 Middle School</h2>
-
-                    <p className='text-xl opacity-75 mt-4'>This is the place where I'm currently studying in. If you can reach the campus, get me in Class 2, senior grade 1!</p>
-                </div>
-            </div>
-
-            <div className='mt-8 text-xl flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
-                <div className='opacity-50 w-full sm:w-1/4 '>
-                    2018-2022
-                </div>
-
-                <div className=''>
-                    <h2 className='no-no-underline'>Yantai Zhifu Middle School</h2>
-
-                    <p className='text-xl opacity-75 mt-4'>This is the place where I studied there for 4 years. It had been a terrible experience.</p>
-                </div>
-            </div>
-
-            <div className='mt-8 text-xl flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
-                <div className='opacity-50 w-full sm:w-1/4 '>
-                    2013-2018
-                </div>
-
-                <div className=''>
-                    <h2 className='no-no-underline'>Putaoshan Primary School</h2>
-
-                    <p className='text-xl opacity-75 mt-4'>This is the primary school! Happy childhood! I really miss the familiar campus.</p>
-                </div>
-            </div>
-
-            <div className='mt-8 text-xl flex flex-col sm:flex-row space-y-6 sm:space-y-0 space-x-0 sm:space-x-4'>
-                <div className='opacity-50 w-full sm:w-1/4 '>
-                    2007-2013
-                </div>
-
-                <div className=''>
-                    <h2 className='no-no-underline'>Born & Learn</h2>
-
-                    <p className='text-xl opacity-75 mt-4'>I did all the normal human did before, I can never end up being a dull donkey, right?</p>
-                </div>
-            </div>
-
         </Layout >
     )
 }
 
-Home.theme = 'dark'
+
 export default Home
 
 export async function getStaticProps() {

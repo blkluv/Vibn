@@ -28,7 +28,7 @@ const Writing = ({ mdxSource, frontMatter }) => {
             <div className="">
 
                 <div className='border-b border-dashed border-zinc-400'>
-                    <div className='max-w-md'>
+                    <div className='max-w-sm'>
 
                         <h1 className='text-3xl sm:text-4xl mt-8 mb-1'>
                             {frontMatter.title}
@@ -57,7 +57,7 @@ const Writing = ({ mdxSource, frontMatter }) => {
 
 
 
-                <div className="mt-16 text-xl prose prose-zinc text-lg">
+                <div className="mt-16 text-xl">
                     <MathJaxProvider>
                         <MDXRemote
                             {...mdxSource}
