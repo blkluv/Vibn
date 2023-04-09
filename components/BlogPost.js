@@ -17,9 +17,9 @@ const BlogPost = ({ title, date, year, description, slug }) => {
         <a>{title}</a>
       </Link>
 
-      <p className='text-lg my-2 opacity-50 flex flex-row'><span className='mr-1'>Published on</span> <Date dateString={time} /></p>
+      <p className='text-base my-2 opacity-75 flex flex-row'><span className='mr-1'>Published on</span> <Date dateString={time} /></p>
  
-      <p className='text-xl mt-3 mb-4 opacity-75'>
+      <p className='text-sm sm:text-base mt-3 mb-4 opacity-75'>
         {description}
       </p>
     </div>

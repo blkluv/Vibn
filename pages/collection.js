@@ -9,10 +9,10 @@ export default function Collection() {
             <h1 className="mt-8 serif">Collection</h1>
 
             <p className="mt-8">Here includes a little items I collected, ranging from top to toe.</p>
-
+            
             <div className="mt-12 flex flex-col sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
                 <div className="opacity-100 w-full sm:w-1/2">
-                    <img src="/collection/jj.jpg" className="grayscale rounded-lg" />
+                    <img src="/collection/jj.jpg" className="rounded-lg" />
                 </div>
                 <div className="w-full sm:w-1/2">
                     <h2 className="text-3xl sm:text-4xl serif">Jiang Jie</h2>
@@ -31,7 +31,7 @@ export default function Collection() {
 
             <div className="mt-12 flex flex-col sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
                 <div className="opacity-100 w-full sm:w-1/2">
-                    <img src="/collection/wgj.jpeg" className="grayscale rounded-lg" />
+                    <img src="/collection/wgj.jpeg" className="rounded-lg" />
                 </div>
                 <div className="w-full sm:w-1/2">
                     <h2 className="text-3xl sm:text-4xl serif">Wang Guijiang</h2>
@@ -44,13 +44,13 @@ export default function Collection() {
                 </div>
             </div>
 
-            <div className="flex justify-center mb-8 opacity-75">
+            <div className="flex justify-center my-8 opacity-75">
                 <svg width="18" height="18" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.625 7.5C3.625 8.12132 3.12132 8.625 2.5 8.625C1.87868 8.625 1.375 8.12132 1.375 7.5C1.375 6.87868 1.87868 6.375 2.5 6.375C3.12132 6.375 3.625 6.87868 3.625 7.5ZM8.625 7.5C8.625 8.12132 8.12132 8.625 7.5 8.625C6.87868 8.625 6.375 8.12132 6.375 7.5C6.375 6.87868 6.87868 6.375 7.5 6.375C8.12132 6.375 8.625 6.87868 8.625 7.5ZM12.5 8.625C13.1213 8.625 13.625 8.12132 13.625 7.5C13.625 6.87868 13.1213 6.375 12.5 6.375C11.8787 6.375 11.375 6.87868 11.375 7.5C11.375 8.12132 11.8787 8.625 12.5 8.625Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
             </div>
 
             <div className="mt-12 flex flex-col sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
                 <div className="opacity-100 w-full sm:w-1/2">
-                    <img src="/collection/wgj-rain.jpg" className="rounded-lg grayscale w-full" />
+                    <img src="/collection/wgj-rain.jpg" className="rounded-lg w-full" />
                 </div>
                 <div className="w-full sm:w-1/2">
                     <h2 className="text-3xl sm:text-4xl serif">Wang Guijiang</h2>
@@ -63,13 +63,13 @@ export default function Collection() {
                 </div>
             </div>
 
-            <div className="flex justify-center mb-8 opacity-75">
+            <div className="flex justify-center my-8 opacity-75">
                 <svg width="18" height="18" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.625 7.5C3.625 8.12132 3.12132 8.625 2.5 8.625C1.87868 8.625 1.375 8.12132 1.375 7.5C1.375 6.87868 1.87868 6.375 2.5 6.375C3.12132 6.375 3.625 6.87868 3.625 7.5ZM8.625 7.5C8.625 8.12132 8.12132 8.625 7.5 8.625C6.87868 8.625 6.375 8.12132 6.375 7.5C6.375 6.87868 6.87868 6.375 7.5 6.375C8.12132 6.375 8.625 6.87868 8.625 7.5ZM12.5 8.625C13.1213 8.625 13.625 8.12132 13.625 7.5C13.625 6.87868 13.1213 6.375 12.5 6.375C11.8787 6.375 11.375 6.87868 11.375 7.5C11.375 8.12132 11.8787 8.625 12.5 8.625Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
             </div>
 
             <div className="mt-12 flex flex-col sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
                 <div className="opacity-100 w-full sm:w-1/2">
-                    <img src="/collection/cmf.jpg" className="rounded-lg grayscale w-full" />
+                    <img src="/collection/cmf.jpg" className="rounded-lg w-full" />
                 </div>
                 <div className="w-full sm:w-1/2">
                     <h2 className="text-3xl sm:text-4xl serif">Cui Manfu</h2>

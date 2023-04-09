@@ -71,6 +71,10 @@ a{
   @apply opacity-75 transition-all border-b border-b-zinc-50 dark:border-b-zinc-950 hover:border-b-zinc-200 hover:opacity-100 dark:hover:border-b-zinc-800;
 }
 
+.prose a{
+  @apply no-underline opacity-75 transition-all border-b border-b-zinc-50 dark:border-b-zinc-950 hover:border-b-zinc-200 hover:opacity-100 dark:hover:border-b-zinc-800;
+}
+
 .prose .italic {
   font-family: 'Untitled', serif;
 }

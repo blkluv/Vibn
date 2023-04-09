@@ -25,6 +25,9 @@ const Writing = ({ mdxSource, frontMatter }) => {
         <Layout
             title={frontMatter.title}
         >
+
+            <Link href="/writing" className="opacity-75 text-sm sm:text-base">← Back to writing</Link>
+
             <div className="">
 
                 <div className='border-b border-dashed border-zinc-400'>
@@ -57,7 +60,7 @@ const Writing = ({ mdxSource, frontMatter }) => {
 
 
 
-                <div className="mt-16 prose">
+                <div className="mt-16 prose prose-zinc dark:prose-invert text-lg sm:text-xl">
                     <MathJaxProvider>
                         <MDXRemote
                             {...mdxSource}
@@ -71,8 +74,6 @@ const Writing = ({ mdxSource, frontMatter }) => {
         </Layout>
     );
 }
-
-Writing.theme = 'light'
 
 export default Writing
 

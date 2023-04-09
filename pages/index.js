@@ -12,9 +12,7 @@ function cn(...classes) {
 
 
 const Home = ({ posts }) => {
-    const [opacity, setOpacity] = useState('false');
     const [searchValue, setSearchValue] = useState('');
-    const [all, setAll] = useState(false);
     const filteredBlogPosts = posts
         .sort(
             (a, b) =>
@@ -36,7 +34,7 @@ const Home = ({ posts }) => {
 
             <h1 className='text-sm sm:text-base opacity-75 mt-12'>Now</h1>
 
-            <p className='mt-8'>Rotting in the school's libray, like a jail.</p>
+            <p className='mt-8'>Rotting in the libray, like in a jail.</p>
 
             <div className='flex flex-row justify-between'>
                 <h1 className='text-sm sm:text-base opacity-75 mt-12'>Collection</h1>
@@ -44,11 +42,29 @@ const Home = ({ posts }) => {
             </div>
 
             <div className='snap-x flex flex-row space-x-4 overflow-x-auto mt-8'>
-                <img src="/collection/jj.jpg" className='rounded-lg grayscale' />
-                <img src="/collection/wgj.jpeg" className='rounded-lg grayscale' />
-                <img src="/collection/wgj-rain.jpg" className='rounded-lg grayscale' />
+                <img src="/collection/jj.jpg" className='rounded-lg' />
+                <img src="/collection/wgj.jpeg" className='rounded-lg' />
+                <img src="/collection/cmf.jpg" className='rounded-lg' />
             </div>
 
+            <div className='flex flex-row justify-between'>
+                <h1 className='text-sm sm:text-base opacity-75 mt-12'>Writing</h1>
+                <Link className='text-sm sm:text-base opacity-75 mt-12' href="/writing">View all →</Link>
+            </div>
+
+            <div className='mt-6 flex flex-col space-y-6 space-x-0'>
+                <div className='flex flex-col space-y-6 w-full'>
+                    {filteredBlogPosts.map((frontMatter) => (
+                        <>
+                            {frontMatter.year === '2023' && (
+                                <BlogPost
+                                    key={frontMatter.title} {...frontMatter}
+                                />
+                            )}
+                        </>
+                    ))}
+                </div>
+            </div>
 
 
             <div className='flex flex-row justify-between'>
