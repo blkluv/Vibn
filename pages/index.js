@@ -37,7 +37,7 @@ const Home = ({ posts }) => {
                     <p className='mt-4 opacity-75 text-xs sm:text-sm'>1. 在这里非指人名</p>
 
                     <p className='mt-6 opacity-75 text-xs sm:text-sm'>快速链接</p>
-
+                    
                     <Link href="/about">
                     <button className='text-center mt-2 border px-4 py-0.5 border-teal-800 text-teal-600'>该世界观是什么？</button>
                     </Link>

@@ -22,7 +22,7 @@ export default function War() {
             <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4 justify-between">
                 <div className="w-full sm:w-1/2 mt-12 flex flex-col sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
                     <div className="opacity-100 w-full sm:w-1/2">
-                        <img src="/collection/wgj.jpeg" className="rounded-lg" />
+                        <img src="/collection/wgj.jpeg" className="hover:invert border border-teal-800" />
                     </div>
                     <div className="w-full sm:w-1/2">
                         <span className="text-teal-600">沙沙德·安部究办·三者</span>
@@ -42,7 +42,7 @@ export default function War() {
                 </div>
                 <div className="w-full sm:w-1/2 mt-12 flex flex-col sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
                     <div className="opacity-100 w-full sm:w-1/2">
-                        <img src="/collection/jj.jpg" className="rounded-lg" />
+                        <img src="/collection/jj.jpg" className="hover:invert border border-teal-800" />
                     </div>
                     <div className="w-full sm:w-1/2">
                         <span className="text-teal-600">阿里·简·锂·杰</span>
@@ -68,7 +68,7 @@ export default function War() {
             <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4 justify-between">
                 <div className="w-full sm:w-1/2 mt-12 flex flex-col sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
                     <div className="opacity-100 w-full sm:w-1/2">
-                        <img src="/collection/cmf.jpg" className="rounded-lg w-full" />
+                        <img src="/collection/cmf.jpg" className="hover:invert border border-teal-800 w-full" />
                     </div>
                     <div className="w-full sm:w-1/2">
                         <span className="text-teal-600">马丁·路德·崔</span>
@@ -78,7 +78,7 @@ export default function War() {
                         <p className="mt-6">
                             1912年起，带领民众发动了第三次对抗贵江残暴统治的起义。团结一心的贱河民众一举推翻了腐朽的贵江政府，
                             建立了民主政府。击毁数学方舟后，他本人就任贱河总统。1922年，他由于长期吸烟引发了肺癌。
-                            贱河的未来将何去何从？
+                            贱河将何去何从？
                         </p>
 
                         <p className="mt-4">
@@ -89,7 +89,7 @@ export default function War() {
 
             </div>
 
-            <p className="mt-16 mb-8 border border-teal-600 px-4 sm:px-8 py-4">其实从前这江河从没有贵贱之分，自从有了贵江，也就有了贱河   {``}  — 马丁·路德·崔《对贱河起义者的讲演》</p>
+            <p className="mt-16 mb-8 border border-teal-800 px-4 sm:px-8 py-4">其实从前这江河从没有贵贱之分，自从有了贵江，也就有了贱河   {``}  — 马丁·路德·崔《对贱河起义者的讲演》</p>
 
         </Layout>
     )

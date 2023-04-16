@@ -14,7 +14,7 @@ export default function About() {
             </p>
 
 
-            <p className="mt-16 mb-8 border border-teal-600 px-4 sm:px-8 py-4">不贵于江，而贵于河   {``}  — 马丁·路德·崔《对贱河起义者的讲演》</p>
+            <p className="mt-16 mb-8 border border-teal-800 px-4 sm:px-8 py-4">不贵于江，而贵于河   {``}  — 马丁·路德·崔《对贱河起义者的讲演》</p>
 
         </Layout>
     )

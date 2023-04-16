@@ -1,5 +1,6 @@
 import Head from "next/head";
 import moment from "moment/moment";
+import Link from "next/link";
 
 
 function cn(...classes) {
@@ -17,14 +18,14 @@ const Layout = ({ children, title }) => {
         <div className="border-b border-b-teal-800 px-4 sm:px-8 py-4">
           <div className="text-sm sm:text-base flex flex-row justify-between">
             <div>
-              耿越
+              <Link href="/">耿越</Link>
             </div>
             <div>
               {moment().format('dddd')}, {moment().format('YYYY年MM月DD日')}
             </div>
             <div>
-              <span className="hidden sm:block">Yantai No.1 Middle School</span>
-              <span className="block sm:hidden">YTYZ</span>
+              <span className="hidden sm:block">审算无错，逢阻且过</span>
+              <span className="block sm:hidden">听话照做</span>
             </div>
           </div>
         </div>
