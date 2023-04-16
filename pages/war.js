@@ -20,9 +20,9 @@ export default function War() {
             <h1 className="text-teal-600 mt-16">贵江方面</h1>
 
             <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4 justify-between">
-                <div className="w-full sm:w-1/2 mt-12 flex flex-col sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
+                <div className="w-full sm:w-1/2 mt-12 flex flex-col md:flex-row sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
                     <div className="opacity-100 w-full sm:w-1/2">
-                        <img src="/collection/wgj.jpeg" className="hover:invert border border-teal-800" />
+                        <img src="/collection/wgj.jpeg" className=" border border-teal-800" />
                     </div>
                     <div className="w-full sm:w-1/2">
                         <span className="text-teal-600">沙沙德·安部究办·三者</span>
@@ -40,9 +40,9 @@ export default function War() {
                         </p>
                     </div>
                 </div>
-                <div className="w-full sm:w-1/2 mt-12 flex flex-col sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
+                <div className="w-full sm:w-1/2 mt-12 flex flex-col md:flex-row sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
                     <div className="opacity-100 w-full sm:w-1/2">
-                        <img src="/collection/jj.jpg" className="hover:invert border border-teal-800" />
+                        <img src="/collection/jj.jpg" className="border border-teal-800" />
                     </div>
                     <div className="w-full sm:w-1/2">
                         <span className="text-teal-600">阿里·简·锂·杰</span>
@@ -66,9 +66,9 @@ export default function War() {
             <h1 className="text-teal-600 mt-16">贱河方面</h1>
 
             <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4 justify-between">
-                <div className="w-full sm:w-1/2 mt-12 flex flex-col sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
+                <div className="w-full sm:w-1/2 mt-12 flex flex-col md:flex-row sm:flex-row space-x-0 md:space-x-6 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
                     <div className="opacity-100 w-full sm:w-1/2">
-                        <img src="/collection/cmf.jpg" className="hover:invert border border-teal-800 w-full" />
+                        <img src="/collection/cmf.jpg" className=" border border-teal-800" />
                     </div>
                     <div className="w-full sm:w-1/2">
                         <span className="text-teal-600">马丁·路德·崔</span>
@@ -86,7 +86,26 @@ export default function War() {
                         </p>
                     </div>
                 </div>
+                <div className="w-full sm:w-1/2 mt-12 flex flex-col md:flex-row sm:flex-row space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 overflow-x-auto">
+                    <div className="opacity-100 w-full sm:w-1/2">
+                        <img src="/collection/ylt.jpg" className="border border-teal-800" />
+                    </div>
+                    <div className="w-full sm:w-1/2">
+                        <span className="text-teal-600">田所·简·所·林</span>
 
+                        <p className="mt-4">贱河核心党领袖</p>
+
+                        <p className="mt-6">
+                            贱河核心党党魁。推崇“最核心”学说。从理论上分析作战的可行性，百战百胜。
+                            被马丁·路德·崔称作“20世纪最核心的将军”。
+                        </p>
+
+                        <p className="mt-4">
+                            这是他在简陋的总参谋部中指挥时留下的照片
+                        </p>
+
+                    </div>
+                </div>
             </div>
 
             <p className="mt-16 mb-8 border border-teal-800 px-4 sm:px-8 py-4">其实从前这江河从没有贵贱之分，自从有了贵江，也就有了贱河   {``}  — 马丁·路德·崔《对贱河起义者的讲演》</p>

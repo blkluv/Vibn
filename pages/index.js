@@ -25,9 +25,9 @@ const Home = ({ posts }) => {
         >
 
             <div className='flex flex-col sm:flex-row space-x-0 sm:space-x-12 space-y-8 sm:space-y-0'>
-                <img src="/me.png" className='hover:invert border border-teal-800' />
+                <img src="/me.png" className='border border-teal-800' />
 
-                <div className=''>
+                <div className='md:max-w-md md:mx-auto'>
                     <h1 className='text-teal-600'>数学方舟已经停止抵抗</h1>
 
                     <p className='mt-8'>贱河起义军领袖马丁·路德·崔已经宣布胆怯的数学方舟再也不能承受贱河起义军压倒性的力量所带来的举舟上下的压力。数学方舟选择弃舟逃离，并已开始流亡。他的主要部队已经停止抵抗，而贱河起义军现在已经控制了他的方舟。</p>
