@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Basier Circle';
-  src: url(/fonts/basiercircle-regular-webfont.woff2) format('woff2');
+  font-family: 'Aldrich';
+  src: url(/fonts/Aldrich-Regular.ttf) format('truetype');
   font-display: hidden;
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'Untitled';
-  src: url(/fonts/untitled-serif-regular-italic.woff2) format('woff2');
+  font-family: 'FZ';
+  src: url(/fonts/FZRuiZHJW.woff2) format('woff2');
   font-display: hidden;
   font-weight: 400;
 }
@@ -45,7 +45,7 @@
 }
 
 ::selection {
-  @apply bg-zinc-200 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200;
+  @apply bg-teal-800;
 }
 
 html {
@@ -53,9 +53,9 @@ html {
 }
 
 body {
-  font-family: 'Basier Circle', sans-serif;
+  font-family: 'Aldrich','FZ', sans-serif;
   -webkit-font-smoothing: antialiased;
-  @apply text-zinc-950 dark:text-zinc-50 bg-zinc-50 dark:bg-zinc-950;
+  @apply bg-black text-white;
 }
 
 h1,
@@ -64,15 +64,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Basier Circle', sans-serif;
-}
-
-a{
-  @apply opacity-75 transition-all border-b border-b-zinc-50 dark:border-b-zinc-950 hover:border-b-zinc-200 hover:opacity-100 dark:hover:border-b-zinc-800;
-}
-
-.prose a{
-  @apply no-underline opacity-75 transition-all border-b border-b-zinc-50 dark:border-b-zinc-950 hover:border-b-zinc-200 hover:opacity-100 dark:hover:border-b-zinc-800;
+  font-family: 'Aldrich','FZ', sans-serif;
 }
 
 .prose .italic {

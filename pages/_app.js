@@ -6,7 +6,6 @@ import "@fontsource/tiro-bangla/latin-400-italic.css"
 
 import { useState } from "react";
 import { useEffect } from 'react'
-import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps }) {
   const [showChild, setShowChild] = useState(false);
@@ -19,9 +18,7 @@ function MyApp({ Component, pageProps }) {
     return null
   }
   return (
-    <ThemeProvider attribute="class" forcedTheme={Component.theme || null}>
       <Component {...pageProps} />
-    </ThemeProvider>
   )
 }
 

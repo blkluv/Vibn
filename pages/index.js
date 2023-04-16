@@ -3,8 +3,6 @@ import Layout from '../components/Layout'
 import { getAllFilesFrontMatter } from '../lib/mdx';
 import BlogPost from '../components/BlogPost';
 import Link from 'next/link';
-import ActivityCard from '../components/ActivityCard';
-import ThemeToogler from '../components/ThemeToogler';
 
 function cn(...classes) {
     return classes.filter(Boolean).join(' ');
@@ -23,83 +21,31 @@ const Home = ({ posts }) => {
         );
     return (
         <Layout
-            title="Geng Yue"
+            title="耿越の神奇空间"
         >
 
-            <h1 className='serif'>Geng Yue</h1>
+            <div className='flex flex-col sm:flex-row space-x-0 sm:space-x-12 space-y-8 sm:space-y-0'>
+                <img src="/me.png" className='hover:invert border border-teal-800' />
 
-            <p className='mt-8'>I'm a 16yo senior high student from <a href="http://www.ytyz.net/">Yantai No.1 Middle School</a>. I love singing, dancing, ropping and playing basketball.</p>
+                <div className=''>
+                    <h1 className='text-teal-600'>数学方舟已经停止抵抗</h1>
 
-            <p className='mt-8'>Meanwhile I'm a iker, always looking for another opportunity to express.</p>
+                    <p className='mt-8'>贱河起义军领袖马丁·路德·崔已经宣布胆怯的数学方舟再也不能承受贱河起义军压倒性的力量所带来的举舟上下的压力。数学方舟选择弃舟逃离，并已开始流亡。他的主要部队已经停止抵抗，而贱河起义军现在已经控制了他的方舟。</p>
 
-            <h1 className='text-sm sm:text-base opacity-75 mt-12'>Now</h1>
+                    <p className='mt-4'>虽然对抗贵江<sup>1</sup>的战争依然在别处继续，但这对于贱河人来说是一个伟大的胜利。</p>
 
-            <p className='mt-8'>Rotting in the libray, like in a jail.</p>
+                    <p className='mt-4 opacity-75 text-xs sm:text-sm'>1. 在这里非指人名</p>
 
-            <div className='flex flex-row justify-between'>
-                <h1 className='text-sm sm:text-base opacity-75 mt-12'>Collection</h1>
-                <Link className='text-sm sm:text-base opacity-75 mt-12' href="/collection">View all →</Link>
-            </div>
+                    <p className='mt-6 opacity-75 text-xs sm:text-sm'>快速链接</p>
 
-            <div className='snap-x flex flex-row space-x-4 overflow-x-auto mt-8'>
-                <img src="/collection/jj.jpg" className='rounded-lg' />
-                <img src="/collection/wgj.jpeg" className='rounded-lg' />
-                <img src="/collection/cmf.jpg" className='rounded-lg' />
-            </div>
+                    <Link href="/about">
+                    <button className='text-center mt-2 border px-4 py-0.5 border-teal-800 text-teal-600'>该世界观是什么？</button>
+                    </Link>
 
-            <div className='flex flex-row justify-between'>
-                <h1 className='text-sm sm:text-base opacity-75 mt-12'>Writing</h1>
-                <Link className='text-sm sm:text-base opacity-75 mt-12' href="/writing">View all →</Link>
-            </div>
+                    <Link href="/war">
+                        <button className='text-center mt-2 border px-4 py-0.5 border-teal-800 text-teal-600'>江河战争的真实照片</button>
+                    </Link>
 
-            <div className='mt-6 flex flex-col space-y-6 space-x-0'>
-                <div className='flex flex-col space-y-6 w-full'>
-                    {filteredBlogPosts.map((frontMatter) => (
-                        <>
-                            {frontMatter.year === '2023' && (
-                                <BlogPost
-                                    key={frontMatter.title} {...frontMatter}
-                                />
-                            )}
-                        </>
-                    ))}
-                </div>
-            </div>
-
-
-            <div className='flex flex-row justify-between'>
-                <h1 className='text-sm sm:text-base opacity-75 mt-12'>Contact</h1>
-            </div>
-
-            <p className='mt-8'>I'm currently looking for <span className='serif'>no</span> opportunity. But I'm happy if you can contact me throughout the way below.</p>
-
-            <div className='mt-8 text-base sm:text-lg flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
-                <div className='w-full sm:w-1/2'>
-                    GitHub
-                </div>
-
-                <div className='w-full'>
-                    <a className='opacity-75 no-no-underline' href="https://kgithub.com/Cloudflare233">@Cloudflare233</a>
-                </div>
-            </div>
-
-            <div className='mt-4 text-base sm:text-lg flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
-                <div className='w-full sm:w-1/2'>
-                    QQ
-                </div>
-
-                <div className='w-full'>
-                    <a className='opacity-75 no-no-underline'>@3041299667</a>
-                </div>
-            </div>
-
-            <div className='mt-4 text-base sm:text-lg flex flex-col sm:flex-row space-y-2 sm:space-y-0 space-x-0 sm:space-x-2'>
-                <div className='w-full sm:w-1/2'>
-                    E-Mail
-                </div>
-
-                <div className='w-full'>
-                    <a className='opacity-75 no-underline' href="mailto:Cloudflare233@yandex.com">Cloudflare233@yandex.com</a>
                 </div>
             </div>
 
