@@ -8,10 +8,13 @@
   },
   "dependencies": {
     "@fontsource/brygada-1918": "^4.5.13",
+    "@fontsource/ibm-plex-sans-jp": "^4.5.0",
     "@fontsource/inter": "latest",
     "@fontsource/tiro-bangla": "latest",
     "@headlessui/react": "^1.7.12",
     "@iconify/react": "^4.1.0",
+    "@mdx-js/loader": "^2.3.0",
+    "@next/mdx": "^13.3.1",
     "@radix-ui/react-icons": "^1.2.0",
     "@radix-ui/react-scroll-area": "^1.0.3",
     "@radix-ui/react-toolbar": "^1.0.2",

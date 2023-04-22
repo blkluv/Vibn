@@ -3,17 +3,31 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Aldrich';
-  src: url(/fonts/Aldrich-Regular.ttf) format('truetype');
+  font-family: 'Source Han Sans';
+  src: url(/fonts/SourceHanSansCN-Regular.otf) format('opentype');
   font-display: hidden;
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'FZ';
-  src: url(/fonts/FZRuiZHJW.woff2) format('woff2');
+  font-family: 'Source Han Sans';
+  src: url(/fonts/SourceHanSansCN-Medium.otf) format('opentype');
   font-display: hidden;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Source Han Sans';
+  src: url(/fonts/SourceHanSansCN-Bold.otf) format('opentype');
+  font-display: hidden;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Source Han Sans';
+  src: url(/fonts/SourceHanSansCN-Bold.otf) format('opentype');
+  font-display: hidden;
+  font-weight: 700;
 }
 
 ::-webkit-scrollbar {
@@ -21,24 +35,8 @@
   height: 10px;
 }
 
-::-webkit-scrollbar-track {
-  width: 2px;
-  @apply bg-teal-200;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-teal-800;
-  background-clip: padding-box;
-  min-height: 24px;
-  cursor: pointer;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-teal-900;
-}
-
-::selection {
-  @apply bg-teal-800;
+::selection{
+  @apply bg-black text-white;
 }
 
 html {
@@ -46,9 +44,8 @@ html {
 }
 
 body {
-  font-family: 'Aldrich','FZ', sans-serif;
+  font-family: 'Inter', 'Source Han Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
-  @apply bg-black text-white;
 }
 
 h1,
@@ -57,19 +54,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Aldrich','FZ', sans-serif;
+  font-family: 'Source Han Sans', sans-serif;
+  @apply font-medium;
 }
 
-img{
-  @apply brightness-50 contrast-150 saturate-50 border border-teal-800; 
-}
-
-.prose .italic {
-  font-family: 'Untitled', serif;
-}
-
-.serif {
-  font-family: 'Untitled', serif;
+.prose img{
+  @apply rounded-lg;
 }
 
 .prose blockquote ::before {
@@ -81,7 +71,7 @@ img{
 }
 
 .prose strong {
-  @apply font-normal;
+  @apply font-semibold;
 }
 
 .prose .math {

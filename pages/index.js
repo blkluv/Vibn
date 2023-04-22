@@ -21,32 +21,16 @@ const Home = ({ posts }) => {
         );
     return (
         <Layout
-            title="耿越の神奇空间"
+            title="iker"
         >
 
-            <div className='flex flex-col sm:flex-row space-x-0 sm:space-x-12 space-y-8 sm:space-y-0'>
-                <img src="/me.png" className='border border-teal-800' />
+            <h1 className='mt-16 max-w-4xl mx-auto text-center text-6xl md:text-9xl sm:text-9xl font-bold'>
+               没有谁能够阻挡,我们iker的向往
+            </h1>
 
-                <div className='md:max-w-md md:mx-auto'>
-                    <h1 className='text-teal-600'>数学方舟已经停止抵抗</h1>
-
-                    <p className='mt-8'>贱河起义军领袖马丁·路德·崔已经宣布胆怯的数学方舟再也不能承受贱河起义军压倒性的力量所带来的举舟上下的压力。数学方舟选择弃舟逃离，并已开始流亡。他的主要部队已经停止抵抗，而贱河起义军现在已经控制了他的方舟。</p>
-
-                    <p className='mt-4'>虽然对抗贵江<sup>1</sup>的战争依然在别处继续，但这对于贱河人来说是一个伟大的胜利。</p>
-
-                    <p className='mt-4 opacity-75 text-xs sm:text-sm'>1. 在这里非指人名</p>
-
-                    <p className='mt-6 opacity-75 text-xs sm:text-sm'>快速链接</p>
-                    
-                    <Link href="/about">
-                    <button className='text-center mt-2 border px-4 py-0.5 border-teal-800 text-teal-600'>该世界观是什么？</button>
-                    </Link>
-
-                    <Link href="/war">
-                        <button className='text-center mt-2 border px-4 py-0.5 border-teal-800 text-teal-600'>江河战争的真实照片</button>
-                    </Link>
-
-                </div>
+            <div className='font-medium max-w-md mt-24 mx-auto flex space-y-4 space-x-0 md:space-y-0 sm:space-y-0 md:space-x-4 sm:space-x-4 flex-col md:flex-row sm:flex-row'>
+                <button className='w-full md:w-1/2 sm:w-1/2 px-12 py-3 sm:py-4 bg-black text-white rounded-lg text-lg border border-black'>快速上手</button>
+                <button className='w-full md:w-1/2 sm:w-1/2 px-12 py-3 sm:py-4 bg-white text-black rounded-lg text-lg border border-black'>我们是谁？</button>
             </div>
 
         </Layout >

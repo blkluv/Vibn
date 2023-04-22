@@ -9,11 +9,10 @@ export default function FOF() {
             isFixed="true"
         >
 
-            <h1 className="inter font-medium my-8">404 - Not Found</h1>
+            <h1 className="inter font-bold text-6xl mt-16">404 - 找不到这个页面</h1>
 
-            <p className="opacity-75 my-8">Invalied URL. Please try again later.</p>
+            <p className="opacity-75 my-8">无效URL，请检查后重试.</p>
 
-            <Image src="https://source.unsplash.com/random" className="w-full" />
         </Layout>
     )
 }

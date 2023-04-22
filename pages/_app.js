@@ -1,8 +1,7 @@
 import "../styles/globals.css";
 import "../styles/clock.css";
 
-import "@fontsource/tiro-bangla/latin-400.css"
-import "@fontsource/tiro-bangla/latin-400-italic.css"
+import '@fontsource/inter'
 
 import { useState } from "react";
 import { useEffect } from 'react'
@@ -18,7 +17,7 @@ function MyApp({ Component, pageProps }) {
     return null
   }
   return (
-      <Component {...pageProps} />
+    <Component {...pageProps} />
   )
 }
 
