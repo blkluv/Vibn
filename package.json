@@ -7,6 +7,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.6.0",
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
     "@fontsource/brygada-1918": "^4.5.13",
     "@fontsource/ibm-plex-sans-jp": "^4.5.0",
     "@fontsource/inter": "latest",
@@ -26,6 +29,7 @@
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^2.29.3",
     "esbuild": "^0.17.0",
+    "framer-motion": "^10.12.4",
     "gray-matter": "^4.0.2",
     "moment": "^2.29.4",
     "next": "latest",

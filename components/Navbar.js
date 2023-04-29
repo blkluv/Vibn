@@ -1,95 +1,93 @@
 import Link from "next/link"
 import { useState } from "react"
+import { useDisclosure, Drawer, DrawerOverlay, DrawerContent } from "@chakra-ui/react";
 
 function cn(...classes) {
     return classes.filter(Boolean).join(' ');
 }
 
 export default function Navbar() {
-    const [menu, setMenu] = useState(false)
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const [placement] = useState('right')
     return (
-        <div
-            className={cn('px-4 md:px-8 sm:px-8 py-4 max-w-6xl mx-auto',
-                menu === false ? 'relative' : 'px-8 md:px-8 sm:px-8 fixed top-0 inset-x-0 bg-white min-h-screen'
+        <div className="bar absolute inset-x-0 top-0 z-50">
+            <div className={cn('px-6 md:px-8 sm:px-8 py-4 max-w-6xl mx-auto'
             )}>
-            <div className="flex flex-row justify-between">
-                <Link href="/">
-                    <h1 className="text-xl font-bold">IKER</h1>
-                </Link>
-
-                <div className="hidden md:inline sm:inline flex flex-row space-x-8">
-                    <Link href="/get-started">
-                        快速上手
+                <div className="flex flex-row justify-between">
+                    <Link href="/">
+                        <h1 className="text-xl font-bold tracking-[1rem]">IKER</h1>
                     </Link>
 
-                    <Link href="/about">
-                        我们是谁
-                    </Link>
+                    <div className="center justify-items-center hidden md:inline sm:inline flex flex-row space-x-8">
+                        <Link href="/get-started">
+                            快速开始
+                        </Link>
 
-                    <Link href="/teams">
-                        团队&政策
-                    </Link>
+                        <Link href="/pricing">
+                            定价
+                        </Link>
 
-                    <Link href="/pricing">
-                        定价
-                    </Link>
-                </div>
+                        <Link href="/conf">
+                            Conf 2023
+                        </Link>
 
-                <button onClick={() => setMenu(menu === false ? true : false)}>
-                    导航栏
-                </button>
-            </div>
-            {
-                menu === true && (
-                    <div className="bg-white max-w-6xl mx-auto px-8 md:px-8 sm:px-8 bg-opacity-100 w-full inset-x-0 fixed min-h-screen mt-16">
-                        <div className="overflow-x-auto flex flex-row justify-between max-w-xl">
-                            <div className="">
-                                <h1 className="font-medium opacity-75">导航</h1>
+                        <Link href="/job">
+                            工作机会
+                        </Link>
 
-                                <div className="flex flex-col space-y-2 mt-6 text-xl">
-                                    <Link href="/get-started">
-                                        快速上手
-                                    </Link>
-
-                                    <Link href="/about">
-                                        我们是谁
-                                    </Link>
-
-                                    <Link href="/teams">
-                                        团队&政策
-                                    </Link>
-
-                                    <Link href="/pricing">
-                                        定价
-                                    </Link>
-                                </div>
-                            </div>
-
-                            <div className="">
-                                <h1 className="font-medium opacity-75">资源</h1>
-
-                                <div className="flex flex-col space-y-2 mt-6 text-xl">
-                                    <Link href="/war">
-                                        江河战争
-                                    </Link>
-
-                                    <Link href="/docs">
-                                        人物文档
-                                    </Link>
-
-                                    <Link href="/globe">
-                                        世界观
-                                    </Link>
-
-                                    <Link href="/darkside">
-                                        阴间玩意
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                )
-            }
-        </div >
+
+                    <button
+                        className="rounded-lg bg-zinc-50/25 px-4 py-1 backdrop-blur-lg"
+                        onClick={onOpen}
+                    >
+                        导航栏
+                    </button>
+                </div>
+                <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
+                    <DrawerOverlay className="backdrop-blur-md" />
+                    <DrawerContent className="tracking-wide px-8 py-16 text-lg font-medium bar flex flex-col space-y-2">
+                        <Link href="/">
+                            主页
+                        </Link>
+                        <Link href="/get-started">
+                            快速开始
+                        </Link>
+
+                        <Link href="/pricing">
+                            定价
+                        </Link>
+
+                        <Link href="/conf">
+                            Conf 2023
+                        </Link>
+
+                        <Link href="/job">
+                            工作机会
+                        </Link>
+
+                        <br />
+
+                        <Link href="/docs">
+                            文档资源
+                        </Link>
+
+                        <Link href="/globe">
+                            世界观
+                        </Link>
+
+                        <Link href="/war">
+                            江河战争
+                        </Link>
+
+                        <Link href="/special">
+                            IKER独家
+                        </Link>
+
+
+                    </DrawerContent>
+                </Drawer>
+            </div>
+        </div>
     )
 }

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import moment from "moment/moment";
 import Link from "next/link";
-import Navbar from "./Navbar";
 
 
 function cn(...classes) {
@@ -14,17 +13,15 @@ moment.locale('zh-cn', {
 
 const Layout = ({ children, title }) => {
   return (
-    <div className="px-4">
+    <div className="">
       <Head>
         <title>{title}</title>
       </Head>
-      
-      <Navbar />
-
-      <div className="max-w-6xl mx-auto px-4 md:px-6 sm:px-6">
+    
+      <div>
         {children}
       </div>
-    </div >
+    </div>
   )
 }
 
