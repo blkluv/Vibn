@@ -31,7 +31,7 @@ export default function Navbar() {
             const diff = latest - previous;
             const currentScrolledPixels = scrollY.get();
             // If we have yet to scroll 80 pixels, return early
-            if (currentScrolledPixels < 80 || inRange(diff, -20, 20)) {
+            if (currentScrolledPixels < 60 || inRange(diff, -20, 20)) {
                 return;
             }
 
@@ -71,14 +71,14 @@ export default function Navbar() {
                             Conf 2023
                         </Link>
 
-                        <Link href="/job">
-                            工作机会
+                        <Link href="/special">
+                           IKER独家
                         </Link>
 
                     </div>
 
                     <button
-                        className="rounded-lg bg-zinc-50/25 px-4 py-1 backdrop-blur-lg"
+                        className="rounded-md bg-zinc-50/25 px-4 py-1 backdrop-blur-lg"
                         onClick={onOpen}
                     >
                         导航栏
@@ -88,41 +88,59 @@ export default function Navbar() {
                     <DrawerOverlay className="backdrop-blur-md" />
                     <DrawerContent className="tracking-wide px-8 py-16 text-lg font-medium bar flex flex-col space-y-2">
                         <DrawerCloseButton />
-                        <Link href="/">
+                        <Link 
+                        onClick={onClose} 
+                        href="/">
                             主页
                         </Link>
-                        <Link href="/get-started">
+                        <Link 
+                        onClick={onClose} 
+                        href="/get-started">
                             快速开始
                         </Link>
 
-                        <Link href="/pricing">
+                        <Link 
+                        onClick={onClose}
+                        href="/pricing">
                             定价
                         </Link>
 
-                        <Link href="/conf">
+                        <Link 
+                        onClick={onClose}
+                        href="/conf">
                             Conf 2023
                         </Link>
 
-                        <Link href="/job">
+                        <Link
+                         onClick={onClose}
+                         href="/special">
+                            IKER独家
+                        </Link>
+
+                        <Link 
+                        onClick={onClose}
+                        href="/job">
                             工作机会
                         </Link>
 
                         <br />
 
-                        <Link href="/docs">
+                        <Link 
+                        onClick={onClose}
+                        href="/docs">
                             文档资源
                         </Link>
 
-                        <Link href="/globe">
+                        <Link 
+                        onClick={onClose}
+                        href="/globe">
                             世界观
                         </Link>
 
-                        <Link href="/war">
+                        <Link 
+                        onClick={onClose}
+                        href="/war">
                             江河战争
-                        </Link>
-
-                        <Link href="/special">
-                            IKER独家
                         </Link>
 
 
