@@ -30,11 +30,11 @@ const Home = ({ posts }) => {
 
 
             <div className='absolute top-16 inset-x-0'>
-                <h1 className='mt-32 font-bold text-4xl text-center'>
-                    特别活动 2023
+                <h1 className='mt-32 font-bold text-4xl md:text-5xl sm:text-6xl text-center'>
+                    Conf 2023
                 </h1>
 
-                <p className='text-center font-medium text-lg opacity-75 mt-8'>
+                <p className='text-center font-medium text-lg md:text-xl sm:text-xl opacity-75 mt-8'>
                     2023年7月至8月下旬举行
                 </p>
             </div>
@@ -46,7 +46,7 @@ const Home = ({ posts }) => {
 
                 <div className='-mt-[36rem] md:-mt-[56rem] sm:-mt-[48rem] absolute inset-x-0'>
 
-                    <h1 className='mx-auto mt-32 font-bold text-4xl md:text-6xl sm:text-6xl text-center'>
+                    <h1 className='mx-auto mt-32 font-bold text-4xl md:text-5xl sm:text-6xl text-center'>
                         世上最大IKER组织
                     </h1>
 
@@ -91,6 +91,22 @@ const Home = ({ posts }) => {
                 </div>
 
             </div>
+
+            <h1 className='mx-auto mt-32 font-bold text-4xl md:text-6xl sm:text-6xl text-center'>
+                        IKER组织独家
+                    </h1>
+
+                    <p className='px-10 max-w-xl mx-auto font-medium text-center text-lg md:text-xl sm:text-xl opacity-75 mt-12'>
+                        救生圈等好物，尽在IKER独家
+                    </p>
+
+                    <img src="/static/jsq.webp" className='center -mt-0 md:-mt-16 sm:-mt-16' />
+
+                    <div className='-mt-0 md:-mt-8 sm:-mt-8 center px-12 max-w-lg mx-auto flex flex-col md:flex-row sm:flex-row'>
+                        <button className='w-full md:w-auto sm:w-auto text-center center text-white mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
+                            买买看
+                        </button>
+                    </div>
 
 
 

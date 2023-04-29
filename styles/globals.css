@@ -64,6 +64,10 @@ p{
   font-family: 'Inter', 'Source Han Sans', sans-serif;
 }
 
+.prose h1{
+  @apply text-4xl md:text-5xl sm:text-6xl;
+}
+
 .prose img {
   @apply rounded-lg;
 }

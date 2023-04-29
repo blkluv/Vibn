@@ -1,16 +1,56 @@
 import Link from "next/link"
-import { useState } from "react"
-import { useDisclosure, Drawer, DrawerOverlay, DrawerContent } from "@chakra-ui/react";
+import { useState, useEffect } from "react"
+import { useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton } from "@chakra-ui/react";
+import { motion, useScroll } from "framer-motion"
 
 function cn(...classes) {
     return classes.filter(Boolean).join(' ');
 }
 
+const variants = {
+    unpinned: {
+        y: "-100%",
+    },
+    pinned: {
+        y: 0,
+    },
+};
+
+const inRange = (num, rangeStart, rangeEnd = 0) =>
+    (rangeStart < num && num < rangeEnd) || (rangeEnd < num && num < rangeStart);
+
 export default function Navbar() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [placement] = useState('right')
+    const [variant, setVariant] = useState("pinned");
+    const { scrollY } = useScroll();
+
+    useEffect(() => {
+        scrollY.onChange((latest) => {
+            const previous = scrollY.getPrevious();
+            const diff = latest - previous;
+            const currentScrolledPixels = scrollY.get();
+            // If we have yet to scroll 80 pixels, return early
+            if (currentScrolledPixels < 80 || inRange(diff, -20, 20)) {
+                return;
+            }
+
+            if (latest > previous) {
+                setVariant("unpinned");
+            } else {
+                setVariant("pinned");
+            }
+        });
+    }, [scrollY]);
     return (
-        <div className="bar absolute inset-x-0 top-0 z-50">
+        <motion.nav
+            initial="pinned"
+            animate={variant}
+            variants={variants}
+            transition={{
+                bounce: 0,
+            }}
+            className="bar fixed inset-x-0 top-0 z-50">
             <div className={cn('px-6 md:px-8 sm:px-8 py-4 max-w-6xl mx-auto'
             )}>
                 <div className="flex flex-row justify-between">
@@ -47,6 +87,7 @@ export default function Navbar() {
                 <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
                     <DrawerOverlay className="backdrop-blur-md" />
                     <DrawerContent className="tracking-wide px-8 py-16 text-lg font-medium bar flex flex-col space-y-2">
+                        <DrawerCloseButton />
                         <Link href="/">
                             主页
                         </Link>
@@ -88,6 +129,6 @@ export default function Navbar() {
                     </DrawerContent>
                 </Drawer>
             </div>
-        </div>
+        </motion.nav>
     )
 }
