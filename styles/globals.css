@@ -60,6 +60,10 @@ h6 {
   @apply font-medium;
 }
 
+a{
+  @apply transition-all rounded-md hover:bg-zinc-100 px-4 py-2;
+}
+
 p{
   font-family: 'Inter', 'Source Han Sans', sans-serif;
 }

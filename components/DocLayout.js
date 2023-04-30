@@ -12,7 +12,12 @@ const DocLayout = ({ children, title }) => {
         <br />
         <br />
         <br />
-        {children}
+        <main>
+          <div className="absolute w-1/6 md:w-1/6 sm:w-auto -mt-12 md:-mt-8 sm:-mt-6 right-4 md:right-8 sm:right-64">
+           <img src="/static/doc.svg" />
+          </div>
+          {children}
+        </main>
       </div>
 
     </div >

@@ -83,9 +83,12 @@ const Home = ({ posts }) => {
                         朋友们，我是IKER。我认为IKER组织有着巨大的潜力。”
                     </p>
 
-                    <div className='mt-24 md:mt-48 sm:mt-56 center px-12 max-w-lg mx-auto flex flex-col md:flex-row sm:flex-row'>
+                    <div className='mt-16 md:mt-48 sm:mt-56 center px-12 max-w-lg mx-auto flex flex-col md:flex-row sm:flex-row'>
                         <button className='w-full md:w-auto sm:w-auto text-center center text-white mt-10 mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
                             工作机会
+                        </button>
+                        <button className='w-full md:w-auto sm:w-auto text-center center rounded-md mt-0 md:mt-10 sm:mt-10 mb-2 bg-white/40 backdrop-blur-lg px-16 py-2'>
+                            订阅价格
                         </button>
                     </div>
                 </div>
@@ -103,8 +106,11 @@ const Home = ({ posts }) => {
                     <img src="/static/jsq.webp" className='center -mt-0 md:-mt-16 sm:-mt-16' />
 
                     <div className='-mt-0 md:-mt-8 sm:-mt-8 center px-12 max-w-lg mx-auto flex flex-col md:flex-row sm:flex-row'>
-                        <button className='w-full md:w-auto sm:w-auto text-center center text-white mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
-                            买买看
+                        <button className='w-full md:w-auto sm:w-auto text-center center text-white mt-10 mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
+                            现在购买
+                        </button>
+                        <button className='w-full md:w-auto sm:w-auto text-center center rounded-md mt-0 md:mt-10 sm:mt-10 mb-2 bg-zinc-100 backdrop-blur-lg px-16 py-2'>
+                            订阅价格
                         </button>
                     </div>
 
