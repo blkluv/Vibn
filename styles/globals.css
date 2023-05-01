@@ -77,6 +77,7 @@ p{
   @apply text-4xl md:text-5xl sm:text-6xl;
 }
 
+
 .prose img {
   @apply rounded-lg;
 }
@@ -89,13 +90,15 @@ p{
   @apply font-semibold;
 }
 
+.prose{
+  font-family: 'Inter','Source Han Sans', sans-serif;
+}
+
 .prose .anchor {
-  @apply absolute invisible no-underline;
+  @apply absolute bg-opacity-0 invisible no-underline;
 
   margin-left: -1em;
   padding-right: 0.5em;
-  width: 80%;
-  max-width: 700px;
   cursor: pointer;
 }
 
@@ -105,7 +108,7 @@ p{
 
 
 .prose .anchor:after {
-  @apply text-gray-300 dark:text-gray-700;
+  @apply text-blue-400;
   content: '#';
 }
 
