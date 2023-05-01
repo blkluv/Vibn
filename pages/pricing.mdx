@@ -67,8 +67,10 @@ import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
                     </p>
 
                     <div className='mt-16 md:mt-48 sm:mt-56 center px-12 max-w-lg mx-auto flex flex-col md:flex-row sm:flex-row'>
-                        <button className='w-full md:w-auto sm:w-auto text-center center text-white mt-10 mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
-                            工作机会
+                        <button
+                        onClick={()=>open('mailto:Cloudflare233@yandex.com')}
+                        className='w-full md:w-auto sm:w-auto text-center center text-white mt-10 mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
+                            邮件联系
                         </button>
                         <button className='w-full md:w-auto sm:w-auto text-center center rounded-md mt-0 md:mt-10 sm:mt-10 mb-2 bg-white/40 backdrop-blur-lg px-16 py-2'>
                             订阅价格

@@ -57,18 +57,22 @@ const Home = ({ posts }) => {
                     </p>
 
                     <div className='mt-24 md:mt-48 sm:mt-56 center px-12 max-w-lg mx-auto flex flex-col md:flex-row sm:flex-row'>
-                        <button className='w-full md:w-auto sm:w-auto text-center center text-white mt-10 mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
-                            快速开始
-                        </button>
-                        <button className='w-full md:w-auto sm:w-auto text-center center rounded-md mt-0 md:mt-10 sm:mt-10 mb-2 bg-white/40 backdrop-blur-lg px-16 py-2'>
-                            了解更多
-                        </button>
+                        <Link href="/get-started">
+                            <button className='w-full md:w-auto sm:w-auto text-center center text-white mt-10 mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
+                                快速开始
+                            </button>
+                        </Link>
+                        <Link href="#more">
+                            <button className='w-full md:w-auto sm:w-auto text-center center rounded-md mt-0 md:mt-10 sm:mt-10 mb-2 bg-white/40 backdrop-blur-lg px-16 py-2'>
+                                了解更多
+                            </button>
+                        </Link>
                     </div>
                 </div>
 
             </div>
 
-            <div className='mt-4'>
+            <div className='mt-4' id="more">
 
                 <img src="/static/rate.png" className='z-0 w-full h-screen' />
 
@@ -84,35 +88,43 @@ const Home = ({ posts }) => {
                     </p>
 
                     <div className='mt-16 md:mt-48 sm:mt-56 center px-12 max-w-lg mx-auto flex flex-col md:flex-row sm:flex-row'>
-                        <button className='w-full md:w-auto sm:w-auto text-center center text-white mt-10 mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
-                            工作机会
-                        </button>
-                        <button className='w-full md:w-auto sm:w-auto text-center center rounded-md mt-0 md:mt-10 sm:mt-10 mb-2 bg-white/40 backdrop-blur-lg px-16 py-2'>
-                            订阅价格
-                        </button>
+                        <Link href="/job">
+                            <button className='w-full md:w-auto sm:w-auto text-center center text-white mt-10 mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
+                                工作机会
+                            </button>
+                        </Link>
+                        <Link href="/pricing">
+                            <button className='w-full md:w-auto sm:w-auto text-center center rounded-md mt-0 md:mt-10 sm:mt-10 mb-2 bg-white/40 backdrop-blur-lg px-16 py-2'>
+                                订阅价格
+                            </button>
+                        </Link>
                     </div>
                 </div>
 
             </div>
 
             <h1 className='mx-auto mt-32 font-bold text-4xl md:text-6xl sm:text-6xl text-center'>
-                        IKER组织独家
-                    </h1>
+                IKER独家
+            </h1>
 
-                    <p className='px-10 max-w-xl mx-auto font-medium text-center text-lg md:text-xl sm:text-xl opacity-75 mt-12'>
-                        救生圈等好物，尽在IKER独家
-                    </p>
+            <p className='px-10 max-w-xl mx-auto font-medium text-center text-lg md:text-xl sm:text-xl opacity-75 mt-12'>
+                救生圈等好物，尽在IKER独家
+            </p>
 
-                    <img src="/static/jsq.webp" className='center -mt-0 md:-mt-16 sm:-mt-16' />
+            <img src="/static/jsq.webp" className='center -mt-0 md:-mt-16 sm:-mt-16' />
 
-                    <div className='-mt-0 md:-mt-8 sm:-mt-8 center px-12 max-w-lg mx-auto flex flex-col md:flex-row sm:flex-row'>
-                        <button className='w-full md:w-auto sm:w-auto text-center center text-white mt-10 mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
-                            现在购买
-                        </button>
-                        <button className='w-full md:w-auto sm:w-auto text-center center rounded-md mt-0 md:mt-10 sm:mt-10 mb-2 bg-zinc-100 backdrop-blur-lg px-16 py-2'>
-                            订阅价格
-                        </button>
-                    </div>
+            <div className='-mt-0 md:-mt-8 sm:-mt-8 center px-12 max-w-lg mx-auto flex flex-col md:flex-row sm:flex-row'>
+                <Link href="/special">
+                    <button className='w-full md:w-auto sm:w-auto text-center center text-white mt-10 mb-2 rounded-md bg-black/75 backdrop-blur-lg px-16 py-2'>
+                        现在购买
+                    </button>
+                </Link>
+                <Link href="/pricing">
+                    <button className='w-full md:w-auto sm:w-auto text-center center rounded-md mt-0 md:mt-10 sm:mt-10 mb-2 bg-zinc-100 backdrop-blur-lg px-16 py-2'>
+                        订阅价格
+                    </button>
+                </Link>
+            </div>
 
 
 
