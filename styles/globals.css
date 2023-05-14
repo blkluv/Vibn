@@ -37,9 +37,42 @@
   font-weight: 500;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d8 transparent
+}
+
 ::-webkit-scrollbar {
-  width: 0px;
-  height: 10px;
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 44px;
+  min-width: 44px;
+  background-color: #d4d4d8;
+  border: 5px solid transparent;
+  background-clip: padding-box;
+  @apply rounded-lg;
+}
+
+@media (hover:hover) {
+  ::-webkit-scrollbar-thumb:hover {
+      --scrollbar-color: #3f3f46;
+  }
+}
+
+::-webkit-scrollbar-thumb:active {
+  --scrollbar-color: #3f3f46;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+  display: none
 }
 
 ::selection {
