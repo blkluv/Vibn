@@ -33,9 +33,9 @@ const Writing = ({ mdxSource, frontMatter }) => {
                 </p>
             </Link>
 
-            <h1>{frontMatter.title}</h1>
+            <h1 className='no-spacing'>{frontMatter.title}</h1>
 
-            <span className='opacity-75'>{moment(time).format('MMMM DD, YYYY')}</span>
+            <p className='no-spacing opacity-50 text-zinc-500'>{moment(time).format('MMMM DD, YYYY')}</p>
 
 
 

@@ -101,7 +101,8 @@ li,ul{
 }
 
 blockquote{
-  font-family: 'Newsreader', serif;
+  font-family: 'Newsreader', serif !important;
+  @apply border-l-4 px-4;
 }
 
 pre {
@@ -169,6 +170,7 @@ time{
 }
 
 .no-spacing{
+  margin-top: 1.255rem !important;
   margin-bottom: 1.25rem !important;
 }
 
