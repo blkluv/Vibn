@@ -1,6 +1,8 @@
 import Head from "next/head";
 import moment from "moment/moment";
-import Link from "next/link";
+
+import Blur from './Blur'
+import Footer from "./Footer";
 
 
 function cn(...classes) {
@@ -17,10 +19,13 @@ const Layout = ({ children, title }) => {
       <Head>
         <title>{title}</title>
       </Head>
+      <Blur />
     
-      <div>
+      <div className="max-w-[40rem] mx-auto px-6 md:px-0 sm:px-0 py-12 md:py-16 sm:py-24 slide-enter-content">
         {children}
       </div>
+
+      <Footer />
     </div>
   )
 }

@@ -1,0 +1,95 @@
+---
+title: 'The born of button'
+date: '0319'
+year: '2023'
+description: 'This article will tell you that what a button was actually borned. And how to create various of button throughout the help of TailwindCSS. Get started now!'
+---
+
+<Image src="/writing/button.webp" />
+
+In this article, I want to share my ideas about designing a button. By reading this article, you'll be able to learn how to:
+
+1. Design buttons with different styles and colors. Including various of usage, like alert or what...
+2. Check if your button is modern enough to suit the young.
+3. How to design more well-welcomed button through [TailwindCSS](https://TailwindCSS.com)<sup>1</sup>.
+
+So It's get started!
+
+Firstly, we see plenty of buttons online each day. The usage of them is worldwide, for example, while we are shopping online, we can see a big "Check out" on the website to remind us to pay through pressing it.
+
+When the Microsoft Windows 95 was released, the people in the world were surprised to see the "start" button what seems normal today right in the leftbottom of their screen.
+
+That was button was actully borned, let's start from this. If we typed the code below, the browser will respond like this:
+
+> Notice: I gonna use TailwindCSS from now.
+
+```
+<button>start</button>
+```
+
+<button className="not prose">start</button>
+
+We can add some functions to it, such as this one:
+
+```
+<button className="not-prose" onClick={()=>alert('Hi')}>press me</button>
+```
+
+<button onClick={() => alert('Hi')}>press me</button>
+
+We can also style it easily with normal CSS, like this:
+
+```
+<button class="button">start</button>
+```
+
+<br />
+
+```
+.button{
+   background-color: #000000;
+}
+```
+
+I recommended [TailwindCSS](https://TailwindCSS.com), it can help you style your website easily without leaving your HTML. For example, I can do this:
+
+```
+<button class="bg-black text-white">Check out</button>
+```
+
+Then I can adjust its padding and margin to suit my website page. For it can make the button like better.
+
+```
+<button class="bg-black text-white px-8 py-2">Check out</button>
+```
+
+We can also set the border-radius for a better look:
+
+```
+<button class="bg-black text-white px-8 py-2 rounded-lg">Check out</button>
+```
+
+Then It's time to set Hover style to the button, just like what [Vercel](https://vercel.com) did.
+
+```
+<button class="bg-black text-white px-8 py-2 rounded-lg hover:bg-white hover:text-black border-black">Check out</button>
+```
+
+Even animations, shadows, or what what what..., if you like:
+
+```
+<button class="bg-black text-white px-8 py-2 rounded-lg hover:bg-white hover:text-black border-black shadow-sm transition-all">Check out</button>
+```
+
+>You can create colorful buttons at the same time
+
+In conclusion, through the steps we can design a simple button throughout [TailwindCSS](https://TailwindCSS.com), it is not the born of a simple button, but it was a easy solution to the creator of websites --- less time, more confident, better user interface.
+
+But the size of the package is always a problem. So for big-project creators, I don't recommended it well. But for tiny-project such as designing your own personal website, [TailwindCSS](https://TailwindCSS.com) can save a lot of time and energy<sup>2</sup>.
+
+---
+
+1. You may think I was wrong, or I was paid to recommended TailwindCSS just by posting an article to say a button was borned but the content is just recommendation of TailwindCSS, you are wrong.
+
+2. That's my personal experience, not suit to everyone, but the most of people. Choose what you need!
+

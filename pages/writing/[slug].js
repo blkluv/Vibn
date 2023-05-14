@@ -26,41 +26,20 @@ const Writing = ({ mdxSource, frontMatter }) => {
             title={frontMatter.title}
         >
 
-            <Link href="/writing" className="opacity-75 text-sm sm:text-base">← Back to writing</Link>
+            <Link href="/writing">
+                <p className="flex flex-row">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-arrow-left-to-line opacity-80 mt-0.5 mr-1 w-5 h-5"><line x1="7" x2="21" y1="12" y2="12"></line><polyline points="13 6 7 12 13 18"></polyline><path d="M3 19V5"></path></svg>
+                    <i>Writing</i>
+                </p>
+            </Link>
 
-            <div className="">
+            <h1>{frontMatter.title}</h1>
 
-                <div className='border-b border-dashed border-zinc-400'>
-                    <div className='max-w-sm'>
-
-                        <h1 className='text-3xl sm:text-4xl mt-8 mb-1'>
-                            {frontMatter.title}
-                        </h1>
-
-                        <p className='mt-6 text-lg sm:text-xl opacity-75'>
-                            {frontMatter.description}
-                        </p>
-
-                        <div className='mb-6 flex flex-row space-x-10 mt-8 text-lg sm:text-xl'>
-                            <div className='flex flex-col'>
-                                <h2 className='opacity-50'>Published</h2>
-                                <time className='mt-1 mb-8 opacity-75 flex flex-row space-x-1'>
-                                    <span><Date dateString={time} /></span>
-                                </time>
-                            </div>
-                            <div className='flex flex-col'>
-                                <h2 className='opacity-50'>Reading Time</h2>
-                                <time className='mt-1 mb-8 opacity-75 flex flex-row space-x-1'>
-                                    <span>{frontMatter.readingTime.text}</span>
-                                </time>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <span className='opacity-75'>{moment(time).format('MMMM DD, YYYY')}</span>
 
 
 
-                <div className="mt-16 prose prose-zinc dark:prose-invert text-lg sm:text-xl">
+                <div className="mt-10">
                     <MathJaxProvider>
                         <MDXRemote
                             {...mdxSource}
@@ -70,7 +49,6 @@ const Writing = ({ mdxSource, frontMatter }) => {
                         />
                     </MathJaxProvider>
                 </div>
-            </div>
         </Layout>
     );
 }

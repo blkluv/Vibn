@@ -13,6 +13,8 @@
     "@fontsource/brygada-1918": "^4.5.13",
     "@fontsource/ibm-plex-sans-jp": "^4.5.0",
     "@fontsource/inter": "latest",
+    "@fontsource/kaisei-tokumin": "^4.5.12",
+    "@fontsource/poppins": "^4.5.10",
     "@fontsource/tiro-bangla": "latest",
     "@headlessui/react": "^1.7.12",
     "@iconify/react": "^4.1.0",

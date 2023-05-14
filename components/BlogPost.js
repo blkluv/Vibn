@@ -1,28 +1,33 @@
+import moment from 'moment';
 import Link from 'next/link'
-import Date from './Date';
+import { useState } from 'react';
 
 function cn(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const BlogPost = ({ title, date, year, description, slug }) => {
-  const time = year + date
+const BlogPost = ({ title, date, year, slug, onMouseEnter, onMouseLeave }) => {
+  const [isHover, setIsHover] = useState('false')
+  const time = year + date;
   return (
-    <div className='w-full'>
-      <Link
-        href={`/writing/${slug}`}
-        prefetch
-        legacyBehavior
+    <Link
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      href={`/writing/${slug}`}
+      prefetch
+    >
+      <button
+        onMouseEnter={() => setIsHover('true')}
+        onMouseLeave={() => setIsHover('false')}
+        className={cn
+          ('w-full py-4 flex flex-row justify-between',
+            isHover === 'true' ? 'text-zinc-700' : ''
+          )}
       >
-        <a>{title}</a>
-      </Link>
-
-      <p className='text-base my-2 opacity-75 flex flex-row'><span className='mr-1'>Published on</span> <Date dateString={time} /></p>
- 
-      <p className='text-sm sm:text-base mt-3 mb-4 opacity-75'>
-        {description}
-      </p>
-    </div>
+        <span className='opacity-100 text-left'>{title}</span>
+        <time className='mt-0.5 text-sm'>{moment(time).format('MM/DD')}</time>
+      </button>
+    </Link>
   );
 };
 
