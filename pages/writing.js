@@ -3,7 +3,7 @@ import { useState } from "react";
 import BlogPost from "../components/BlogPost";
 import { getAllFilesFrontMatter } from '../lib/mdx';
 import Link from "next/link";
-import ThemeToogler from "../components/ThemeToogler";
+import { Tab } from '@headlessui/react'
 
 function cn(...classes) {
     return classes.filter(Boolean).join(' ');
@@ -23,84 +23,181 @@ export default function Blog({ posts, slug }) {
     return (
         <Layout title="Writing">
 
-            <Link href="/">
-                <p className="flex flex-row">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-arrow-left-to-line opacity-80 mt-0.5 mr-1 w-5 h-5"><line x1="7" x2="21" y1="12" y2="12"></line><polyline points="13 6 7 12 13 18"></polyline><path d="M3 19V5"></path></svg>
-                    <i>Index</i>
-                </p>
-            </Link>
+            <h1 className='mx-auto px-0 md:px-6 sohne max-w-[67.5rem] uppercase text-5xl md:text-7xl sm:text-8xl'>
+                I write about design, technology or something interesting.
+            </h1>
 
-            <h1 className="inter my-8 mt-8 sm:-mt-[0.05rem]">Writing</h1>
+            <div className='mt-4 md:mt-6 sm:mt-8 flex flex-col md:flex-row sm:flex-row justify-between space-x-0 md:space-x-8 sm:space-x-12'>
+                <Tab.Group>
 
-            <div className="flex flex-row space-x-8 sm:space-x-16 border-t">
-                <div className="mt-3 opacity-75">
-                    <time>2023</time>
-                </div>
-                <div className={cn('w-full',
-                    opacity === 'true' ? 'text-zinc-400 dark:text-zinc-600  opacity-100' : 'opacity-80')}>
-                    {filteredBlogPosts.slice(0, 3).map((frontMatter) => (
-                        <>
-                            {frontMatter.year === '2023' && (
-                                <div className="">
-                                    <BlogPost
-                                        onMouseEnter={() => setOpacity('true')}
-                                        onMouseLeave={() => setOpacity('false')}
-                                        key={frontMatter.title} {...frontMatter}
-                                    />
+                    <div className='ml-0 sm:ml-12 order-1 md:order-2 sm:order-1 w-full md:w-1/6 sm:w-1/6 mb-6'>
+
+                        <Link className="border-none text-xl mt-8" href="/">
+                            <i className="border-none">← Index</i>
+                        </Link>
+
+                        <p className='mt-6 mono nav-spacing text-xs'>
+                            FILTER BY YEAR
+                        </p>
+                        <div className="uppercase mono">
+                            <Tab.List>
+                                <Tab>Year 2023</Tab>
+                                <br />
+                                <Tab>Year 2022</Tab>
+                            </Tab.List>
+                        </div>
+
+                        <div className='hidden md:flex flex-row mt-6'>
+                            <div className='w-1/2 sm:w-full'>
+                                <h1 className='uppercase text-2xl nav-spacing'>Navigation</h1>
+
+                                <div className='flex flex-col space-y-1'>
+
+                                    <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/writing">
+                                        Writing
+                                    </Link>
+
+                                    <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/design">
+                                        Design
+                                    </Link>
+
                                 </div>
-                            )}
-                        </>
-                    ))}
-                    {filteredBlogPosts.slice(3, 999999).map((frontMatter) => (
-                        <>
-                            {frontMatter.year === '2023' && (
-                                <div className="border-t dark:border-t-zinc-800">
-                                    <BlogPost
-                                        onMouseEnter={() => setOpacity('true')}
-                                        onMouseLeave={() => setOpacity('false')}
-                                        key={frontMatter.title} {...frontMatter}
-                                    />
+                            </div>
+
+                            <div className='w-1/2 sm:w-full'>
+                                <h1 className='uppercase text-2xl nav-spacing'>Social</h1>
+
+                                <div className='flex flex-col space-y-1'>
+
+                                    <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="https://github.com/Cloudflare233">
+                                        GitHub
+                                    </Link>
+
+                                    <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/twitter">
+                                        Twitter
+                                    </Link>
+
                                 </div>
-                            )}
-                        </>
-                    ))}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div className='order-2 md:order-1 sm:order-2 w-full md:w-2/3 sm:w-2/3 mb-6'>
+                        <Tab.Panels>
+                            <Tab.Panel>
+                                <div className="border-t">
+                                    <div className="mt-3 opacity-75 mono">
+                                        <time className="uppercase mono">Written in 2023</time>
+                                    </div>
+                                    <div className={cn('w-full',
+                                        opacity === 'true' ? 'text-zinc-400 dark:text-zinc-600  opacity-100' : 'opacity-80')}>
+                                        {filteredBlogPosts.slice(0, 3).map((frontMatter) => (
+                                            <>
+                                                {frontMatter.year === '2023' && (
+                                                    <div className="">
+                                                        <BlogPost
+                                                            onMouseEnter={() => setOpacity('true')}
+                                                            onMouseLeave={() => setOpacity('false')}
+                                                            key={frontMatter.title} {...frontMatter}
+                                                        />
+                                                    </div>
+                                                )}
+                                            </>
+                                        ))}
+                                        {filteredBlogPosts.slice(3, 999999).map((frontMatter) => (
+                                            <>
+                                                {frontMatter.year === '2023' && (
+                                                    <div className="border-t dark:border-t-zinc-800">
+                                                        <BlogPost
+                                                            onMouseEnter={() => setOpacity('true')}
+                                                            onMouseLeave={() => setOpacity('false')}
+                                                            key={frontMatter.title} {...frontMatter}
+                                                        />
+                                                    </div>
+                                                )}
+                                            </>
+                                        ))}
+                                    </div>
+                                </div>
+                            </Tab.Panel>
+                            <Tab.Panel>
+                                <div className="border-t">
+                                <div className="mt-3 opacity-75 mono">
+                                        <time className="uppercase mono">Written in 2022</time>
+                                    </div>
+                                    <div className={cn('w-full',
+                                        opacity === 'true' ? 'text-zinc-400 dark:text-zinc-600 opacity-100' : 'opacity-80')}>
+                                        {filteredBlogPosts.slice(0, 1).map((frontMatter) => (
+                                            <>
+                                                {frontMatter.year === '2022' && (
+                                                    <div className="">
+                                                        <BlogPost
+                                                            onMouseEnter={() => setOpacity('true')}
+                                                            onMouseLeave={() => setOpacity('false')}
+                                                            key={frontMatter.title} {...frontMatter}
+                                                        />
+                                                    </div>
+                                                )}
+                                            </>
+                                        ))}
+                                        {filteredBlogPosts.slice(1, 999999).map((frontMatter) => (
+                                            <>
+                                                {frontMatter.year === '2022' && (
+                                                    <div className="border-t dark:border-t-zinc-800">
+                                                        <BlogPost
+                                                            onMouseEnter={() => setOpacity('true')}
+                                                            onMouseLeave={() => setOpacity('false')}
+                                                            key={frontMatter.title} {...frontMatter}
+                                                        />
+                                                    </div>
+                                                )}
+                                            </>
+                                        ))}
+                                    </div>
+                                </div>
+                            
+                        </Tab.Panel>
+                    </Tab.Panels>
+                    </div>
+                </Tab.Group>
+
+                <div className='flex flex-row sm:flex-col sm:justify-start justify-between space-y-0 sm:space-y-6 order-2 md:hidden sm:order-2 w-full md:w-1/2 sm:w-1/6'>
+                    <div className='w-1/2 sm:w-full'>
+                        <h1 className='uppercase text-2xl nav-spacing'>Navigation</h1>
+
+                        <div className='flex flex-col space-y-1'>
+
+                            <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/writing">
+                                Writing
+                            </Link>
+
+                            <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/design">
+                                Design
+                            </Link>
+
+                        </div>
+                    </div>
+
+                    <div className='w-1/2 sm:w-full'>
+                        <h1 className='uppercase text-2xl nav-spacing'>Social</h1>
+
+                        <div className='flex flex-col space-y-1'>
+
+                            <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="https://github.com/Cloudflare233">
+                                GitHub
+                            </Link>
+
+                            <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/twitter">
+                                Twitter
+                            </Link>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
 
-            <div className="flex flex-row space-x-8 sm:space-x-16 border-t dark:border-t-zinc-800">
-                <div className="mt-3 opacity-75">
-                    <time>2022</time>
-                </div>
-                <div className={cn('w-full',
-                    opacity === 'true' ? 'text-zinc-400 dark:text-zinc-600 opacity-100' : 'opacity-80')}>
-                    {filteredBlogPosts.slice(0, 1).map((frontMatter) => (
-                        <>
-                            {frontMatter.year === '2022' && (
-                                <div className="">
-                                    <BlogPost
-                                        onMouseEnter={() => setOpacity('true')}
-                                        onMouseLeave={() => setOpacity('false')}
-                                        key={frontMatter.title} {...frontMatter}
-                                    />
-                                </div>
-                            )}
-                        </>
-                    ))}
-                    {filteredBlogPosts.slice(1, 999999).map((frontMatter) => (
-                        <>
-                            {frontMatter.year === '2022' && (
-                                <div className="border-t dark:border-t-zinc-800">
-                                    <BlogPost
-                                        onMouseEnter={() => setOpacity('true')}
-                                        onMouseLeave={() => setOpacity('false')}
-                                        key={frontMatter.title} {...frontMatter}
-                                    />
-                                </div>
-                            )}
-                        </>
-                    ))}
-                </div>
-            </div>
+
 
         </Layout>
     )

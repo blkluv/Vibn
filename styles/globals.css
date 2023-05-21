@@ -54,7 +54,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #d4d4d8 transparent
+  scrollbar-color: #000000 transparent
 }
 
 ::-webkit-scrollbar {
@@ -73,12 +73,12 @@
 
 @media (hover:hover) {
   ::-webkit-scrollbar-thumb:hover {
-      --scrollbar-color: #3f3f46;
+      --scrollbar-color: #000000;
   }
 }
 
 ::-webkit-scrollbar-thumb:active {
-  --scrollbar-color: #3f3f46;
+  --scrollbar-color: #000000;
 }
 
 ::-webkit-scrollbar-track {
@@ -135,7 +135,7 @@ h6 {
   margin-top: 2.25rem !important;
   margin-bottom: 2.25rem !important;
   font-weight: 500 !important;
-  @apply text-zinc-800;
+  @apply text-black;
 }
 
 h1{
@@ -203,6 +203,11 @@ time{
 }
 
 .nav-spacing{
+  margin-bottom: 0.5rem !important;
+}
+
+.blog-spacing{
+  margin-top: 0rem !important;
   margin-bottom: 0.5rem !important;
 }
 
