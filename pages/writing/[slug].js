@@ -34,7 +34,7 @@ const Writing = ({ mdxSource, frontMatter }) => {
 
                 <div className='mt-6 ml-0 sm:ml-12 order-1 md:order-2 sm:order-1 w-full md:w-1/6 sm:w-1/6 mb-6'>
 
-                    <Link className="border-none text-xl mt-8" href="/writing">
+                    <Link className="border-none text-base md:text-lg sm:text-lg mt-8" href="/writing">
                         <i className="border-none">← Writing</i>
                     </Link>
 

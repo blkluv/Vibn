@@ -33,7 +33,7 @@ export default function Blog({ posts, slug }) {
 
                     <div className='mt-6 ml-0 sm:ml-12 order-1 md:order-2 sm:order-1 w-full md:w-1/6 sm:w-1/6 mb-6'>
 
-                        <Link className="border-none text-xl mt-8" href="/">
+                        <Link className="border-none text-base md:text-lg sm:text-lg mt-8" href="/">
                             <i className="border-none">← Index</i>
                         </Link>
 
