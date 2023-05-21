@@ -4,6 +4,7 @@ import BlogPost from "../components/BlogPost";
 import { getAllFilesFrontMatter } from '../lib/mdx';
 import Link from "next/link";
 import { Tab } from '@headlessui/react'
+import { motion } from 'framer-motion'
 
 function cn(...classes) {
     return classes.filter(Boolean).join(' ');
@@ -30,7 +31,7 @@ export default function Blog({ posts, slug }) {
             <div className='mt-4 md:mt-6 sm:mt-8 flex flex-col md:flex-row sm:flex-row justify-between space-x-0 md:space-x-8 sm:space-x-12'>
                 <Tab.Group>
 
-                    <div className='ml-0 sm:ml-12 order-1 md:order-2 sm:order-1 w-full md:w-1/6 sm:w-1/6 mb-6'>
+                    <div className='mt-6 ml-0 sm:ml-12 order-1 md:order-2 sm:order-1 w-full md:w-1/6 sm:w-1/6 mb-6'>
 
                         <Link className="border-none text-xl mt-8" href="/">
                             <i className="border-none">← Index</i>
@@ -41,9 +42,9 @@ export default function Blog({ posts, slug }) {
                         </p>
                         <div className="uppercase mono">
                             <Tab.List>
-                                <Tab>Year 2023</Tab>
+                                <Tab className="ui-selected:bg-black ui-selected:text-white">Year 2023</Tab>
                                 <br />
-                                <Tab>Year 2022</Tab>
+                                <Tab className="ui-selected:bg-black ui-selected:text-white">Year 2022</Tab>
                             </Tab.List>
                         </div>
 
@@ -82,7 +83,11 @@ export default function Blog({ posts, slug }) {
                             </div>
                         </div>
                     </div>
-                    <div className='order-2 md:order-1 sm:order-2 w-full md:w-2/3 sm:w-2/3 mb-6'>
+                    <motion.div
+                        initial={{ opacity: 0, y: -50 }}
+                        animate={{ opacity: 1, y: 0 }} 
+                        className='order-2 md:order-1 sm:order-2 w-full md:w-2/3 sm:w-2/3 mb-6'
+                    >
                         <Tab.Panels>
                             <Tab.Panel>
                                 <div className="border-t">
@@ -122,7 +127,7 @@ export default function Blog({ posts, slug }) {
                             </Tab.Panel>
                             <Tab.Panel>
                                 <div className="border-t">
-                                <div className="mt-3 opacity-75 mono">
+                                    <div className="mt-3 opacity-75 mono">
                                         <time className="uppercase mono">Written in 2022</time>
                                     </div>
                                     <div className={cn('w-full',
@@ -155,10 +160,10 @@ export default function Blog({ posts, slug }) {
                                         ))}
                                     </div>
                                 </div>
-                            
-                        </Tab.Panel>
-                    </Tab.Panels>
-                    </div>
+
+                            </Tab.Panel>
+                        </Tab.Panels>
+                    </motion.div>
                 </Tab.Group>
 
                 <div className='flex flex-row sm:flex-col sm:justify-start justify-between space-y-0 sm:space-y-6 order-2 md:hidden sm:order-2 w-full md:w-1/2 sm:w-1/6'>

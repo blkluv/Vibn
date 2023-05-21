@@ -32,7 +32,7 @@ const Writing = ({ mdxSource, frontMatter }) => {
 
             <div className='mt-4 md:mt-6 sm:mt-8 flex flex-col md:flex-row sm:flex-row justify-between space-x-0 md:space-x-8 sm:space-x-12'>
 
-                <div className='ml-0 sm:ml-12 order-1 md:order-2 sm:order-1 w-full md:w-1/6 sm:w-1/6 mb-6'>
+                <div className='mt-6 ml-0 sm:ml-12 order-1 md:order-2 sm:order-1 w-full md:w-1/6 sm:w-1/6 mb-6'>
 
                     <Link className="border-none text-xl mt-8" href="/writing">
                         <i className="border-none">← Writing</i>
