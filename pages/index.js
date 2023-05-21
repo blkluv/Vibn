@@ -27,68 +27,103 @@ const Home = ({ posts }) => {
             title="Geng Yue"
         >
 
-            <h1 className='font-medium'>Geng Yue</h1>
+            <h1 className='mx-auto px-0 md:px-6 sohne max-w-[67.5rem] uppercase text-5xl md:text-7xl sm:text-8xl'>Geng Yue is a senior grade 1 student at Yantai No.1 Middle School.</h1>
 
-            <p>
-                <i>Lying down</i>
-            I'm a senior grade 1 student of <a href="http://www.ytyz.net/">Yantai No.1 Middle School of Shandong</a>.
-                Most folks knew me as "The world's dullest person".
-                I love talking, amusing and lying down.  </p>
+            <div className='mt-4 md:mt-6 sm:mt-8 flex flex-col md:flex-row sm:flex-row justify-between space-x-0 md:space-x-8 sm:space-x-12'>
+                <div className='order-1 md:order-2 sm:order-1 w-full md:w-1/3 sm:w-1/3'>
+                    <img src="/static/author.webp" />
+                    <p className='mono text-xs -mt-4 flex sm:justify-start md:justify-start justify-end md:ml-6 sm:ml-12 mr-6'>A IMAGE OF THE SIMPSONS USED AS LOGO</p>
+                    <div className='hidden md:flex flex-row ml-8'>
+                        <div className='w-1/2 sm:w-full'>
+                            <h1 className='uppercase text-2xl nav-spacing'>Navigation</h1>
 
-            <p>
-                Recently I've established <a href="https://ikermusic.netlify.app">IKER Music</a>, building IKER Translate.
-            </p>
+                            <div className='flex flex-col space-y-1'>
 
-            <h1 className='font-medium'>Published</h1>
+                                <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/writing">
+                                    Writing
+                                </Link>
 
-            <p>
-                <Link href="/writing">Writing sometimes</Link>, I'm really love talking and expressing. But I'm a slow writer,
-                I seldom write things and most of my articles are really rublish. But <i><Link href="/writing">A collection of my work</Link></i>
-                is still saved <Link href="/writing">to be read</Link>.
-            </p>
+                                <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/design">
+                                    Design
+                                </Link>
 
-            <p>
-                <Link href="/writing">See all my writings →</Link> If you've got really interest. Meanwhile, all the IKER-ORG articles will be
-                displayed here. You can <i>feel free to access them</i>.
-            </p>
+                            </div>
+                        </div>
 
-            <h1 className='font-medium'>Established</h1>
+                        <div className='w-1/2 sm:w-full'>
+                            <h1 className='uppercase text-2xl nav-spacing'>Social</h1>
 
-            <p>IKER-ORG, which full name is <i>"The world's best & biggest iker organization"</i> was established on
-                April 2023. Aiming to provide a comfortable & stable view for ikers, we are trying hard on solving
-                technique problems and posting perfect contents.
-            </p>
+                            <div className='flex flex-col space-y-1'>
 
-            <p>
-                Our mission is to let all the ikers satisfied with our service. And most of them can fetch the posts or
-                what they are interested in. All the things are bound to be <i>open-sourced</i>. You can easily <i>access all the
-                things</i> on GitHub in the future.
-            </p>
+                                <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="https://github.com/Cloudflare233">
+                                    GitHub
+                                </Link>
 
-            <h1>Now</h1>
+                                <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/twitter">
+                                    Twitter
+                                </Link>
 
-            <p>Investigating how to decide before doing things. Mostly interested in how to understand and calculate correctly. With difficulties ahead, how to skip it definitely. How to improve myself and be a better man.</p>
+                            </div>
 
-            <p>Enjoy watching cartoon shows, playing with toy donkey and pillow. </p>
+                        </div>
+                    </div>
+                </div>
+                <div className='order-2 md:order-1 sm:order-2 w-full md:w-2/3 sm:w-1/2'>
+                    <p>
+                        I'm particularly interested in crafting things, designing and coding.
+                        Apart from I'm a normal senior grade 1 student, I'm also a self-taught developer.
+                    </p>
 
-            <p>Still <i>coding and designing websites</i>, looking up to GitHub for interesting codes. Living in Yantai City, Shandong to complete my senior high shoolwork. Investigating a way to deal with terrify teachers and how to play while studying.</p>
+                    <p>
+                        I ruined things frequently, I love talking a lot. But I'm a science geek significantly, I ususally say what is not bound to say.
+                    </p>
 
-            <p>
-                <span className='serif mr-1'>War is Peace, Freedom is Slavery, Ignorance is Strength.</span>
-                <span>Under the spreading chestnut tress, I sold you and you sold me. There lie they, and here lie we. Under the spreading chestnut tree.</span>
-            </p>
+                    <p>
+                        Recently I've established iker-org, a organization provides resources to help people iker. Currently
+                        working on it and I'm seeking for <i>no</i> opportunities.
+                    </p>
 
-            <h1>Connect</h1>
+                    <p className='text-sm md:text-base sm:text-base opacity-75'>
+                        Cloudflare233@yandex.com
+                    </p>
 
-            <p>If you are in Yantai City, let's talk a little. <a href="mailto:Cloudflare233@yandex.com">Cloudflare233@yandex.com</a>.</p>
+                </div>
 
+                <div className='flex flex-row sm:flex-col sm:justify-start justify-between space-y-0 sm:space-y-6 order-2 md:hidden sm:order-2 w-full md:w-1/2 sm:w-1/6'>
+                    <div className='w-1/2 sm:w-full'>
+                        <h1 className='uppercase text-2xl nav-spacing'>Navigation</h1>
 
+                        <div className='flex flex-col space-y-1'>
 
+                            <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/writing">
+                                Writing
+                            </Link>
 
+                            <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/design">
+                                Design
+                            </Link>
 
+                        </div>
+                    </div>
 
+                    <div className='w-1/2 sm:w-full'>
+                        <h1 className='uppercase text-2xl nav-spacing'>Social</h1>
 
+                        <div className='flex flex-col space-y-1'>
 
+                            <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="https://github.com/Cloudflare233">
+                                GitHub
+                            </Link>
+
+                            <Link className="inter text-zinc-950 text-base md:text-lg sm:text-lg font-semibold border-none" href="/twitter">
+                                Twitter
+                            </Link>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
         </Layout >
     )

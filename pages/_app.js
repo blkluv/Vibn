@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import "../styles/clock.css";
 
 import { useState, useEffect } from "react";
+import { ThemeProvider } from 'next-themes';
 
 function MyApp({ Component, pageProps }) {
   const [showChild, setShowChild] = useState(false);
@@ -14,7 +15,9 @@ function MyApp({ Component, pageProps }) {
     return null
   }
   return (
-        <Component {...pageProps} />
+    <ThemeProvider themes={['yellow','pink','green']} attribute="class">
+      <Component {...pageProps} />
+    </ThemeProvider>
   )
 }
 

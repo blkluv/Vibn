@@ -6,8 +6,23 @@
   font-family: 'Sohne';
   src: url(/fonts/sohne-subset-0.woff2) format('woff2');
   font-display: hidden;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Sohne Schmal';
+  src: url(/fonts/test-soehne-schmal-dreiviertelfett.woff2) format('woff2');
+  font-display: hidden;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Sohne Mono';
+  src: url(/fonts/test-soehne-mono-buch.woff2) format('woff2');
+  font-display: hidden;
   font-weight: 400;
 }
+
 
 @font-face {
   font-family: 'Inter';
@@ -76,7 +91,7 @@
 }
 
 ::selection {
-  @apply bg-zinc-200;
+  @apply bg-black text-white;
 }
 
 body,
@@ -106,10 +121,11 @@ blockquote{
 }
 
 pre {
-  @apply bg-zinc-100 rounded-md px-4 py-2 flex opacity-75 my-8 overflow-auto
+  font-family: 'Sohne Mono', monospace;
+  @apply text-sm bg-zinc-100 rounded-md px-4 py-2 flex opacity-75 my-8 overflow-auto
 }
 
-h1,
+
 h2,
 h3,
 h4,
@@ -122,12 +138,16 @@ h6 {
   @apply text-zinc-800;
 }
 
+h1{
+  font-family: 'Sohne Schmal', sans-serif !important;
+}
+
 p {
   font-family: 'Sohne', 'Source Han Sans', sans-serif;
   font-feature-settings:"kern","frac","kern","ss02";
   margin-top: 2rem !important;
   margin-bottom: 2rem !important;
-  @apply text-zinc-700 leading-relaxed;
+  @apply leading-relaxed text-base md:text-lg sm:text-lg font-medium;
 }
 
 span{
@@ -165,13 +185,25 @@ time{
   font-family: 'Sohne', sans-serif;
 }
 
+.inter{
+  font-family: 'Inter', sans-serif;
+}
+
 .serif{
   font-family: 'Newsreader', serif;
+}
+
+.mono{
+  font-family: 'Sohne Mono', monospace;
 }
 
 .no-spacing{
   margin-top: 1.255rem !important;
   margin-bottom: 1.25rem !important;
+}
+
+.nav-spacing{
+  margin-bottom: 0.5rem !important;
 }
 
 @keyframes slide-enter {

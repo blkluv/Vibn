@@ -19,13 +19,11 @@ const Layout = ({ children, title }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <Blur />
-    
-      <div className="max-w-[40rem] mx-auto px-6 md:px-0 sm:px-0 py-12 md:py-16 sm:py-24 slide-enter-content">
+
+      <div className="max-w-6xl mx-auto px-6 md:px-10 sm:px-0 py-16 md:py-16 sm:py-24 slide-enter-content">
         {children}
       </div>
-
-      <Footer />
+      
     </div>
   )
 }
