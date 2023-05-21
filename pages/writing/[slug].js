@@ -90,6 +90,7 @@ const Writing = ({ mdxSource, frontMatter }) => {
                 </div>
                 <div className='order-2 md:order-1 sm:order-2 w-full md:w-2/3 sm:w-2/3 mb-6'>
                     <div className="mt-10 text-base md:text-lg sm:text-lg">
+					<img src={frontMatter.img} />
                         <MathJaxProvider>
                             <MDXRemote
                                 {...mdxSource}
