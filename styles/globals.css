@@ -82,7 +82,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent
+  @apply bg-[EEE8AA];
 }
 
 ::-webkit-scrollbar-button,
@@ -91,7 +91,7 @@
 }
 
 ::selection {
-  @apply bg-black text-white;
+  @apply bg-yellow-400 text-white;
 }
 
 body,
@@ -155,19 +155,20 @@ h6 {
   margin-top: 2.25rem !important;
   margin-bottom: 2.25rem !important;
   font-weight: 500 !important;
-  @apply text-black;
+  @apply text-zinc-800;
 }
 
 h1{
   font-family: 'Sohne Schmal', sans-serif !important;
+  @apply text-zinc-800;
 }
 
 p {
   font-family: 'Sohne', 'Source Han Sans', sans-serif;
   font-feature-settings:"kern","frac","kern","ss02";
-  margin-top: 2rem !important;
-  margin-bottom: 2rem !important;
-  @apply leading-relaxed text-base md:text-lg sm:text-lg font-medium;
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.25rem !important;
+  @apply text-zinc-800 leading-relaxed font-normal;
 }
 
 span{

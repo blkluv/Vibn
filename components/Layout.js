@@ -15,12 +15,12 @@ moment.locale('zh-cn', {
 
 const Layout = ({ children, title }) => {
   return (
-    <div className="">
+    <div className="bg-[#EEE8AA] min-h-screen">
       <Head>
         <title>{title}</title>
       </Head>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-10 sm:px-0 py-16 md:py-16 sm:py-24 slide-enter-content">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 sm:px-0 py-16 md:py-18 sm:py-24 slide-enter-content">
         {children}
       </div>
       
