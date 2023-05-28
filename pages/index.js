@@ -39,8 +39,8 @@ const Home = ({ posts }) => {
 
                             <div className='flex flex-col space-y-1'>
 
-                                <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/craft">
-                                    Craft
+                                <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/collection">
+                                    Collection
                                 </Link>
 
                                 <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/design">
@@ -75,7 +75,7 @@ const Home = ({ posts }) => {
                     </p>
 
                     <p>
-                        I'm science geek who is ugly and awful. What I think the most important is amusement.
+                        I'm a science geek who is ugly and awful. What I think the most important is amusement.
                         I really admire my math teacher who is widely known as "ker". I'm a iker consistently.
                         I talk about, write about and create things which are meaningless, I keep on working on
                         solving difficult questions. My partner is Next.js and Vercel▲.
@@ -98,8 +98,8 @@ const Home = ({ posts }) => {
 
                         <div className='flex flex-col space-y-1'>
 
-                            <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/craft">
-                                Craft
+                            <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/collection">
+                                Collection
                             </Link>
 
                             <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/design">

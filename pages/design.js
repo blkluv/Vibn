@@ -1,4 +1,5 @@
 import Layout from "../components/Layout"
+import Link from 'next/link'
 import { useState } from 'react'
 import { Switch } from '@headlessui/react'
 
@@ -143,7 +144,7 @@ export default function Design() {
 
                         <input
                             type="search"
-                            className="inter focus:ring-4 focus:outline-none focus:ring-green-300 bg-[#B9DDB0] rounded-3xl focus:bg-white px-10 py-2" placeholder="Type to search"
+                            className="w-full inter focus:ring-4 focus:outline-none focus:ring-green-300 bg-[#B9DDB0] rounded-3xl focus:bg-white px-10 py-2" placeholder="Type to search"
                         />
                     </div>
 

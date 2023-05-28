@@ -20,6 +20,7 @@ const Layout = ({ children, title }) => {
     <div className={cn('min-h-screen',
       router.asPath === '/' && 'bg-[#EEE8AA]',
       router.asPath === '/design' && 'bg-[#7AB468]',
+      router.asPath === '/collection' && 'bg-[#C2A9C6]',
     )}>
       <Head>
         <title>{title}</title>
