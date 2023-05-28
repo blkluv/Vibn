@@ -90,10 +90,6 @@
   display: none
 }
 
-::selection {
-  @apply bg-yellow-400 text-white;
-}
-
 body,
 html {
   scroll-behavior: smooth;

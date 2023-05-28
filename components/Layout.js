@@ -1,5 +1,6 @@
 import Head from "next/head";
 import moment from "moment/moment";
+import { useRouter } from 'next/router'
 
 import Blur from './Blur'
 import Footer from "./Footer";
@@ -14,8 +15,12 @@ moment.locale('zh-cn', {
 })
 
 const Layout = ({ children, title }) => {
+  const router = useRouter();
   return (
-    <div className="bg-[#EEE8AA] min-h-screen">
+    <div className={cn('min-h-screen',
+      router.asPath === '/' && 'bg-[#EEE8AA]',
+      router.asPath === '/design' && 'bg-[#7AB468]',
+    )}>
       <Head>
         <title>{title}</title>
       </Head>
@@ -23,7 +28,7 @@ const Layout = ({ children, title }) => {
       <div className="max-w-6xl mx-auto px-6 md:px-10 sm:px-0 py-16 md:py-18 sm:py-24 slide-enter-content">
         {children}
       </div>
-      
+
     </div>
   )
 }
