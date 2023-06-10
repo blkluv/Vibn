@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    min-height: 44px;
+    min-width: 44px;
+    background-color: transparent;
+    border: 5px solid transparent;
+    background-clip: padding-box;
+    @apply rounded-lg;
+  }
+  
+  @media (hover:hover) {
+    ::-webkit-scrollbar-thumb:hover {
+        --scrollbar-color: #868686;
+    }
+  }
+  
+  ::-webkit-scrollbar-thumb:active {
+    --scrollbar-color: #868686;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-current
+  }
+  
+  ::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-corner {
+    display: none
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#868686] rounded-lg;
+  }
+
+body {
+    font-family: 'Crimson Pro Variable', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-variant-alternates: swash(fancy);
+    font-variant-numeric: oldstyle-nums; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Work Sans Variable', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+}
+
+a{
+    @apply decoration-1 decoration-zinc-600 underline-offset-2 underline;
+}
+
+.prose .rounded-pic{
+  margin: 0 auto;
+  @apply rounded-full my-4;
+}
+
+.prose a{
+    @apply decoration-1 decoration-zinc-400 underline-offset-2 underline;
+}

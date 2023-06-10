@@ -1,142 +1,102 @@
-import { useState } from 'react';
+import fs from 'fs'
+import matter from 'gray-matter'
+import Link from 'next/link'
+import path from 'path'
 import Layout from '../components/Layout'
-import { getAllFilesFrontMatter } from '../lib/mdx';
-import BlogPost from '../components/BlogPost';
-import Link from 'next/link';
-import moment from 'moment';
-import Image from 'next/image'
+import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils'
+import moment from 'moment/moment'
 
-function cn(...classes) {
-    return classes.filter(Boolean).join(' ');
+export default function Index({ posts }) {
+  return (
+    <Layout
+      title="Geng Yue · Home">
+
+      <h1>About</h1>
+
+      <p className='my-6 text-zinc-300 text-lg'>
+        I'm a senior grade 1 student from <a href="http://www.ytyz.net/">Yantai No.1 Middle School of Shandong</a>.
+        I'm also a self-taught developer and designer.
+        I'm a lazy writer and writing meaningless rubbish.
+        I'm also a minimalist and don't feel like troubles.
+      </p>
+
+      <p className='my-6 text-zinc-300 text-lg'>
+        The past years got me thinking why I was born into this ugly world,
+        why I strengthened all my effort to fight for myself and usually got nothing,
+        what I did is just for the others?
+      </p>
+
+      <h1 className='mt-12'>Writing</h1>
+
+      <ul className='my-6'>
+        {posts.map((post) => (
+          <li key={post.filePath} className='my-4'>
+            <Link
+              as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
+              href={`/posts/[slug]`}
+            >
+              <h1>
+                <a>{post.data.title}
+                </a></h1>
+            </Link>
+            <p className='mt-0.5 text-zinc-300 italic'>Published on {moment(post.data.date).format('MMMM DD,YYYY')}</p>
+            <p className='my-1 text-zinc-300 text-lg'>
+              {post.data.description}
+            </p>
+          </li>
+        ))}
+      </ul>
+
+      <h1 className='mt-12'>Contact</h1>
+
+      <div className='mt-6 flex flex-row space-x-8'>
+        <div className='text-zinc-500 w-1/3'>
+          <h1>E-mail</h1>
+        </div>
+        <div className='w-2/3 text-left'>
+          <a href="mailto:Cloudflare233@yandex.com">
+            <h2 className='text-zinc-300'>Cloudflare233@yandex.com</h2>
+          </a>
+        </div>
+      </div>
+
+      <div className='my-3 flex flex-row space-x-8'>
+        <div className='text-zinc-500 w-1/3'>
+          <h1>GitHub</h1>
+        </div>
+        <div className='w-2/3 text-left'>
+          <a href="https://github.com/Cloudflare233">
+            <h2 className='text-zinc-300'>@Cloudflare233</h2>
+          </a>
+        </div>
+      </div>
+
+      <div className='my-3 flex flex-row space-x-8'>
+        <div className='text-zinc-500 w-1/3'>
+          <h1>QQ</h1>
+        </div>
+        <div className='w-2/3 text-left'>
+          <a href="#">
+            <h2 className='text-zinc-300'>@3041299667</h2>
+          </a>
+        </div>
+      </div>
+
+    </Layout>
+  )
 }
 
+export function getStaticProps() {
+  const posts = postFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(POSTS_PATH, filePath))
+    const { content, data } = matter(source)
 
-const Home = ({ posts }) => {
-    const time = moment().format("H")
-    const [searchValue, setSearchValue] = useState('');
-    const filteredBlogPosts = posts
-        .sort(
-            (a, b) =>
-                Number(new Date(b.date)) - Number(new Date(a.date))
-        )
-        .filter((frontMatter) =>
-            frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
-        );
-    return (
-        <Layout
-            title="Geng Yue"
-        >
+    return {
+      content,
+      data,
+      filePath,
+    }
+  })
 
-            <h1 className='px-0 md:px-6 sohne max-w-[17.5rem] md:max-w-[67.5rem] sm:max-w-[67.5rem] uppercase text-4xl md:text-7xl sm:text-8xl'>Geng Yue is a senior grade 1 student at Yantai No.1 Middle School.</h1>
-
-            <div className='mt-4 md:mt-6 sm:mt-8 flex flex-col md:flex-row sm:flex-row justify-between space-x-0 md:space-x-8 sm:space-x-12'>
-                <div className='bg-[#EEE8AA] order-1 md:order-2 sm:order-1 w-full md:w-1/3 sm:w-1/3'>
-                    <img src="/static/author.webp" className='mix-blend-multiply' />
-                    <p className='mono text-xs -mt-4 flex sm:justify-start md:justify-start justify-end md:ml-6 sm:ml-12 mr-6'>A IMAGE OF HOMER SIMPSON</p>
-                    <div className='hidden md:flex flex-row ml-8'>
-                        <div className='w-1/2 sm:w-full'>
-                            <h1 className='uppercase text-2xl nav-spacing'>Resource</h1>
-
-                            <div className='flex flex-col space-y-1'>
-
-                                <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/collection">
-                                    Collection
-                                </Link>
-
-                                <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/design">
-                                    Design
-                                </Link>
-
-                            </div>
-                        </div>
-
-                        <div className='w-1/2 sm:w-full'>
-                            <h1 className='uppercase text-2xl nav-spacing'>Social</h1>
-
-                            <div className='flex flex-col space-y-1'>
-
-                                <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="https://github.com/Cloudflare233">
-                                    GitHub
-                                </Link>
-
-                                <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/twitter">
-                                    Twitter
-                                </Link>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div className='order-2 md:order-1 sm:order-2 w-full md:w-2/3 sm:w-1/2'>
-                    <p>
-                        I'm particularly interested in crafting things, designing and coding.
-                        Apart from I'm a normal senior grade 1 student, I'm also a self-taught developer.
-                    </p>
-
-                    <p>
-                        I'm a science geek who is ugly and awful. What I think the most important is amusement.
-                        I really admire my math teacher who is widely known as "ker". I'm a iker consistently.
-                        I talk about, write about and create things which are meaningless, I keep on working on
-                        solving difficult questions. My partner is Next.js and Vercel▲.
-                    </p>
-
-                    <p>
-                        Nowsaday I'm working on building iker-org and iker-translation. If you got any questions,
-                        contact me through QQ or E-mail.
-                    </p>
-
-                    <p className='text-sm md:text-base sm:text-base opacity-75'>
-                        Cloudflare233@yandex.com
-                    </p>
-
-                </div>
-
-                <div className='flex flex-row sm:flex-col sm:justify-start justify-between space-y-0 sm:space-y-6 order-2 md:hidden sm:order-2 w-full md:w-1/2 sm:w-1/6'>
-                    <div className='w-1/2 sm:w-full'>
-                        <h1 className='uppercase text-2xl nav-spacing'>Resource</h1>
-
-                        <div className='flex flex-col space-y-1'>
-
-                            <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/collection">
-                                Collection
-                            </Link>
-
-                            <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/design">
-                                Design
-                            </Link>
-
-                        </div>
-                    </div>
-
-                    <div className='w-1/2 sm:w-full'>
-                        <h1 className='uppercase text-2xl nav-spacing'>Social</h1>
-
-                        <div className='flex flex-col space-y-1'>
-
-                            <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="https://github.com/Cloudflare233">
-                                GitHub
-                            </Link>
-
-                            <Link className="inter text-zinc-700 text-base md:text-lg sm:text-lg font-semibold border-none" href="/twitter">
-                                Twitter
-                            </Link>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </Layout >
-    )
-}
-
-
-export default Home
-
-export async function getStaticProps() {
-    const posts = await getAllFilesFrontMatter('blog');
-
-    return { props: { posts } };
+  return { props: { posts } }
 }

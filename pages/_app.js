@@ -1,24 +1,8 @@
-import "../styles/globals.css";
-import "../styles/clock.css";
+import '../styles/global.css'
+import '@fontsource-variable/crimson-pro';
+import '@fontsource-variable/crimson-pro/wght-italic.css';
+import '@fontsource-variable/work-sans';
 
-import { useState, useEffect } from "react";
-import { ThemeProvider } from 'next-themes';
-
-function MyApp({ Component, pageProps }) {
-  const [showChild, setShowChild] = useState(false);
-
-  useEffect(() => {
-    setShowChild(true)
-  }, [])
-
-  if (!showChild) {
-    return null
-  }
-  return (
-    <ThemeProvider themes={['yellow','pink','green']} attribute="class">
-      <Component {...pageProps} />
-    </ThemeProvider>
-  )
+export default function MyApp({ Component, pageProps }) {
+    return <Component {...pageProps} />
 }
-
-export default MyApp;

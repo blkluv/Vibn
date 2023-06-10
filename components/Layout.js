@@ -1,38 +1,36 @@
 import Head from "next/head";
-import moment from "moment/moment";
-import { useRouter } from 'next/router'
-
-import Blur from './Blur'
-import Footer from "./Footer";
-
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 function cn(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-moment.locale('zh-cn', {
-  weekdays: '周日_周一_周二_周三_周四_周五_周六'.split('_')
-})
-
-const Layout = ({ children, title }) => {
+export default function Layout({ title, children }) {
   const router = useRouter();
   return (
-    <div className={cn('min-h-screen',
-      router.asPath === '/' && 'bg-[#EEE8AA]',
-      router.asPath === '/design' && 'bg-[#7AB468]',
-      router.asPath === '/collection' && 'bg-[#C2A9C6]',
-    )}>
+    <div
+      className={cn('text-left',
+        router.asPath === '/' ? 'text-white bg-[#030305] min-h-screen' : 'bg-zinc-100 min-h-screen'
+      )}>
       <Head>
         <title>{title}</title>
       </Head>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-10 sm:px-0 py-16 md:py-18 sm:py-24 slide-enter-content">
-        {children}
+      <div className="max-w-2xl  mx-auto px-6 sm:py-20 py-10">
+        <div className="flex flex-row">
+          <div>
+            <Link href="/" className="no-underline">
+              <h1 className="no-underline">Geng Yue</h1>
+            </Link>
+            <h2 className="opacity-75">Self-taught Developer</h2>
+            <h2 className="opacity-75">Yantai, Shandong</h2>
+          </div>
+        </div>
+        <main className="mt-16">
+          {children}
+        </main>
       </div>
-
     </div>
   )
 }
-
-export default Layout
-
