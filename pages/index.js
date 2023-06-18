@@ -49,7 +49,7 @@ export default function Index({ posts }) {
               as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
               href={`/posts/[slug]`}
             >
-              <div className='w-full flex flex-row space-x-4 my-4 border-b'>
+              <div className='w-full flex flex-row space-x-4 md:space-x-6 sm:space-x-8 my-4 border-b'>
                 <div className='w-1/2'>
                   <img src={post.data.img} />
                 </div>

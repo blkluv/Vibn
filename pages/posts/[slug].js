@@ -30,7 +30,7 @@ export default function PostPage({ source, frontMatter }) {
     >
       <div className="max-w-3xl py-6">
         <h1 className='font-bold text-3xl md:text-4xl sm:text-5xl'>{frontMatter.title}</h1>
-        <p className='opacity-75 text-base md:text-lg sm:text-xl font-medium my-6'>
+        <p className='opacity-75 text-base z-0 md:text-lg sm:text-xl font-medium my-6'>
           发表于 {moment(frontMatter.date).format('YYYY年MM月DD日')}
         </p>
         {frontMatter.desc&& (

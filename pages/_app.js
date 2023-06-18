@@ -27,7 +27,9 @@ export default function MyApp({ Component, pageProps }) {
                     </svg>
                     <p className='opacity-75 text-center'>如果持续显示本页，请尝试刷新</p>
                 </div>
-                <Menu />
+                <div className='z-0'>
+                    <Menu />
+                </div>
             </div>
         )
     }
@@ -35,7 +37,9 @@ export default function MyApp({ Component, pageProps }) {
         <div>
             <Navbar />
             <Component {...pageProps} />
-            <Menu />
+            <div className='z-0'>
+                <Menu />
+            </div>
         </div>
     )
 }
