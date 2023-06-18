@@ -26,19 +26,19 @@ const components = {
 export default function PostPage({ source, frontMatter }) {
   return (
     <Layout
-      title={`${frontMatter.title} · Writing`}
+      title={`${frontMatter.title} · 文章`}
     >
-      <div className="max-w-3xl">
+      <div className="max-w-3xl py-6">
         <h1 className='font-bold text-3xl md:text-4xl sm:text-5xl'>{frontMatter.title}</h1>
         <p className='opacity-75 text-base md:text-lg sm:text-xl font-medium my-6'>
-          {moment(frontMatter.date).format('YYYY年MM月DD日')}
+          发表于 {moment(frontMatter.date).format('YYYY年MM月DD日')}
         </p>
         {frontMatter.desc&& (
           <p className="mt-2 mb-5 text-base md:text-lg sm:text-xl">{frontMatter.desc}</p>
         )}
       </div>
       <hr />
-      <main className='max-w-3xl mt-6 text-base md:text-lg sm:text-xl prose prose-p:text-black prose-p:text-lg'>
+      <main className='max-w-3xl mt-6 mb-6 text-base md:text-lg sm:text-xl prose prose-p:text-black prose-p:text-lg'>
         <MDXRemote {...source} components={components} />
       </main>
 
