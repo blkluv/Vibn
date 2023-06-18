@@ -300,6 +300,11 @@
   resolved "https://registry.npmmirror.com/@fontsource/inter/-/inter-4.5.15.tgz#eed1873d68755d3b52d6fcfcfa3493118430a512"
   integrity sha512-FzleM9AxZQK2nqsTDtBiY0PMEVWvnKnuu2i09+p6DHvrHsuucoV2j0tmw+kAT3L4hvsLdAIDv6MdGehsPIdT+Q==
 
+"@fontsource/noto-serif-sc@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.npmmirror.com/@fontsource/noto-serif-sc/-/noto-serif-sc-5.0.3.tgz#91526f7e620045b7002f028fabf9069ce0c29de1"
+  integrity sha512-MPoO+UAXqaC1ruuP0t4ZroZBaGKPMJ0t6aqmqxzuSRqviBrzPjP4p4pkH5x+HMc3LOfAoozOTuLUgM+6T9KzVg==
+
 "@guanghechen/fast-deep-equal@^2.2.3":
   version "2.2.3"
   resolved "https://registry.npmmirror.com/@guanghechen/fast-deep-equal/-/fast-deep-equal-2.2.3.tgz#a5e2618ec42b038e975de0859c27e333a5c24180"
