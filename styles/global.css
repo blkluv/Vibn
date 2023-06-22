@@ -70,7 +70,7 @@ a {
 }
 
 .prose a {
-  @apply overflow-x-auto underline decoration-zinc-500 hover:no-underline hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all duration-300 rounded-md px-0.5 py-0.5;
+  @apply overflow-x-auto dark:text-white text-black underline decoration-zinc-500 hover:no-underline hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all duration-300 rounded-md px-0.5 py-0.5;
 }
 
 .prose p {
@@ -83,7 +83,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply text-base font-normal my-6 opacity-75;
+  @apply text-base text-black dark:text-white font-normal my-6 opacity-75;
 }
 
 .center {
