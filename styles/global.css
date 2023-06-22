@@ -39,12 +39,12 @@
   @apply bg-[#868686] rounded-lg;
 }
 
-::selection{
+::selection {
   @apply bg-zinc-200;
 }
 
 body {
-  font-family: 'Noto Serif SC', serif;
+  font-family: 'Syne Variable', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-variant-alternates: swash(fancy);
   font-variant-numeric: oldstyle-nums;
@@ -56,26 +56,29 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Noto Serif SC', sans-serif;
+  font-family: 'Syne Variable', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 500;
 }
 
-
-.prose .rounded-pic {
-  margin: 0 auto;
-  @apply rounded-full my-4;
+a{
+  @apply underline decoration-zinc-500 hover:no-underline hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all duration-300 rounded-md px-0.5 py-0.5;
 }
 
-.prose a {
-  @apply decoration-1 decoration-zinc-400 underline-offset-2 underline;
+.prose img{
+  margin: 0 auto;
+  @apply opacity-100 my-4;
+}
+
+.prose a{
+  @apply underline decoration-zinc-500 hover:no-underline hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all duration-300 rounded-md px-0.5 py-0.5;
+}
+
+.prose p{
+  @apply dark:text-white opacity-75;
 }
 
 .center {
   margin: 0 auto;
   margin-top: 1.5rem;
-}
-
-img {
-  width: 100% !important;
 }

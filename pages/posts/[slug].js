@@ -26,23 +26,50 @@ const components = {
 export default function PostPage({ source, frontMatter }) {
   return (
     <Layout
-      title={`${frontMatter.title} · 文章`}
+      title={`${frontMatter.title} · Timeline`}
     >
-      <div className="max-w-3xl py-6">
-        <h1 className='font-bold text-3xl md:text-4xl sm:text-5xl'>{frontMatter.title}</h1>
-        <p className='opacity-75 text-base z-0 md:text-lg sm:text-xl font-medium my-6'>
-          发表于 {moment(frontMatter.date).format('YYYY年MM月DD日')}
-        </p>
-        {frontMatter.desc&& (
-          <p className="mt-2 mb-5 text-base md:text-lg sm:text-xl">{frontMatter.desc}</p>
+      <br />
+      <br />
+
+      <Link href="/#timeline" className='opacity-75 py-1 mt-6'>
+        ← Back to timeline
+      </Link>
+      <h1 className='font-medium mt-8'>Details: {frontMatter.title}</h1>
+      <div className='mt-4 flex flex-row space-x-2'>
+        <div className='opacity-75 bg-zinc-200 dark:bg-zinc-800 rounded-md px-1'>{frontMatter.tag}</div>
+        {frontMatter.date && (
+          <p className='opacity-75 bg-zinc-200 dark:bg-zinc-800 rounded-md px-1'>
+            {moment(frontMatter.date).format('MMMM DD, YYYY')}
+          </p>
         )}
       </div>
-      <hr />
-      <main className='max-w-3xl mt-6 mb-6 text-base md:text-lg sm:text-xl prose prose-p:text-black prose-p:text-lg'>
+
+      {frontMatter.desc && (
+        <p className="mt-6 mb-5 opacity-75">
+          <span className='dark:text-white rounded-md opacity-75 mr-2'>
+            Desc
+          </span>
+          <span className='mt-2'>{frontMatter.desc}</span>
+        </p>
+      )}
+      <hr className='border-zinc-300 dark:border-zinc-700' />
+      <main className='max-w-3xl mt-6 mb-6 flex flex-col prose'>
+        <span className='rounded-md dark:text-white/75 opacity-75 mr-2'>
+          Content
+        </span>
         <MDXRemote {...source} components={components} />
+        {frontMatter.img && (
+          <>
+            <span className='dark:text-white/75 rounded-md opacity-75 mr-2'>
+              Related Photo
+            </span>
+            <img src={frontMatter.img} className='mt-4 rounded-md' />
+          </>
+        )}
+
       </main>
 
-    </Layout>
+    </Layout >
   )
 }
 

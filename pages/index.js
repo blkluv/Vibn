@@ -5,6 +5,7 @@ import path from 'path'
 import Layout from '../components/Layout'
 import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils'
 import moment from 'moment/moment'
+import { Tab } from '@headlessui/react'
 
 function cn(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -13,62 +14,83 @@ function cn(...classes) {
 export default function Index({ posts }) {
   return (
     <Layout
-      title="耿越の小站">
+      title="Geng Yue · Home">
 
-      <ul className='my-6'>
-        {posts.map((post) => (
-          <>
-            <div
-              key={post.filePath}
-              className={cn('flex flex-col space-x-0 md:space-x-2 sm:space-x-4 md:flex-row sm:flex-row',
-                post.data.focus === 'yes' ? 'block' : 'hidden'
-              )}>
-              <div className='w-full'>
-                <p className='text-red-600 font-medium my-4'>共同关注</p>
+      <img
+        src="/static/author.webp"
+        className="mt-10 rounded-full w-40 h-32"
+      />
+
+      <h1
+        className='ml-2 mt-8 text-4xl sm:text-5xl font-semibold'
+      >
+        Geng Yue
+      </h1>
+
+      <p className='ml-1 mt-6 opacity-75'>
+        A senior grade 1 student from <a href="http://www.ytyz.net">Yantai No.1 Middle School of Shandong</a>. He/him lives in
+        Yantai, Shandong and is also a self-taught developer(may be ~).
+      </p>
+
+      <p className='ml-1 mt-4 opacity-75'>
+        Currently working on building <a href="https://github.com/Cloudflare233/ikermusic">IKER Music</a>.
+      </p>
+
+      <Tab.Group>
+        <Tab.List className="my-8 flex flex-row space-x-2">
+          <Tab selected
+            className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:bg-zinc-800"
+          >
+            Timeline
+          </Tab>
+          <Tab
+            className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:bg-zinc-800"
+          >
+            Design Guideline
+          </Tab>
+          <Tab
+            className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:bg-zinc-800"
+          >
+            Contact</Tab>
+        </Tab.List>
+        <Tab.Panels>
+          <Tab.Panel>
+            {posts.map((post) => (
+              <div
+                key={post.filePath}
+                className="cursor-pointer border-l-4 dark:border-l-zinc-700 px-4 py-2"
+              >
                 <Link
                   as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
                   href={`/posts/[slug]`}
+                  legacyBehavior
                 >
-                  <h1 className='hover:underline hover:decoration-red-600 font-bold text-center text-3xl md:text-4xl sm:text-5xl'>
-                    {post.data.title}
-                  </h1>
+                  <div>
+                    <span className="hover:rounded-md hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all duration-300 px-1 py-1 opacity-100 font-medium">{post.data.title} →</span>
+                    {post.data.desc && (
+                      <p className="mt-3 opacity-60">
+                        {post.data.desc}
+                      </p>
+                    )}
+                    <div className='mt-4 flex flex-row space-x-2'>
+                      <div className='opacity-75 bg-zinc-200 dark:bg-zinc-800 rounded-md px-1'>{post.data.tag}</div>
+                      {post.data.date && (
+                        <p className='opacity-75 bg-zinc-200 dark:bg-zinc-800 rounded-md px-1'>
+                          {moment(post.data.date).format('MMMM DD, YYYY')}
+                        </p>
+                      )}
+                    </div>
+                    <hr className='my-4 border-zinc-300 dark:border-zinc-700' />
+                  </div>
                 </Link>
-                <img src={post.data.img} className='my-6 text-center center' />
               </div>
-            </div>
-          </>
-        ))}
+            ))}
+          </Tab.Panel>
+          <Tab.Panel>WIP...</Tab.Panel>
+          <Tab.Panel>WIP...</Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
 
-        <hr className='my-6' />
-
-        {posts.map((post) => (
-          <div key={post.filePath} className={cn('columns-1',
-            post.data.focus === 'yes' ? 'hidden' : 'block'
-          )}>
-            <Link
-              as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
-              href={`/posts/[slug]`}
-            >
-              <div className='w-full flex flex-row space-x-4 md:space-x-6 sm:space-x-8 my-4 border-b'>
-                <div className='w-1/2'>
-                  <img src={post.data.img} />
-                </div>
-                <div className='flex flex-col -mt-2 md:-mt-12 sm:-mt-16 justify-center w-1/2'>
-                  <p className='text-sm md:text-base sm:text-base text-red-600 font-medium'>
-                    {post.data.tag}
-                  </p>
-                  <h1 className='w-full mt-1 text-lg md:text-3xl sm:text-4xl hover:underline hover:decoration-red-600 font-bold'>
-                    {post.data.title}
-                  </h1>
-                  <p className='mt-1 text-sm md:text-base sm:text-base'>
-                    {moment(post.data.date).format('发表于YYYY年MM月DD日')}
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </div>
-        ))}
-      </ul>
 
     </Layout>
   )
