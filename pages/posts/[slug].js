@@ -32,7 +32,7 @@ export default function PostPage({ source, frontMatter }) {
       <br />
 
       <Link href="/#timeline" className='opacity-75 py-1 mt-6'>
-        ← Back to timeline
+        ← Back to posted
       </Link>
       <h1 className='font-medium mt-8'>Details: {frontMatter.title}</h1>
       <div className='mt-4 flex flex-row space-x-2'>
@@ -53,7 +53,7 @@ export default function PostPage({ source, frontMatter }) {
         </p>
       )}
       <hr className='border-zinc-300 dark:border-zinc-700' />
-      <main className='max-w-3xl mt-6 mb-6 flex flex-col prose'>
+      <main className='overflow-x-auto max-w-3xl mt-6 mb-6 flex flex-col prose'>
         <span className='rounded-md dark:text-white/75 opacity-75 mr-2'>
           Content
         </span>

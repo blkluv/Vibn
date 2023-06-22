@@ -37,11 +37,11 @@ export default function Index({ posts }) {
       </p>
 
       <Tab.Group>
-        <Tab.List className="my-8 flex flex-row space-x-2">
+        <Tab.List className="sticky top-0 py-2 z-[114514] bg-white dark:bg-zinc-950 my-8 flex flex-row space-x-2">
           <Tab selected
             className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:bg-zinc-800"
           >
-            Timeline
+            Posted
           </Tab>
           <Tab
             className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:bg-zinc-800"
@@ -54,12 +54,16 @@ export default function Index({ posts }) {
             Contact</Tab>
         </Tab.List>
         <Tab.Panels>
-          <Tab.Panel>
+          <Tab.Panel id="timeline">
             {posts.map((post) => (
               <div
                 key={post.filePath}
-                className="cursor-pointer border-l-4 dark:border-l-zinc-700 px-4 py-2"
+                className="flex flex-col space-y-4 md:space-y-0 sm:space-y-0 md:flex-row sm:flex-row space-x-0 md:space-x-4 sm:space-x-4 cursor-pointer px-2 py-2"
               >
+                <img
+                  src={post.data.coverImg}
+                  className="rounded-md justify-center align-middle inline-center w-full md:w-1/5 sm:w-1/6 h-2/3"
+                />
                 <Link
                   as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
                   href={`/posts/[slug]`}
@@ -86,7 +90,99 @@ export default function Index({ posts }) {
               </div>
             ))}
           </Tab.Panel>
-          <Tab.Panel>WIP...</Tab.Panel>
+          <Tab.Panel>
+
+            <h1 className='mt-8 ml-2 font-medium'>The Design Guideline</h1>
+
+            <p className='opacity-75 mt-8 px-2'>
+              Good design must be reliable, responsible, user-friendly. With limited animations, good userinterface and better user experience.
+              Here is the stage I view my idea about design and find inspirations to build, for what? A better Web.
+            </p>
+
+            <p className='mt-6 px-2 opacity-75'>
+              It is well-known that website design must be simple, reachable and followed "User First". The following I'll show how these things
+              working on my website.
+            </p>
+
+            <div className='flex flex-col md:flex-row sm:flex-row space-x-0 md:space-x-4 sm:space-x-4 justify-between'>
+
+              <div>
+
+                <h1 className='mt-8 ml-2 font-medium'>Colors</h1>
+
+                <div className='mt-6 flex flex-row space-x-4 overflow-x-auto'>
+                  <div className='flex flex-col justify-center bg-white border rounded-full w-24 h-24'>
+                    <p className='text-black text-center opacity-75'>White #fff</p>
+                  </div>
+
+                  <div className='flex flex-col justify-center bg-zinc-200 border rounded-full w-24 h-24'>
+                    <p className='text-black text-center opacity-75'>Zinc rgb(228 228 231)</p>
+                  </div>
+
+                  <div className='flex flex-col justify-center bg-zinc-300 border rounded-full w-24 h-24'>
+                    <p className='text-black text-center opacity-75'>Zinc rgb(212 212 216)</p>
+                  </div>
+                </div>
+
+                <div className='mt-6 flex flex-row space-x-4 overflow-x-auto'>
+                  <div className='flex flex-col justify-center bg-zinc-700 border rounded-full w-24 h-24'>
+                    <p className='text-white text-center opacity-75'>Zinc rgb(63 63 70)</p>
+                  </div>
+
+                  <div className='flex flex-col justify-center bg-zinc-800 border rounded-full w-24 h-24'>
+                    <p className='text-white text-center opacity-75'>Zinc rgb(39 39 42)</p>
+                  </div>
+
+                  <div className='flex flex-col justify-center bg-black border rounded-full w-24 h-24'>
+                    <p className='text-white text-center opacity-75'>Black #000</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <div>
+
+                <h1 className='mt-8 ml-2 font-medium'>Typography</h1>
+
+                <h1 className='opacity-75 mt-6 px-2'>ABCDEFGHIJKLMNOPQRSTUVWXYZ</h1>
+
+                <p className='opacity-75 mt-4 px-2'>abcdefghijklmnopqrstuvwxyz</p>
+
+                <p className='opacity-75 mt-4 px-2'>0123456789</p>
+
+                <p className='opacity-75 mt-4 px-2'>The quick brown fox jumps over a lazy dog</p>
+
+              </div>
+
+            </div>
+
+            <h1 className='mt-8 ml-2 font-medium'>Colophon</h1>
+
+            <p className='opacity-75 px-2 flex flex-row space-x-2 mt-6'>
+              <span className='opacity-75'>Font</span>
+              <span>Syne Variable</span>
+            </p>
+
+            <p className='opacity-75 px-2 flex flex-row space-x-2 mt-4'>
+              <span className='opacity-75'>Framework</span>
+              <span>Next.js by Vercel</span>
+            </p>
+
+            <p className='opacity-75 px-2 flex flex-row space-x-2 mt-4'>
+              <span className='opacity-75'>Styles</span>
+              <span>TailwindCSS</span>
+            </p>
+
+            <p className='opacity-75 px-2 flex flex-row space-x-2 mt-4'>
+              <span className='opacity-75'>Deployed on</span>
+              <span>Vercel</span>
+            </p>
+
+            <br />
+
+            <a className="opacity-75 font-medium px-2 mt-8" href="https://github.com/Cloudflare233/www">All the best parts are open-sourced →</a>
+
+          </Tab.Panel>
           <Tab.Panel>WIP...</Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
