@@ -83,7 +83,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply text-base text-black dark:text-white font-normal my-6 opacity-75;
+  @apply text-base text-black dark:text-white/75 font-normal my-6 opacity-75;
 }
 
 .center {
