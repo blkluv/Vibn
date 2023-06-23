@@ -30,23 +30,23 @@ export default function Index({ posts }) {
       </p>
 
       <p className='ml-1 mt-4 opacity-75'>
-        Currently working on building <a href="https://github.com/Cloudflare233/ikermusic">IKER Music</a>. You can react me through <a href="mailto:Cloudflare233@yandex.com">E-mail</a>.
+        Currently working on building <a href="https://github.com/Cloudflare233/ikermusic">IKER Music</a>. You can contact me through <a href="mailto:Cloudflare233@yandex.com">E-mail</a>.
       </p>
 
       <Tab.Group>
-        <Tab.List className="sticky top-0 py-2 border-b dark:border-b-zinc-800 z-[114514] bg-white dark:bg-zinc-950 my-8 flex flex-row space-x-2">
+        <Tab.List className="sticky top-0 py-2.5 z-[114514] bg-white dark:bg-zinc-950 my-8 flex flex-row space-x-2">
           <Tab selected
-            className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:bg-zinc-800"
+            className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:ui-selected:bg-zinc-800"
           >
             Posted
           </Tab>
           <Tab
-            className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:bg-zinc-800"
+            className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:ui-selected:bg-zinc-800"
           >
             Design Guideline
           </Tab>
           <Tab
-            className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:bg-zinc-800"
+            className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:ui-selected:bg-zinc-800"
           >
             Works</Tab>
         </Tab.List>
