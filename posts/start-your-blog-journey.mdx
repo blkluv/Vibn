@@ -1,0 +1,339 @@
+---
+title: "Start a MDX blog"
+desc: "This short article will guide you how to start a blog just in minutes with Next.js, TailwindCSS and Mdx. With wonderful userinterface (minimalism) and more..."
+date: "2023-06-23"
+tag: "Design"
+coverImg: "/static/njs+mdx.jpg"
+---
+
+[Vercel](https://vercel.com) [provided a lot of examples in this repository](https://github.com/vercel/next.js), in this article, I'll use the `with-mdx-remote` template. You can get it from the repository mentioned above.
+
+# 01.Install Tools
+
+To preview and edit posts locally, we need to install [Node.js](https://nodejs.org) and [Git](https://git-scm.com/) first.
+We'll use Node.js to start our Next.Js project and use Git to push our posts to the GitHub repository.
+
+# 02.Create Next.Js Project
+
+Open your bash and type the codes below:
+
+```bash
+yarn create next-app --example with-mdx-remote with-mdx-remote-app
+```
+
+After the installation process done, you can open the `with-mdx-remote-app` to view this project. You can `rename` it if you like. Then we should edit the file below!
+
+`/utils/mdxUtils.js`
+
+```
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
+import rehypePrism from '@mapbox/rehype-prism';
+import remarkGfm from 'remark-gfm';
+
+// POSTS_PATH is useful when you want to get the path to a specific file
+export const POSTS_PATH = path.join(process.cwd(), 'posts');
+
+// postFilePaths is the list of all mdx files inside the POSTS_PATH directory
+export const postFilePaths = fs
+  .readdirSync(POSTS_PATH)
+  // Only include md(x) files
+  .filter((path) => /\.mdx?$/.test(path));
+
+export const sortPostsByDate = (posts) => {
+  return posts.sort((a, b) => {
+    const aDate = new Date(a.data.date);
+    const bDate = new Date(b.data.date);
+    return bDate - aDate;
+  });
+};
+
+export const getPosts = () => {
+  let posts = postFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
+    const { content, data } = matter(source);
+
+    return {
+      content,
+      data,
+      filePath,
+    };
+  });
+
+  posts = sortPostsByDate(posts);
+
+  return posts;
+};
+
+export const getPostBySlug = async (slug) => {
+  const postFilePath = path.join(POSTS_PATH, `${slug}.mdx`);
+  const source = fs.readFileSync(postFilePath);
+
+  const { content, data } = matter(source);
+
+  const mdxSource = await serialize(content, {
+    // Optionally pass remark/rehype plugins
+    mdxOptions: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypePrism],
+    },
+    scope: data,
+  });
+
+  return { mdxSource, data, postFilePath };
+};
+
+export const getNextPostBySlug = (slug) => {
+  const posts = getPosts();
+  const currentFileName = `${slug}.mdx`;
+  const currentPost = posts.find((post) => post.filePath === currentFileName);
+  const currentPostIndex = posts.indexOf(currentPost);
+
+  const post = posts[currentPostIndex - 1];
+  // no prev post found
+  if (!post) return null;
+
+  const nextPostSlug = post?.filePath.replace(/\.mdx?$/, '');
+
+  return {
+    title: post.data.title,
+    slug: nextPostSlug,
+  };
+};
+
+export const getPreviousPostBySlug = (slug) => {
+  const posts = getPosts();
+  const currentFileName = `${slug}.mdx`;
+  const currentPost = posts.find((post) => post.filePath === currentFileName);
+  const currentPostIndex = posts.indexOf(currentPost);
+
+  const post = posts[currentPostIndex + 1];
+  // no prev post found
+  if (!post) return null;
+
+  const previousPostSlug = post?.filePath.replace(/\.mdx?$/, '');
+
+  return {
+    title: post.data.title,
+    slug: previousPostSlug,
+  };
+};
+```
+
+`/pages/index.js`
+
+```
+import Link from 'next/link'
+import { getPosts } from '../utils/mdxUtils';
+import moment from 'moment/moment'
+
+function cn(...classes) {
+  return classes.filter(Boolean).join(' ');
+}
+
+export default function Index({ posts }) {
+  return (
+    <>
+      <h1
+        className='ml-2 mt-8 text-4xl sm:text-5xl font-semibold'
+      >
+       My Cool Blog
+      </h1>
+            {posts.map((post) => (
+              <div
+                key={post.filePath}
+                className="flex flex-col space-y-4 md:space-y-0 sm:space-y-0 md:flex-row sm:flex-row space-x-0 md:space-x-4 sm:space-x-4 cursor-pointer px-2 py-2"
+              >
+                <img
+                  src={post.data.coverImg}
+                  className="rounded-md justify-center align-middle inline-center w-full md:w-1/5 sm:w-1/6 h-2/3"
+                />
+                <Link
+                  as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
+                  href={`/posts/[slug]`}
+                  legacyBehavior
+                >
+                  <div>
+                    <span className="hover:rounded-md hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all duration-300 px-1 py-1 opacity-100 font-medium">{post.data.title} →</span>
+                    {post.data.desc && (
+                      <p className="mt-3 opacity-60">
+                        {post.data.desc}
+                      </p>
+                    )}
+                    <div className='mt-4 flex flex-row space-x-2'>
+                      <div className='opacity-75 bg-zinc-200 dark:bg-zinc-800 rounded-md px-1'>{post.data.tag}</div>
+                      {post.data.date && (
+                        <p className='opacity-75 bg-zinc-200 dark:bg-zinc-800 rounded-md px-1'>
+                          {moment(post.data.date).format('MMMM DD, YYYY')}
+                        </p>
+                      )}
+                    </div>
+                    <hr className='my-4 border-zinc-200 dark:border-zinc-800' />
+                  </div>
+                </Link>
+              </div>
+            ))}
+    </>
+  )
+}
+
+export function getStaticProps() {
+  const posts = getPosts();
+
+  return { props: { posts } };
+}
+```
+
+`/posts/[slug].js`
+
+```
+import { MDXRemote } from 'next-mdx-remote'
+import dynamic from 'next/dynamic'
+import Head from 'next/head'
+import Link from 'next/link'
+import Layout from '../../components/Layout'
+import {
+  getNextPostBySlug,
+  getPostBySlug,
+  getPreviousPostBySlug,
+  postFilePaths,
+} from '../../utils/mdxUtils';
+import moment from 'moment'
+
+// Custom components/renderers to pass to MDX.
+// Since the MDX files aren't loaded by webpack, they have no knowledge of how
+// to handle import statements. Instead, you must include components in scope
+// here.
+const components = {
+  // It also works with dynamically-imported components, which is especially
+  // useful for conditionally loading components for certain routes.
+  // See the notes in README.md for more details.
+  TestComponent: dynamic(() => import('../../components/TestComponent')),
+  Head,
+}
+
+export default function PostPage({ source, frontMatter, prevPost, nextPost }) {
+  return (
+    <Layout
+      title={`${frontMatter.title} · Posted`}
+    >
+      <br />
+      <br />
+
+      <Link href="/" className='opacity-75 py-1 mt-6'>
+        ← Back to "Home"
+      </Link>
+      <h1 className='font-medium mt-8'>Details: {frontMatter.title}</h1>
+      <div className='mt-4 flex flex-row space-x-2'>
+        <div className='opacity-75 bg-zinc-200 dark:bg-zinc-800 rounded-md px-1'>{frontMatter.tag}</div>
+        {frontMatter.date && (
+          <p className='opacity-75 bg-zinc-200 dark:bg-zinc-800 rounded-md px-1'>
+            {moment(frontMatter.date).format('MMMM DD, YYYY')}
+          </p>
+        )}
+      </div>
+
+      {frontMatter.desc && (
+        <p className="mt-6 mb-5 opacity-75">
+          <span className='dark:text-white rounded-md opacity-75 mr-2'>
+            Desc
+          </span>
+          <span className='mt-2'>{frontMatter.desc}</span>
+        </p>
+      )}
+      <hr className='border-zinc-200 dark:border-zinc-800' />
+      <main className='overflow-x-auto max-w-3xl mt-6 mb-6 flex flex-col prose'>
+        <span className='rounded-md dark:text-white/75 opacity-75 mr-2'>
+          Content
+        </span>
+        <MDXRemote {...source} components={components} />
+        {frontMatter.img && (
+          <>
+            <span className='dark:text-white/75 rounded-md opacity-75 mr-2'>
+              Related Photo
+            </span>
+            <img src={frontMatter.img} className='mt-4 rounded-md' />
+          </>
+        )}
+      </main>
+      <hr className='mt-8 border-zinc-200 dark:border-zinc-800' />
+      <footer className='mt-6'>
+        <div className='flex flex-row justify-between'>
+          <div>
+            {prevPost && (
+              <div className='flex flex-col opacity-75'>
+                <span className='px-1.5 text-sm opacity-75'>
+                  Previous
+                </span>
+                <Link className="no-underline" href={`/posts/${prevPost.slug}`}>
+                  ← {prevPost.title}
+                </Link>
+              </div>
+            )}
+          </div>
+          <div>
+            {nextPost && (
+              <div className='flex flex-col opacity-75'>
+                <span className='px-1.5 text-sm opacity-75'>
+                  Next
+                </span>
+                <Link className="no-underline" href={`/posts/${nextPost.slug}`}>
+                  {nextPost.title} →
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
+      </footer>
+
+    </>
+  )
+}
+
+export const getStaticProps = async ({ params }) => {
+  const { mdxSource, data } = await getPostBySlug(params.slug);
+  const prevPost = getPreviousPostBySlug(params.slug);
+  const nextPost = getNextPostBySlug(params.slug);
+
+  return {
+    props: {
+      source: mdxSource,
+      frontMatter: data,
+      prevPost,
+      nextPost,
+    },
+  };
+};
+
+export const getStaticPaths = async () => {
+  const paths = postFilePaths
+    // Remove file extensions for page paths
+    .map((path) => path.replace(/\.mdx?$/, ''))
+    // Map the path into the static paths object required by Next.js
+    .map((slug) => ({ params: { slug } }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+```
+
+# 03. Start the Server & Preview
+
+Go to your bash and type:
+
+```
+yarn dev #npm run dev
+```
+
+Then open `http://localhost:3000`, you'll see your awesome blog if there is no mistake.
+
+Edit `/posts/xxx.mdx` to write an article. This process is auto-generated.
+
+---
+
+1. As you can notice, I used TailwindCSS to style the whole blog.
+2. I'll upload a blog starter on GitHub in a few days.

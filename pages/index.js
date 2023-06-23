@@ -1,9 +1,6 @@
-import fs from 'fs'
-import matter from 'gray-matter'
 import Link from 'next/link'
-import path from 'path'
 import Layout from '../components/Layout'
-import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils'
+import { getPosts } from '../utils/mdxUtils';
 import moment from 'moment/moment'
 import { Tab } from '@headlessui/react'
 
@@ -33,11 +30,11 @@ export default function Index({ posts }) {
       </p>
 
       <p className='ml-1 mt-4 opacity-75'>
-        Currently working on building <a href="https://github.com/Cloudflare233/ikermusic">IKER Music</a>.
+        Currently working on building <a href="https://github.com/Cloudflare233/ikermusic">IKER Music</a>. You can react me through <a href="mailto:Cloudflare233@yandex.com">E-mail</a>.
       </p>
 
       <Tab.Group>
-        <Tab.List className="sticky top-0 py-2 z-[114514] bg-white dark:bg-zinc-950 my-8 flex flex-row space-x-2">
+        <Tab.List className="sticky top-0 py-2 border-b dark:border-b-zinc-800 z-[114514] bg-white dark:bg-zinc-950 my-8 flex flex-row space-x-2">
           <Tab selected
             className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:bg-zinc-800"
           >
@@ -51,10 +48,10 @@ export default function Index({ posts }) {
           <Tab
             className="ui-not-selected:opacity-75 ui-selected:opacity-100 px-2 rounded-md ui-selected:bg-zinc-200 dark:bg-zinc-800"
           >
-            Contact</Tab>
+            Works</Tab>
         </Tab.List>
-        <Tab.Panels>
-          <Tab.Panel id="timeline">
+        <Tab.Panels className="focus:outline-none">
+          <Tab.Panel>
             {posts.map((post) => (
               <div
                 key={post.filePath}
@@ -84,7 +81,7 @@ export default function Index({ posts }) {
                         </p>
                       )}
                     </div>
-                    <hr className='my-4 border-zinc-300 dark:border-zinc-700' />
+                    <hr className='my-4 border-zinc-200 dark:border-zinc-800' />
                   </div>
                 </Link>
               </div>
@@ -193,16 +190,7 @@ export default function Index({ posts }) {
 }
 
 export function getStaticProps() {
-  const posts = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath))
-    const { content, data } = matter(source)
+  const posts = getPosts();
 
-    return {
-      content,
-      data,
-      filePath,
-    }
-  })
-
-  return { props: { posts } }
+  return { props: { posts } };
 }

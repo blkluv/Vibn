@@ -1,14 +1,14 @@
-import fs from 'fs'
-import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Link from 'next/link'
-import path from 'path'
-import CustomLink from '../../components/CustomLink'
 import Layout from '../../components/Layout'
-import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
+import {
+  getNextPostBySlug,
+  getPostBySlug,
+  getPreviousPostBySlug,
+  postFilePaths,
+} from '../../utils/mdxUtils';
 import moment from 'moment'
 
 // Custom components/renderers to pass to MDX.
@@ -23,16 +23,16 @@ const components = {
   Head,
 }
 
-export default function PostPage({ source, frontMatter }) {
+export default function PostPage({ source, frontMatter, prevPost, nextPost }) {
   return (
     <Layout
-      title={`${frontMatter.title} · Timeline`}
+      title={`${frontMatter.title} · Posted`}
     >
       <br />
       <br />
 
-      <Link href="/#timeline" className='opacity-75 py-1 mt-6'>
-        ← Back to posted
+      <Link href="/" className='opacity-75 py-1 mt-6'>
+        ← Back to "Home"
       </Link>
       <h1 className='font-medium mt-8'>Details: {frontMatter.title}</h1>
       <div className='mt-4 flex flex-row space-x-2'>
@@ -52,7 +52,7 @@ export default function PostPage({ source, frontMatter }) {
           <span className='mt-2'>{frontMatter.desc}</span>
         </p>
       )}
-      <hr className='border-zinc-300 dark:border-zinc-700' />
+      <hr className='border-zinc-200 dark:border-zinc-800' />
       <main className='overflow-x-auto max-w-3xl mt-6 mb-6 flex flex-col prose'>
         <span className='rounded-md dark:text-white/75 opacity-75 mr-2'>
           Content
@@ -66,45 +66,66 @@ export default function PostPage({ source, frontMatter }) {
             <img src={frontMatter.img} className='mt-4 rounded-md' />
           </>
         )}
-
       </main>
+      <hr className='mt-8 border-zinc-200 dark:border-zinc-800' />
+      <footer className='mt-6'>
+        <div className='flex flex-row justify-between'>
+          <div>
+            {prevPost && (
+              <div className='flex flex-col opacity-75'>
+                <span className='px-1.5 text-sm opacity-75'>
+                  Previous
+                </span>
+                <Link className="no-underline" href={`/posts/${prevPost.slug}`}>
+                  ← {prevPost.title}
+                </Link>
+              </div>
+            )}
+          </div>
+          <div>
+            {nextPost && (
+              <div className='flex flex-col opacity-75'>
+                <span className='px-1.5 text-sm opacity-75'>
+                  Next
+                </span>
+                <Link className="no-underline" href={`/posts/${nextPost.slug}`}>
+                  {nextPost.title} →
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
+      </footer>
 
     </Layout >
   )
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`)
-  const source = fs.readFileSync(postFilePath)
-
-  const { content, data } = matter(source)
-
-  const mdxSource = await serialize(content, {
-    // Optionally pass remark/rehype plugins
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
-    scope: data,
-  })
+  const { mdxSource, data } = await getPostBySlug(params.slug);
+  const prevPost = getPreviousPostBySlug(params.slug);
+  const nextPost = getNextPostBySlug(params.slug);
 
   return {
     props: {
       source: mdxSource,
       frontMatter: data,
+      prevPost,
+      nextPost,
     },
-  }
-}
+  };
+};
 
 export const getStaticPaths = async () => {
   const paths = postFilePaths
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js
-    .map((slug) => ({ params: { slug } }))
+    .map((slug) => ({ params: { slug } }));
 
   return {
     paths,
     fallback: false,
-  }
-}
+  };
+};
+
