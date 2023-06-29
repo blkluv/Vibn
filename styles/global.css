@@ -16,7 +16,7 @@
   @apply rounded-lg;
 }
 
-@media (hover:hover) {
+@media (hover: hover) {
   ::-webkit-scrollbar-thumb:hover {
     --scrollbar-color: #868686;
   }
@@ -32,7 +32,7 @@
 
 ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-corner {
-  display: none
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -44,7 +44,7 @@
 }
 
 body {
-  font-family: 'Syne Variable', sans-serif;
+  font-family: 'Inter Variable', sans-serif;
   -webkit-font-smoothing: antialiased;
   @apply bg-white dark:bg-zinc-950;
 }
@@ -55,53 +55,33 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Syne Variable', sans-serif;
+  font-family: 'Inter Variable', sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-a {
-  @apply underline decoration-zinc-500 hover:no-underline hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all duration-300 rounded-md px-0.5 py-0.5;
-}
 
 .prose img {
   margin: 0 auto;
   @apply opacity-100 my-4;
 }
 
-.prose a {
-  @apply overflow-x-auto dark:text-white/75 text-black/75 font-normal underline decoration-zinc-500 hover:no-underline hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all duration-300 rounded-md px-0.5 py-0.5;
+.prose a{
+  @apply decoration-2 decoration-zinc-300 dark:decoration-zinc-700;
 }
 
-.prose p {
-  @apply text-black/75 font-normal dark:text-white/75;
+.prose code {
+  @apply opacity-75 bg-zinc-100 dark:bg-zinc-800 dark:text-white rounded-md px-1 py-1;
 }
 
-.prose code{
-  @apply opacity-75 bg-zinc-200 dark:bg-zinc-800 dark:text-white rounded-md px-1 py-1;
+.prose pre {
+  @apply opacity-75 text-black bg-zinc-100 dark:bg-zinc-800 dark:text-white rounded-md;
 }
 
-.prose pre{
-  @apply opacity-75 text-black bg-zinc-200 dark:bg-zinc-800 dark:text-white rounded-md;
-}
-
-.prose 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply text-base text-black dark:text-white/75 font-normal opacity-75;
-}
-
-.prose hr{
+.prose hr {
   @apply border-zinc-200 dark:border-zinc-800;
 }
 
-.prose li{
-  @apply text-black/60 dark:text-white/60;
-}
 
 .center {
   margin: 0 auto;
