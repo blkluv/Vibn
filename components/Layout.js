@@ -13,7 +13,7 @@ export default function Layout({ title, children }) {
   const { theme, setTheme } = useTheme();
   const router = useRouter();
   return (
-    <div className="selection:bg-zinc-200 dark:selection:bg-zinc-800">
+    <div className="selection:bg-zinc-200 dark:selection:bg-zinc-800 scroll-smooth">
       <Head>
         <title>{title}</title>
       </Head>
@@ -37,25 +37,32 @@ export default function Layout({ title, children }) {
           ))}
         </div>
         <div className="flex flex-row space-x-4">
-          <button
-            alt="sitemap"
-            className="opacity-75 hover:opacity-100 transition-all duration-300 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:bg-zinc-800 dark:hover:bg-zinc-800 focus:ring-zinc-300 rounded-md p-1 hover:bg-zinc-100 focus:bg-zinc-100"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              className="w-[1.1rem] h-[1.1rem] main-grid-item-icon"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+          <Link href="/sitemap">
+            <button
+              alt="sitemap"
+              className={cn(
+                "transition-all duration-300 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:bg-zinc-800 dark:hover:bg-zinc-800 focus:ring-zinc-300 rounded-md p-1 hover:bg-zinc-100 focus:bg-zinc-100",
+                router.asPath == "/sitemap"
+                  ? "opacity-100 ring-4 ring-zinc-300 dark:ring-zinc-700 bg-zinc-100 dark:bg-zinc-900"
+                  : "opacity-75 hover:opacity-100 "
+              )}
             >
-              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
-              <line x1="8" x2="8" y1="2" y2="18" />
-              <line x1="16" x2="16" y1="6" y2="22" />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                className="w-[1.1rem] h-[1.1rem] main-grid-item-icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              >
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
+                <line x1="8" x2="8" y1="2" y2="18" />
+                <line x1="16" x2="16" y1="6" y2="22" />
+              </svg>
+            </button>
+          </Link>
           <button
             alt="toogle theme"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}

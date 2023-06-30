@@ -40,8 +40,12 @@
   @apply bg-[#868686] rounded-lg;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Inter Variable','SimHei', sans-serif;
+  font-family: "Inter Variable", "SimHei", sans-serif;
   -webkit-font-smoothing: antialiased;
   @apply bg-white dark:bg-zinc-950;
 }
@@ -52,18 +56,17 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Inter Variable', sans-serif;
+  font-family: "Inter Variable", "SimHei", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
 }
-
 
 .prose img {
   margin: 0 auto;
   @apply opacity-100 my-4;
 }
 
-.prose a{
+.prose a {
   @apply decoration-2 decoration-zinc-300 dark:decoration-zinc-700 overflow-x-auto max-w-[100%];
 }
 
@@ -78,7 +81,6 @@ h6 {
 .prose hr {
   @apply border-zinc-200 dark:border-zinc-800;
 }
-
 
 .center {
   margin: 0 auto;

@@ -15,7 +15,7 @@ export default function MyApp({ Component, pageProps }) {
     if (!showChild) {
         return (
             <div>
-                loading...
+                Fetching File...
             </div>
         )
     }

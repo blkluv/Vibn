@@ -41,7 +41,10 @@ export default function PostPage({ source, frontMatter, prevPost, nextPost }) {
           <div>
             {prevPost && (
               <div className="cursor-pointer rounded-md transition-all duration-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:px-4 py-2 opacity-75">
-                <Link className="no-underline flex flex-col " href={`/posts/${prevPost.slug}`}>
+                <Link
+                  className="no-underline flex flex-col "
+                  href={`/posts/${prevPost.slug}`}
+                >
                   <span className="px-1.5 text-sm opacity-75">Previous</span>
                   <span>← {prevPost.title}</span>
                 </Link>
@@ -49,9 +52,12 @@ export default function PostPage({ source, frontMatter, prevPost, nextPost }) {
             )}
           </div>
           <div>
-          {nextPost && (
+            {nextPost && (
               <div className="cursor-pointer rounded-md transition-all duration-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:px-4 py-2 opacity-75">
-                <Link className="no-underline flex flex-col " href={`/posts/${nextPost.slug}`}>
+                <Link
+                  className="no-underline flex flex-col "
+                  href={`/posts/${nextPost.slug}`}
+                >
                   <span className="text-sm opacity-75">Next</span>
                   <span>{nextPost.title} →</span>
                 </Link>
