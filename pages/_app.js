@@ -20,7 +20,7 @@ export default function MyApp({ Component, pageProps }) {
         )
     }
     return (
-        <ThemeProvider attribute='class'>
+        <ThemeProvider attribute='class' defaultTheme='light'>
             <Component {...pageProps} />
         </ThemeProvider>
     )

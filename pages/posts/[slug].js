@@ -1,15 +1,15 @@
-import { MDXRemote } from 'next-mdx-remote'
-import dynamic from 'next/dynamic'
-import Head from 'next/head'
-import Link from 'next/link'
-import Layout from '../../components/Layout'
+import { MDXRemote } from "next-mdx-remote";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import Link from "next/link";
+import Layout from "../../components/Layout";
 import {
   getNextPostBySlug,
   getPostBySlug,
   getPreviousPostBySlug,
   postFilePaths,
-} from '../../utils/mdxUtils';
-import moment from 'moment'
+} from "../../utils/mdxUtils";
+import moment from "moment";
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -19,86 +19,49 @@ const components = {
   // It also works with dynamically-imported components, which is especially
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
-  TestComponent: dynamic(() => import('../../components/TestComponent')),
+  TestComponent: dynamic(() => import("../../components/TestComponent")),
   Head,
-}
+};
 
 export default function PostPage({ source, frontMatter, prevPost, nextPost }) {
   return (
-    <Layout
-      title={`${frontMatter.title} · Posted`}
-    >
-      <br />
-      <br />
+    <Layout title={`${frontMatter.title} · Writing`}>
+      <h2 className="mb-0">{frontMatter.title}</h2>
+      <time className="-mt-4 opacity-75 text-sm">
+        {moment(frontMatter.date).format("MMMM DD, YYYY")} (
+        {moment(frontMatter.date).fromNow("")})
+      </time>
 
-      <Link href="/" className='opacity-75 py-1 mt-6'>
-        ← Back to "Home"
-      </Link>
-      <h1 className='font-medium mt-8'>Details: {frontMatter.title}</h1>
-      <div className='mt-4 flex flex-row space-x-2'>
-        <div className='opacity-75 bg-zinc-200 dark:bg-zinc-800 rounded-md px-1'>{frontMatter.tag}</div>
-        {frontMatter.date && (
-          <p className='opacity-75 bg-zinc-200 dark:bg-zinc-800 rounded-md px-1'>
-            {moment(frontMatter.date).format('MMMM DD, YYYY')}
-          </p>
-        )}
-      </div>
-
-      {frontMatter.desc && (
-        <p className="mt-6 mb-5 opacity-75">
-          <span className='dark:text-white rounded-md opacity-75 mr-2'>
-            Desc
-          </span>
-          <span className='mt-2'>{frontMatter.desc}</span>
-        </p>
-      )}
-      <hr className='border-zinc-200 dark:border-zinc-800' />
-      <main className='overflow-x-auto max-w-3xl mt-6 mb-6 flex flex-col prose'>
-        <span className='rounded-md dark:text-white/75 opacity-75 mr-2'>
-          Content
-        </span>
+      <main className="mt-2">
         <MDXRemote {...source} components={components} />
-        {frontMatter.img && (
-          <>
-            <span className='dark:text-white/75 rounded-md opacity-75 mr-2'>
-              Related Photo
-            </span>
-            <img src={frontMatter.img} className='mt-4 rounded-md' />
-          </>
-        )}
       </main>
-      <hr className='mt-8 border-zinc-200 dark:border-zinc-800' />
-      <footer className='mt-6'>
-        <div className='flex flex-row justify-between'>
+      <hr className="mt-8 border-zinc-200 dark:border-zinc-800" />
+      <footer className="mt-6">
+        <div className="flex flex-row justify-between">
           <div>
             {prevPost && (
-              <div className='flex flex-col opacity-75'>
-                <span className='px-1.5 text-sm opacity-75'>
-                  Previous
-                </span>
-                <Link className="no-underline" href={`/posts/${prevPost.slug}`}>
-                  ← {prevPost.title}
+              <div className="cursor-pointer rounded-md transition-all duration-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:px-4 py-2 opacity-75">
+                <Link className="no-underline flex flex-col " href={`/posts/${prevPost.slug}`}>
+                  <span className="px-1.5 text-sm opacity-75">Previous</span>
+                  <span>← {prevPost.title}</span>
                 </Link>
               </div>
             )}
           </div>
           <div>
-            {nextPost && (
-              <div className='flex flex-col opacity-75'>
-                <span className='px-1.5 text-sm opacity-75'>
-                  Next
-                </span>
-                <Link className="no-underline" href={`/posts/${nextPost.slug}`}>
-                  {nextPost.title} →
+          {nextPost && (
+              <div className="cursor-pointer rounded-md transition-all duration-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:px-4 py-2 opacity-75">
+                <Link className="no-underline flex flex-col " href={`/posts/${nextPost.slug}`}>
+                  <span className="text-sm opacity-75">Next</span>
+                  <span>{nextPost.title} →</span>
                 </Link>
               </div>
             )}
           </div>
         </div>
       </footer>
-
-    </Layout >
-  )
+    </Layout>
+  );
 }
 
 export const getStaticProps = async ({ params }) => {
@@ -119,7 +82,7 @@ export const getStaticProps = async ({ params }) => {
 export const getStaticPaths = async () => {
   const paths = postFilePaths
     // Remove file extensions for page paths
-    .map((path) => path.replace(/\.mdx?$/, ''))
+    .map((path) => path.replace(/\.mdx?$/, ""))
     // Map the path into the static paths object required by Next.js
     .map((slug) => ({ params: { slug } }));
 
@@ -128,4 +91,3 @@ export const getStaticPaths = async () => {
     fallback: false,
   };
 };
-

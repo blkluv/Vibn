@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
 ::-webkit-scrollbar {
   width: 16px;
@@ -39,12 +40,8 @@
   @apply bg-[#868686] rounded-lg;
 }
 
-::selection {
-  @apply bg-zinc-300;
-}
-
 body {
-  font-family: 'Inter Variable', sans-serif;
+  font-family: 'Inter Variable','SimHei', sans-serif;
   -webkit-font-smoothing: antialiased;
   @apply bg-white dark:bg-zinc-950;
 }
@@ -67,15 +64,15 @@ h6 {
 }
 
 .prose a{
-  @apply decoration-2 decoration-zinc-300 dark:decoration-zinc-700;
+  @apply decoration-2 decoration-zinc-300 dark:decoration-zinc-700 overflow-x-auto max-w-[100%];
 }
 
 .prose code {
-  @apply opacity-75 bg-zinc-100 dark:bg-zinc-800 dark:text-white rounded-md px-1 py-1;
+  @apply opacity-75 bg-zinc-100 dark:bg-zinc-900 dark:text-white rounded-md px-1 py-1;
 }
 
 .prose pre {
-  @apply opacity-75 text-black bg-zinc-100 dark:bg-zinc-800 dark:text-white rounded-md;
+  @apply opacity-75 text-black bg-zinc-100 dark:bg-zinc-900 dark:text-white rounded-md;
 }
 
 .prose hr {
