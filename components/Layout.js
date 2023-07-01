@@ -112,7 +112,7 @@ export default function Layout({ title, children }) {
         </div>
       </div>
 
-      <main className="max-w-[45rem] px-6 mx-auto mt-8 mb-16 prose dark:prose-invert">
+      <main className="max-w-[45rem] px-6 mx-auto mt-8 mb-16 prose prose-zinc dark:prose-invert">
         <main>{children}</main>
       </main>
     </div>
