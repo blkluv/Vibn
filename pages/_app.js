@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import '../styles/global.css'
 
-import '@fontsource-variable/inter';
+import '@fontsource/aileron/400.css';
+import '@fontsource/aileron/600.css';
+import '@fontsource/aileron/400-italic.css';
+import '@fontsource/aileron/600-italic.css';
 
 import { ThemeProvider } from 'next-themes';
 

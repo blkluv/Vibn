@@ -45,7 +45,7 @@
 }
 
 body {
-  font-family: "Inter Variable", "SimHei", sans-serif;
+  font-family: 'Aileron', "SimHei", sans-serif;
   -webkit-font-smoothing: antialiased;
   @apply bg-white dark:bg-zinc-950;
 }
@@ -56,14 +56,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Inter Variable", "SimHei", sans-serif;
+  font-family: 'Aileron', "SimHei", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
 }
 
 .prose img {
   margin: 0 auto;
-  @apply opacity-100 my-4;
+  @apply rounded-md opacity-100 my-4;
+}
+
+.prose p{
+  @apply text-zinc-950 dark:text-zinc-200;
 }
 
 .prose a {

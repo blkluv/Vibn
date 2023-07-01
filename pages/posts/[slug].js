@@ -27,7 +27,7 @@ export default function PostPage({ source, frontMatter, prevPost, nextPost }) {
   return (
     <Layout title={`${frontMatter.title} · Writing`}>
       <h2 className="mb-0">{frontMatter.title}</h2>
-      <time className="-mt-4 opacity-75">
+      <time className="-mt-4 text-sm opacity-75">
         {moment(frontMatter.date).format("MMMM DD, YYYY")} (
         {moment(frontMatter.date).fromNow("")})
       </time>

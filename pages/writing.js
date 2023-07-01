@@ -16,7 +16,7 @@ export default function getPost({ posts }) {
             href={`/posts/[slug]`}
             className="no-underline"
           >
-            <button className="flex flex-col rounded-md transition-all duration-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:px-4 py-2">
+            <button className="flex flex-col rounded-md transition-all duration-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:px-6 py-2">
               <h5 className="">{post.data.title}</h5>
               <time className="-mt-1 opacity-75">
                 {moment(post.data.date).format("MMMM DD, YYYY")} ({moment(post.data.date).fromNow('')})

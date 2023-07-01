@@ -285,10 +285,20 @@
   resolved "https://registry.npmmirror.com/@fontsource-variable/inter/-/inter-5.0.3.tgz#60df2496572ca2d5e783b6f8904472f093041eb5"
   integrity sha512-AIE1Lm2/cNkCD4oAJ3JVY54tGhlUS7NnAiqGmE045v+7XHqmUhSYjhQNUgnBGcenth4bN75l+KIeTDbcGc7Emw==
 
+"@fontsource-variable/karla@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.npmmirror.com/@fontsource-variable/karla/-/karla-5.0.4.tgz#a50c8ac89c7a8723f25494aa287c10901b8d2175"
+  integrity sha512-nLAIFNNy7T2diykqkOAnZyue8REUS2IcFP4gxLnlYhsFtzpCky7ZNbUdHEaM8+LGO2KBE/LxPbWeJw4Q+adF3w==
+
 "@fontsource-variable/rubik@^5.0.4":
   version "5.0.4"
   resolved "https://registry.npmmirror.com/@fontsource-variable/rubik/-/rubik-5.0.4.tgz#2d8354a1b0af749eb221bb45fbbef53d525404ce"
   integrity sha512-Wy0TxKsOCtb6n3RXdNR41qpBZrGo9avLrzpz+FXiP9dNjrDiAV27624OORhvXFzQp3+BTCnP9miWAwdlVKoP2A==
+
+"@fontsource/aileron@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.npmmirror.com/@fontsource/aileron/-/aileron-5.0.3.tgz#f17dc9d0310e50df620bff3c72c61224a0c6b4f6"
+  integrity sha512-j9+WGHS+6fMTkr+DduxcVBaObjYRKsmqZxtE0utT4QzwPjoXIQvAA7UhNpixGZxMlsSVfMzgf/Bq0lG1JYkymA==
 
 "@guanghechen/fast-deep-equal@^2.2.3":
   version "2.2.3"

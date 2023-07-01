@@ -12,8 +12,11 @@ function cn(...classes) {
 export default function Layout({ title, children }) {
   const { theme, setTheme } = useTheme();
   const router = useRouter();
+  if (router.asPath.includes("/posts/")) {
+    router.asPath = "/writing";
+  }
   return (
-    <div className="selection:bg-zinc-200 dark:selection:bg-zinc-800 scroll-smooth">
+    <div className="selection:bg-zinc-200 dark:selection:bg-zinc-800 scroll-smooth tracking-wide">
       <Head>
         <title>{title}</title>
       </Head>
