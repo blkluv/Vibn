@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../styles/global.css'
 
-import '@fontsource/aileron/400.css';
-import '@fontsource/aileron/600.css';
-import '@fontsource/aileron/400-italic.css';
-import '@fontsource/aileron/600-italic.css';
+import '@fontsource-variable/inter'
 
 import { ThemeProvider } from 'next-themes';
 
@@ -15,11 +12,7 @@ export default function MyApp({ Component, pageProps }) {
     }, [])
 
     if (!showChild) {
-        return (
-            <div>
-                Fetching File...
-            </div>
-        )
+        return null
     }
     return (
         <ThemeProvider attribute='class' defaultTheme='light'>

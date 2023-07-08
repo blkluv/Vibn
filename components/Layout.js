@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import nav from "@/lib/nav.config";
+import { motion } from "framer-motion";
 
 function cn(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -44,7 +45,7 @@ export default function Layout({ title, children }) {
             <button
               alt="sitemap"
               className={cn(
-                "transition-all duration-300 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:bg-zinc-800 dark:hover:bg-zinc-800 focus:ring-zinc-300 rounded-md p-1 hover:bg-zinc-100 focus:bg-zinc-100",
+                "transition-all duration-300 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:bg-zinc-800 dark:hover:bg-zinc-800 focus:ring-zinc-300 rounded-lg p-1 hover:bg-zinc-100 focus:bg-zinc-100",
                 router.asPath == "/sitemap"
                   ? "opacity-100 ring-4 ring-zinc-300 dark:ring-zinc-700 bg-zinc-100 dark:bg-zinc-900"
                   : "opacity-75 hover:opacity-100 "
@@ -115,9 +116,14 @@ export default function Layout({ title, children }) {
         </div>
       </div>
 
-      <main className="max-w-[45rem] px-6 mx-auto mt-8 mb-16 prose prose-zinc dark:prose-invert">
+      <motion.div
+        initial={{ opacity: 0, y: -5}}
+        animate={{ opacity: 1, y: 0 }}
+        className="max-w-[45rem] px-6 mx-auto mt-8 mb-16 prose prose-zinc
+        dark:prose-invert"
+      >
         <main>{children}</main>
-      </main>
+      </motion.div>
     </div>
   );
 }
