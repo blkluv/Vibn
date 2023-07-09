@@ -25,14 +25,18 @@ const components = {
 
 export default function PostPage({ source, frontMatter, prevPost, nextPost }) {
   return (
-    <Layout title={`${frontMatter.title} · Writing`}>
-      <h2 className="mb-0">{frontMatter.title}</h2>
-      <time className="-mt-4 text-sm opacity-75">
+    <Layout title={`${frontMatter.title} · Blog · Geng Yue`}
+    subtitle={frontMatter.title}>
+      <h1 className="font-medium text-3xl md:text-5xl sm:text-7xl my-24">
+        {frontMatter.title}
+      </h1>
+
+      <time className="text-base md:text-lg sm:text-xl opacity-80">
         {moment(frontMatter.date).format("MMMM DD, YYYY")} (
         {moment(frontMatter.date).fromNow("")})
       </time>
 
-      <main className="mt-2">
+      <main className="mt-16 prose md:prose-xl sm:prose-2xl text-justify prose-zinc dark:prose-invert">
         <MDXRemote {...source} components={components} />
       </main>
       <hr className="mt-8 border-zinc-200 dark:border-zinc-800" />
@@ -45,8 +49,8 @@ export default function PostPage({ source, frontMatter, prevPost, nextPost }) {
                   className="no-underline flex flex-col "
                   href={`/posts/${prevPost.slug}`}
                 >
-                  <span className="px-1.5 text-sm opacity-75">Previous</span>
-                  <span>← {prevPost.title}</span>
+                  <span className="px-1.5 text-base md:text-lg sm:text-xl opacity-80">Previous</span>
+                  <span className="text-lg md:text-xl sm:text-2xl">← {prevPost.title}</span>
                 </Link>
               </div>
             )}
@@ -58,8 +62,8 @@ export default function PostPage({ source, frontMatter, prevPost, nextPost }) {
                   className="no-underline flex flex-col "
                   href={`/posts/${nextPost.slug}`}
                 >
-                  <span className="text-sm opacity-75">Next</span>
-                  <span>{nextPost.title} →</span>
+                  <span className="px-1.5 text-base md:text-lg sm:text-xl opacity-80">Next</span>
+                  <span className="text-lg md:text-xl sm:text-2xl">{nextPost.title} →</span>
                 </Link>
               </div>
             )}

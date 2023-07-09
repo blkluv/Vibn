@@ -79,7 +79,7 @@
 body {
   font-family: "Sohne", "SimHei", sans-serif;
   -webkit-font-smoothing: antialiased;
-  @apply bg-white dark:bg-black;
+  @apply bg-white dark:bg-black text-black dark:text-white;
 }
 
 h1,
@@ -97,4 +97,8 @@ h6 {
 .center {
   margin: 0 auto;
   margin-top: 1.5rem;
+}
+
+.prose pre,code{
+  @apply bg-zinc-50 dark:bg-zinc-950 text-black dark:text-white;
 }
