@@ -15,7 +15,7 @@ export default function MyApp({ Component, pageProps }) {
         return null
     }
     return (
-        <ThemeProvider attribute='class' defaultTheme='light'>
+        <ThemeProvider attribute='class' defaultTheme='dark'>
             <Component {...pageProps} />
         </ThemeProvider>
     )

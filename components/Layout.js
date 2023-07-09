@@ -10,120 +10,64 @@ function cn(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Layout({ title, children }) {
+export default function Layout({ title, subtitle, children }) {
   const { theme, setTheme } = useTheme();
+  const buildTime = process.env.BUILD_TIME;
   const router = useRouter();
   if (router.asPath.includes("/posts/")) {
     router.asPath = "/writing";
   }
   return (
-    <div className="selection:bg-zinc-200 dark:selection:bg-zinc-800 scroll-smooth tracking-wide">
+    <div className="text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black scroll-smooth">
       <Head>
         <title>{title}</title>
       </Head>
 
-      <div className="max-w-[45rem] px-6 mx-auto flex flex-row justify-between mt-16">
-        <div className="flex flex-row space-x-4">
-          {nav.map((nav) => (
-            <button className="">
-              <Link
-                href={nav.href}
-                className={cn(
-                  "",
-                  router.asPath === nav.href
-                    ? "font-semibold opacity-100 border-b-2 border-b-zinc-300 dark:border-b-zinc-700"
-                    : "opacity-75"
-                )}
-              >
-                {nav.title}
-              </Link>
-            </button>
-          ))}
+      <div className="flex flex-col px-4 md:px-8 sm:px-12 py-4">
+        <h1>Geng Yue</h1>
+        <div className="mt-4 z-50 sticky top-0 flex flex-row justify-between">
+          <h1>{subtitle}</h1>
+          <div className="flex flex-row space-x-6">
+            <button>Now</button>
+            <button>Menu</button>
+          </div>
         </div>
-        <div className="flex flex-row space-x-4">
-          <Link href="/sitemap">
-            <button
-              alt="sitemap"
-              className={cn(
-                "transition-all duration-300 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:bg-zinc-800 dark:hover:bg-zinc-800 focus:ring-zinc-300 rounded-lg p-1 hover:bg-zinc-100 focus:bg-zinc-100",
-                router.asPath == "/sitemap"
-                  ? "opacity-100 ring-4 ring-zinc-300 dark:ring-zinc-700 bg-zinc-100 dark:bg-zinc-900"
-                  : "opacity-75 hover:opacity-100 "
-              )}
-            >
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: -5 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 300 }}
+      >
+        <main className="px-4 md:px-8 sm:px-12 py-8">{children}</main>
+      </motion.div>
+
+      <footer className="px-4 md:px-8 sm:px-12 py-4">
+        <div className="flex flex-col md:flex-row sm:flex-row justify-between">
+          <div className="flex space-x-1.5 order-1 md:order-2 sm:order-2">
+            <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                className="w-[1.1rem] h-[1.1rem] main-grid-item-icon"
+                width="20"
+                height="20"
+                class="main-grid-item-icon"
                 fill="none"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
               >
-                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
-                <line x1="8" x2="8" y1="2" y2="18" />
-                <line x1="16" x2="16" y1="6" y2="22" />
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
               </svg>
-            </button>
-          </Link>
-          <button
-            alt="toogle theme"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="opacity-75 hover:opacity-100 transition-all duration-300 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:bg-zinc-800 dark:hover:bg-zinc-800 focus:ring-zinc-300 rounded-md p-1 hover:bg-zinc-100 focus:bg-zinc-100"
-          >
-            {theme === "light" && (
-              <div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  class="w-[1.1rem] h-[1.1rem] main-grid-item-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                >
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-              </div>
-            )}
-            {theme === "dark" && (
-              <div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  class="w-[1.1rem] h-[1.1rem] main-grid-item-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="5" />
-                  <line x1="12" x2="12" y1="1" y2="3" />
-                  <line x1="12" x2="12" y1="21" y2="23" />
-                  <line x1="4.22" x2="5.64" y1="4.22" y2="5.64" />
-                  <line x1="18.36" x2="19.78" y1="18.36" y2="19.78" />
-                  <line x1="1" x2="3" y1="12" y2="12" />
-                  <line x1="21" x2="23" y1="12" y2="12" />
-                  <line x1="4.22" x2="5.64" y1="19.78" y2="18.36" />
-                  <line x1="18.36" x2="19.78" y1="5.64" y2="4.22" />
-                </svg>
-              </div>
-            )}
-          </button>
+            </div>
+            <span>Site last built {buildTime}</span>
+          </div>
+          <div className="order-2 md:order-1 sm:order-1">
+            <p>Copyright © 2023 All rights reserved.</p>
+          </div>
         </div>
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: -5}}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-[45rem] px-6 mx-auto mt-8 mb-16 prose prose-zinc
-        dark:prose-invert"
-      >
-        <main>{children}</main>
-      </motion.div>
+      </footer>
     </div>
   );
 }

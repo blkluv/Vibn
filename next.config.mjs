@@ -1,7 +1,7 @@
-import nextMDX from '@next/mdx'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import remarkGfm from 'remark-gfm'
-import remarkSlug from 'remark-slug'
+import nextMDX from "@next/mdx";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import remarkGfm from "remark-gfm";
+import remarkSlug from "remark-slug";
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
@@ -18,7 +18,10 @@ const withMDX = nextMDX({
       ],
     ],
   },
-})
+});
 export default withMDX({
-  pageExtensions: ['js', 'jsx', 'md', 'mdx']
-})
+  env: {
+    BUILD_TIME: process.env.BUILD_TIME,
+  },
+  pageExtensions: ["js", "jsx", "md", "mdx"],
+});

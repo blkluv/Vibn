@@ -79,7 +79,7 @@
 body {
   font-family: "Sohne", "SimHei", sans-serif;
   -webkit-font-smoothing: antialiased;
-  @apply bg-white dark:bg-zinc-950;
+  @apply bg-white dark:bg-black;
 }
 
 h1,
@@ -88,39 +88,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Inter Variable", "SimHei", sans-serif;
+  font-family: "Sohne", "SimHei", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
 }
 
-.prose img {
-  margin: 0 auto;
-  @apply rounded-md opacity-100 my-4;
-}
-
-.prose p {
-  @apply text-zinc-700 dark:text-zinc-300;
-}
-
-.prose strong{
-  font-family: 'Inter Variable', sans-serif;
-}
-
-.prose a {
-  @apply decoration-2 decoration-zinc-300 dark:decoration-zinc-700 overflow-x-auto max-w-[100%];
-}
-
-.prose code {
-  @apply opacity-75 bg-zinc-100 dark:bg-zinc-900 dark:text-white rounded-md px-1 py-1;
-}
-
-.prose pre {
-  @apply opacity-75 text-black bg-zinc-100 dark:bg-zinc-900 dark:text-white rounded-md;
-}
-
-.prose hr {
-  @apply border-zinc-200 dark:border-zinc-800;
-}
 
 .center {
   margin: 0 auto;
