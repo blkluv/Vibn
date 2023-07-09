@@ -61,7 +61,7 @@ export default function Layout({ title, subtitle, children }) {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.5 }}
         className={cn(
-          "fixed top-0 right-0 w-full md:w-1/3 sm:w-1/4  bg-white dark:bg-black z-50 border-l h-full py-14",
+          "fixed top-0 right-0 w-full md:w-1/3 sm:w-1/4  bg-white dark:bg-black z-50 h-full py-14",
           open === false ? "hidden" : "block"
         )}
       >
