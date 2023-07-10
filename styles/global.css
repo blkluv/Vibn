@@ -102,3 +102,7 @@ h6 {
 .prose pre,code{
   @apply bg-zinc-50 dark:bg-zinc-950 text-black dark:text-white;
 }
+
+hr{
+  @apply my-16  border-black dark:border-white;
+}
