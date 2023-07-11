@@ -1,7 +1,11 @@
 {
-  "build": {
-    "env": {
-      "BUILD_TIME": "$NOW"
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@vercel/node"
     }
+  ],
+  "env": {
+    "BUILD_TIME": "$VERCEL_GIT_COMMIT_DATE"
   }
 }
