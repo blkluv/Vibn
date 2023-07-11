@@ -11,7 +11,7 @@ function cn(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Layout({ title, desc, children }) {
+export default function Layout({ title, desc, children, deploymentTime }) {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -101,7 +101,7 @@ export default function Layout({ title, desc, children }) {
                   <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
                 </svg>
               </div>
-              <span>Site last built {buildTime.toLocaleString()}</span>
+              <span>Site last built {deploymentTime}</span>
             </div>
             <div className="order-2 md:order-1 sm:order-1">
               <p>Copyright © 2023 All rights reserved.</p>
@@ -111,4 +111,13 @@ export default function Layout({ title, desc, children }) {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const deploymentTime = process.env.VERCEL_GIT_COMMIT_TIME;
+  return {
+    props: {
+      deploymentTime,
+    },
+  };
 }
