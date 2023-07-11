@@ -44,6 +44,7 @@
     "remark-parse": "^10.0.2",
     "remark-slug": "^7.0.1",
     "remark-toc": "^8.0.1",
-    "tailwindcss": "latest"
+    "tailwindcss": "latest",
+    "vercel": "^31.0.2"
   }
 }
