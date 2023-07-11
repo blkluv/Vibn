@@ -19,7 +19,6 @@ export default function Layout({ title, desc, children }) {
     restDelta: 0.001,
   });
   const { theme, setTheme } = useTheme();
-  const buildTime = process.env.BUILD_TIME;
   const router = useRouter();
   if (router.asPath.includes("/posts/")) {
     router.asPath = "/writing";
@@ -101,7 +100,7 @@ export default function Layout({ title, desc, children }) {
                   <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
                 </svg>
               </div>
-              <span>Site last built {moment(buildTime)}</span>
+              <span>Site last built July 11, 2023</span>
             </div>
             <div className="order-2 md:order-1 sm:order-1">
               <p>Copyright © 2023 All rights reserved.</p>
