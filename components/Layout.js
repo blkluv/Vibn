@@ -11,7 +11,7 @@ function cn(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Layout({ title, desc, children, deploymentTime }) {
+export default function Layout({ title, desc, children }) {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -111,13 +111,4 @@ export default function Layout({ title, desc, children, deploymentTime }) {
       </div>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const deploymentTime = process.env.VERCEL_GIT_COMMIT_TIME;
-  return {
-    props: {
-      deploymentTime,
-    },
-  };
 }
