@@ -7589,6 +7589,17 @@ rehype-prism@^2.2.2:
     unist-util-select "^4.0.2"
     unist-util-visit "^4.1.1"
 
+remark-autolink-headings@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.npmmirror.com/remark-autolink-headings/-/remark-autolink-headings-7.0.1.tgz#1d8528ea8783b828200d13c055ec2d5f2cae5060"
+  integrity sha512-a1BIwoJ0cSnX+sPp5u3AFULBFWHGYBt57Fo4a+7IlGiJOQxs8b7uYAE5Iu26Ocl7Y5cvinZy3FaGVruLCKg6vA==
+  dependencies:
+    "@types/hast" "^2.0.0"
+    "@types/mdast" "^3.0.0"
+    extend "^3.0.0"
+    unified "^10.0.0"
+    unist-util-visit "^4.0.0"
+
 remark-frontmatter@4.0.1:
   version "4.0.1"
   resolved "https://registry.npmmirror.com/remark-frontmatter/-/remark-frontmatter-4.0.1.tgz#84560f7ccef114ef076d3d3735be6d69f8922309"

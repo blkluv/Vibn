@@ -41,7 +41,7 @@ export default function Layout({ title, desc, children }) {
           <div className="flex flex-row justify-between md:justify-normal sm:justify-normal space-x-12 sm:space-x-16 ">
             <div className="flex flex-col">
               <Link href="/">
-                <h1 className="font-semibold">Geng Yue</h1>
+                <h1 className="font-medium">Geng Yue</h1>
               </Link>
               <p>self-taught developer</p>
             </div>

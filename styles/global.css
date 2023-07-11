@@ -13,7 +13,7 @@
 
 @font-face {
   font-family: "Sohne";
-  src: url("/fonts/Sohne-Buch.otf") format("opentype");
+  src: url("/fonts/test-soehne-halbfett.woff2") format("woff2");
   font-style: normal;
   font-display: hidden;
   font-weight: 600;
@@ -106,6 +106,22 @@ a{
 .center {
   margin: 0 auto;
   margin-top: 1.5rem;
+}
+
+img{
+  @apply rounded-sm;
+}
+
+.prose{
+  @apply text-black dark:text-white ml-0 md:ml-0 sm:ml-64;
+}
+
+.prose blockquote{
+  @apply relative md:relative sm:absolute opacity-75 text-sm not-italic max-w-3xl md:max-w-3xl sm:max-w-lg border-none right-0 md:right-0 sm:right-16;
+}
+
+.prose img{
+  @apply max-w-none;
 }
 
 .prose pre,code{
