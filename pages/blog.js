@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function getPost({ posts }) {
   return (
-    <Layout title="Blog · Geng Yue " subtitle="Blog">
+    <Layout title="Blog · Geng Yue ">
       <h1 className="font-medium text-3xl md:text-5xl sm:text-7xl mt-24 md:mt-36 sm:mt-48 mb-24">
         Blog about everything
         <br />

@@ -6,6 +6,6 @@
     }
   ],
   "env": {
-    "BUILD_TIME": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    "BUILD_TIME": "$NOW"
   }
 }
