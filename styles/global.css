@@ -121,11 +121,11 @@ img{
 }
 
 .prose img{
-  @apply max-w-none;
+  @apply max-w-none overflow-x-auto;
 }
 
 .prose pre,code{
-  @apply bg-zinc-50 dark:bg-zinc-950 text-black dark:text-white;
+  @apply bg-zinc-50 dark:bg-zinc-950 text-black dark:text-white overflow-x-auto;
 }
 
 hr{
