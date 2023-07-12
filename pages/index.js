@@ -16,7 +16,7 @@ export default function Home({ posts }) {
     );
   return (
     <Layout title="所有文章">
-      <h1 className="font-semibold text-3xl mb-8">{">"} 所有文章</h1>
+      <h1 className="font-semibold text-3xl px-4 md:px-0 sm:px-0 mb-8">{">"} 所有文章</h1>
 
       {filteredBlogPosts.map((post) => {
         const [isHover, setIsHover] = useState(false);
