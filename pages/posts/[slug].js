@@ -35,33 +35,33 @@ export default function PostPage({
   nextPost,
 }) {
   return (
-    <Layout
-      title={`${frontMatter.title} · Blog · Geng Yue`}
-      desc={frontMatter.title}
-    >
-      <h1 className="hidden md:block sm:block font-medium ml-0 md:ml-0 sm:ml-64">
-        {frontMatter.title}
+    <Layout title={`${frontMatter.title}`} desc={frontMatter.title}>
+      <Link href="/" className="mb-8 hover:bg-zinc-100 dark:hover:bg-zinc-950 rounded-xl px-2 py-1">
+        {'<'} 回到主页
+      </Link>
+
+      <h1 className="px-4 md:px-0 sm:px-0 mt-8 font-semibold text-3xl">
+        {">"} {frontMatter.title}
       </h1>
 
-      <time className="text-sm opacity-75 ml-0 md:ml-0 sm:ml-64">
-        {moment(frontMatter.date).format("MMMM DD, YYYY")} (
-        {moment(frontMatter.date).fromNow("")})
+      <time className="px-4 md:px-0 sm:px-0 text-sm opacity-75">
+        {moment(frontMatter.date).format("最初发表于YYYY年MM月DD日")}
       </time>
 
-      <main className="mt-16 font-normal prose dark:prose-invert">
+      <main className="mt-8 px-4 md:px-0 sm:px-0 font-normal prose dark:prose-invert">
         <MDXRemote {...source} components={components} />
       </main>
-      <hr />
-      <footer className="mt-6 max-w-2xl ml-0 md:ml-0 sm:ml-64">
-        <div className="flex flex-row justify-between">
+
+      <footer className="mt-12 px-4 md:px-0 sm:px-0">
+        <div className="flex flex-col md:flex-row sm:flex-row space-y-4 md:space-y-0 sm:space-y-0 justify-between">
           <div>
             {prevPost && (
-              <div className="cursor-pointer rounded-md transition-all duration-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:px-4 py-2 opacity-75">
+              <div className="cursor-pointer">
                 <Link
                   className="no-underline flex flex-col "
                   href={`/posts/${prevPost.slug}`}
                 >
-                  <span className="px-1.5 text-sm opacity-75">Previous</span>
+                  <span className="px-1.5 text-sm opacity-75">上一篇</span>
                   <span className="">← {prevPost.title}</span>
                 </Link>
               </div>
@@ -69,12 +69,12 @@ export default function PostPage({
           </div>
           <div>
             {nextPost && (
-              <div className="cursor-pointer rounded-md transition-all duration-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:px-4 py-2 opacity-75">
+              <div className="cursor-pointer">
                 <Link
                   className="no-underline flex flex-col "
                   href={`/posts/${nextPost.slug}`}
                 >
-                  <span className="px-1.5 text-sm opacity-75">Next</span>
+                  <span className="px-1.5 text-sm opacity-75">下一篇</span>
                   <span className="">{nextPost.title} →</span>
                 </Link>
               </div>

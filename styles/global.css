@@ -4,35 +4,19 @@
 @tailwind variants;
 
 @font-face {
-  font-family: "Sohne";
-  src: url("/fonts/Sohne-Buch.otf") format("opentype");
+  font-family: "HT";
+  src: url("/fonts/ZiTiQuanWeiJunHei-W1-2.woff2") format("woff2");
   font-style: normal;
   font-display: hidden;
-  font-weight: 400;
+  font-weight: 400 500 600;
 }
 
 @font-face {
-  font-family: "Sohne";
-  src: url("/fonts/test-soehne-halbfett.woff2") format("woff2");
+  font-family: "HT-T";
+  src: url("/fonts/ChaoDouZhaPingJingDianHei-Shan(DouFont-JingdianGBT-Flash)-2.woff2") format("woff2");
   font-style: normal;
   font-display: hidden;
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Sohne";
-  src: url("/fonts/Sohne-BuchKursiv.otf") format("opentype");
-  font-style: italic;
-  font-display: hidden;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Sohne";
-  src: url("/fonts/Sohne-BuchKursiv.otf") format("opentype");
-  font-style: italic;
-  font-display: hidden;
-  font-weight: 600;
+  font-weight: 500 600;
 }
 
 ::-webkit-scrollbar {
@@ -80,7 +64,7 @@
 }
 
 body {
-  font-family: "Sohne",  sans-serif;
+  font-family: "HT",  sans-serif;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "hist" 1, "smcp" 1;
   @apply bg-white dark:bg-black text-black dark:text-white;
@@ -92,14 +76,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Sohne", sans-serif;
+  font-family: "HT-T", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   font-feature-settings: "hist" 1, "smcp" 1;
-}
-
-a{
-  @apply underline;
 }
 
 
@@ -113,11 +93,11 @@ img{
 }
 
 .prose{
-  @apply text-black dark:text-white ml-0 md:ml-0 sm:ml-64;
+  @apply text-black dark:text-white max-w-3xl;
 }
 
 .prose blockquote{
-  @apply relative md:relative sm:absolute opacity-75 text-sm not-italic max-w-3xl md:max-w-3xl sm:max-w-lg border-none right-0 md:right-0 sm:right-16;
+  @apply relative md:relative sm:absolute p-0 opacity-75 text-sm not-italic max-w-sm border-none right-0 md:ring-0 sm:right-4;
 }
 
 .prose img{
