@@ -73,7 +73,7 @@ export default function Layout({ title, desc, children }) {
                   ></path>
                 </svg>
               </button>
-              <Link href="https://github.com/Cloudflare233" className="mt-1">
+              <Link href="https://github.com/Cloudflare233" className="mt-0.5 md:mt-1 sm:mt-1">
                 <svg
                   width="15"
                   height="15"
@@ -89,7 +89,7 @@ export default function Layout({ title, desc, children }) {
                   ></path>
                 </svg>
               </Link>
-              <Link href="mailto:Cloudflare233@yandex.com" className="mt-1">
+              <Link href="mailto:Cloudflare233@yandex.com" className="mt-0.5 md:mt-1 sm:mt-1">
                 <svg
                   width="15"
                   height="15"
