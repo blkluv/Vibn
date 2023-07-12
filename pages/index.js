@@ -15,7 +15,7 @@ export default function Home({ posts }) {
       post.data.title.toLowerCase().includes(searchValue.toLowerCase())
     );
   return (
-    <Layout title="耿越">
+    <Layout title="所有文章">
       <h1 className="font-semibold text-3xl mb-8">{">"} 所有文章</h1>
 
       {filteredBlogPosts.map((post) => {

@@ -44,8 +44,8 @@ export default function Layout({ title, desc, children }) {
         </main>
 
         <footer className="bg-white/75 dark:bg-black/75 backdrop-blur-lg fixed bottom-0 w-full">
-          <div className="max-w-3xl mx-auto font-semibold flex flex-row px-6 py-3 justify-between">
-            <div className="flex flex-row space-x-6">
+          <div className="max-w-3xl mx-auto font-medium flex flex-row px-6 md:px-4 sm:px-4 py-2.5 justify-between">
+            <div className="flex flex-row space-x-4 text-sm opacity-75">
               {nav.map((nav) => (
                 <>
                   <Link href={nav.href}>

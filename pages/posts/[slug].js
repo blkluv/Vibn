@@ -36,7 +36,7 @@ export default function PostPage({
 }) {
   return (
     <Layout title={`${frontMatter.title}`} desc={frontMatter.title}>
-      <Link href="/" className="mb-8 hover:bg-zinc-100 dark:hover:bg-zinc-950 rounded-xl px-2 py-1">
+      <Link href="/" className="mb-8 hover:bg-zinc-100 dark:hover:bg-zinc-950 rounded-xl px-2 py-2">
         {'<'} 回到主页
       </Link>
 
