@@ -131,3 +131,8 @@ img{
 hr{
   @apply my-16  border-black dark:border-white;
 }
+
+
+html {
+  scroll-snap-type: y mandatory;
+}

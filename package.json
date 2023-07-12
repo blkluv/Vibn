@@ -46,6 +46,7 @@
     "remark-slug": "^7.0.1",
     "remark-toc": "^8.0.1",
     "tailwindcss": "latest",
+    "tinycolor2": "^1.6.0",
     "vercel": "^31.0.2"
   }
 }
