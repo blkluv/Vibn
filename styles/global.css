@@ -97,7 +97,7 @@ img{
 }
 
 .prose blockquote{
-  @apply relative md:relative sm:absolute p-0 opacity-75 text-sm not-italic max-w-sm border-none right-0 md:ring-0 sm:right-4;
+  @apply relative md:relative sm:absolute mt-0 md:-mt-0 sm:-mt-16 p-0 opacity-75 text-sm not-italic max-w-sm border-none right-0 md:ring-0 sm:right-4;
 }
 
 .prose img{
