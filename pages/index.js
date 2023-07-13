@@ -16,7 +16,9 @@ export default function Home({ posts }) {
     );
   return (
     <Layout title="所有文章">
-      <h1 className="font-semibold text-3xl px-4 md:px-0 sm:px-0 mb-8">{">"} 所有文章</h1>
+      <h1 className="font-semibold text-3xl px-4 md:px-0 sm:px-0 mb-8">
+        {">"} 所有文章
+      </h1>
 
       {filteredBlogPosts.map((post) => {
         const [isHover, setIsHover] = useState(false);
@@ -54,8 +56,16 @@ export default function Home({ posts }) {
                     )}
                   </h1>
 
-                  <p className="no-underline font-normal text-sm opacity-75">
-                    {moment(post.data.date).format("最初发表于YYYY年MM月DD日")}
+                  <p className="no-underline font-normal flex flex-col md:flex-row sm:flex-row text-sm opacity-75 mt-1">
+                    <span>
+                      {moment(post.data.date).format(
+                        "最初发表于YYYY年MM月DD日"
+                      )}
+                    </span>
+                    <span className="hidden md:block sm:block ml-0.5 mr-0.5"> · </span>
+                    <span className="opacity-75">
+                      {moment(post.data.update).format("更新于YYYY年MM月DD日")}
+                    </span>
                   </p>
                 </div>
                 <div className="w-1/4 flex flex-row justify-end align-middle mt-2.5"></div>

@@ -1,8 +1,8 @@
 export default function Image({ src, desc }) {
   return (
-    <div>
-      <img src={src} className="mr-0 md:mr-32 sm:mr-64" />
-      <p className="text-sm opacity-75 mt-2">{desc}</p>
+    <div className="overflow-x-auto">
+      <img src={src} className="rounded-xl w-full" />
+      <p className="text-sm opacity-75 -mt-6">↑ {desc}</p>
     </div>
   );
 }

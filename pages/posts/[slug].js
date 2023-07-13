@@ -36,17 +36,38 @@ export default function PostPage({
 }) {
   return (
     <Layout title={`${frontMatter.title}`} desc={frontMatter.title}>
-      <Link href="/" className="mb-8 hover:bg-zinc-100 dark:hover:bg-zinc-950 rounded-xl px-2 py-2">
-        {'<'} 回到主页
+      <Link
+        href="/"
+        className="text-sm mb-8 opacity-75 flex flex-row space-x-0.5 rounded-xl w-auto px-2 md:px-0 sm:px-0 py-2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+          class="main-grid-item-icon"
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        <span className="-mt-0.5">返回"所有文章“</span>
       </Link>
 
       <h1 className="px-4 md:px-0 sm:px-0 mt-8 font-semibold text-3xl">
         {">"} {frontMatter.title}
       </h1>
 
-      <time className="px-4 md:px-0 sm:px-0 text-sm opacity-75">
-        {moment(frontMatter.date).format("最初发表于YYYY年MM月DD日")}
-      </time>
+      <p className="no-underline font-normal flex flex-col md:flex-row sm:flex-row text-sm opacity-75 px-4 md:px-0 sm:px-0 mt-2">
+        <span>{moment(frontMatter.date).format("最初发表于YYYY年MM月DD日")}</span>
+        <span className="hidden md:block sm:block ml-0.5 mr-0.5"> · </span>
+        <span className="opacity-75">
+          {moment(frontMatter.update).format("更新于YYYY年MM月DD日")}
+        </span>
+      </p>
 
       <main className="mt-8 px-4 md:px-0 sm:px-0 font-normal prose dark:prose-invert">
         <MDXRemote {...source} components={components} />
