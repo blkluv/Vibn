@@ -3,6 +3,7 @@ import { getPosts } from "../utils/mdxUtils";
 import moment from "moment/moment";
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Home({ posts }) {
   const [searchValue, setSearchValue] = useState("");
@@ -23,21 +24,22 @@ export default function Home({ posts }) {
       {filteredBlogPosts.map((post) => {
         const [isHover, setIsHover] = useState(false);
         return (
-          <div key={post.filePath} className="">
+          <motion.div key={post.filePath} className="">
             <Link
               as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
               href={`/posts/[slug]`}
             >
-              <button
+              <motion.button
+                animate={{ opacity: isHover === true ? 0.75 : 1 }}
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
-                className="flex flex-row justify-between w-full hover:bg-zinc-100 dark:hover:bg-zinc-950 rounded-xl px-4 md:px-6 sm:px-6 py-4"
+                className="flex flex-row justify-between w-full px-4 md:px-6 sm:px-6 py-4"
               >
                 <div className="w-full text-left flex flex-col">
-                  <h1 className="font-medium text-lg md:text-xl sm:text-xl flex flex-row">
+                  <h1 className="font-medium text-xl md:text-xl sm:text-xl flex flex-row">
                     {post.data.title}{" "}
                     {isHover === true && (
-                      <>
+                      <motion.div initial={{ x: -5 }} animate={{ x: 0 }}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -52,7 +54,7 @@ export default function Home({ posts }) {
                         >
                           <polyline points="9 18 15 12 9 6" />
                         </svg>
-                      </>
+                      </motion.div>
                     )}
                   </h1>
 
@@ -62,16 +64,19 @@ export default function Home({ posts }) {
                         "最初发表于YYYY年MM月DD日"
                       )}
                     </span>
-                    <span className="hidden md:block sm:block ml-0.5 mr-0.5"> · </span>
+                    <span className="hidden md:block sm:block ml-0.5 mr-0.5">
+                      {" "}
+                      ·{" "}
+                    </span>
                     <span className="opacity-75">
                       {moment(post.data.update).format("更新于YYYY年MM月DD日")}
                     </span>
                   </p>
                 </div>
                 <div className="w-1/4 flex flex-row justify-end align-middle mt-2.5"></div>
-              </button>
+              </motion.button>
             </Link>
-          </div>
+          </motion.div>
         );
       })}
     </Layout>

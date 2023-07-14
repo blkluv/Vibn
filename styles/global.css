@@ -13,7 +13,7 @@
 
 @font-face {
   font-family: "HT-T";
-  src: url("/fonts/ChaoDouZhaPingJingDianHei-Shan(DouFont-JingdianGBT-Flash)-2.woff2") format("woff2");
+  src: url("/fonts/AaJueXingHei-70J-2.woff2") format("woff2");
   font-style: normal;
   font-display: hidden;
   font-weight: 500 600;
@@ -97,7 +97,7 @@ img{
 }
 
 .prose blockquote{
-  @apply relative md:relative sm:absolute mt-0 md:-mt-0 sm:-mt-16 p-0 opacity-75 text-sm not-italic max-w-sm border-none right-0 md:ring-0 sm:right-4;
+  @apply relative md:relative sm:absolute mt-0 md:-mt-0 sm:-mt-16 p-0 opacity-75 text-sm not-italic max-w-xs border-none right-0 md:ring-0 sm:right-4;
 }
 
 .prose img{
@@ -106,6 +106,10 @@ img{
 
 .prose pre,code{
   @apply bg-zinc-50 dark:bg-zinc-950 text-black dark:text-white overflow-x-auto;
+}
+
+.prose strong{
+  @apply font-semibold;
 }
 
 hr{
