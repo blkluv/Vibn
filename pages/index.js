@@ -17,7 +17,7 @@ export default function Home({ posts }) {
     );
   return (
     <Layout title="所有文章">
-      <h1 className="font-semibold text-3xl px-4 md:px-0 sm:px-0 mb-8">
+      <h1 className="font-semibold text-3xl px-4 md:px-4 sm:px-0 mb-8">
         {">"} 所有文章
       </h1>
 

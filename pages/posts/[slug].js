@@ -38,7 +38,7 @@ export default function PostPage({
     <Layout title={`${frontMatter.title}`} desc={frontMatter.title}>
       <Link
         href="/"
-        className="text-sm mb-8 opacity-75 flex flex-row space-x-0.5 rounded-xl w-auto px-2 md:px-0 sm:px-0 py-2"
+        className="text-sm mb-8 opacity-75 flex flex-row space-x-0.5 rounded-xl w-auto px-2 md:px-2 sm:px-0 py-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -54,14 +54,14 @@ export default function PostPage({
         >
           <polyline points="15 18 9 12 15 6" />
         </svg>
-        <span className="-mt-0.5">返回"所有文章“</span>
+        <span className="-mt-0.5">返回"所有文章"</span>
       </Link>
 
-      <h1 className="px-4 md:px-0 sm:px-0 mt-8 font-semibold text-3xl">
+      <h1 className="px-4 md:px-4 sm:px-0 mt-8 font-semibold text-3xl">
         {">"} {frontMatter.title}
       </h1>
 
-      <p className="no-underline font-normal flex flex-col md:flex-row sm:flex-row text-sm opacity-75 px-4 md:px-0 sm:px-0 mt-2">
+      <p className="no-underline font-normal flex flex-col md:flex-row sm:flex-row text-sm opacity-75 px-4 md:px-4 sm:px-0 mt-2">
         <span>{moment(frontMatter.date).format("最初发表于YYYY年MM月DD日")}</span>
         <span className="hidden md:block sm:block ml-0.5 mr-0.5"> · </span>
         <span className="opacity-75">
@@ -69,11 +69,11 @@ export default function PostPage({
         </span>
       </p>
 
-      <main className="mt-8 px-4 md:px-0 sm:px-0 font-normal prose dark:prose-invert">
+      <main className="mt-8 px-4 md:px-4 sm:px-0 font-normal prose dark:prose-invert">
         <MDXRemote {...source} components={components} />
       </main>
 
-      <footer className="mt-12 px-4 md:px-0 sm:px-0">
+      <footer className="mt-12 px-4 md:px-4 sm:px-0">
         <div className="flex flex-col md:flex-row sm:flex-row space-y-4 md:space-y-0 sm:space-y-0 justify-between">
           <div>
             {prevPost && (
