@@ -21,7 +21,7 @@ export default function Home({ posts }) {
         {">"} 所有文章
       </h1>
 
-      {filteredBlogPosts.map((post) => {
+      {filteredBlogPosts.map((post, index) => {
         const [isHover, setIsHover] = useState(false);
         return (
           <motion.div key={post.filePath} className="">
@@ -33,10 +33,11 @@ export default function Home({ posts }) {
                 animate={{ opacity: isHover === true ? 0.75 : 1 }}
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
-                className="flex flex-row justify-between w-full px-4 md:px-6 sm:px-6 py-4"
+                className="flex flex-row justify-between w-full px-4 md:px-4 sm:px-0 py-4"
               >
                 <div className="w-full text-left flex flex-col">
                   <h1 className="font-medium text-xl md:text-xl sm:text-xl flex flex-row">
+                    <span className="opacity-50 text-sm mt-1.5 font-mono">{posts.length - index}.</span>
                     {post.data.title}{" "}
                     {isHover === true && (
                       <motion.div initial={{ x: -5 }} animate={{ x: 0 }}>
@@ -73,7 +74,6 @@ export default function Home({ posts }) {
                     </span>
                   </p>
                 </div>
-                <div className="w-1/4 flex flex-row justify-end align-middle mt-2.5"></div>
               </motion.button>
             </Link>
           </motion.div>

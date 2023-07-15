@@ -5,6 +5,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import rehypePrism from "@mapbox/rehype-prism";
 import remarkGfm from "remark-gfm";
 import remarkAutolinkHeadings from "remark-autolink-headings";
+import readingTime from "reading-time";
 
 // POSTS_PATH is useful when you want to get the path to a specific file
 export const POSTS_PATH = path.join(process.cwd(), "posts");
@@ -24,15 +25,21 @@ export const sortPostsByDate = (posts) => {
 };
 
 export const getPosts = () => {
-  let posts = postFilePaths.map((filePath) => {
+  let posts = postFilePaths.map((filePath, index) => {
     const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
     const { content, data } = matter(source);
 
-    return {
+    // 添加编号和日期到文章数据中
+    const post = {
       content,
-      data,
+      data: {
+        ...data,
+        number: index + 1,
+      },
       filePath,
     };
+
+    return post;
   });
 
   posts = sortPostsByDate(posts);
@@ -45,6 +52,13 @@ export const getPostBySlug = async (slug) => {
   const source = fs.readFileSync(postFilePath);
 
   const { content, data } = matter(source);
+
+  // 使用中文模式计算阅读时间和文字数
+  const readTime = readingTime(content, { chinese: true });
+
+  // 将阅读时间和文字数添加到data对象中
+  data.readTime = readTime.time;
+  data.wordCount = readTime.words;
 
   const mdxSource = await serialize(content, {
     // Optionally pass remark/rehype plugins

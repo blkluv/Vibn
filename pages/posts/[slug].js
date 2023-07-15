@@ -1,5 +1,4 @@
 import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
@@ -11,9 +10,6 @@ import {
   postFilePaths,
 } from "../../utils/mdxUtils";
 import moment from "moment";
-import rehypePrism from "@mapbox/rehype-prism";
-import remarkGfm from "remark-gfm";
-import remarkAutolinkHeadings from "remark-autolink-headings";
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -29,7 +25,8 @@ const components = {
 
 export default function PostPage({
   source,
-  headings,
+  wordCount,
+  readingTime,
   frontMatter,
   prevPost,
   nextPost,
@@ -61,12 +58,21 @@ export default function PostPage({
         {">"} {frontMatter.title}
       </h1>
 
-      <p className="no-underline font-normal flex flex-col md:flex-row sm:flex-row text-sm opacity-75 px-4 md:px-4 sm:px-0 mt-2">
-        <span>{moment(frontMatter.date).format("最初发表于YYYY年MM月DD日")}</span>
-        <span className="hidden md:block sm:block ml-0.5 mr-0.5"> · </span>
-        <span className="opacity-75">
-          {moment(frontMatter.update).format("更新于YYYY年MM月DD日")}
-        </span>
+      <p className="flex flex-row justify-between no-underline font-normal text-sm opacity-75 px-4 md:px-4 sm:px-0 mt-2">
+        <div className="flex flex-col md:flex-row sm:flex-row">
+          <span>
+            {moment(frontMatter.date).format("最初发表于YYYY年MM月DD日")}
+          </span>
+          <span className="hidden md:block sm:block ml-0.5 mr-0.5"> · </span>
+          <span className="opacity-75">
+            {moment(frontMatter.update).format("更新于YYYY年MM月DD日")}
+          </span>
+        </div>
+        <div className="flex flex-col md:flex-row sm:flex-row text-right">
+          <span>总计{wordCount}字</span>
+          <span className="hidden md:block sm:block ml-0.5 mr-0.5"> · </span>
+          <span>大约需要{moment(readingTime).format('m')}分钟阅读</span>
+        </div>
       </p>
 
       <main className="mt-8 px-4 md:px-4 sm:px-0 font-normal prose dark:prose-invert">
@@ -108,7 +114,10 @@ export default function PostPage({
 }
 
 export const getStaticProps = async ({ params }) => {
-  const { mdxSource, data } = await getPostBySlug(params.slug);
+  const { mdxSource, data, postFilePath } = await getPostBySlug(params.slug); // 使用修改后的 getPostBySlug 函数获取 mdxSource、data 和 postFilePath
+  const wordCount = data.wordCount; // 获取文字数
+  const readingTime = data.readTime; // 获取阅读时间
+
   const prevPost = getPreviousPostBySlug(params.slug);
   const nextPost = getNextPostBySlug(params.slug);
 
@@ -128,6 +137,8 @@ export const getStaticProps = async ({ params }) => {
       headings,
       prevPost,
       nextPost,
+      wordCount,
+      readingTime,
     },
   };
 };
