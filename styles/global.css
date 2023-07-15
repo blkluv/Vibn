@@ -120,3 +120,8 @@ hr{
 html {
   scroll-snap-type: y mandatory;
 }
+
+.math{
+  font-size: 1.5rem !important;
+  @apply overflow-x-auto bg-zinc-100 dark:bg-zinc-900 rounded-xl px-8 py-2 my-4 tracking-widest;
+}

@@ -4,8 +4,11 @@ import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 import rehypePrism from "@mapbox/rehype-prism";
 import remarkGfm from "remark-gfm";
-import remarkAutolinkHeadings from "remark-autolink-headings";
 import readingTime from "reading-time";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import rehypeMathJaxSvg from "rehype-mathjax";
+
 
 // POSTS_PATH is useful when you want to get the path to a specific file
 export const POSTS_PATH = path.join(process.cwd(), "posts");
@@ -63,24 +66,8 @@ export const getPostBySlug = async (slug) => {
   const mdxSource = await serialize(content, {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
-      remarkPlugins: [
-        remarkGfm,
-        [
-          remarkAutolinkHeadings,
-          {
-            properties: {
-              className: "anchor",
-            },
-            content: {
-              type: "element",
-              tagName: "span",
-              properties: { className: ["anchor-icon"] },
-              children: [{ type: "text", value: "#" }],
-            },
-          },
-        ],
-      ],
-      rehypePlugins: [rehypePrism],
+      remarkPlugins: [remarkGfm, remarkMath],
+      rehypePlugins: [rehypePrism, rehypeMathJaxSvg],
     },
     scope: data,
   });
