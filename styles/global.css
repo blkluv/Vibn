@@ -123,5 +123,6 @@ html {
 
 .math{
   font-size: 1.5rem !important;
+  letter-spacing: 1em !important;
   @apply overflow-x-auto bg-zinc-100 dark:bg-zinc-900 rounded-xl px-8 py-2 my-4 tracking-widest;
 }
