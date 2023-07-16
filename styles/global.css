@@ -97,7 +97,7 @@ img{
 }
 
 .prose a{
-  @apply no-underline rounded-xl bg-zinc-200 dark:bg-zinc-900 px-2 py-0.5;
+  @apply no-underline rounded-xl bg-zinc-100 dark:bg-zinc-900 px-0.5 py-1;
 }
 
 .prose blockquote{
