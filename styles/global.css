@@ -116,8 +116,8 @@ img{
   @apply font-semibold;
 }
 
-hr{
-  @apply my-16  border-black dark:border-white;
+.prose hr{
+  @apply my-16  dark:border-zinc-800;
 }
 
 
