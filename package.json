@@ -19,6 +19,7 @@
     "@mdx-js/loader": "^2.3.0",
     "@next/mdx": "^13.3.1",
     "@tailwindcss/typography": "latest",
+    "@vercel/analytics": "^1.0.1",
     "@vercel/next": "^3.8.8",
     "@yozora/react-mathjax": "^2.2.2",
     "autoprefixer": "^10.4.7",

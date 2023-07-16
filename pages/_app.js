@@ -1,22 +1,24 @@
-import { useEffect, useState } from 'react';
-import '../styles/global.css'
+import { useEffect, useState } from "react";
+import "../styles/global.css";
 
-import '@fontsource-variable/inter'
+import "@fontsource-variable/inter";
 
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function MyApp({ Component, pageProps }) {
-    const [showChild, setShowChild] = useState(false);
-    useEffect(() => {
-        setShowChild(true)
-    }, [])
+  const [showChild, setShowChild] = useState(false);
+  useEffect(() => {
+    setShowChild(true);
+  }, []);
 
-    if (!showChild) {
-        return null
-    }
-    return (
-        <ThemeProvider attribute='class' defaultTheme='dark'>
-            <Component {...pageProps} />
-        </ThemeProvider>
-    )
+  if (!showChild) {
+    return null;
+  }
+  return (
+    <ThemeProvider attribute="class" defaultTheme="dark">
+      <Component {...pageProps} />
+      <Analytics />
+    </ThemeProvider>
+  );
 }
