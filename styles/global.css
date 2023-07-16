@@ -13,7 +13,7 @@
 
 @font-face {
   font-family: "HT-T";
-  src: url("/fonts/AaJueXingHei-70J-2.woff2") format("woff2");
+  src: url("/fonts/AaJueXingHei-60J-2.woff2") format("woff2");
   font-style: normal;
   font-display: hidden;
   font-weight: 500 600;
@@ -94,6 +94,10 @@ img{
 
 .prose{
   @apply text-black dark:text-white max-w-3xl;
+}
+
+.prose a{
+  @apply no-underline rounded-xl bg-zinc-200 dark:bg-zinc-900 px-2 py-0.5;
 }
 
 .prose blockquote{
