@@ -9,20 +9,20 @@ export default function About() {
         className="text-sm mb-8 opacity-75 flex flex-row space-x-0.5 rounded-xl w-auto px-2 md:px-2 sm:px-0 py-2"
       >
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          width="16"
-          height="16"
-          class="main-grid-item-icon"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        >
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
-        <span className="-mt-0.5">返回"所有文章"</span>
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-4 h-4 mt-0.5 mr-1.5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+            />
+          </svg>
+        <span className="">返回"所有文章"</span>
       </Link>
       <div className="px-4 md:px-4 sm:px-0">
         <h1 className="font-semibold text-3xl mt-8">{">"} 关于作者</h1>

@@ -39,19 +39,19 @@ export default function PostPage({
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          width="16"
-          height="16"
-          class="main-grid-item-icon"
           fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
           stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          className="w-4 h-4 mt-0.5 mr-1.5"
         >
-          <polyline points="15 18 9 12 15 6" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+          />
         </svg>
-        <span className="-mt-0.5">返回"所有文章"</span>
+        <span className="">返回"所有文章"</span>
       </Link>
 
       <h1 className="px-4 md:px-4 sm:px-0 mt-8 font-semibold text-3xl">
@@ -71,7 +71,7 @@ export default function PostPage({
         <div className="flex flex-col md:flex-row sm:flex-row text-right">
           <span>总计{wordCount}字</span>
           <span className="hidden md:block sm:block ml-0.5 mr-0.5"> · </span>
-          <span>大约需要{moment(readingTime).format('m')}分钟阅读</span>
+          <span>大约需要{moment(readingTime).format("m")}分钟阅读</span>
         </div>
       </p>
 
@@ -80,7 +80,7 @@ export default function PostPage({
       </main>
 
       <footer className="mt-12 px-4 md:px-4 sm:px-0">
-        <div className="flex flex-col md:flex-row sm:flex-row space-y-4 md:space-y-0 sm:space-y-0 justify-between">
+        <div className="flex flex-row justify-between">
           <div>
             {prevPost && (
               <div className="cursor-pointer">
@@ -89,20 +89,52 @@ export default function PostPage({
                   href={`/posts/${prevPost.slug}`}
                 >
                   <span className="px-1.5 text-sm opacity-75">上一篇</span>
-                  <span className="">← {prevPost.title}</span>
+                  <span className="flex flex-row mt-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-4 h-4 mt-1 mr-1.5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+                      />
+                    </svg>{" "}
+                    <span>{prevPost.title}</span>
+                  </span>
                 </Link>
               </div>
             )}
           </div>
           <div>
             {nextPost && (
-              <div className="cursor-pointer">
+              <div className="cursor-pointer flex justify-end">
                 <Link
-                  className="no-underline flex flex-col "
+                  className="no-underline flex flex-col"
                   href={`/posts/${nextPost.slug}`}
                 >
                   <span className="px-1.5 text-sm opacity-75">下一篇</span>
-                  <span className="">{nextPost.title} →</span>
+                  <span className="flex flex-row mt-1">
+                   <span> {nextPost.title}{" "}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-4 h-4 ml-1 mt-1"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3"
+                      />
+                    </svg>
+                  </span>
                 </Link>
               </div>
             )}

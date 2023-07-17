@@ -74,7 +74,7 @@ export default function Home({ posts }) {
                     </span>
                   </p>
                 </div>
-                <div className="flex justify-end ali-center wordbreak-nowrap font-medium text-sm rounded-xl bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 px-4 py-1.5 text-center">
+                <div className="flex justify-end tracking-widest ali-center wordbreak-nowrap font-medium text-sm rounded-xl bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 px-3 py-1 text-center">
                   {post.data.tag}
                 </div>
               </motion.button>

@@ -34,9 +34,7 @@ export default function Layout({ title, desc, children }) {
         style={{ scaleX }}
       />
 
-      <motion.div
-      className="fixed w-full top-[0.125rem] left-0 right-0 bg-gradient-to-t from-transparent to-white dark:to-black backdrop-blur-[1px] py-8 pointer-events-none will-change-transform z-50"
-      />
+      <motion.div className="fixed w-full top-[0.125rem] left-0 right-0 bg-gradient-to-t from-transparent to-white dark:to-black backdrop-blur-[1px] py-8 pointer-events-none will-change-transform z-50" />
 
       <motion.div
         initial={{ opacity: 0, y: 15 }}
@@ -47,6 +45,7 @@ export default function Layout({ title, desc, children }) {
           <div>{children}</div>
         </main>
       </motion.div>
+
       <motion.footer
         initial={{ opacity: 1, y: 45 }}
         animate={{ opacity: 1, y: 0 }}
