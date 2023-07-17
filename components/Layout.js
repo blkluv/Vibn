@@ -35,6 +35,10 @@ export default function Layout({ title, desc, children }) {
       />
 
       <motion.div
+      className="fixed w-full top-[0.125rem] left-0 right-0 bg-gradient-to-t from-transparent to-white dark:to-black backdrop-blur-[1px] py-8 pointer-events-none will-change-transform z-50"
+      />
+
+      <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5 }}
@@ -47,7 +51,7 @@ export default function Layout({ title, desc, children }) {
         initial={{ opacity: 1, y: 45 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.5 }}
-        className="bg-white/75 dark:bg-black/50 backdrop-blur-lg fixed bottom-0 w-full"
+        className="bg-white/75 dark:bg-black/50 backdrop-blur-lg fixed bottom-0 w-full will-change-transform"
       >
         <div className="max-w-3xl mx-auto font-medium flex flex-row px-6 md:px-4 sm:px-4 py-2.5 justify-between">
           <div className="flex flex-row space-x-4 text-sm opacity-75 mt-0.5 md:mt-1 sm:mt-1">

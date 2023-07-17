@@ -8,15 +8,23 @@
   src: url("/fonts/HanYiQiHei-55Jian-Regular-2.woff2") format("woff2");
   font-style: normal;
   font-display: hidden;
-  font-weight: 400 500 600;
+  font-weight: 400;
 }
 
 @font-face {
-  font-family: "HT-T";
-  src: url("/fonts/AaJueXingHei-60J-2.woff2") format("woff2");
+  font-family: "HT";
+  src: url("/fonts/HanYiQiHei-65Jian-Regular-2.woff2") format("woff2");
   font-style: normal;
   font-display: hidden;
-  font-weight: 500 600;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "HT";
+  src: url("/fonts/HanYiQiHei-75Jian-Regular-2.woff2") format("woff2");
+  font-style: normal;
+  font-display: hidden;
+  font-weight: 600;
 }
 
 ::-webkit-scrollbar {
@@ -76,7 +84,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "HT-T", sans-serif;
+  font-family: "HT", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   font-feature-settings: "hist" 1, "smcp" 1;
@@ -104,6 +112,10 @@ img{
   @apply relative md:relative sm:absolute mt-0 md:-mt-0 sm:-mt-16 p-0 opacity-75 text-sm not-italic max-w-xs border-none right-0 md:ring-0 sm:right-4;
 }
 
+.prose strong{
+  @apply font-semibold;
+}
+
 .prose img{
   @apply max-w-none overflow-x-auto;
 }
@@ -129,4 +141,9 @@ html {
   font-size: 1.5rem !important;
   letter-spacing: 1em !important;
   @apply overflow-x-auto bg-zinc-100 dark:bg-zinc-900 rounded-xl px-8 py-2 my-4 tracking-widest;
+}
+
+.ali-center{
+  margin: auto;
+  margin-right: 0;
 }

@@ -35,9 +35,9 @@ export default function Home({ posts }) {
                 onMouseLeave={() => setIsHover(false)}
                 className="flex flex-row justify-between w-full px-4 md:px-4 sm:px-0 py-4"
               >
-                <div className="w-full text-left flex flex-col">
-                  <h1 className="font-medium text-xl md:text-xl sm:text-xl flex flex-row">
-                    <span className="opacity-50 text-sm mt-1.5 font-mono">{posts.length - index}.</span>
+                <div className="text-left flex flex-col">
+                  <h1 className="font-semibold text-xl md:text-xl sm:text-xl flex flex-row">
+                    <span className="opacity-75 text-sm mt-1.5 mr-1">{posts.length - index}.</span>
                     {post.data.title}{" "}
                     {isHover === true && (
                       <motion.div initial={{ x: -5 }} animate={{ x: 0 }}>
@@ -46,7 +46,7 @@ export default function Home({ posts }) {
                           viewBox="0 0 24 24"
                           width="24"
                           height="24"
-                          className="ml-2 main-grid-item-icon opacity-75"
+                          className="ml-2 main-grid-item-icon opacity-75 mt-0.5"
                           fill="none"
                           stroke="currentColor"
                           stroke-linecap="round"
@@ -73,6 +73,9 @@ export default function Home({ posts }) {
                       {moment(post.data.update).format("更新于YYYY年MM月DD日")}
                     </span>
                   </p>
+                </div>
+                <div className="flex justify-end ali-center wordbreak-nowrap font-medium text-sm rounded-xl bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 px-4 py-1.5 text-center">
+                  {post.data.tag}
                 </div>
               </motion.button>
             </Link>
