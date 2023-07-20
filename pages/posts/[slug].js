@@ -11,6 +11,10 @@ import {
 } from "../../utils/mdxUtils";
 import moment from "moment";
 
+function cn(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
 // to handle import statements. Instead, you must include components in scope
@@ -32,7 +36,7 @@ export default function PostPage({
   nextPost,
 }) {
   return (
-    <Layout title={`${frontMatter.title}`} desc={frontMatter.title}>
+    <Layout title={`${frontMatter.title}`} navtitle={frontMatter.title}>
       <Link
         href="/"
         className="text-sm mb-8 opacity-75 flex flex-row space-x-0.5 rounded-xl w-auto px-2 md:px-2 sm:px-0 py-2"
@@ -119,7 +123,7 @@ export default function PostPage({
                 >
                   <span className="px-1.5 text-sm opacity-75">下一篇</span>
                   <span className="flex flex-row mt-1">
-                   <span> {nextPost.title}{" "}</span>
+                    <span> {nextPost.title} </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"

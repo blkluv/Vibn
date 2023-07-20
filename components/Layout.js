@@ -5,13 +5,13 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import nav from "@/lib/nav.config";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function cn(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Layout({ title, desc, children }) {
+export default function Layout({ title, navtitle, children }) {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -23,25 +23,70 @@ export default function Layout({ title, desc, children }) {
   if (router.asPath.includes("/posts/")) {
     router.asPath = "/writing";
   }
+  let [isOpaque, setIsOpaque] = useState(false);
+
+  useEffect(() => {
+    let offset = 75;
+    function onScroll() {
+      if (!isOpaque && window.scrollY > offset) {
+        setIsOpaque(true);
+      } else if (isOpaque && window.scrollY <= offset) {
+        setIsOpaque(false);
+      }
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll, { passive: true });
+    };
+  }, [isOpaque]);
   return (
-    <div className="text-black dark:text-white selection:bg-zinc-200 dark:selection:bg-zinc-800 scroll-smooth">
+    <div className="text-justify text-black dark:text-white selection:bg-zinc-200 dark:selection:bg-zinc-800 scroll-smooth">
       <Head>
         <title>{title}</title>
       </Head>
 
       <motion.div
-        className="fixed w-full top-0 left-0 right-0 origin-left py-0.5 bg-black dark:bg-white z-[99999]"
-        style={{ scaleX }}
-      />
-
-      <motion.div className="fixed w-full top-[0.125rem] left-0 right-0 bg-gradient-to-t from-transparent to-white dark:to-black backdrop-blur-[1px] py-8 pointer-events-none will-change-transform z-50" />
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1, y: isOpaque ? 0 : -45 }}
+        transition={{ duration: 0.5 }}
+        className={cn(
+          "fixed top-0 bg-white/75 dark:bg-black/50 backdrop-blur-lg w-full will-change-transform z-[999999]",
+          router.asPath === "/writing" && isOpaque ? "block" : "hidden"
+        )}
+      >
+        <div className="max-w-2xl mx-auto font-medium flex flex-row px-6 md:px-4 sm:px-4 py-2.5 justify-between">
+          <div className="flex flex-row">
+            <Link
+              href="/"
+              className="text-sm opacity-75 flex flex-row space-x-0.5 rounded-xl w-auto px-0 py-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-4 h-4 mt-0.5 mr-1.5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+                />
+              </svg>
+            </Link>
+            <p className="mt-[0.365rem] ml-1">{navtitle}</p>
+          </div>
+        </div>
+      </motion.div>
 
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5 }}
       >
-        <main className="text-black dark:text-white px-2 max-w-3xl mx-auto py-16">
+        <main className="text-black dark:text-white px-2 max-w-2xl mx-auto py-16">
           <div>{children}</div>
         </main>
       </motion.div>
@@ -52,7 +97,7 @@ export default function Layout({ title, desc, children }) {
         transition={{ duration: 0.5, delay: 1.5 }}
         className="bg-white/75 dark:bg-black/50 backdrop-blur-lg fixed bottom-0 w-full will-change-transform"
       >
-        <div className="max-w-3xl mx-auto font-medium flex flex-row px-6 md:px-4 sm:px-4 py-2.5 justify-between">
+        <div className="max-w-2xl mx-auto font-medium flex flex-row px-6 md:px-4 sm:px-4 py-2.5 justify-between">
           <div className="flex flex-row space-x-4 text-sm opacity-75 mt-0.5 md:mt-1 sm:mt-1">
             {nav.map((nav) => (
               <>
