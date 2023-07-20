@@ -59,7 +59,7 @@ export default function Layout({ title, navtitle, children }) {
           <div className="flex flex-row">
             <Link
               href="/"
-              className="text-sm opacity-75 flex flex-row space-x-0.5 rounded-xl w-auto px-0 py-2"
+              className="text-sm opacity-75 flex flex-row space-x-0.5 rounded-xl w-auto px-0 py-1.5"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ export default function Layout({ title, navtitle, children }) {
                 />
               </svg>
             </Link>
-            <p className="mt-[0.365rem] ml-1">{navtitle}</p>
+            <p className="mt-1 ml-1">{navtitle}</p>
           </div>
         </div>
       </motion.div>

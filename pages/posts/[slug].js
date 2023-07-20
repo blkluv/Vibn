@@ -34,12 +34,13 @@ export default function PostPage({
   frontMatter,
   prevPost,
   nextPost,
+  tableOfContents,
 }) {
   return (
     <Layout title={`${frontMatter.title}`} navtitle={frontMatter.title}>
       <Link
         href="/"
-        className="text-sm mb-8 opacity-75 flex flex-row space-x-0.5 rounded-xl w-auto px-2 md:px-2 sm:px-0 py-2"
+        className="text-sm mb-8 opacity-75 flex flex-row space-x-0.5 rounded-xl w-auto px-4 md:px-4 sm:px-0 py-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -78,6 +79,17 @@ export default function PostPage({
           <span>大约需要{moment(readingTime).format("m")}分钟阅读</span>
         </div>
       </p>
+
+      <nav>
+        <h2>目录</h2>
+        <ul>
+          {tableOfContents.map((item) => (
+            <li key={item.url}>
+              <a href={item.url}>{item.title}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       <main className="mt-8 px-4 md:px-4 sm:px-0 font-normal prose dark:prose-invert">
         <MDXRemote {...source} components={components} />
@@ -157,24 +169,17 @@ export const getStaticProps = async ({ params }) => {
   const prevPost = getPreviousPostBySlug(params.slug);
   const nextPost = getNextPostBySlug(params.slug);
 
-  const headings = [];
-  if (mdxSource.scope && mdxSource.scope.headings) {
-    mdxSource.scope.headings.forEach((heading) => {
-      if (heading.depth === 2) {
-        headings.push({ title: heading.value, id: heading.slug });
-      }
-    });
-  }
+  const tableOfContents = mdxSource.toc ? mdxSource.toc.items : [];
 
   return {
     props: {
       source: mdxSource,
       frontMatter: data,
-      headings,
       prevPost,
       nextPost,
       wordCount,
       readingTime,
+      tableOfContents,
     },
   };
 };
