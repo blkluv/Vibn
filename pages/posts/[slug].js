@@ -80,17 +80,6 @@ export default function PostPage({
         </div>
       </p>
 
-      <nav>
-        <h2>目录</h2>
-        <ul>
-          {tableOfContents.map((item) => (
-            <li key={item.url}>
-              <a href={item.url}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
       <main className="mt-8 px-4 md:px-4 sm:px-0 font-normal prose dark:prose-invert">
         <MDXRemote {...source} components={components} />
       </main>
