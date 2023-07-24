@@ -98,7 +98,7 @@ export const Navbar = () => {
           ></path>
         </svg>
         <span className="font-medium flex">
-          <span className="hidden md:block sm:block">切换</span>主题
+          <span className="hidden md:block sm:block">切换主题</span>
         </span>
       </button>
     </div>
