@@ -2,7 +2,7 @@ import { MDXRemote } from "next-mdx-remote";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
-import Layout from "../../components/Layout";
+import BetaLayout from "../../components/BetaLayout";
 import {
   getNextPostBySlug,
   getPostBySlug,
@@ -37,54 +37,30 @@ export default function PostPage({
   tableOfContents,
 }) {
   return (
-    <Layout title={`${frontMatter.title}`} navtitle={frontMatter.title}>
-      <Link
-        href="/"
-        className="text-sm mb-8 opacity-75 flex flex-row space-x-0.5 rounded-xl w-auto px-4 md:px-4 sm:px-0 py-2"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-4 h-4 mt-0.5 mr-1.5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
-          />
-        </svg>
-        <span className="">返回"所有文章"</span>
-      </Link>
+    <BetaLayout title={`${frontMatter.title}`}>
 
-      <h1 className="px-4 md:px-4 sm:px-0 mt-8 font-semibold text-3xl">
-        {">"} {frontMatter.title}
+      <h1 className="font-medium text-2xl md:text-3xl sm:text-3xl">
+        {frontMatter.title}
       </h1>
 
-      <p className="flex flex-row justify-between no-underline font-normal text-sm opacity-75 px-4 md:px-4 sm:px-0 mt-2">
+      <p className="flex flex-row justify-between no-underline font-normal text-sm opacity-75 mt-2">
         <div className="flex flex-col md:flex-row sm:flex-row">
           <span>
-            {moment(frontMatter.date).format("最初发表于YYYY年MM月DD日")}
-          </span>
-          <span className="hidden md:block sm:block ml-0.5 mr-0.5"> · </span>
-          <span className="opacity-75">
-            {moment(frontMatter.update).format("更新于YYYY年MM月DD日")}
+            {moment(frontMatter.date).format("最初发表于YY/MM/DD")}
           </span>
         </div>
-        <div className="flex flex-col md:flex-row sm:flex-row text-right">
+        <div className="flex flex-row text-right">
           <span>总计{wordCount}字</span>
-          <span className="hidden md:block sm:block ml-0.5 mr-0.5"> · </span>
-          <span>大约需要{moment(readingTime).format("m")}分钟阅读</span>
+          <span className="ml-0.5 mr-0.5"> · </span>
+          <span>约需{moment(readingTime).format("m")}分钟阅读</span>
         </div>
       </p>
 
-      <main className="mt-8 px-4 md:px-4 sm:px-0 font-normal prose dark:prose-invert">
+      <main className="mt-8 font-normal prose md:prose-lg sm:prose-lg dark:prose-invert">
         <MDXRemote {...source} components={components} />
       </main>
 
-      <footer className="mt-12 px-4 md:px-4 sm:px-0">
+      <footer className="mt-12 mb-12">
         <div className="flex flex-row justify-between">
           <div>
             {prevPost && (
@@ -109,7 +85,7 @@ export default function PostPage({
                         d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
                       />
                     </svg>{" "}
-                    <span>{prevPost.title}</span>
+                    <span className="text-base md:text-lg sm:text-lg font-medium">{prevPost.title}</span>
                   </span>
                 </Link>
               </div>
@@ -124,7 +100,7 @@ export default function PostPage({
                 >
                   <span className="px-1.5 text-sm opacity-75">下一篇</span>
                   <span className="flex flex-row mt-1">
-                    <span> {nextPost.title} </span>
+                    <span className="text-base md:text-lg sm:text-lg font-medium"> {nextPost.title} </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -146,7 +122,7 @@ export default function PostPage({
           </div>
         </div>
       </footer>
-    </Layout>
+    </BetaLayout>
   );
 }
 

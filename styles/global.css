@@ -47,7 +47,7 @@
 }
 
 body {
-  font-family: 'Noto Serif SC', serif;
+  font-family: 'Inter Variable', 'Noto Sans SC', sans-serif;
   -webkit-font-smoothing: antialiased;
   @apply bg-white dark:bg-black text-black dark:text-white;
 }
@@ -58,9 +58,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Noto Serif SC', serif;
+  font-family: 'Inter Variable','Noto Sans SC', sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 
@@ -71,6 +71,10 @@ h6 {
 
 img{
   @apply rounded-sm;
+}
+
+a{
+  @apply font-semibold underline underline-offset-4;
 }
 
 .prose{
@@ -86,7 +90,7 @@ img{
 }
 
 .prose strong{
-  @apply font-semibold;
+  @apply font-bold;
 }
 
 .prose img{

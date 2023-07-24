@@ -1,41 +1,78 @@
-import Layout from "../components/Layout";
-
+import BetaLayout from "@/components/BetaLayout";
 import { getPosts } from "../utils/mdxUtils";
 import moment from "moment/moment";
 import Link from "next/link";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
-export default function getPost({ posts }) {
+export default function Blog({ posts }) {
+  const [searchValue, setSearchValue] = useState("");
+  const filteredBlogPosts = posts
+    .sort(
+      (a, b) =>
+        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+    )
+    .filter((post) =>
+      post.data.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
   return (
-    <Layout title="Blog · Geng Yue ">
-      <h1 className="font-medium text-3xl md:text-5xl sm:text-7xl mt-24 md:mt-36 sm:mt-48 mb-24">
-        Blog about everything
-        <br />
-        <span className="bg-black dark:bg-white text-white dark:text-black">
-          except sexual
-        </span>
+    <BetaLayout title="博客">
+      <h1 className="text-2xl md:text-3xl sm:text-3xl leading-normal mb-8">
+        偶尔<span className="opacity-75">写点什么</span>或
+        <span className="opacity-75">发点牢骚</span>。
       </h1>
 
-      <div className="mt-16 border-t border-black dark:border-white columns-1 md:columns-2 sm:columns-2">
-        {posts.map((post) => (
-          <div key={post.filePath} className="mb-0">
+      {filteredBlogPosts.map((post, index) => {
+        const [isHover, setIsHover] = useState(false);
+        return (
+          <motion.div key={post.filePath} className="">
             <Link
               as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
               href={`/posts/[slug]`}
+              className="no-underline"
             >
-              <button className="flex flex-col py-6 w-full border-b border-black dark:border-white">
-                <h1 className="font-medium text-lg md:text-2xl sm:text-4xl">
-                  {post.data.title}
-                </h1>
+              <motion.button
+                animate={{ opacity: isHover === true ? 0.75 : 1 }}
+                onMouseEnter={() => setIsHover(true)}
+                onMouseLeave={() => setIsHover(false)}
+                className="flex flex-row w-full justify-between py-2.5"
+              >
+                  <div>
+                    <h1 className="font-medium text-2xl md:text-3xl sm:text-3xl flex flex-row">
+                      <span className="text-base md:text-lg sm:text-lg mt-1.5 mr-1 opacity-75">
+                        {posts.length - index}.
+                      </span>
+                      {post.data.title}{" "}
+                      {isHover === true && (
+                        <motion.div initial={{ x: -5 }} animate={{ x: 0 }}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                            className="ml-2 main-grid-item-icon opacity-75 mt-0.5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          >
+                            <polyline points="9 18 15 12 9 6" />
+                          </svg>
+                        </motion.div>
+                      )}
+                    </h1>
+                  </div>
 
-                <p className="mt-2 font-normal text-base md:text-lg sm:text-xl opacity-80">
-                  {moment(post.data.date).format('dddd MMMM DD , YYYY')} ({moment(post.data.date).fromNow()})
-                </p>
-              </button>
+                  <p className="no-underline font-medium my-auto text-base md:text-lg sm:text-lg opacity-75">
+                    {moment(post.data.date).format("YY/MM/DD")}
+                  </p>
+              </motion.button>
             </Link>
-          </div>
-        ))}
-      </div>
-    </Layout>
+          </motion.div>
+        );
+      })}
+    </BetaLayout>
   );
 }
 

@@ -1557,6 +1557,11 @@
   resolved "https://registry.npmmirror.com/@fontsource/aileron/-/aileron-5.0.3.tgz#f17dc9d0310e50df620bff3c72c61224a0c6b4f6"
   integrity sha512-j9+WGHS+6fMTkr+DduxcVBaObjYRKsmqZxtE0utT4QzwPjoXIQvAA7UhNpixGZxMlsSVfMzgf/Bq0lG1JYkymA==
 
+"@fontsource/noto-sans-sc@^5.0.5":
+  version "5.0.5"
+  resolved "https://registry.npmmirror.com/@fontsource/noto-sans-sc/-/noto-sans-sc-5.0.5.tgz#60ebddf0abb81426759688c6964241448f3b4294"
+  integrity sha512-S1Zba4NGeSIG3I6W4nZRG0eKWmL1DMs3pN//RIUzixRiXUjqwHdSIxPF8t7If05xxDA9+EvbKWChEJxQynHKgQ==
+
 "@fontsource/noto-serif-sc@^5.0.5":
   version "5.0.5"
   resolved "https://registry.npmmirror.com/@fontsource/noto-serif-sc/-/noto-serif-sc-5.0.5.tgz#1d8fe8ddb617c3d43301615c0a04b4e13c507831"
