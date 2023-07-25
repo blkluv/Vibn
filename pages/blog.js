@@ -39,9 +39,6 @@ export default function Blog({ posts }) {
               >
                   <div>
                     <h1 className="font-medium text-2xl md:text-3xl sm:text-3xl flex flex-row">
-                      <span className="text-base md:text-lg sm:text-lg mt-1.5 mr-1 opacity-75">
-                        {posts.length - index}.
-                      </span>
                       {post.data.title}{" "}
                       {isHover === true && (
                         <motion.div initial={{ x: -5 }} animate={{ x: 0 }}>

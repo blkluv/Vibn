@@ -1,18 +1,18 @@
-import Layout from "@/components/Layout";
+import BetaLayout from "@/components/BetaLayout";
 import { motion } from "framer-motion";
 import Link from 'next/link'
 
 export default function Error() {
   return (
-    <Layout title="找不到此页面">
-      <h1 className="font-semibold text-3xl px-4 md:px-4 sm:px-0 mb-8">
-        {">"} 404 - 找不到此页面
+    <BetaLayout title="找不到此页面">
+      <h1 className="font-medium text-3xl mb-8">
+        404 - 找不到此页面
       </h1>
 
-      <p className="px-4 md:px-4 sm:px-0">大概哪里出问题了，不妨刷新？</p>
+      <p className="">大概哪里出问题了，不妨刷新？</p>
 
-      <Link href="/">
-        <motion.button className="flex flex-row bg-zinc-100 dark:bg-zinc-900 rounded-xl px-8 py-2 text-center mt-8 ml-4 md:ml-4 sm:ml-0">
+      <Link href="/" className="no-underline">
+        <motion.button className="flex flex-row bg-zinc-100 dark:bg-zinc-900 rounded-xl px-8 py-2 text-center mt-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -28,9 +28,9 @@ export default function Error() {
             />
           </svg>
 
-          <span>回到主页</span>
+          <span className="no-underline font-medium text-opacity-75">回到主页</span>
         </motion.button>
       </Link>
-    </Layout>
+    </BetaLayout>
   );
 }

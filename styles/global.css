@@ -47,7 +47,7 @@
 }
 
 body {
-  font-family: 'Inter Variable', 'Noto Sans SC', sans-serif;
+  font-family: "Inter Variable", "Noto Sans SC", sans-serif;
   -webkit-font-smoothing: antialiased;
   @apply bg-white dark:bg-black text-black dark:text-white;
 }
@@ -58,69 +58,68 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Inter Variable','Noto Sans SC', sans-serif;
+  font-family: "Inter Variable", "Noto Sans SC", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 500;
 }
-
 
 .center {
   margin: 0 auto;
   margin-top: 1.5rem;
 }
 
-img{
+img {
   @apply rounded-sm;
 }
 
-a{
+a {
   @apply font-semibold underline underline-offset-4;
 }
 
-.prose{
+.prose {
   @apply text-black dark:text-white max-w-3xl;
 }
 
-.prose a{
+.prose a {
   @apply font-medium border-b-2 no-underline border-b-zinc-200 dark:border-b-zinc-900;
 }
 
-.prose blockquote{
+.prose blockquote {
   @apply relative md:relative sm:absolute mt-0 md:-mt-0 sm:-mt-16 p-0 opacity-75 text-sm not-italic max-w-xs border-none right-0 md:ring-0 sm:right-4;
 }
 
-.prose strong{
+.prose strong {
   @apply font-bold;
 }
 
-.prose img{
+.prose img {
   @apply max-w-none overflow-x-auto;
 }
 
-.prose pre,code{
+.prose pre,
+code {
   @apply bg-zinc-50 dark:bg-zinc-950 text-black dark:text-white overflow-x-auto;
 }
 
-.prose strong{
+.prose strong {
   @apply font-semibold;
 }
 
-.prose hr{
+.prose hr {
   @apply my-16  dark:border-zinc-800;
 }
-
 
 html {
   scroll-snap-type: y mandatory;
 }
 
-.math{
+.math {
   font-size: 1rem !important;
   letter-spacing: 1em !important;
   @apply overflow-x-auto bg-zinc-100 dark:bg-zinc-900 rounded-xl px-8 py-2 my-4 tracking-widest;
 }
 
-.ali-center{
+.ali-center {
   margin: auto;
   margin-right: 0;
 }

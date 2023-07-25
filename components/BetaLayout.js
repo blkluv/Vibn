@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 export default function BetaLayout({ children, title }) {
   return (
-    <div>
+    <div className="bg selection:bg-neutral-100 dark:selection:bg-neutral-900">
       <Head>
         <title>{title}</title>
       </Head>

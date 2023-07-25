@@ -1,6 +1,7 @@
 import { useTheme } from "next-themes";
 import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
 let allTabs = [
   {
@@ -49,9 +50,13 @@ export const Navbar = () => {
   }, [activeTabIndex]);
 
   return (
-    <div className="bg-white/50 dark:bg-black/25 bottom-8 md:bottom-14 sm:bottom-14 fixed inset-x-0 backdrop-blur-lg w-[95%] h-14 flex max-w-[35rem] mx-auto border dark:border-neutral-900 dark:shadow-neutral-950 shadow-lg rounded-full px-2 space-x-2">
+    <motion.div 
+    initial={{ opacity: 1, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="bg-white/50 dark:bg-black/50 bottom-4 md:bottom-12 sm:bottom-12 fixed inset-x-0 backdrop-blur-lg w-[90%] h-12 flex max-w-[35rem] mx-auto border-2 border-neutral-200/10 dark:border-neutral-900/0 dark:shadow-neutral-950 shadow-lg rounded-full px-2 space-x-2">
       <span
-        className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full py-2 transition-all duration-300"
+        className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full py-1 transition-all duration-300"
         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
       >
         <span className="h-full w-full rounded-full bg-black dark:bg-white py-4" />
@@ -101,7 +106,7 @@ export const Navbar = () => {
           <span className="hidden md:block sm:block">切换主题</span>
         </span>
       </button>
-    </div>
+    </motion.div>
   );
 };
 
