@@ -37,7 +37,7 @@ export default function Blog({ posts }) {
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: isVisible ? 0 : -10, opacity: isVisible ? 1 : 0 }}
               exit={{ opacity: 0 }}
-              transition={{ delay: index * 0.2, duration: 1.5 }}
+              transition={{ delay: index * 0.5, duration: 1.5 }}
             >
               <Link
                 as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
@@ -74,7 +74,7 @@ export default function Blog({ posts }) {
                     </h1>
                   </div>
 
-                  <p className="no-underline font-light my-auto text-base md:text-lg sm:text-lg opacity-75">
+                  <p className="no-underline font-normal my-auto text-base md:text-lg sm:text-lg opacity-75">
                     需约
                     <span className="font-normal opacity-100">
                       {moment(post.data.readingTime).format("m")}
