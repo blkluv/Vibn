@@ -27,7 +27,7 @@ export const Navbar = () => {
   const router = useRouter();
 
   if (router.asPath.includes("/posts/")) {
-    router.asPath = "/blog";
+    router.asPath = "/thoughts";
   }
 
   useEffect(() => {
