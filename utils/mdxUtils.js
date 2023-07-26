@@ -9,7 +9,6 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeMathJaxSvg from "rehype-mathjax";
 
-
 // POSTS_PATH is useful when you want to get the path to a specific file
 export const POSTS_PATH = path.join(process.cwd(), "posts");
 
@@ -31,6 +30,7 @@ export const getPosts = () => {
   let posts = postFilePaths.map((filePath, index) => {
     const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
     const { content, data } = matter(source);
+    const readTime = readingTime(content, { chinese: true });
 
     // 添加编号和日期到文章数据中
     const post = {
@@ -38,6 +38,7 @@ export const getPosts = () => {
       data: {
         ...data,
         number: index + 1,
+        readingTime: readTime.time,
       },
       filePath,
     };

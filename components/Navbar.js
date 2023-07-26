@@ -9,8 +9,8 @@ let allTabs = [
     name: "简介",
   },
   {
-    id: "/blog",
-    name: "博客",
+    id: "/thoughts",
+    name: "想法",
   },
   {
     id: "/lab",
@@ -53,13 +53,13 @@ export const Navbar = () => {
     <motion.div 
     initial={{ opacity: 1, y: 50 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    className="bg-white/50 dark:bg-black/50 bottom-4 md:bottom-12 sm:bottom-12 fixed inset-x-0 backdrop-blur-lg w-[90%] h-12 flex max-w-[35rem] mx-auto border-2 border-neutral-200/10 dark:border-neutral-900/0 dark:shadow-neutral-950 shadow-lg rounded-full px-2 space-x-2">
+    transition={{ duration: 0.75 }}
+    className="bg-neutral-50/50 dark:bg-neutral-950/50 bottom-4 md:bottom-8 sm:bottom-8 fixed inset-x-0 backdrop-blur-lg max-w-[19rem] md:max-w-[23rem] sm:max-w-[23rem] justify-center items-center w-auto h-12 -px-1 inline-flex mx-auto border-2 border-neutral-900/10 dark:border-neutral-100/5 dark:shadow-neutral-950 shadow-none rounded-full space-x-2">
       <span
         className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full py-1 transition-all duration-300"
         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
       >
-        <span className="h-full w-full rounded-full bg-black dark:bg-white py-4" />
+        <span className="h-full w-full rounded-full bg-neutral-200 dark:bg-neutral-900 py-2.5 md:py-4 sm:py-4" />
       </span>
       {allTabs.map((tab, index) => {
         const isActive = router.asPath === tab.id;
@@ -70,8 +70,8 @@ export const Navbar = () => {
             ref={(el) => (tabsRef.current[index] = el)}
             className={`${
               isActive
-                ? `text-white dark:text-black font-medium`
-                : `hover:opacity-75`
+                ? `text-neutral-600 dark:text-neutral-300 font-medium`
+                : `text-neutral-600 dark:text-neutral-300 hover:opacity-75`
             } my-auto cursor-pointer select-none rounded-full px-4 text-center`}
             onClick={() => {
               setActiveTabIndex(index);
@@ -84,7 +84,7 @@ export const Navbar = () => {
       })}
 
       <button
-        className="my-auto cursor-pointer select-none rounded-full px-4 text-center flex flex-row space-x-2"
+        className="text-neutral-600 dark:text-neutral-300 my-auto cursor-pointer select-none rounded-full px-4 text-center flex flex-row space-x-2"
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       >
         <svg

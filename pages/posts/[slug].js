@@ -43,7 +43,7 @@ export default function PostPage({
         {frontMatter.title}
       </h1>
 
-      <p className="flex flex-row justify-between no-underline font-normal text-sm opacity-75 mt-2">
+      <p className="flex flex-row justify-between no-underline font-normal text-sm md:text-base sm:text-base opacity-75 mt-2">
         <div className="flex flex-col md:flex-row sm:flex-row">
           <span>
             {moment(frontMatter.date).format("最初发表于YY/MM/DD")}
@@ -56,7 +56,7 @@ export default function PostPage({
         </div>
       </p>
 
-      <main className="mt-8 font-normal prose md:prose-lg sm:prose-lg dark:prose-invert">
+      <main className="mt-8 font-normal prose md:prose-lg sm:prose-lg prose-neutral dark:prose-invert">
         <MDXRemote {...source} components={components} />
       </main>
 
@@ -69,7 +69,7 @@ export default function PostPage({
                   className="no-underline flex flex-col "
                   href={`/posts/${prevPost.slug}`}
                 >
-                  <span className="px-1.5 text-sm opacity-75">上一篇</span>
+                  <span className="px-1.5 text-sm md:text-base sm:text-base opacity-75 font-normal">上一篇</span>
                   <span className="flex flex-row mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +98,7 @@ export default function PostPage({
                   className="no-underline flex flex-col"
                   href={`/posts/${nextPost.slug}`}
                 >
-                  <span className="px-1.5 text-sm opacity-75">下一篇</span>
+                  <span className="px-1.5 text-sm md:text-base sm:text-base opacity-75 font-normal">下一篇</span>
                   <span className="flex flex-row mt-1">
                     <span className="text-base md:text-lg sm:text-lg font-medium"> {nextPost.title} </span>
                     <svg

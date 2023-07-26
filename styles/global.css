@@ -49,7 +49,7 @@
 body {
   font-family: "Inter Variable", "Noto Sans SC", sans-serif;
   -webkit-font-smoothing: antialiased;
-  @apply bg-white dark:bg-black text-black dark:text-white;
+  @apply bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100;
 }
 
 h1,
@@ -76,39 +76,6 @@ a {
   @apply font-semibold underline underline-offset-4;
 }
 
-.prose {
-  @apply text-black dark:text-white max-w-3xl;
-}
-
-.prose a {
-  @apply font-medium border-b-2 no-underline border-b-zinc-200 dark:border-b-zinc-900;
-}
-
-.prose blockquote {
-  @apply relative md:relative sm:absolute mt-0 md:-mt-0 sm:-mt-16 p-0 opacity-75 text-sm not-italic max-w-xs border-none right-0 md:ring-0 sm:right-4;
-}
-
-.prose strong {
-  @apply font-bold;
-}
-
-.prose img {
-  @apply max-w-none overflow-x-auto;
-}
-
-.prose pre,
-code {
-  @apply bg-zinc-50 dark:bg-zinc-950 text-black dark:text-white overflow-x-auto;
-}
-
-.prose strong {
-  @apply font-semibold;
-}
-
-.prose hr {
-  @apply my-16  dark:border-zinc-800;
-}
-
 html {
   scroll-snap-type: y mandatory;
 }
@@ -116,10 +83,21 @@ html {
 .math {
   font-size: 1rem !important;
   letter-spacing: 1em !important;
-  @apply overflow-x-auto bg-zinc-100 dark:bg-zinc-900 rounded-xl px-8 py-2 my-4 tracking-widest;
+  @apply overflow-x-auto bg-neutral-200 dark:bg-neutral-800 rounded-xl px-8 py-2 my-4 tracking-widest;
 }
 
-.ali-center {
+.center {
   margin: auto;
-  margin-right: 0;
+}
+
+.prose h2 {
+  font-weight: 500;
+}
+
+.prose h3 {
+  font-weight: 500;
+}
+
+.prose blockquote {
+  @apply bg-neutral-200 dark:bg-neutral-800 rounded-xl px-6 py-1.5 border-none font-normal;
 }
