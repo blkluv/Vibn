@@ -90,12 +90,18 @@ html {
   margin: auto;
 }
 
+.prose strong{
+  @apply font-medium;
+}
+
 .prose h2 {
   font-weight: 500;
+  @apply text-2xl md:text-3xl sm:text-3xl;
 }
 
 .prose h3 {
   font-weight: 500;
+  @apply text-xl md:text-2xl sm:text-2xl;
 }
 
 .prose blockquote {

@@ -54,7 +54,7 @@ export const Navbar = () => {
     initial={{ opacity: 1, y: 50 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.75 }}
-    className="bg-neutral-50/50 dark:bg-neutral-950/50 bottom-4 md:bottom-8 sm:bottom-8 fixed inset-x-0 backdrop-blur-lg max-w-[19rem] md:max-w-[22.9rem] sm:max-w-[22.9rem] justify-center items-center w-auto h-12 inline-flex mx-auto border-[1.5px] border-neutral-900/10 dark:border-neutral-100/5 dark:shadow-neutral-950 shadow-none rounded-full space-x-1 md:space-x-2 sm:space-x-2">
+    className="bg-neutral-50/50 dark:bg-neutral-950/50 bottom-4 md:bottom-8 sm:bottom-8 fixed inset-x-0 backdrop-blur-lg max-w-[18rem] md:max-w-[22.375rem] sm:max-w-[22.375rem] justify-center items-center w-auto h-12 inline-flex mx-auto border-[1.5px] border-neutral-900/10 dark:border-neutral-100/5 dark:shadow-neutral-950 shadow-none rounded-full space-x-1 md:space-x-1.5 sm:space-x-1.5">
       <span
         className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full py-1 transition-all duration-300"
         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}

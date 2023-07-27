@@ -23,7 +23,7 @@ const components = {
   // It also works with dynamically-imported components, which is especially
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
-  Image: dynamic(() => import("@/components/Image")),
+  BlurImage: dynamic(() => import("@/components/Image")),
   Head,
 };
 
@@ -50,7 +50,7 @@ export default function PostPage({
           </span>
         </div>
         <div className="flex flex-row text-right">
-          <span>总计{wordCount}字</span>
+          <span>共{wordCount}字</span>
           <span className="ml-0.5 mr-0.5"> · </span>
           <span>约需{moment(readingTime).format("m")}分钟阅读</span>
         </div>

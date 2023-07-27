@@ -20,6 +20,7 @@
     "@mapbox/rehype-prism": "^0.8.0",
     "@mdx-js/loader": "^2.3.0",
     "@next/mdx": "^13.3.1",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "latest",
     "@vercel/analytics": "^1.0.1",
     "@vercel/next": "^3.8.8",

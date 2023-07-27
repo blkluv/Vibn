@@ -28,5 +28,6 @@ module.exports = {
   plugins: [
     require("@tailwindcss/typography"),
     require("@headlessui/tailwindcss"),
+    require('@tailwindcss/aspect-ratio'),
   ],
 };

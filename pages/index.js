@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Beta() {
   return (
-    <BetaLayout title="Beta Released 2023-07-26">
+    <BetaLayout title="Beta Released 2023-07-27">
       <motion.h1
         initial={{ y: 25, opacity: 0 }}
         animate={{ y: 0, opacity: 1}}
