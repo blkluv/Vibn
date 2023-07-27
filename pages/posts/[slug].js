@@ -43,7 +43,7 @@ export default function PostPage({
         {frontMatter.title}
       </h1>
 
-      <p className="flex flex-row justify-between no-underline font-normal text-sm md:text-base sm:text-base opacity-75 mt-2">
+      <p className="flex flex-row justify-between no-underline font-normal text-base opacity-75 mt-2">
         <div className="flex flex-col md:flex-row sm:flex-row">
           <span>
             {moment(frontMatter.date).format("最初发表于YY/MM/DD")}
@@ -56,20 +56,20 @@ export default function PostPage({
         </div>
       </p>
 
-      <main className="mt-8 font-normal prose md:prose-lg sm:prose-lg prose-neutral dark:prose-invert">
+      <main className="mt-8 font-normal prose prose-lg prose-neutral dark:prose-invert">
         <MDXRemote {...source} components={components} />
       </main>
 
       <footer className="mt-12 mb-12">
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-col space-y-4 md:space-y-0 sm:space-y-0 md:flex-row sm:flex-row justify-between">
           <div>
             {prevPost && (
-              <div className="cursor-pointer">
+              <div className="cursor-pointer bg-neutral-100 dark:bg-neutral-900 border-[1.5px] dark:border-neutral-800 rounded-xl px-6 py-2.5">
                 <Link
                   className="no-underline flex flex-col "
                   href={`/posts/${prevPost.slug}`}
                 >
-                  <span className="px-1.5 text-sm md:text-base sm:text-base opacity-75 font-normal">上一篇</span>
+                  <span className="px-1.5 text-base opacity-75 font-normal">上一篇</span>
                   <span className="flex flex-row mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@ export default function PostPage({
                         d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
                       />
                     </svg>{" "}
-                    <span className="text-base md:text-lg sm:text-lg font-medium">{prevPost.title}</span>
+                    <span className="text-lg font-medium">{prevPost.title}</span>
                   </span>
                 </Link>
               </div>
@@ -93,14 +93,14 @@ export default function PostPage({
           </div>
           <div>
             {nextPost && (
-              <div className="cursor-pointer flex justify-end">
+              <div className="cursor-pointer flex justify-end bg-neutral-100 dark:bg-neutral-900 border-[1.5px] dark:border-neutral-800 rounded-xl px-6 py-2.5">
                 <Link
                   className="no-underline flex flex-col"
                   href={`/posts/${nextPost.slug}`}
                 >
-                  <span className="px-1.5 text-sm md:text-base sm:text-base opacity-75 font-normal">下一篇</span>
+                  <span className="px-1.5 text-base opacity-75 font-normal">下一篇</span>
                   <span className="flex flex-row mt-1">
-                    <span className="text-base md:text-lg sm:text-lg font-medium"> {nextPost.title} </span>
+                    <span className="text-lg font-medium"> {nextPost.title} </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
