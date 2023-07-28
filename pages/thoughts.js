@@ -37,7 +37,7 @@ export default function Blog({ posts }) {
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: isVisible ? 0 : -10, opacity: isVisible ? 1 : 0 }}
               exit={{ opacity: 0 }}
-              transition={{ delay: index * 0.5, duration: 1.5 }}
+              transition={{ delay: index * 0.5, duration: 1 }}
             >
               <Link
                 as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}

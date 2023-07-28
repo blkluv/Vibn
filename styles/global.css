@@ -90,6 +90,14 @@ html {
   margin: auto;
 }
 
+.prose li, ol{
+  @apply px-0;
+}
+
+.prose{
+  @apply text-[1.05rem] md:text-lg sm:text-lg leading-[1.75] md:leading-[1.875] sm:leading-[1.875];
+}
+
 .prose strong{
   @apply font-medium;
 }

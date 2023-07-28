@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Beta() {
   return (
-    <BetaLayout title="Beta Released 2023-07-27">
+    <BetaLayout title="耿越">
       <motion.h1
         initial={{ y: 25, opacity: 0 }}
         animate={{ y: 0, opacity: 1}}
@@ -22,6 +22,8 @@ export default function Beta() {
         <span className="opacity-75">研究点数学</span>。可能写点
         <a href="https://tailwindcss.com">TailwindCSS</a>。
       </motion.h1>
+
+      
     </BetaLayout>
   );
 }
