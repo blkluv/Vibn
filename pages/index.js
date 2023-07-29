@@ -22,8 +22,6 @@ export default function Beta() {
         <span className="opacity-75">研究点数学</span>。可能写点
         <a href="https://tailwindcss.com">TailwindCSS</a>。
       </motion.h1>
-
-      
     </BetaLayout>
   );
 }
