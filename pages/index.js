@@ -1,16 +1,22 @@
 import { useTheme } from "next-themes";
+import Head from "next/head";
 
 export default function Beta() {
   const { theme, setTheme } = useTheme();
   return (
     <div className="max-w-2xl px-6 md:px-12 sm:px-20 py-32 border-l border-neutral-200 dark:border-neutral-800 ml-6 md:mx-auto sm:mx-auto min-h-screen">
+      <Head>
+        <title>GENG YUE - STUDENT, SELF-TAUGHT DEVELOPER</title>
+      </Head>
+
+
       <h1>GENG YUE</h1>
       <p className="opacity-75 mt-1">STUDENT, SELF-TAUGHT DEVELOPER</p>
 
       <p className="mt-16 text-xs text-red-600">
-        Notice: I'm currently preparing for the National Colleage Entrance Exam in 2025.
-        To focus on my study, I'll limit my online time. And I maybe slow to
-        respond.
+        Notice: I'm currently preparing for the National Colleage Entrance Exam
+        in 2025. To focus on my study, I'll limit my online time. And I maybe
+        slow to respond.
       </p>
 
       <div className="mt-32 leading-normal">
