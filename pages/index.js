@@ -1,5 +1,6 @@
 import { useTheme } from "next-themes";
 import Head from "next/head";
+import Lazyload from 'react-lazy-load'
 
 export default function Beta() {
   const { theme, setTheme } = useTheme();
@@ -8,7 +9,6 @@ export default function Beta() {
       <Head>
         <title>GENG YUE - STUDENT, SELF-TAUGHT DEVELOPER</title>
       </Head>
-
 
       <h1>GENG YUE</h1>
       <p className="opacity-75 mt-1">STUDENT, SELF-TAUGHT DEVELOPER</p>
@@ -49,14 +49,20 @@ export default function Beta() {
 
         <div className="flex flex-col space-y-6 mt-8">
           <div className="">
-            <img src="/static/main.png" alt="main page" />
+            <Lazyload offset="50">
+              <img src="/static/main.png" alt="main page" />
+            </Lazyload>
+
             <p className="mt-1 text-xs opacity-75">
               This is the homepage of DM Music.
             </p>
           </div>
 
           <div className="mt-4">
-            <img src="/static/play.png" alt="player page" />
+            <Lazyload offset="50">
+              <img src="/static/play.png" alt="player page" />
+            </Lazyload>
+
             <p className="mt-1 text-xs opacity-75">
               This is the player page of DM Music.
             </p>
