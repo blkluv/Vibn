@@ -4,8 +4,8 @@
 @tailwind variants;
 
 ::-webkit-scrollbar {
-  width: 16px;
-  height: 16px;
+  width: 0px;
+  height: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -47,9 +47,9 @@
 }
 
 body {
-  font-family: "Inter Variable", "Noto Sans SC", sans-serif;
+  font-family: 'Inter Variable', sans-serif;
   -webkit-font-smoothing: antialiased;
-  @apply bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100;
+  @apply bg-neutral-50 dark:bg-neutral-950 text-neutral-950 dark:text-neutral-50 text-sm selection:bg-neutral-200 dark:selection:bg-neutral-800;
 }
 
 h1,
@@ -58,9 +58,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Inter Variable", "Noto Sans SC", sans-serif;
+  font-family: 'Inter Variable', sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .center {
@@ -73,7 +73,7 @@ img {
 }
 
 a {
-  @apply font-medium underline underline-offset-8;
+  @apply underline decoration-neutral-200 dark:decoration-neutral-800 underline-offset-4;
 }
 
 html {
