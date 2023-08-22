@@ -5,7 +5,7 @@ import Lazyload from 'react-lazy-load'
 export default function Beta() {
   const { theme, setTheme } = useTheme();
   return (
-    <div className="max-w-2xl px-6 md:px-12 sm:px-20 py-32 border-l border-neutral-200 dark:border-neutral-800 ml-4 md:mx-auto sm:mx-auto min-h-screen">
+    <div className="max-w-2xl px-6 md:px-12 sm:px-20 py-32 border-l border-neutral-200 dark:border-neutral-800 ml-2 md:mx-auto sm:mx-auto min-h-screen">
       <Head>
         <title>GENG YUE - STUDENT, SELF-TAUGHT DEVELOPER</title>
       </Head>
