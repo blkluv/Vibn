@@ -49,7 +49,7 @@ export default function Beta() {
 
         <div className="flex flex-col space-y-6 mt-8">
           <div className="">
-            <Lazyload offset="50">
+            <Lazyload offset={50}>
               <img src="/static/main.png" alt="main page" />
             </Lazyload>
 
@@ -59,7 +59,7 @@ export default function Beta() {
           </div>
 
           <div className="mt-4">
-            <Lazyload offset="50">
+            <Lazyload offset={50}>
               <img src="/static/play.png" alt="player page" />
             </Lazyload>
 
