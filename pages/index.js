@@ -5,7 +5,7 @@ import Lazyload from 'react-lazy-load'
 export default function Beta() {
   const { theme, setTheme } = useTheme();
   return (
-    <div className="max-w-2xl px-6 md:px-12 sm:px-20 py-32 border-l border-neutral-200 dark:border-neutral-800 ml-6 md:mx-auto sm:mx-auto min-h-screen">
+    <div className="max-w-2xl px-6 md:px-12 sm:px-20 py-32 border-l border-neutral-200 dark:border-neutral-800 ml-4 md:mx-auto sm:mx-auto min-h-screen">
       <Head>
         <title>GENG YUE - STUDENT, SELF-TAUGHT DEVELOPER</title>
       </Head>
@@ -44,12 +44,12 @@ export default function Beta() {
           2. I've finished most of the work of building {""}
           <a href="https://music.gengyue.eu.org">The DM Music Company (?)</a>.
           Thus I've registed a domain for it to use seperatedly, I shall be
-          waiting for mouths till it was checked I thought :(
+          waiting for months till it was checked I thought :(
         </p>
 
         <div className="flex flex-col space-y-6 mt-8">
           <div className="">
-            <Lazyload offset={50}>
+            <Lazyload offset={25}>
               <img src="/static/main.png" alt="main page" />
             </Lazyload>
 
@@ -59,7 +59,7 @@ export default function Beta() {
           </div>
 
           <div className="mt-4">
-            <Lazyload offset={50}>
+            <Lazyload offset={25}>
               <img src="/static/play.png" alt="player page" />
             </Lazyload>
 
