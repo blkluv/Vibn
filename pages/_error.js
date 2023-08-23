@@ -5,7 +5,7 @@ function Error({ statusCode }) {
   return (
     <div className="max-w-2xl px-6 md:px-12 sm:px-20 py-32 border-l border-neutral-200 dark:border-neutral-800 ml-2.5 md:mx-auto sm:mx-auto min-h-screen">
       <Head>
-        <title>GENG YUE - STUDENT, SELF-TAUGHT DEVELOPER</title>
+        <title>GENG YUE - STUDENT, SELF-TAUGHT DEVELOPER {statusCode}</title>
       </Head>
 
       <h1>GENG YUE</h1>
