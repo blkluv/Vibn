@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../styles/global.css";
 
-import '@fontsource-variable/inter'
+import 'inter-ui/inter-latin.css'
 
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react";

@@ -1,11 +1,18 @@
 import { useTheme } from "next-themes";
 import Head from "next/head";
-import Lazyload from 'react-lazy-load'
+import { useRouter } from "next/router";
+import Lazyload from "react-lazy-load";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
 
-export default function Beta() {
+export default function Home({ posts }) {
   const { theme, setTheme } = useTheme();
+  const router = useRouter();
   return (
-    <div className="max-w-2xl px-6 md:px-12 sm:px-20 py-32 border-l border-neutral-200 dark:border-neutral-800 ml-2 md:mx-auto sm:mx-auto min-h-screen">
+    <div className="max-w-2xl px-6 md:px-12 sm:px-20 py-32 border-l border-neutral-200 dark:border-neutral-800 ml-2.5 md:mx-auto sm:mx-auto min-h-screen">
       <Head>
         <title>GENG YUE - STUDENT, SELF-TAUGHT DEVELOPER</title>
       </Head>
@@ -13,13 +20,32 @@ export default function Beta() {
       <h1>GENG YUE</h1>
       <p className="opacity-75 mt-1">STUDENT, SELF-TAUGHT DEVELOPER</p>
 
-      <p className="mt-16 text-xs text-red-600">
-        Notice: I'm currently preparing for the National Colleage Entrance Exam
-        in 2025. To focus on my study, I'll limit my online time. And I maybe
-        slow to respond.
+      <p className="mt-16 text-red-600 border border-red-600 selection:bg-red-600 dark:selection:bg-red-600 selection:text-white">
+        I'm currently preparing for the National College Entrance Exam in 2025.
+        To focus on my study, I'll limit my online time. And I maybe slow to
+        respond.
       </p>
 
-      <div className="mt-32 leading-normal">
+      {posts.map((post) => (
+        <div key={post.slug} className="mt-16">
+          <h1 className="uppercase">{post.data.title}</h1>
+          <p className="opacity-75 mt-1 uppercase">{post.data.subtitle}</p>
+          <article className="mt-12 article">
+            <MDXRemote {...post.content} />
+          </article>
+        </div>
+      ))}
+
+      <button className="uppercase mt-12" onClick={() => router.push("/archive")}>
+        Open the archive
+      </button>
+
+      <div className="mt-32">
+        <h1>GENG YUE</h1>
+        <p className="opacity-75 mt-1">STUDENT, SELF-TAUGHT DEVELOPER</p>
+      </div>
+
+      <div className="mt-16">
         <p>
           I'm now a senior grade 2 student of {""}
           <a href="http://www.ytyz.net/">
@@ -32,71 +58,28 @@ export default function Beta() {
         </p>
       </div>
 
-      <div className="mt-32 leading-normal">
-        <h1>TOPIC</h1>
+      <Lazyload offset={25}>
+        <img
+          src="/static/photo-1633685774305-eda735260df2.avif"
+          className="mt-16"
+        />
+      </Lazyload>
 
-        <p className="mt-1">
-          1. The summer vacation is going to be end in less than 2 days (we are
-          going to start a new term in Aug 24, 2023.). This is horrible.
-        </p>
+      <div className="mt-32">
+        <h1>GENG YUE</h1>
+        <p className="opacity-75 mt-1">STUDENT, SELF-TAUGHT DEVELOPER</p>
 
-        <p className="mt-4">
-          2. I've finished most of the work of building {""}
-          <a href="https://music.gengyue.eu.org">The DM Music Company (?)</a>.
-          Thus I've registed a domain for it to use seperatedly, I shall be
-          waiting for months till it was checked I thought :(
-        </p>
-
-        <div className="flex flex-col space-y-6 mt-8">
-          <div className="">
-            <Lazyload offset={25}>
-              <img src="/static/main.png" alt="main page" />
-            </Lazyload>
-
-            <p className="mt-1 text-xs opacity-75">
-              This is the homepage of DM Music.
-            </p>
+        <div className="mt-12 flex flex-col space-y-6">
+          <div>
+            <p className="mb-1 text-xs opacity-75">Location</p>
+            <span>Yantai City, PRC.</span>
           </div>
 
-          <div className="mt-4">
-            <Lazyload offset={25}>
-              <img src="/static/play.png" alt="player page" />
-            </Lazyload>
-
-            <p className="mt-1 text-xs opacity-75">
-              This is the player page of DM Music.
-            </p>
+          <div>
+            <p className="mb-1 text-xs opacity-75">QQ Number</p>
+            <span>3041299667</span>
           </div>
-        </div>
 
-        <p className="mt-8">
-          3. I got a new physical teacher. That's exciting!
-        </p>
-      </div>
-
-      <div className="mt-32 leading-normal">
-        <h1>THOUGHTS</h1>
-        <p className="mt-1">
-          Why do everyone around me is always in a hurry. Even across China,
-          everyone is in a hurry. We rushed out of the door to go to school at
-          6:50 a.m. and rushed back home at 9:30 p.m.. Can we stop to slowing
-          down, is everyday is just blur? That's the question we really need to
-          consider seriously.
-        </p>
-
-        <p className="text-right mt-4 text-xs opacity-75">
-          Last published on Aug 22, 2023.
-        </p>
-      </div>
-
-      <div className="mt-32 leading-normal">
-        <h1>CONNECT</h1>
-        <p className="mt-1">
-          I DO NOT using social media frequently, but if you wanna get contact
-          with me. You can do it by the following:
-        </p>
-
-        <div className="mt-12 flex flex-col space-y-4">
           <div>
             <p className="mb-1 text-xs opacity-75">GitHub</p>
             <a href="https://github.com/Cloudflare233">@Cloudflare233</a>
@@ -128,4 +111,29 @@ export default function Beta() {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const files = fs.readdirSync("blog");
+  const posts = await Promise.all(
+    files.map(async (filename) => {
+      const filePath = path.join("blog", filename);
+      const fileContents = fs.readFileSync(filePath, "utf-8");
+      const { data, content } = matter(fileContents);
+
+      return {
+        slug: filename.replace(".mdx", ""),
+        data,
+        content: await serialize(content),
+      };
+    })
+  );
+
+  posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }
