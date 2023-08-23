@@ -2,50 +2,22 @@ import { useTheme } from "next-themes";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Lazyload from "react-lazy-load";
-import moment from "moment";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
 
-export default function Home({ posts }) {
+export default function Archive() {
   const { theme, setTheme } = useTheme();
-  const router = useRouter();
   return (
     <div className="max-w-2xl px-6 md:px-12 sm:px-20 py-32 border-l border-neutral-200 dark:border-neutral-800 ml-2.5 md:mx-auto sm:mx-auto min-h-screen">
       <Head>
-        <title>GENG YUE - STUDENT, SELF-TAUGHT DEVELOPER</title>
+        <title>ARCHIVE · GENG YUE - STUDENT, SELF-TAUGHT DEVELOPER</title>
       </Head>
 
       <h1>GENG YUE</h1>
       <p className="opacity-75 mt-1">STUDENT, SELF-TAUGHT DEVELOPER</p>
 
-      <p className="mt-16 text-red-600 border border-red-600 selection:bg-red-600 dark:selection:bg-red-600 selection:text-white">
-        I'm currently preparing for the National College Entrance Exam in 2025.
-        To focus on my study, I'll limit my online time. And I maybe slow to
-        respond.
+      <p className="mt-16 text-green-800 border border-green-800 selection:bg-green-800 dark:selection:bg-green-800 selection:text-white">
+        I need time to readd the archive page...👀 <i>processing...</i> //
+        
       </p>
-
-      {posts.map((post) => (
-        <div key={post.slug} className="mt-16">
-          <h1 className="uppercase">{post.data.title}</h1>
-          <p className="opacity-75 mt-1 uppercase">{post.data.subtitle}</p>
-          <article className="mt-12 article">
-            <MDXRemote {...post.content} />
-          </article>
-          <p className="mt-8 opacity-75 text-xs">
-            Last updated: {moment(post.data.date).format("MMMM DD, YYYY")}
-          </p>
-        </div>
-      ))}
-
-      <button
-        className="uppercase mt-24"
-        onClick={() => router.push("/archive")}
-      >
-        Open the archive
-      </button>
 
       <hr className="mt-32 -ml-6 md:-ml-12 sm:-ml-20 border-neutral-200 dark:border-neutral-800" />
 
@@ -122,29 +94,4 @@ export default function Home({ posts }) {
       </div>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const files = fs.readdirSync("blog");
-  const posts = await Promise.all(
-    files.map(async (filename) => {
-      const filePath = path.join("blog", filename);
-      const fileContents = fs.readFileSync(filePath, "utf-8");
-      const { data, content } = matter(fileContents);
-
-      return {
-        slug: filename.replace(".mdx", ""),
-        data,
-        content: await serialize(content),
-      };
-    })
-  );
-
-  posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
-
-  return {
-    props: {
-      posts,
-    },
-  };
 }
