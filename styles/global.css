@@ -3,6 +3,14 @@
 @tailwind utilities;
 @tailwind variants;
 
+@font-face {
+  font-family: "Sohne";
+  src: url("/fonts/sohne-subset-0.woff2");
+  font-weight: 400 500;
+  font-display: hidden;
+  font-style: normal;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
@@ -47,9 +55,10 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter Variable", sans-serif;
   -webkit-font-smoothing: antialiased;
-  @apply bg-neutral-50 dark:bg-neutral-950 text-neutral-950 dark:text-neutral-50 text-sm selection:bg-neutral-950 dark:selection:bg-neutral-50 selection:text-white dark:selection:text-black leading-normal;
+  @apply text-xl bg-white selection:bg-neutral-300 selection:text-neutral-700;
+  font-weight: 400;
 }
 
 h1,
@@ -58,8 +67,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter Variable", sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-weight: 700;
+}
+
+
+b{
+  font-family: 'Inter Variable', sans-serif;
   font-weight: 600;
 }
 
@@ -73,7 +88,7 @@ img {
 }
 
 a {
-  @apply underline decoration-neutral-200 dark:decoration-neutral-800 underline-offset-4;
+  @apply text-neutral-700 hover:underline;
 }
 
 html {
@@ -90,11 +105,16 @@ html {
   margin: auto;
 }
 
+.article h1{
+  @apply mt-20 mb-2;
+}
+
 .article p {
-  @apply my-6;
+  @apply mb-8 leading-normal;
+  font-weight: 500;
 }
 
 .article ul li {
   list-style-type: dot;
-  margin-bottom: 8px; 
+  margin-bottom: 8px;
 }

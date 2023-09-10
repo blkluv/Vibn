@@ -1,124 +1,82 @@
-import { useTheme } from "next-themes";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import Lazyload from "react-lazy-load";
-import moment from "moment";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
+import { motion } from "framer-motion";
+import { InView } from "react-intersection-observer";
+import { useState, useEffect } from "react";
+import moment from "moment";
 
 export default function Home({ posts }) {
-  const { theme, setTheme } = useTheme();
-  const router = useRouter();
+  const [selectedPost, setSelectedPost] = useState(posts[0]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [selectedPost]);
+
   return (
-    <div className="max-w-2xl px-6 md:px-12 sm:px-20 py-32 border-l border-neutral-200 dark:border-neutral-800 ml-2.5 md:mx-auto sm:mx-auto min-h-screen">
+    <div className="max-w-xl mx-auto px-6 py-40">
       <Head>
-        <title>GENG YUE - STUDENT, SELF-TAUGHT DEVELOPER</title>
+        {selectedPost && <title>{selectedPost.data.title} · Geng Yue</title>}
       </Head>
 
-      <h1>GENG YUE</h1>
-      <p className="opacity-75 mt-1">STUDENT, SELF-TAUGHT DEVELOPER</p>
+      {selectedPost && (
+        <InView>
+          {({ inView, ref }) => (
+            <motion.div
+              ref={ref}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="bg-black rounded-sm w-8 h-1 mb-12"></div>
+              <div>
+                <h1 className="mb-6">{selectedPost.data.title}</h1>
+                <b className="text-neutral-700">
+                  {selectedPost.data.shortdesc}
+                </b>
 
-      <p className="mt-16 text-red-600 border border-red-600 selection:bg-red-600 dark:selection:bg-red-600 selection:text-white">
-        I'm currently preparing for the National College Entrance Exam in 2025.
-        To focus on my study, I'll limit my online time. And I maybe slow to
-        respond.
-      </p>
+                <article className="mt-24 article">
+                  <MDXRemote {...selectedPost.content} />
+                </article>
+              </div>
+            </motion.div>
+          )}
+        </InView>
+      )}
 
-      {posts.map((post) => (
-        <div key={post.slug} className="mt-16">
-          <h1 className="uppercase">{post.data.title}</h1>
-          <p className="opacity-75 mt-1 uppercase">{post.data.subtitle}</p>
-          <article className="mt-12 article">
-            <MDXRemote {...post.content} />
-          </article>
-          <p className="mt-8 opacity-75 text-xs">
-            Last updated: {moment(post.data.date).format("MMMM DD, YYYY")}
-          </p>
-        </div>
-      ))}
+      <div className="mt-24 rounded-xl bg-neutral-200 px-6 py-4">
+        <h1 className="font-semibold mb-1 text-neutral-500">About Me</h1>
+        <b className="text-neutral-700">
+          I'm currently a senior grade 2 student of Yantai No.1 Middle School of
+          Shandong. Interested in web design. Creator of{" "}
+          <a className="underline" href="https://music.gengyue.eu.org/">
+            DM Music
+          </a>
+          .
+        </b>
 
-      <button
-        className="uppercase mt-24"
-        onClick={() => router.push("/archive")}
-      >
-        Open the archive
-      </button>
-
-      <hr className="mt-32 -ml-6 md:-ml-12 sm:-ml-20 border-neutral-200 dark:border-neutral-800" />
-
-      <div className="mt-32">
-        <h1>GENG YUE</h1>
-        <p className="opacity-75 mt-1">STUDENT, SELF-TAUGHT DEVELOPER</p>
-      </div>
-
-      <div className="mt-16">
-        <p>
-          I'm now a senior grade 2 student of {""}
-          <a href="http://www.ytyz.net/">
-            Yantai No.1 Middle School of Shandong
-          </a>{" "}
-          and is also a self-taught developer. I'm not a good student, not a
-          good developer, not writing good codes, not a good minimalist. BUT I
-          always have dream. I want to build something, for there is something
-          which I haven't gained. Like the saying "Because it is there!"
-        </p>
-      </div>
-
-      <Lazyload offset={25}>
-        <img
-          src="/static/photo-1633685774305-eda735260df2.avif"
-          className="mt-16"
-        />
-      </Lazyload>
-
-      <hr className="mt-32 -ml-6 md:-ml-12 sm:-ml-20 border-neutral-200 dark:border-neutral-800" />
-
-      <div className="mt-32">
-        <h1>GENG YUE</h1>
-        <p className="opacity-75 mt-1">STUDENT, SELF-TAUGHT DEVELOPER</p>
-
-        <div className="mt-12 flex flex-col space-y-6">
-          <div>
-            <p className="mb-1 text-xs opacity-75">Location</p>
-            <span>Yantai City, PRC.</span>
+        <h1 className="font-semibold mt-6 mb-1 text-neutral-500">Archived</h1>
+        {posts.map((post) => (
+          <div className="mb-1">
+            <b
+              className={`mb-1 flex justify-between ${
+                post === selectedPost
+                  ? "text-neutral-800 cursor-not-allowed font-bold"
+                  : "text-neutral-700 hover:text-neutral-800 cursor-pointer"
+              }`}
+              key={post.slug}
+              onClick={() => setSelectedPost(post)}
+            >
+              <span className="w-[60%]">{post.data.title}</span>
+              <span className="text-neutral-500 text-lg font-medium align-middle">
+                {moment(post.data.date).format("MMM DD,YYYY")}
+              </span>
+            </b>
           </div>
-
-          <div>
-            <p className="mb-1 text-xs opacity-75">QQ Number</p>
-            <span>3041299667</span>
-          </div>
-
-          <div>
-            <p className="mb-1 text-xs opacity-75">GitHub</p>
-            <a href="https://github.com/Cloudflare233">@Cloudflare233</a>
-          </div>
-
-          <div>
-            <p className="mb-1 text-xs opacity-75">E-mail</p>
-            <a href="mailto:Cloudflare233@yandex.com">
-              Cloudflare233@yandex.com
-            </a>
-          </div>
-        </div>
-        <div className="mt-32"></div>
-        <p className="text-xs mb-1">
-          <span className="opacity-75 mr-1">
-            The default theme doesn't suit you?
-          </span>
-          <span
-            className="cursor-pointer"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          >
-            Change Theme
-          </span>
-        </p>
-
-        <p className="mb-1 text-xs opacity-75">
-          Site last released Aug 22, 2023. © 2023 Geng Yue.
-        </p>
+        ))}
       </div>
     </div>
   );

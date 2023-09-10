@@ -9,7 +9,11 @@
   "dependencies": {
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
+    "@fontsource-variable/chivo": "^5.0.9",
+    "@fontsource-variable/crimson-pro": "^5.0.9",
     "@fontsource-variable/inter": "^5.0.3",
+    "@fontsource-variable/libre-franklin": "^5.0.9",
+    "@fontsource-variable/manrope": "^5.0.8",
     "@headlessui/react": "^1.7.12",
     "@headlessui/tailwindcss": "^0.1.3",
     "@mapbox/rehype-prism": "^0.8.0",
@@ -22,6 +26,7 @@
     "@vercel/next": "^3.8.8",
     "autoprefixer": "^10.4.7",
     "esbuild": "^0.17.0",
+    "framer-motion": "^10.16.4",
     "gray-matter": "^4.0.3",
     "inter-ui": "^3.19.3",
     "moment": "^2.29.4",
@@ -31,6 +36,7 @@
     "postcss": "^8.4.14",
     "react": "latest",
     "react-dom": "latest",
+    "react-intersection-observer": "^9.5.2",
     "react-lazy-load": "^4.0.1",
     "tailwindcss": "latest",
     "vercel": "^31.0.2"

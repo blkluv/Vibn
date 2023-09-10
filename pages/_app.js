@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/global.css";
-
-import 'inter-ui/inter-latin.css'
+import "@fontsource-variable/inter";
 
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react";
@@ -16,9 +15,9 @@ export default function MyApp({ Component, pageProps }) {
     return null;
   }
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
+    <>
       <Component {...pageProps} />
       <Analytics />
-    </ThemeProvider>
+    </>
   );
 }
