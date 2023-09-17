@@ -4,11 +4,11 @@
 @tailwind variants;
 
 @font-face {
-  font-family: "Sohne";
-  src: url("/fonts/sohne-subset-0.woff2");
-  font-weight: 400 500;
-  font-display: hidden;
-  font-style: normal;
+  font-family: 'Overused Grotesk';
+  src:
+    url('/fonts/OverusedGrotesk-VF.woff2') format('woff2 supports variations'),
+    url('/fonts/OverusedGrotesk-VF.woff2') format('woff2-variations');
+  font-weight: 300 900;
 }
 
 ::-webkit-scrollbar {
@@ -55,9 +55,9 @@
 }
 
 body {
-  font-family: "Inter Variable", sans-serif;
+  font-family: "Overused Grotesk", sans-serif;
   -webkit-font-smoothing: antialiased;
-  @apply text-xl bg-white selection:bg-neutral-300 selection:text-neutral-700;
+  @apply bg-white selection:bg-neutral-300 selection:text-neutral-700;
   font-weight: 400;
 }
 
@@ -67,15 +67,19 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Inter Variable", sans-serif;
+  font-family: "Overused Grotesk", sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 
 b{
-  font-family: 'Inter Variable', sans-serif;
-  font-weight: 600;
+  @apply bg-yellow-100 border-b-2 border-yellow-400;
+  font-weight: 400;
+}
+
+p{
+  @apply mb-4;
 }
 
 .center {
@@ -88,7 +92,7 @@ img {
 }
 
 a {
-  @apply text-neutral-700 hover:underline;
+  @apply underline underline-offset-4;
 }
 
 html {
@@ -105,13 +109,16 @@ html {
   margin: auto;
 }
 
-.article h1{
-  @apply mt-20 mb-2;
+.prose h1{
+  @apply text-base mb-0 font-medium opacity-75;
 }
 
-.article p {
-  @apply mb-8 leading-normal;
-  font-weight: 500;
+.prose p{
+  @apply mt-0 text-black;
+}
+
+.prose a{
+  @apply font-normal;
 }
 
 .article ul li {

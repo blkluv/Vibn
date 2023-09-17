@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/global.css";
-import "@fontsource-variable/inter";
+import { AnimatePresence } from "framer-motion";
 
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react";
@@ -16,7 +16,10 @@ export default function MyApp({ Component, pageProps }) {
   }
   return (
     <>
-      <Component {...pageProps} />
+      <AnimatePresence>
+        <Component {...pageProps} />
+      </AnimatePresence>
+
       <Analytics />
     </>
   );
