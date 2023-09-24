@@ -4,10 +4,9 @@
 @tailwind variants;
 
 @font-face {
-  font-family: 'BDO Grotesk';
-  src:
-    url('/fonts/BDOGrotesk-VF.woff2') format('woff2 supports variations'),
-    url('/fonts/BDOGrotesk-VF.woff2') format('woff2-variations');
+  font-family: "BDO Grotesk";
+  src: url("/fonts/BDOGrotesk-VF.woff2") format("woff2 supports variations"),
+    url("/fonts/BDOGrotesk-VF.woff2") format("woff2-variations");
   font-weight: 300 900;
 }
 
@@ -57,8 +56,10 @@
 body {
   font-family: "BDO Grotesk", sans-serif;
   -webkit-font-smoothing: antialiased;
-  @apply bg-white dark:bg-black dark:selection:bg-neutral-700 dark:selection:text-neutral-300 selection:bg-neutral-300 selection:text-neutral-700 text-xl leading-relaxed;
+  @apply bg-white dark:bg-black dark:selection:bg-neutral-700 dark:selection:text-neutral-300 selection:bg-neutral-300 selection:text-neutral-700 text-lg md:text-xl sm:text-xl leading-relaxed;
   font-weight: 400;
+  font-feature-settings: "kern", "calt", "case";
+  font-variant: alternate;
 }
 
 h1,
@@ -69,17 +70,16 @@ h5,
 h6 {
   font-family: "BDO Grotesk", sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-weight: 600;
+  font-weight: 500;
 }
 
-
-b{
+b {
   @apply bg-yellow-100 border-b-2 border-yellow-400;
   font-weight: 400;
 }
 
-p{
-  @apply mb-4 hyphens-auto break-words;
+p {
+  @apply mb-4 hyphens-auto break-all;
 }
 
 .center {
@@ -109,15 +109,15 @@ html {
   margin: auto;
 }
 
-.prose h1{
-  @apply text-xl mb-2 font-semibold opacity-75;
+.prose h1 {
+  @apply text-lg md:text-xl sm:text-xl mb-4 font-medium;
 }
 
-.prose p{
-  @apply mt-0 mb-8 text-black dark:text-white leading-relaxed hyphens-auto break-words;
+.prose p {
+  @apply mt-0 mb-16 text-black dark:text-white leading-relaxed hyphens-auto break-words;
 }
 
-.prose a{
+.prose a {
   @apply font-normal;
 }
 

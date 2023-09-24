@@ -11,10 +11,10 @@ export default function BlogPost({ mdxSource, frontMatter, posts }) {
     <Container posts={posts} title={frontMatter.title}>
       <h1>{frontMatter.title}</h1>
 
-      <p className="font-semibold opacity-75">
+      <p className="mt-12 font-medium opacity-75">
         {frontMatter.shortdesc}
       </p>
-      <div className="mt-8 prose prose-xl dark:prose-invert leading-relaxed">
+      <div className="mt-16 prose prose-lg md:prose-xl sm:prose-xl dark:prose-invert leading-relaxed">
         <MDXRemote {...mdxSource} />
       </div>
     </Container>

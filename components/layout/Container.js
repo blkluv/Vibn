@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 export default function Container({ children, title }) {
   const router = useRouter();
   return (
-    <div className="">
+    <div className="leading-relaxed text-justify text-align-last-right hyphen-auto">
       <Head>
         <title>{title}</title>
       </Head>
@@ -16,7 +16,7 @@ export default function Container({ children, title }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1] }}
           exit={{ opacity: 0 }}
-          className="max-w-2xl mx-auto px-8 py-24"
+          className="max-w-2xl mx-auto px-6 py-36"
         >
           {children}
         </motion.main>

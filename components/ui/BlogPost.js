@@ -6,9 +6,9 @@ export default function BlogPost({ title, slug, length, date, index }) {
   return (
     <button
       onClick={() => router.push(`/blog/${slug}`)}
-      className="bg-white dark:bg-black rounded-xl hover:bg-neutral-300 dark:hover:bg-neutral-700 hover:text-neutral-700 dark:hover:text-neutral-300 py-2 flex flex-row space-x-4 w-full"
+      className="bg-white dark:bg-black hover:opacity-75 py-2 flex flex-row space-x-4 w-full"
     >
-      <div className="px-4 w-8">{length - index}</div>
+      <div className="opacity-75">{length - index}</div>
       <div className="flex flex-row justify-between w-full overflow-x-auto truncate">
         <h1>{title}</h1>
         <div>
