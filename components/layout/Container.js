@@ -16,7 +16,7 @@ export default function Container({ children, title }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 1] }}
           exit={{ opacity: 0 }}
-          className="max-w-2xl mx-auto px-6 py-36"
+          className="max-w-2xl mx-auto px-6 py-28 md:py-32 sm:py-36"
         >
           {children}
         </motion.main>

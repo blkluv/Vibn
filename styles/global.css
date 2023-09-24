@@ -87,12 +87,12 @@ p {
   margin-top: 1.5rem;
 }
 
-img {
-  @apply rounded-none grayscale hover:grayscale-0 cursor-pointer;
+.prose img {
+  @apply rounded-lg mb-0;
 }
 
 a {
-  @apply underline underline-offset-4;
+  @apply underline underline-offset-4 hover:opacity-75;
 }
 
 html {
@@ -103,6 +103,10 @@ html {
   font-size: 1rem !important;
   letter-spacing: 1em !important;
   @apply overflow-x-auto bg-neutral-100 dark:bg-neutral-900 rounded-xl px-8 py-2 my-4 tracking-widest border-[1.5px] dark:border-neutral-800;
+}
+
+.prose small{
+  @apply mb-0 text-sm opacity-75;
 }
 
 .center {

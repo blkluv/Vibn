@@ -70,7 +70,7 @@ export const Navbar = () => {
             ref={(el) => (tabsRef.current[index] = el)}
             className={`${
               isActive
-                ? `text-white dark:text-black font-semibold`
+                ? `text-white dark:text-black font-medium`
                 : `text-black dark:text-white hover:opacity-75`
             } my-auto cursor-pointer select-none rounded-full px-4 text-center`}
             onClick={() => {
