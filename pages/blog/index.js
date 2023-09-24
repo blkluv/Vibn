@@ -5,26 +5,22 @@ import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 import moment from "moment";
 import Container from "@/components/layout/Container";
+import BlogPost from "@/components/ui/BlogPost";
 
-export default function Home({ posts }) {
+export default function Blog({ posts }) {
   return (
-    <Container title="Geng Yue · Home">
-      <p>
-        I'm currently a senior grade 2 student of{" "}
-        <a href="http://www.ytyz.net/">Yantai No.1 Middle School of Shandong</a>
-        . My best days are full of design, craft and code. I love listening to
-        music.{" "}
-        <a href="https://music.gengyue.eu.org/playlist?id=3048186533">
-          Classic songs
-        </a>{" "}
-        are my best.
-      </p>
-
-      <p>
-        I've crafted and mantained{" "}
-        <a href="https://music.gengyue.eu.org/">DM Music</a> {" "}
-        in my spare time.
-      </p>
+    <Container posts={posts} title="Blog">
+      {posts.map((post, index) => {
+        return (
+          <BlogPost
+            title={post.data.title}
+            slug={post.slug}
+            date={post.data.date}
+            index={index}
+            length={posts.length}
+          />
+        );
+      })}
     </Container>
   );
 }

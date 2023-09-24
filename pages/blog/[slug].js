@@ -8,10 +8,13 @@ import moment from "moment";
 
 export default function BlogPost({ mdxSource, frontMatter, posts }) {
   return (
-    <Container posts={posts}>
+    <Container posts={posts} title={frontMatter.title}>
       <h1>{frontMatter.title}</h1>
-      <p>{moment(frontMatter.date).format('MMM DD, YYYY')}</p>
-      <div className="prose leading-normal">
+
+      <p className="font-semibold opacity-75">
+        {frontMatter.shortdesc}
+      </p>
+      <div className="mt-8 prose prose-xl dark:prose-invert leading-relaxed">
         <MDXRemote {...mdxSource} />
       </div>
     </Container>
