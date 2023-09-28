@@ -111,7 +111,7 @@ html {
 
 
 .prose ul, li{
-  @apply text-black dark:text-white px-0 -ml-9 md:-ml-10 sm:-ml-10;
+  @apply text-black dark:text-white px-0;
 }
 
 .center {

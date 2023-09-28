@@ -16,10 +16,10 @@ export default function Container({ children, title }) {
           initial={{ opacity: 0, filter: "blur(10px)" }}
           animate={{
             opacity: [0, 1],
-            scale: [1.1, 1],
+            scale: [1.05, 1],
             filter: ["blur(10px)", "blur(0px)"],
           }}
-          exit={{ opacity: [1, 0], scale: [1,1.1] }}
+          exit={{ opacity: [1, 0], scale: [1, 1.05] }}
           transition={{ duration: 1 }}
           className="max-w-2xl mx-auto px-8 py-16 md:py-32 sm:py-36"
         >
