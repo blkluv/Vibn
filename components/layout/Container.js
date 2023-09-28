@@ -13,10 +13,15 @@ export default function Container({ children, title }) {
       <AnimatePresence initial={false}>
         <motion.main
           key={router.asPath}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1] }}
-          exit={{ opacity: 0 }}
-          className="max-w-2xl mx-auto px-6 py-28 md:py-32 sm:py-36"
+          initial={{ opacity: 0, filter: "blur(10px)" }}
+          animate={{
+            opacity: [0, 1],
+            scale: [1.1, 1],
+            filter: ["blur(10px)", "blur(0px)"],
+          }}
+          exit={{ opacity: [1, 0], scale: [1,1.1] }}
+          transition={{ duration: 1 }}
+          className="max-w-2xl mx-auto px-8 py-16 md:py-32 sm:py-36"
         >
           {children}
         </motion.main>

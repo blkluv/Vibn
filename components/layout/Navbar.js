@@ -51,15 +51,15 @@ export const Navbar = () => {
 
   return (
     <motion.div 
-    initial={{ opacity: 1, y: 50 }}
+    initial={{ opacity: 1, y: 250 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.75 }}
-    className="z-50 text-base bg-white/50 dark:bg-black/50 bottom-4 md:bottom-8 sm:bottom-8 fixed inset-x-0 backdrop-blur-2xl max-w-[19.5rem] md:max-w-[23rem] sm:max-w-[23rem] justify-center items-center w-auto h-[3.125rem] inline-flex mx-auto border border-neutral-900/10 dark:border-neutral-100/5 dark:shadow-neutral-950 rounded-full space-x-1 py-1">
+    transition={{ duration: 1, delay: 0.9 }}
+    className="z-50 text-sm md:text-base sm:text-base bottom-4 fixed inset-x-0 max-w-[19.5rem] md:max-w-[23rem] sm:max-w-[23rem] justify-center items-center w-auto h-[3.125rem] inline-flex mx-auto space-x-1 py-1">
       <span
-        className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-full py-1 transition-all duration-300"
+        className="absolute bottom-0 top-0 -z-10 flex overflow-hidden px-6 py-2 transition-all duration-300"
         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
       >
-        <span className="h-full w-full rounded-full bg-black dark:bg-white py-2.5 md:py-4 sm:py-4" />
+        <span className="h-full w-full border-b-2 border-black dark:border-white" />
       </span>
       {allTabs.map((tab, index) => {
         const isActive = router.asPath === tab.id;
@@ -70,8 +70,8 @@ export const Navbar = () => {
             ref={(el) => (tabsRef.current[index] = el)}
             className={`${
               isActive
-                ? `text-white dark:text-black font-medium`
-                : `text-black dark:text-white hover:opacity-75`
+                ? `font-medium`
+                : `opacity-75 hover:opacity-100`
             } my-auto cursor-pointer select-none rounded-full px-4 text-center`}
             onClick={() => {
               setActiveTabIndex(index);

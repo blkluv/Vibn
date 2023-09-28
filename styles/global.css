@@ -109,6 +109,11 @@ html {
   @apply mb-0 text-sm opacity-75;
 }
 
+
+.prose ul, li{
+  @apply text-black dark:text-white px-0 -ml-9 md:-ml-10 sm:-ml-10;
+}
+
 .center {
   margin: auto;
 }
