@@ -19,9 +19,9 @@ export default function Container({ children, title }) {
             scale: [1.05, 1],
             filter: ["blur(10px)", "blur(0px)"],
           }}
-          exit={{ opacity: [1, 0], scale: [1, 1.05] }}
+          exit={{ opacity: [1, 0], filter: ["blur(0px)", "blur(10px)"] }}
           transition={{ duration: 1 }}
-          className="max-w-2xl mx-auto px-8 py-16 md:py-32 sm:py-36"
+          className="max-w-2xl mx-auto px-8 md:px-6 sm:px-6 py-16 md:py-32 sm:py-36"
         >
           {children}
         </motion.main>
