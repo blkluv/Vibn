@@ -10,6 +10,7 @@ export default function BlogPost({
   length,
   date,
   content,
+  shortdesc,
   index,
 }) {
   const router = useRouter();
@@ -19,7 +20,7 @@ export default function BlogPost({
       className="cursor-pointer mb-8 w-full md:w-full sm:w-3/4 rounded-xl border border-neutral-200 dark:border-neutral-800"
     >
       <div className="">
-        <div className="px-6 flex flex-row space-x-4 border-b border-neutral-200 dark:border-neutral-800 py-4">
+        <div className="px-6 flex flex-row space-x-4 border-b border-neutral-200 dark:border-neutral-800 py-6">
           <img src="/favicon.ico" className="w-12 h-12 border border-neutral-200 dark:border-neutral-800 rounded-full" />
           <div className="flex flex-col space-y-0">
             <h1 className="-mt-1 font-semibold">Geng Yue</h1>
@@ -27,6 +28,7 @@ export default function BlogPost({
           </div>
         </div>
         <p className="line-clamp-[8] px-12 py-8 my-4 prose prose-lg md:prose-xl sm:prose-xl dark:prose-invert leading-relaxed relative">
+          <p className="opacity-75 mb-8">{shortdesc}</p>
           <MDXRemote {...content} />
           <div className="bg-gradient-to-t from-white to-white/0 dark:from-black dark:to-black/0 py-10 bottom-0 absolute w-full" />
         </p>

@@ -7,11 +7,13 @@ import moment from "moment";
 import Container from "@/components/layout/Container";
 import BlogPost from "@/components/ui/BlogPost";
 import Huge from "@/components/ui/headings/Huge";
+import Medium from "@/components/ui/headings/Medium";
 
 export default function Thoughts({ posts }) {
   return (
     <Container posts={posts} title="Thoughts">
       <Huge>Thoughts</Huge>
+      <Medium>Careless Whisper</Medium>
       <br />
       {posts.map((post, index) => {
         return (
@@ -20,6 +22,7 @@ export default function Thoughts({ posts }) {
             slug={post.slug}
             date={post.data.date}
             index={index}
+            shortdesc={post.data.shortdesc}
             content={post.content}
             length={posts.length}
           />

@@ -11,12 +11,13 @@ import Medium from "@/components/ui/headings/Medium";
 export default function BlogPost({ mdxSource, frontMatter, posts }) {
   return (
     <Container posts={posts} title={frontMatter.title}>
-      <Huge>{frontMatter.title}</Huge>
+      <Huge>Thoughts</Huge>
+      <Medium>{frontMatter.title}</Medium>
 
-      <p className="mt-6 font-medium opacity-75">
+      <p className="mt-6 opacity-75 max-w-2xl">
         {frontMatter.shortdesc}
       </p>
-      <div className="mt-8 prose prose-lg md:prose-xl sm:prose-xl dark:prose-invert leading-relaxed">
+      <div className="max-w-2xl mt-8 prose prose-lg md:prose-xl sm:prose-xl dark:prose-invert leading-relaxed">
         <MDXRemote {...mdxSource} />
       </div>
     </Container>
