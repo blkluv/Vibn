@@ -74,8 +74,8 @@ h6 {
 }
 
 b {
-  @apply bg-yellow-100 border-b-2 border-yellow-400;
-  font-weight: 400;
+  @apply bg-yellow-100 border-b-2 border-yellow-400 dark:bg-yellow-900 dark:border-yellow-600;
+  font-weight: 800;
 }
 
 p {

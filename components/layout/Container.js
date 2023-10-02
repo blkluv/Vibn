@@ -1,31 +1,79 @@
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import cn from "classnames";
+import { useState } from "react";
+import NavContent from "../contents/NavContent";
 
 export default function Container({ children, title }) {
-  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="leading-relaxed text-justify text-align-last-right hyphen-auto">
+    <div className="leading-relaxed">
       <Head>
         <title>{title}</title>
       </Head>
-      <AnimatePresence initial={false}>
-        <motion.main
-          key={router.asPath}
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          animate={{
-            opacity: [0, 1],
-            scale: [1.05, 1],
-            filter: ["blur(10px)", "blur(0px)"],
-          }}
-          exit={{ opacity: [1, 0], filter: ["blur(0px)", "blur(10px)"] }}
-          transition={{ duration: 1 }}
-          className="max-w-2xl mx-auto px-8 md:px-6 sm:px-6 py-16 md:py-32 sm:py-36"
+      <div>
+        <div
+          className={cn(
+            "transition-all duration-500 block md:hidden sm:hidden fixed bg-black dark:bg-white text-white dark:text-black ",
+            isOpen
+              ? "bottom-0 right-0 top-0 left-0 h-screen z-[99999999]"
+              : "right-4 bottom-12  rounded-full w-12 h-12 z-[999]"
+          )}
         >
-          {children}
-        </motion.main>
-      </AnimatePresence>
+          <button
+            onClick={() => setIsOpen(true)}
+            className={cn(isOpen && "hidden")}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              class="main-grid-item-icon mt-3 ml-3"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <rect height="18" rx="2" ry="2" width="18" x="3" y="3" />
+              <line x1="9" x2="9" y1="3" y2="21" />
+            </svg>
+          </button>
+          {isOpen && (
+            <>
+              <div className="px-8 py-8">
+                <button onClick={() => setIsOpen(false)} className="">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    class="main-grid-item-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  >
+                    <line x1="18" x2="6" y1="6" y2="18" />
+                    <line x1="6" x2="18" y1="6" y2="18" />
+                  </svg>
+                </button>
+                <NavContent />
+              </div>
+            </>
+          )}
+        </div>
+        <div className="overflow-y-auto fixed w-full md:w-1/5 sm:w-1/5 top-0 left-0 md:left-0 sm:left-0 p-12 md:px-4 hidden md:block sm:block h-screen">
+          <h1>Geng Yue</h1>
+          <p className="opacity-75">Senior 2</p>
+          <div className="my-12" />
+          <NavContent />
+        </div>
+        <div className="fixed right-0 h-screen overflow-y-scroll w-full md:w-4/5 sm:w-4/5 px-6 md:px-10 sm:px-9 p-12 overflow-x-auto">
+          <main className="mb-16">{children}</main>
+        </div>
+      </div>
     </div>
   );
 }

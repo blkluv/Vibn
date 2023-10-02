@@ -1,26 +1,21 @@
-import Head from "next/head";
-import Link from "next/link";
+import Container from "@/components/layout/Container";
+import Huge from "@/components/ui/headings/Huge";
 
 function Error({ statusCode }) {
   return (
-    <div className="max-w-xl mx-auto px-6 py-40">
-      <Head>
-        <title>{statusCode} · Geng Yue</title>
-      </Head>
-
-        <b className="text-neutral-700">
-          {statusCode ? (
-            <span>
-              An error {""}
-              <span className="font-semibold">{statusCode}</span> occurred on
-              server
-            </span>
-          ) : (
-            <span>An error occurred on client</span>
-          )}
-        </b>
-
-    </div>
+    <Container title={statusCode}>
+      <Huge>
+        {statusCode ? (
+          <span>
+            An error {""}
+            <span className="font-semibold">{statusCode}</span> occurred on
+            server
+          </span>
+        ) : (
+          <span>An error occurred on client</span>
+        )}
+      </Huge>
+    </Container>
   );
 }
 

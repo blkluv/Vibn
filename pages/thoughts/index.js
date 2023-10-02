@@ -6,10 +6,13 @@ import { serialize } from "next-mdx-remote/serialize";
 import moment from "moment";
 import Container from "@/components/layout/Container";
 import BlogPost from "@/components/ui/BlogPost";
+import Huge from "@/components/ui/headings/Huge";
 
-export default function Blog({ posts }) {
+export default function Thoughts({ posts }) {
   return (
-    <Container posts={posts} title="Blog">
+    <Container posts={posts} title="Thoughts">
+      <Huge>Thoughts</Huge>
+      <br />
       {posts.map((post, index) => {
         return (
           <BlogPost
@@ -17,6 +20,7 @@ export default function Blog({ posts }) {
             slug={post.slug}
             date={post.data.date}
             index={index}
+            content={post.content}
             length={posts.length}
           />
         );
@@ -26,10 +30,10 @@ export default function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  const files = fs.readdirSync("blog");
+  const files = fs.readdirSync("thoughts");
   const posts = await Promise.all(
     files.map(async (filename) => {
-      const filePath = path.join("blog", filename);
+      const filePath = path.join("thoughts", filename);
       const fileContents = fs.readFileSync(filePath, "utf-8");
       const { data, content } = matter(fileContents);
 
