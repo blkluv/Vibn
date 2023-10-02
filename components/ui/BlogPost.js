@@ -17,25 +17,31 @@ export default function BlogPost({
   return (
     <div
       onClick={() => router.push(`/thoughts/${slug}`)}
-      className="cursor-pointer mb-8 w-full md:w-full sm:w-3/4 rounded-xl border border-neutral-200 dark:border-neutral-800"
+      className="cursor-pointer mb-8 w-full md:w-full sm:w-3/4 border-t py-8  border-neutral-200 dark:border-neutral-800"
     >
-      <div className="">
-        <div className="px-6 flex flex-row space-x-4 border-b border-neutral-200 dark:border-neutral-800 py-6">
-          <img src="/favicon.ico" className="w-12 h-12 border border-neutral-200 dark:border-neutral-800 rounded-full" />
-          <div className="flex flex-col space-y-0">
-            <h1 className="-mt-1 font-semibold">Geng Yue</h1>
-            <Small>@Cloudflare233</Small>
-          </div>
+      <div className="flex flex-row space-x-6">
+        <div className="w-16">
+          <img
+            src="/favicon.ico"
+            className="w-16 h-16 border border-neutral-200 dark:border-neutral-800 rounded-full"
+          />
+          <p className="w-16" />
         </div>
-        <p className="line-clamp-[8] px-12 py-8 my-4 prose prose-lg md:prose-xl sm:prose-xl dark:prose-invert leading-relaxed relative">
-          <p className="opacity-75 mb-8">{shortdesc}</p>
-          <MDXRemote {...content} />
-          <div className="bg-gradient-to-t from-white to-white/0 dark:from-black dark:to-black/0 py-10 bottom-0 absolute w-full" />
-        </p>
-        <div className="border-t border-neutral-200 dark:border-neutral-800 px-6 py-4">
-          <span className="opacity-75 text-base">
-            Posted on {moment(date).format("MMM DD, YYYY")}
-          </span>
+        <div>
+          <div className="flex flex-row space-x-6">
+            <h1 className="font-semibold">Geng Yue</h1>
+            <div className="-mt-5 flex flex-row space-x-6">
+              <Small>{moment(date).format("MMM DD, YYYY")}</Small>
+            </div>
+          </div>
+          <p className="line-clamp-[12] sm:line-clamp-[9] hover:line-clamp-[13] sm:hover:line-clamp-[10] transition-all duration-500 prose prose-lg md:prose-xl sm:prose-xl dark:prose-invert leading-relaxed relative">
+            <p className="opacity-75 -mb-8">{shortdesc}</p>
+            <div className="-mt-12">
+              <MDXRemote {...content} />
+            </div>
+
+            <div className="bg-gradient-to-t from-white to-white/0 dark:from-black dark:to-black/0 py-10 bottom-0 absolute w-full" />
+          </p>
         </div>
       </div>
     </div>

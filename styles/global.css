@@ -88,7 +88,7 @@ p {
 }
 
 .prose img {
-  @apply rounded-lg mb-0;
+  @apply rounded-xl -mb-1;
 }
 
 a {
@@ -106,13 +106,15 @@ html {
 }
 
 .prose small{
-  @apply mb-0 text-sm opacity-75;
+  @apply mb-0 -mt-12 text-sm opacity-75;
 }
 
 
 .prose ul, li{
-  @apply text-black dark:text-white px-0;
+  @apply text-black dark:text-white list-outside;
 }
+
+
 
 .center {
   margin: auto;
