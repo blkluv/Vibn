@@ -25,7 +25,7 @@ export default function Home() {
       <br />
       <img src="/static/title.svg" />
       <br />
-      <div className="opacity-75 flex flex-col space-y-2">
+      <div className="text-neutral-700 dark:text-neutral-300 flex flex-col space-y-2">
         <Huge>Hello.</Huge>
         <Huge>I'm currently a senior grade 2 student.</Huge>
         <Huge>
@@ -36,14 +36,17 @@ export default function Home() {
 
         <Huge>I'm current reading</Huge>
         <br />
+        <img src="/static/17_1594953929397087142.jpg" className="rounded-xl w-1/2 md:w-1/6 sm:w-1/6" />
         <Huge>
           <b>O'Henry's collection of short stories.</b>
         </Huge>
         <br />
+        <img src="/static/u=81140869,825352128&fm=224&app=112&f=JPEG.jpg" className="rounded-xl w-3/4 md:w-1/4 sm:w-1/4" />
         <Huge>
-          <b>The unbearable lightness of life</b> by Milan Kundera.
+          <b>The Unbearable Lightness of Being</b> by Milan Kundera.
         </Huge>
         <br />
+        <img src="/static/u=2567528224,3866395835&fm=224&app=112&f=JPEG.jpg" className="rounded-xl w-1/2 md:w-1/6 sm:w-1/6" />
         <Huge>
           <b>Immensee</b> by Storm.
         </Huge>
