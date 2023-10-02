@@ -14,10 +14,10 @@ export default function BlogPost({ mdxSource, frontMatter, posts }) {
       <Huge>Thoughts</Huge>
       <Medium>{frontMatter.title}</Medium>
 
-      <p className="mt-6 opacity-75 w-2/3">
+      <p className="mt-6 opacity-75 w-full sm:w-2/3">
         {frontMatter.shortdesc}
       </p>
-      <div className="w-2/3 mt-8 prose prose-lg md:prose-xl sm:prose-xl dark:prose-invert leading-relaxed">
+      <div className="w-full sm:w-2/3 mt-8 prose prose-lg md:prose-xl sm:prose-xl dark:prose-invert leading-relaxed">
         <MDXRemote {...mdxSource} />
       </div>
     </Container>
