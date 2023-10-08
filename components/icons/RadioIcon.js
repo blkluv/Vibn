@@ -1,5 +1,5 @@
-// https://feathericons.dev/?search=mail&iconset=feather&format=strict-jsx
-export function Mail(props) {
+// https://feathericons.dev/?search=radio&iconset=feather&format=strict-jsx
+export function Radio(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,8 +14,8 @@ export function Mail(props) {
       strokeWidth="2"
       {...props}
     >
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-      <polyline points="22,6 12,13 2,6" />
+      <circle cx="12" cy="12" r="2" />
+      <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14" />
     </svg>
   );
 }

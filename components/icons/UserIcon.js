@@ -1,5 +1,5 @@
-// https://feathericons.dev/?search=feather&iconset=feather&format=strict-jsx
-export function Feather(props) {
+// https://feathericons.dev/?search=user&iconset=feather&format=strict-jsx
+export function User(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,9 +14,8 @@ export function Feather(props) {
       strokeWidth="2"
       {...props}
     >
-      <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
-      <line x1="16" x2="2" y1="8" y2="22" />
-      <line x1="17.5" x2="9" y1="15" y2="15" />
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
     </svg>
   );
 }

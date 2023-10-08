@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 import "../styles/global.css";
+import "../styles/player.css";
+import "../styles/simplebar.min.css";
 import { AnimatePresence } from "framer-motion";
 
 import { ThemeProvider } from "next-themes";
-import { Analytics } from "@vercel/analytics/react";
-import Navbar from "@/components/layout/Navbar";
+import "@fontsource/noto-sans-sc/chinese-simplified-400.css";
+import "@fontsource/noto-sans-sc/chinese-simplified-500.css";
+import "@fontsource/noto-sans-sc/chinese-simplified-700.css";
+
+import Player from "@/components/layout/Player";
+import { SongIdsProvider } from "@/components/layout/SongIdsContext";
 
 export default function MyApp({ Component, pageProps }) {
   const [showChild, setShowChild] = useState(false);
@@ -17,10 +23,12 @@ export default function MyApp({ Component, pageProps }) {
   }
   return (
     <ThemeProvider attribute="class">
-      <AnimatePresence>
-        <Component {...pageProps} />
-      </AnimatePresence>
-      <Analytics />
+      <SongIdsProvider>
+        <AnimatePresence>
+          <Component {...pageProps} />
+        </AnimatePresence>
+        <Player />
+      </SongIdsProvider>
     </ThemeProvider>
   );
 }
