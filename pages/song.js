@@ -11,6 +11,7 @@ import Huge from "@/components/ui/headings/Huge";
 import Medium from "@/components/ui/headings/Medium";
 import Horizon from "@/components/layout/HorizonScroll";
 import SoCard from "@/components/ui/cards/SoCard";
+import DownloadButton from "@/components/ui/buttons/downloadButton";
 
 export default function Song() {
   const [songDetails, setSongDetails] = useState([]);
@@ -97,7 +98,7 @@ export default function Song() {
                 <PlayAll
                   onClick={() => handleAddToPlaylist(songDetails[0].id)}
                 />
-                <CollectButton
+                <DownloadButton
                   onClick={() =>
                     open(
                       `https://music.163.com/song/media/outer/url?id=${songDetails[0].id}.mp3`
