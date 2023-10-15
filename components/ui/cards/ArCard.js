@@ -17,8 +17,8 @@ export default function ArCard({ picUrl, name, id, index }) {
         />
       </div>
 
-      <div className="absolute bottom-6 left-0 w-full backdrop-blur-2xl bg-white/50 dark:bg-black/50 rounded-b-xl py-2.5 px-6 line-clamp-1 truncate text-left text-base md:text-base sm:text-lg mt-1">
-        <h1 className="font-medium">{name}</h1>
+      <div className="absolute bottom-6 left-0 w-full backdrop-blur-2xl bg-white/50 dark:bg-black/50 rounded-b-xl py-2.5 px-6 line-clamp-1 truncate text-left mt-1">
+        <h1 className="font-medium text-lg md:text-lg sm:text-xl">{name}</h1>
       </div>
       <br />
     </div>

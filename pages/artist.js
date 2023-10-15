@@ -205,6 +205,7 @@ export default function Artist() {
                   picUrl={al.picUrl}
                   name={al.name}
                   id={al.id}
+                  ar={al.artists.map((artist) => artist.name).join(" / ")}
                 />
               ))}
           </Horizon>

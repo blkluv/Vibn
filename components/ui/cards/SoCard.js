@@ -1,9 +1,10 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useContext } from "react";
 import { SongIdsContext } from "@/components/layout/SongIdsContext";
+import cn from 'classnames'
 
 export default function SoCard({ picUrl, name, id, index, ar }) {
-  const { addToPlaylist } = useContext(SongIdsContext);
+  const { songIds, currentSongIndex, addToPlaylist } = useContext(SongIdsContext);
   const handleAddToPlaylist = (trackId) => {
     addToPlaylist(trackId);
   };
@@ -21,9 +22,9 @@ export default function SoCard({ picUrl, name, id, index, ar }) {
         />
       </div>
 
-      <div className="absolute bottom-6 left-0 backdrop-blur-2xl bg-white/50 dark:bg-black/50 rounded-b-xl w-full py-2.5 px-4 md:px-5 sm:px-6 line-clamp-2 truncate text-left text-base md:text-base sm:text-lg mt-1">
-        <h1 className="font-medium">{name}</h1>
-        <p className="opacity-75 -mt-1">{ar}</p>
+      <div className={cn("absolute bottom-6 left-0 backdrop-blur-2xl bg-white/50 dark:bg-black/50 rounded-b-xl w-full py-2.5 px-4 md:px-5 sm:px-6 line-clamp-2 truncate text-left mt-1", id === songIds[currentSongIndex] && 'dark:bg-white/50 bg-black/50 text-white dark:text-black')}>
+        <h1 className="font-medium text-lg md:text-lg sm:text-xl">{name}</h1>
+        <p className="opacity-75 text-base md:text-base sm:text-lg">{ar}</p>
       </div>
       <br />
     </div>

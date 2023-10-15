@@ -17,9 +17,9 @@ export default function AlCard({ picUrl, name, id, index, ar }) {
         />
       </div>
 
-      <div className="absolute bottom-6 w-full left-0 backdrop-blur-2xl bg-white/50 dark:bg-black/50 rounded-b-xl py-2.5 px-6 line-clamp-1 truncate text-left text-base md:text-base sm:text-lg mt-1">
-        <h1 className="font-medium">{name}</h1>
-        <p className="opacity-75 -mt-1">{ar}</p>
+      <div className="absolute bottom-6 w-full left-0 backdrop-blur-2xl bg-white/50 dark:bg-black/50 rounded-b-xl py-2.5 px-6 truncate text-left mt-1">
+        <h1 className="text-lg md:text-lg sm:text-xl font-medium line-clamp-1">{name}</h1>
+        <p className="text-base md:text-base sm:text-lg  opacity-75 line-clamp-1">{ar}</p>
       </div>
       <br />
     </div>

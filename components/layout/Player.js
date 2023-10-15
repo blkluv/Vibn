@@ -538,7 +538,7 @@ export default function Player() {
                     "transition-all duration-500",
                     isFull === "true"
                       ? "mx-auto"
-                      : "ml-2 flex flex-row space-x-4"
+                      : "ml-4 md:ml-6 sm:ml-6 flex flex-row space-x-4"
                   )}
                 >
                   <button
@@ -592,10 +592,10 @@ export default function Player() {
                     }
                     onClick={() => setIsFull("true")}
                     className={cn(
-                      "mx-auto w-auto md:w-[26rem] sm:w-[28rem] object-contain item-center rounded-xl transition-all duration-500",
+                      "pointer-events-none mx-auto w-auto md:w-[26rem] sm:w-[28rem] object-contain item-center rounded-xl transition-all duration-500",
                       !display
                         ? "opacity-100 z-0"
-                        : "block md:hidden sm:hidden pointer-events-none select-none opacity-0 z-0",
+                        : "block md:hidden sm:hidden pointer-events-none select-none opacity-0 z-[-2]",
                       isFull === "true"
                         ? "mt-2 mx-auto w-auto md:w-[26rem] sm:w-[28rem] "
                         : "w-12 h-12 md:w-14 md:h-14 sm:w-16 sm:h-16 mt-2 cursor-pointer"
@@ -615,7 +615,7 @@ export default function Player() {
                           "font-medium truncate",
                           isFull === "true"
                             ? "w-64 md:w-80 sm:w-[23.5rem] text-lg md:text-xl sm:text-xl mt-6"
-                            : "w-28 md:w-32 sm:w-36 text-base md:text-lg sm:text-lg mt-1"
+                            : "w-20 md:w-32 sm:w-36 text-base md:text-lg sm:text-lg mt-1"
                         )}
                       >
                         {song.name}
@@ -625,7 +625,7 @@ export default function Player() {
                           "opacity-75  truncate",
                           isFull === "true"
                             ? "w-64 md:w-80 sm:w-[23.5rem] text-lg md:text-xl sm:text-xl"
-                            : "w-28 md:w-32 sm:w-36 text-base md:text-lg sm:text-lg"
+                            : "w-20 md:w-32 sm:w-36 text-base md:text-lg sm:text-lg"
                         )}
                       >
                         {song.ar.map((artist) => artist.name).join(" / ")}

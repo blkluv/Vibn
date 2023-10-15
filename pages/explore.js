@@ -36,7 +36,6 @@ export default function Home() {
           await responseHighQualityPlaylists.json();
         if (dataHighQualityPlaylists && dataHighQualityPlaylists.code === 200) {
           setPlaylists(dataHighQualityPlaylists.result);
-          console.log(dataHighQualityPlaylists.result)
         }
         const responseNewSongs = await fetch(
           `${site.api}/personalized/newsong?`
@@ -59,6 +58,7 @@ export default function Home() {
         const dataNewAl = await responseNewAl.json();
         const alData = dataNewAl.albums;
         setNewAl(alData);
+        console.log(alData)
 
         const responseNewMV = await fetch(
           `${site.api}/personalized/mv`
@@ -130,6 +130,7 @@ export default function Home() {
               index={index}
               picUrl={al.picUrl}
               name={al.name}
+              ar={al.artists.map((artist) => artist.name).join(" / ")}
               id={al.id}
             />
           ))}

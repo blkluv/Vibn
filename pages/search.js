@@ -251,7 +251,7 @@ const MusicSearch = () => {
                   picUrl={pl.coverImgUrl}
                   name={pl.name}
                   id={pl.id}
-                  signature={pl.creator.signature}
+                  signature={pl.description}
                 />
               ))}
           </Horizon>
@@ -266,6 +266,7 @@ const MusicSearch = () => {
                   index={index}
                   picUrl={al.picUrl}
                   name={al.name}
+                  ar={al.artists.map((artist) => artist.name).join(" / ")}
                   id={al.id}
                 />
               ))}
