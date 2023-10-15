@@ -6,8 +6,8 @@ export function Previous({ isFull }) {
       className={
         ("icon z-50",
         isFull === "true"
-          ? "w-10 md:w-11 sm:w-12 h-12 opacity-80 hover:opacity-100"
-          : "w-10 md:w-11 sm:w-12 h-12 mt-2 md:mt-1 sm:mt-1 opacity-80 hover:opacity-100")
+          ? "w-10 md:w-11 sm:w-12 h-12"
+          : "w-10 md:w-11 sm:w-12 h-12 mt-2 md:mt-1 sm:mt-1")
       }
       viewBox="0 0 1024 1024"
       version="1.1"

@@ -16,6 +16,8 @@ import { Pause } from "../icons/PauseIcon";
 import { Play } from "../icons/PlayIcon";
 import { Next } from "../icons/NextIcon";
 import { Shuffle } from "../icons/ShuffleIcon";
+import { ChevronDown } from "../icons/ChevronDownIcon";
+import { Lyrics } from "../icons/LyricsIcon";
 
 function cn(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -541,25 +543,25 @@ export default function Player() {
                 >
                   <button
                     className={cn(
-                      "transition-all duration-500 z-[10000000] text-center mx-auto fixed top-0 md:top-4 sm:top-4 md:right-16 sm:right-20",
+                      "transition-all duration-500 z-[10000000] text-center mx-auto fixed top-0 md:top-4 sm:top-4 md:right-16 sm:right-20 hidden md:block sm:block",
                       isFull === "true" ? "flex" : "hidden"
                     )}
                     onClick={() =>
                       setIsFull(isFull === "true" ? "false" : "true")
                     }
                   >
-                    <Icon
-                      icon="ic:round-keyboard-arrow-down"
-                      className={cn(
-                        "items-center text-neutral-700 dark:text-neutral-300",
-                        display
-                          ? "opacity-0 md:opacity-75 sm:opacity-75"
-                          : "opacity-75 ",
-                        isFull === "true"
-                          ? "w-8 md:w-10 h-8 md:h-10 sm:w-12 sm:h-12"
-                          : "w-0 h-0"
-                      )}
-                    />
+                    <ChevronDown display={display} isFull={isFull} />
+                  </button>
+                  <button
+                    className={cn(
+                      "transition-all duration-500 z-[10000000] text-center mx-auto block md:hidden sm:hidden",
+                      isFull === "true" ? "flex" : "hidden"
+                    )}
+                    onClick={() =>
+                      setIsFull(isFull === "true" ? "false" : "true")
+                    }
+                  >
+                    <ChevronDown display={display} isFull={isFull} />
                   </button>
                   <motion.img
                     src={`${song.al.picUrl}?param=448y448`}
@@ -595,7 +597,7 @@ export default function Player() {
                         ? "opacity-100 z-0"
                         : "block md:hidden sm:hidden pointer-events-none select-none opacity-0 z-0",
                       isFull === "true"
-                        ? "mt-8 mx-auto w-auto md:w-[26rem] sm:w-[28rem] "
+                        ? "mt-2 mx-auto w-auto md:w-[26rem] sm:w-[28rem] "
                         : "w-12 h-12 md:w-14 md:h-14 sm:w-16 sm:h-16 mt-2 cursor-pointer"
                     )}
                   />
@@ -631,9 +633,20 @@ export default function Player() {
                     </div>
                     <div
                       className={cn(
-                        isFull === "true" ? "mt-9" : "mt-6 md:mt-5 sm:mt-6"
+                        "flex flex-row space-x-4",
+                        isFull === "true" ? "mt-9" : "mt-2 md:mt-1 sm:mt-2"
                       )}
                     >
+                      <button
+                        onClick={() => setDisplay(!display)}
+                        className={cn(
+                          isFull === "true"
+                            ? "block md:hidden sm:hidden"
+                            : "hidden"
+                        )}
+                      >
+                        <Lyrics />
+                      </button>
                       <button onClick={toggleLikeMusic}>
                         {isLiked ? <HeartFill /> : <Heart />}
                       </button>

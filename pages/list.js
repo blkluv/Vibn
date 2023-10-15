@@ -8,6 +8,7 @@ import site from "@/lib/site.config";
 import axios from "axios";
 import PlayAll from "@/components/ui/buttons/playAll";
 import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
+import Column from "@/components/layout/Column";
 
 export default function List() {
   const [playlistDetails, setPlaylistDetails] = useState([]);
@@ -56,7 +57,7 @@ export default function List() {
         </button>
       </div>
 
-      <div className="flex flex-col justify-start mt-4 overflow-y-auto">
+      <Column>
         {playlistDetails.length > 0 &&
           playlistDetails.map((track, index) => {
             return (
@@ -73,7 +74,7 @@ export default function List() {
               />
             );
           })}
-      </div>
+      </Column>
     </Container>
   );
 }
