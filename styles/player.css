@@ -9,7 +9,7 @@
   }
   
   .SliderTrack {
-    @apply bg-neutral-500 dark:bg-neutral-400;
+    @apply bg-neutral-800 dark:bg-neutral-200;
     position: relative;
     flex-grow: 1;
     @apply rounded-full h-[8px] transition-all duration-150 ease-linear;
@@ -18,7 +18,7 @@
   .SliderRange {
     position: absolute;
     height: 100%;
-    @apply bg-neutral-700 dark:bg-neutral-300;
+    @apply bg-black dark:bg-white;
   }
   
   .SliderThumb {

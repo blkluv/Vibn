@@ -111,6 +111,7 @@ export default function ListenNow() {
                   name={pl.name}
                   id={pl.id}
                   copywriter={pl.copywriter}
+                  signature={pl.creator.signature}
                 />
               ))}
           </Horizon>

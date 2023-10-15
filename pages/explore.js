@@ -36,6 +36,7 @@ export default function Home() {
           await responseHighQualityPlaylists.json();
         if (dataHighQualityPlaylists && dataHighQualityPlaylists.code === 200) {
           setPlaylists(dataHighQualityPlaylists.result);
+          console.log(dataHighQualityPlaylists.result)
         }
         const responseNewSongs = await fetch(
           `${site.api}/personalized/newsong?`
@@ -95,6 +96,8 @@ export default function Home() {
               picUrl={pl.picUrl}
               name={pl.name}
               id={pl.id}
+              playCount="enabled"
+              signature={pl.playCount}
             />
           ))}
       </Horizon>

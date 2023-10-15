@@ -8,6 +8,7 @@ import Input from "@/components/ui/contents/Input";
 import InvertButton from "@/components/ui/buttons/InvertButton";
 
 import site from "@/lib/site.config";
+import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
 
 function cn(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -246,15 +247,15 @@ export default function QrLogin() {
         )}
 
         {loginMethod === "phone" && (
-          <InvertButton onClick={() => setLoginMethod("captcha")}>
+          <PrimaryButton onClick={() => setLoginMethod("captcha")}>
             验证码登录
-          </InvertButton>
+          </PrimaryButton>
         )}
 
         {loginMethod === "captcha" && (
-          <InvertButton onClick={() => setLoginMethod("phone")}>
+          <PrimaryButton onClick={() => setLoginMethod("phone")}>
             密码登录
-          </InvertButton>
+          </PrimaryButton>
         )}
       </div>
 

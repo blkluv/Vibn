@@ -1,7 +1,7 @@
 export default function PlayAll({ onClick }) {
   return (
     <button
-      className="flex flex-row space-x-2 rounded-lg bg-gradient-to-t from-black to-neutral-700 dark:from-white dark:to-neutral-300 text-white  dark:text-black px-6 py-2"
+      className="flex flex-row space-x-2 rounded-lg bg-gradient-to-t bg-black dark:bg-white text-white  dark:text-black px-10 py-2"
       onClick={onClick}
     >
       <svg

@@ -71,8 +71,8 @@ export default function Container({ children, title }) {
           <NavContent />
         </div>
         <SimpleBar style={{ maxHeight: 999999 }}>
-          <div className="fixed right-0 h-screen overflow-y-scroll w-full md:w-5/6 sm:w-5/6 px-6 md:px-10 sm:px-9 p-12 overflow-x-auto">
-            <main className="mb-16">{children}</main>
+          <div className="fixed right-0 h-screen overflow-y-scroll w-full md:w-5/6 sm:w-5/6 py-12 overflow-x-auto">
+            <main className="md:ml-10 sm:ml-10 ml-6 mb-32 md:mb-24 sm:mb-16">{children}</main>
           </div>
         </SimpleBar>
       </div>

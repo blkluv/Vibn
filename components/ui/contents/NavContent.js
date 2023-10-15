@@ -13,6 +13,7 @@ import { Moon } from "@/components/icons/MoonIcon";
 import { Radio } from "@/components/icons/RadioIcon";
 import { Search } from "@/components/icons/SearchIcon";
 import { User } from "@/components/icons/UserIcon";
+import { List } from "@/components/icons/ListIcon";
 
 export default function NavContent() {
   const router = useRouter();
@@ -70,6 +71,9 @@ export default function NavContent() {
         </NavButton>
         <NavButton onClick={() => router.push("/broadcast")}>
           <Radio /> 电台
+        </NavButton>
+        <NavButton onClick={() => router.push("/list")}>
+          <List /> 播放列表
         </NavButton>
       </div>
 

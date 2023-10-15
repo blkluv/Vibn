@@ -251,6 +251,7 @@ const MusicSearch = () => {
                   picUrl={pl.coverImgUrl}
                   name={pl.name}
                   id={pl.id}
+                  signature={pl.creator.signature}
                 />
               ))}
           </Horizon>

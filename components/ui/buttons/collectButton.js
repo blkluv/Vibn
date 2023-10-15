@@ -1,7 +1,7 @@
 export default function CollectButton({ onClick, isFavorited }) {
   return (
     <button
-      className="flex flex-row space-x-2 rounded-lg border bg-gradient-to-t from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800 border-neutral-200 dark:border-neutral-800 px-6 py-2"
+      className="flex flex-row space-x-2 rounded-lg border bg-neutral-100 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 px-10 py-2"
       onClick={onClick}
     >
       <svg

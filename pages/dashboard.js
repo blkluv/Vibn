@@ -67,26 +67,7 @@ export default function Dashboard() {
   };
   return (
     <Container title="仪表盘">
-      <div className="flex flex-col md:flex-row sm:flex-row space-x-0 md:space-x-12 sm:space-x-12">
-        <CoverImg
-          picUrl={userDetail !== null && userDetail.profile.avatarUrl}
-        />
-        <div className="mt-4 relative w-full md:w-48 sm:w-[30rem] ">
-          <Huge>{userDetail !== null && userDetail.profile.nickname}</Huge>
-          <div className="mt-6 line-clamp-[10] md:line-clamp-4 sm:line-clamp-[8]">
-            <p>等级：Lv.{userDetail !== null && userDetail.level}</p>
-            <p>
-              个人简介： {userDetail !== null && userDetail.profile.signature}
-            </p>
-            <p>加入： {userDetail !== null && userDetail.createDays}天前</p>
-            <p>累计听歌： {userDetail !== null && userDetail.listenSongs}首</p>
-          </div>
-
-          <div className="absolute bottom-0 hidden md:block sm:block">
-            <InvertButton onClick={handleSignin}>签到</InvertButton>
-          </div>
-        </div>
-      </div>
+       <Huge>{userDetail !== null && userDetail.profile.nickname}的仪表盘</Huge>
       <br />
       {playlists.length > 0 && <Medium>我创建的歌单</Medium>}
       <Horizon>
@@ -98,6 +79,7 @@ export default function Dashboard() {
               picUrl={pl.coverImgUrl}
               name={pl.name}
               id={pl.id}
+              signature={pl.creator.signature}
             />
           ))}
       </Horizon>
