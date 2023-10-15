@@ -592,7 +592,7 @@ export default function Player() {
                     }
                     onClick={() => setIsFull("true")}
                     className={cn(
-                      "pointer-events-none mx-auto w-auto md:w-[26rem] sm:w-[28rem] object-contain item-center rounded-xl transition-all duration-500",
+                      "mx-auto w-auto md:w-[26rem] sm:w-[28rem] object-contain item-center rounded-xl transition-all duration-500",
                       !display
                         ? "opacity-100 z-0"
                         : "block md:hidden sm:hidden pointer-events-none select-none opacity-0 z-[-2]",
