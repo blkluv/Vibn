@@ -16,21 +16,18 @@ export default function PlCard({
       className="relative cursor-pointer"
       onClick={() => router.push(`/playlist?id=${id}`)}
     >
-      <div className="w-72 md:w-[22rem] sm:w-96 h-72 md:h-[22rem] sm:h-96 rounded-xl bg-neutral-200 dark:bg-neutral-800">
+      <div className="w-40 h-40 rounded-xl bg-neutral-200 dark:bg-neutral-800">
         <LazyLoadImage
           effect="opacity"
-          src={`${picUrl}?param=384y384`}
-          className="bg-neutral-200 dark:bg-neutral-800 w-72 md:w-[22rem] sm:w-96 h-72 md:h-[22rem] sm:h-96 rounded-xl "
+          src={`${picUrl}?param=160y160`}
+          className="bg-neutral-200 dark:bg-neutral-800 w-40 h-40 rounded-xl "
         />
       </div>
 
-      <div className="absolute bottom-6 left-0 w-full backdrop-blur-2xl bg-white/50 dark:bg-black/50 rounded-b-xl py-2.5 px-6 text-left mt-1">
-        <h1 className="font-medium line-clamp-1 text-lg md:text-lg sm:text-xl">
-          {name}
+      <div className="text-sm mt-2 w-40">
+        <h1 className="font-medium rounded-md px-2.5 py-1 bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
+          <span className="line-clamp-1">{name}</span>
         </h1>
-        <p className="opacity-75 line-clamp-1 text-base md:text-base sm:text-lg">
-          {signature} {playCount === "enabled" && "次播放"}
-        </p>
       </div>
       <br />
     </div>

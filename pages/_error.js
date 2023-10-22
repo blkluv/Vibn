@@ -1,23 +1,22 @@
 import Container from "@/components/layout/Container";
 import Huge from "@/components/ui/headings/Huge";
+import Medium from "@/components/ui/headings/Medium";
 import Head from "next/head";
 import Link from "next/link";
 
 function Error({ statusCode }) {
   return (
     <Container title={statusCode && statusCode}>
-
-        <Huge>
-          {statusCode ? (
-            <span>
-              服务器发生
-              <span className="font-extrabold">{statusCode}</span> 错误
-            </span>
-          ) : (
-            <span>发生客户端异常</span>
-          )}
-        </Huge>
-
+      <Medium>
+        {statusCode ? (
+          <span>
+            Error{``}
+            <span className="ml-1">{statusCode}</span>
+          </span>
+        ) : (
+          <span>Error</span>
+        )}
+      </Medium>
     </Container>
   );
 }

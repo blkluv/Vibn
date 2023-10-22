@@ -80,7 +80,7 @@ export default function Mv() {
       <br />
       {simiMv !== null && simiMv && (
         <>
-          <Medium>没看过瘾？接下来播放</Medium>
+          <Medium>From the Same Artist</Medium>
           <Horizon>
           {simiMv !== null && simiMv &&
               simiMv.map((track, index) => (

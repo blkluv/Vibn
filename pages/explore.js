@@ -11,6 +11,7 @@ import Medium from "@/components/ui/headings/Medium";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import site from "@/lib/site.config";
+import Column from "@/components/layout/Column";
 
 export default function Home() {
   const router = useRouter();
@@ -84,10 +85,9 @@ export default function Home() {
   }, []);
 
   return (
-    <Container title="探索">
-      <Huge>探索</Huge>
-      {playlists.length > 0 && <Medium>推荐歌单</Medium>}
-      <Horizon>
+    <Container title="Explore">
+      {playlists.length > 0 && <Medium>Recommended Playlists</Medium>}
+      <Column>
         {playlists.length > 0 &&
           playlists.map((pl, index) => (
             <PlCard
@@ -100,10 +100,10 @@ export default function Home() {
               signature={pl.playCount}
             />
           ))}
-      </Horizon>
+      </Column>
       <br />
-      {songDetails.length > 0 && <Medium>新歌速递</Medium>}
-      <Horizon>
+      {songDetails.length > 0 && <Medium>Newest Songs</Medium>}
+      <Column>
         {songDetails &&
           songDetails
             .slice(0, 12)
@@ -119,10 +119,10 @@ export default function Home() {
                 arid={track.ar[0].id}
               />
             ))}
-      </Horizon>
+      </Column>
       <br />
-      {newAl.length > 0 && <Medium>新碟上架</Medium>}
-      <Horizon>
+      {newAl.length > 0 && <Medium>Newest Albums</Medium>}
+      <Column>
         {newAl &&
           newAl.map((al, index) => (
             <AlCard
@@ -134,10 +134,10 @@ export default function Home() {
               id={al.id}
             />
           ))}
-      </Horizon>
+      </Column>
       <br />
-      {newAr.length > 0 && <Medium>热门歌手</Medium>}
-      <Horizon>
+      {newAr.length > 0 && <Medium>Hot Artists</Medium>}
+      <Column>
         {newAr &&
           newAr.map((ar, index) => (
             <ArCard
@@ -148,10 +148,10 @@ export default function Home() {
               id={ar.id}
             />
           ))}
-      </Horizon>
+      </Column>
       <br />
-      {newMv.length > 0 && <Medium>推荐MV</Medium>}
-      <Horizon>
+      {newMv.length > 0 && <Medium>Recommended MV</Medium>}
+      <Column>
         {newMv &&
           newMv.map((track, index) => (
             <MvCard
@@ -163,7 +163,7 @@ export default function Home() {
               ar={track.artists.map((artist) => artist.name).join(" / ")}
             />
           ))}
-      </Horizon>
+      </Column>
     </Container>
   );
 }

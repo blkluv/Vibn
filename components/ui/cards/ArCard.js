@@ -9,16 +9,18 @@ export default function ArCard({ picUrl, name, id, index }) {
       onClick={() => router.push(`/artist?id=${id}`)}
       className="relative cursor-pointer"
     >
-      <div className="w-64 md:w-72 sm:w-80 h-64 md:h-72 sm:h-80 bg-neutral-200 dark:bg-neutral-800 rounded-xl">
+      <div className="w-40 h-40 bg-neutral-200 dark:bg-neutral-800 rounded-xl">
         <LazyLoadImage
           effect="opacity"
-          src={`${picUrl}?param=320y320`}
-          className="bg-neutral-200 dark:bg-neutral-800 rounded-xl  w-64 md:w-72 sm:w-80 h-64 md:h-72 sm:h-80"
+          src={`${picUrl}?param=160y160`}
+          className="bg-neutral-200 dark:bg-neutral-800 rounded-xl w-40 h-40"
         />
       </div>
 
-      <div className="absolute bottom-6 left-0 w-full backdrop-blur-2xl bg-white/50 dark:bg-black/50 rounded-b-xl py-2.5 px-6 line-clamp-1 truncate text-left mt-1">
-        <h1 className="font-medium text-lg md:text-lg sm:text-xl">{name}</h1>
+      <div className="text-sm mt-2 w-40">
+        <h1 className="text-center font-medium rounded-md px-2.5 py-1 bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
+          <span className="line-clamp-1">{name}</span>
+        </h1>
       </div>
       <br />
     </div>

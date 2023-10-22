@@ -185,18 +185,18 @@ export default function QrLogin() {
       {/* 手机号登录表单 */}
       {loginMethod === "phone" && (
         <>
-          <Huge>手机号登录</Huge>
+          <Huge>Login With Phone</Huge>
           <div className="max-w-sm mt-4">
             <Input
               type="text"
-              placeholder="手机号"
+              placeholder="Phone Number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
             <br />
             <Input
               type="password"
-              placeholder="密码"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -208,19 +208,19 @@ export default function QrLogin() {
       {loginMethod === "captcha" && (
         <>
           <Huge>
-            验证码登录
+            Login With Captcha
           </Huge>
           <div className="mt-4 max-w-sm">
             <Input
               type="text"
-              placeholder="手机号"
+              placeholder="Phone Number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
             <div className="flex flex-row relative">
               <Input
                 type="text"
-                placeholder="验证码"
+                placeholder="Captcha Number"
                 value={verificationCode}
                 onChange={(e) => setVerificationCode(e.target.value)}
               />
@@ -234,7 +234,7 @@ export default function QrLogin() {
                     : "bg-neutral-300 dark:bg-neutral-700"
                 )}
               >
-                {countdown > 0 ? `${countdown} 秒后重发` : "发送验证码"}
+                {countdown > 0 ? `${countdown}s` : "Send VerificationCode"}
               </button>
             </div>
           </div>
@@ -243,18 +243,18 @@ export default function QrLogin() {
       <div className="max-w-sm">
         {/* 登录按钮 */}
         {loginMethod !== "qr" && (
-          <InvertButton onClick={handleLogin}>登录</InvertButton>
+          <InvertButton onClick={handleLogin}>Log In</InvertButton>
         )}
 
         {loginMethod === "phone" && (
           <PrimaryButton onClick={() => setLoginMethod("captcha")}>
-            验证码登录
+            Login With Captcha
           </PrimaryButton>
         )}
 
         {loginMethod === "captcha" && (
           <PrimaryButton onClick={() => setLoginMethod("phone")}>
-            密码登录
+            Login With Phone Number
           </PrimaryButton>
         )}
       </div>

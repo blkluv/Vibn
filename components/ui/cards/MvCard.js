@@ -9,17 +9,19 @@ export default function MvCard({ picUrl, name, id, index, ar }) {
       onClick={() => router.push(`/mv?id=${id}`)}
       className="relative cursor-pointer"
     >
-      <div className="bg-neutral-200 dark:bg-neutral-800 rounded-xl  w-80 md:w-96 sm:w-[27.5rem] h-48 md:h-56 sm:h-64">
+      <div className="bg-neutral-200 dark:bg-neutral-800 rounded-xl w-40 h-24">
         <LazyLoadImage
           effect="opacity"
-          src={`${picUrl}?param=440y256`}
-          className="bg-neutral-200 dark:bg-neutral-800 rounded-xl  w-80 md:w-96 sm:w-[27.5rem] h-48 md:h-56 sm:h-64"
+          src={`${picUrl}?param=320y192`}
+          className="bg-neutral-200 dark:bg-neutral-800 rounded-xl w-40 h-24"
         />
       </div>
 
-      <div className="absolute bottom-6 left-0 backdrop-blur-2xl bg-white/50 dark:bg-black/50 rounded-b-xl w-full py-2.5 px-4 md:px-5 sm:px-6 line-clamp-2 truncate text-left  mt-1">
-        <h1 className="font-medium text-lg md:text-lg sm:text-xl">{name}</h1>
-        <p className="opacity-75 text-base md:text-base sm:text-lg">{ar}</p>
+      <div className="text-sm mt-2 w-40">
+        <h1 className="font-medium rounded-md px-2.5 py-1 bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
+          <span className="line-clamp-1">{name}</span> 
+          <p className="opacity-75 line-clamp-1">{ar}</p>
+        </h1>
       </div>
       <br />
     </div>

@@ -17,6 +17,7 @@
     "@fontsource/noto-sans-sc": "^5.0.14",
     "@headlessui/react": "^1.7.12",
     "@headlessui/tailwindcss": "^0.1.3",
+    "@iconify/icons-uim": "^1.2.4",
     "@iconify/react": "^4.1.1",
     "@mapbox/rehype-prism": "^0.8.0",
     "@mdx-js/loader": "^2.3.0",
@@ -49,6 +50,7 @@
     "simplebar": "^6.2.5",
     "simplebar-react": "^3.2.4",
     "tailwindcss": "latest",
+    "vaul": "^0.7.5",
     "vercel": "^31.0.2"
   }
 }

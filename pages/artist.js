@@ -117,25 +117,22 @@ export default function Artist() {
       {arData && (
         <>
           <div className="relative">
-            <div className="bg-neutral-200 dark:bg-neutral-800 rounded-xl w-full md:w-full sm:w-[64rem]">
+            <div className="bg-neutral-200 dark:bg-neutral-800 rounded-xl w-full">
               <HugeImg picUrl={arData.cover} />
             </div>
 
-            <div className="absolute bottom-0 left-0 backdrop-blur-2xl bg-white/50 dark:bg-black/50 rounded-b-xl w-full md:w-full sm:w-[64rem] py-2 md:py-4 sm:py-8 px-6 md:px-8 sm:px-10 line-clamp-2">
+            <div className="absolute bottom-0 left-0 backdrop-blur-2xl bg-white/50 dark:bg-black/50 rounded-b-xl w-full py-2 md:py-4 sm:py-8 px-6 md:px-8 sm:px-10 line-clamp-2">
               <Huge>{arData.name}</Huge>
-              <div className="opacity-75 mt-1">
-                <Medium>{arData.alias[0]}</Medium>
-              </div>
             </div>
           </div>
-          <p className="bg-neutral-200 dark:bg-neutral-800 rounded-xl opacity-75 my-8 px-6 py-4 w-full md:w-full sm:w-[64rem]">
+          <p className="bg-neutral-200 dark:bg-neutral-800 rounded-xl opacity-75 my-8 px-6 py-4 w-full">
             {arData.briefDesc}
           </p>
 
           {arSongs !== null && arSongs.slice(0, 10) && (
-            <Medium>你喜爱的歌手的代表作</Medium>
+            <Medium>50 Top Songs</Medium>
           )}
-          <Horizon>
+          <Column>
             {arSongs !== null &&
               arSongs.slice(0, 10) &&
               arSongs
@@ -152,10 +149,10 @@ export default function Artist() {
                     picUrl={track.al.picUrl}
                   />
                 ))}
-          </Horizon>
+          </Column>
           <br />
           {arSongs !== null && arSongs.slice(10, 50) && (
-            <Medium>同样精彩，不要错过</Medium>
+            <Medium>Don't Miss The Rest Part</Medium>
           )}
           <Column>
             {arSongs !== null &&
@@ -163,7 +160,7 @@ export default function Artist() {
               arSongs
                 .slice(10, 50)
                 .map((track, index) => (
-                  <SmSoCard
+                  <SoCard
                     key={track.id}
                     index={index}
                     id={track.id}
@@ -176,8 +173,8 @@ export default function Artist() {
                 ))}
           </Column>
           <br />
-          {arMVs !== null && arMVs && <Medium>精彩MV不要错过~</Medium>}
-          <Horizon>
+          {arMVs !== null && arMVs && <Medium>MV Presented by the Artist~</Medium>}
+          <Column>
             {arMVs &&
               arMVs.map((track, index) => (
                 <MvCard
@@ -191,12 +188,12 @@ export default function Artist() {
                     .join(" / ")}
                 />
               ))}
-          </Horizon>
+          </Column>
           <br />
           {arAlbums !== null && arAlbums && (
-            <Medium>看看有没有你珍藏的专辑~</Medium>
+            <Medium>Album Presented by the Artist~</Medium>
           )}
-          <Horizon>
+          <Column>
             {arAlbums &&
               arAlbums.map((al, index) => (
                 <AlCard
@@ -208,12 +205,12 @@ export default function Artist() {
                   ar={al.artists.map((artist) => artist.name).join(" / ")}
                 />
               ))}
-          </Horizon>
+          </Column>
           <br />
           {similarArtists !== null && similarArtists && (
-            <Medium>相似歌手，一次看个够</Medium>
+            <Medium>Similar Artist</Medium>
           )}
-          <Horizon>
+          <Column>
             {similarArtists &&
               similarArtists.map((artist, index) => (
                 <ArCard
@@ -224,7 +221,7 @@ export default function Artist() {
                   index={index}
                 />
               ))}
-          </Horizon>
+          </Column>
         </>
       )}
     </Container>

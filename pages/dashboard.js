@@ -10,6 +10,8 @@ import site from "@/lib/site.config";
 import Medium from "@/components/ui/headings/Medium";
 import PlCard from "@/components/ui/cards/PlCard";
 import Horizon from "@/components/layout/HorizonScroll";
+import CollectButton from "@/components/ui/buttons/collectButton";
+import Column from "@/components/layout/Column";
 
 export default function Dashboard() {
   const [userDetail, setUserDetail] = useState(null);
@@ -66,11 +68,11 @@ export default function Dashboard() {
     router.reload();
   };
   return (
-    <Container title="仪表盘">
-       <Huge>{userDetail !== null && userDetail.profile.nickname}的仪表盘</Huge>
+    <Container title="Dashboard">
+       <Huge>{userDetail !== null && userDetail.profile.nickname}'s Dashboard</Huge>
       <br />
-      {playlists.length > 0 && <Medium>我创建的歌单</Medium>}
-      <Horizon>
+      {playlists.length > 0 && <Medium>Created Playlists</Medium>}
+      <Column>
         {playlists.length > 0 &&
           playlists.map((pl, index) => (
             <PlCard
@@ -82,7 +84,7 @@ export default function Dashboard() {
               signature={pl.creator.signature}
             />
           ))}
-      </Horizon>
+      </Column>
     </Container>
   );
 }

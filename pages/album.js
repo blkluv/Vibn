@@ -88,9 +88,9 @@ export default function Playlist() {
         <CoverImg
           picUrl={albumDetail !== null && albumDetail.album.picUrl}
         />
-        <div className="mt-4 relative w-full md:w-48 sm:w-[30rem] ">
+        <div className="mt-4 relative w-full md:w-48 sm:w-[24rem] ">
           <Huge>{albumDetail !== null && albumDetail.album.name}</Huge>
-          <p className="mt-6 line-clamp-[10] md:line-clamp-4 sm:line-clamp-[8] mb-24 md:mb-0 sm:mb-0">
+          <p className="mt-6 text-sm line-clamp-[10] md:line-clamp-4 sm:line-clamp-[8] mb-24 md:mb-0 sm:mb-0">
             {albumDetail !== null && albumDetail.album.description}
           </p>
 
@@ -101,8 +101,8 @@ export default function Playlist() {
         </div>
       </div>
       <br />
-      <Medium>首屈一指</Medium>
-      <Horizon>
+      <Medium>Priority</Medium>
+      <Column>
         {albumTrack &&
           albumTrack[0]
             .slice(0, 5)
@@ -118,15 +118,15 @@ export default function Playlist() {
                 arid={track.ar[0].id}
               />
             ))}
-      </Horizon>
+      </Column>
       <br />
-      <Medium>同样精彩，不容错过</Medium>
+      <Medium>Don't Miss the Rest Part</Medium>
       <Column>
         {albumTrack &&
           albumTrack[0]
             .slice(5, 10)
             .map((track, index) => (
-              <SmSoCard
+              <SoCard
                 key={track.id}
                 index={index}
                 id={track.id}

@@ -5,7 +5,7 @@ export default function HugeImg({ picUrl }) {
     <LazyLoadImage
       effect="opacity"
       src={`${picUrl}?param=1920y1080`}
-      className="bg-neutral-200 dark:bg-neutral-800 rounded-xl w-full md:w-full sm:w-[64rem] h-auto"
+      className="bg-neutral-200 dark:bg-neutral-800 rounded-xl w-full h-auto"
     />
   );
 }

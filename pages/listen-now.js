@@ -10,6 +10,7 @@ import Horizon from "@/components/layout/HorizonScroll";
 import Container from "@/components/layout/Container";
 import PlCard from "@/components/ui/cards/PlCard";
 import SoCard from "@/components/ui/cards/SoCard";
+import Column from "@/components/layout/Column";
 
 export default function ListenNow() {
   const router = useRouter();
@@ -95,12 +96,11 @@ export default function ListenNow() {
   const cookie = localStorage.getItem("cookie");
   const userData = JSON.parse(userDataStr);
   return (
-    <Container title="现在就听">
+    <Container title="Listen Now">
       {userData && (
         <>
-          <Huge>现在就听</Huge>
-          {playlist.length > 0 && <Medium>每日推荐歌单</Medium>}
-          <Horizon>
+          {playlist.length > 0 && <Medium>Daily Recommended Playlists</Medium>}
+          <Column>
             {playlist &&
               playlist.length > 0 &&
               playlist.map((pl, index) => (
@@ -114,10 +114,10 @@ export default function ListenNow() {
                   signature={pl.creator.signature}
                 />
               ))}
-          </Horizon>
+          </Column>
           <br />
-          {songs.length > 0 && <Medium>每日推荐歌曲</Medium>}
-          <Horizon>
+          {songs.length > 0 && <Medium>Daily Recommended Songs</Medium>}
+          <Column>
             {songs &&
               songs.map((track, index) => (
                 <SoCard
@@ -132,10 +132,10 @@ export default function ListenNow() {
                   reason={track.reason}
                 />
               ))}
-          </Horizon>
+          </Column>
           <br />
-          {songDetails.length > 0 && <Medium>每日私人漫游</Medium>}
-          <Horizon>
+          {songDetails.length > 0 && <Medium>Private FM</Medium>}
+          <Column>
             {songDetails &&
               songDetails.map((track, index) => (
                 <SoCard
@@ -149,11 +149,11 @@ export default function ListenNow() {
                   picUrl={track.al.picUrl}
                 />
               ))}
-          </Horizon>
+          </Column>
         </>
       )}
 
-      {!userData && <div>请先登录</div>}
+      {!userData && <div>Please Login in Advance.</div>}
     </Container>
   );
 }

@@ -15,6 +15,7 @@ import Huge from "@/components/ui/headings/Huge";
 import Horizon from "@/components/layout/HorizonScroll";
 
 import site from "@/lib/site.config";
+import Column from "@/components/layout/Column";
 
 const MusicSearch = () => {
   const router = useRouter();
@@ -72,6 +73,7 @@ const MusicSearch = () => {
     const fetchData = async () => {
       if (keywords) {
         try {
+          setIsLoading(true);
           const [
             songResponse,
             artistResponse,
@@ -81,9 +83,7 @@ const MusicSearch = () => {
             videoResponse,
           ] = await Promise.all([
             fetch(
-              `${site.api}/search?keywords=${encodeURIComponent(
-                keywords
-              )}`
+              `${site.api}/search?keywords=${encodeURIComponent(keywords)}`
             ),
             fetch(
               `${site.api}/search?type=100&keywords=${encodeURIComponent(
@@ -190,27 +190,15 @@ const MusicSearch = () => {
   };
 
   return (
-    <Container title="搜索">
-      <Huge>搜索</Huge>
-      <div className="mt-6 flex flex-row justify-start w-full relative">
-        <form onSubmit={handleSearch}>
-          <Input
-            type="search"
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
-            placeholder="在此键入以搜索"
-          />
-          <button type="submit" className="hidden">
-            Search
-          </button>{" "}
-          {/* 隐藏实际的提交按钮 */}
-        </form>
-      </div>
+    <Container title="Search">
+      <Medium>
+        {isLoading && <div className="flex flex-row space-x-2"><Icon icon="svg-spinners:bars-rotate-fade" className="mt-1" loop={true} /> <span>Loading...</span></div>}
+      </Medium>
       <br />
       {songDetail.length > 0 && (
         <>
-          {songDetail && <Medium id="song">单曲</Medium>}
-          <Horizon>
+          {songDetail && !isLoading && <Medium id="song">Single Songs</Medium>}
+          <Column>
             {songDetail &&
               !isLoading &&
               songDetail.map((track, index) => (
@@ -224,10 +212,10 @@ const MusicSearch = () => {
                   duration={track.dt}
                 />
               ))}
-          </Horizon>
+          </Column>
           <br />
-          {songDetail && !isLoading && <Medium id="artist">艺术家</Medium>}
-          <Horizon>
+          {songDetail && !isLoading && <Medium id="artist">Artists</Medium>}
+          <Column>
             {artistDetail &&
               !isLoading &&
               artistDetail.map((artist, index) => (
@@ -239,11 +227,12 @@ const MusicSearch = () => {
                   name={artist.name}
                 />
               ))}
-          </Horizon>
+          </Column>
           <br />
-          {songDetail && !isLoading && <Medium id="playlist">歌单</Medium>}
-          <Horizon>
+          {songDetail && !isLoading && <Medium id="playlist">Playlists</Medium>}
+          <Column>
             {playlistDetail.length > 0 &&
+              !isLoading &&
               playlistDetail.map((pl, index) => (
                 <PlCard
                   key={pl.id}
@@ -254,10 +243,10 @@ const MusicSearch = () => {
                   signature={pl.description}
                 />
               ))}
-          </Horizon>
+          </Column>
           <br />
-          {songDetail && !isLoading && <Medium id="album">专辑</Medium>}
-          <Horizon>
+          {songDetail && !isLoading && <Medium id="album">Albums</Medium>}
+          <Column>
             {albumDetail &&
               !isLoading &&
               albumDetail.map((al, index) => (
@@ -270,10 +259,10 @@ const MusicSearch = () => {
                   id={al.id}
                 />
               ))}
-          </Horizon>
+          </Column>
           <br />
           {songDetail && !isLoading && <Medium id="mv">MV</Medium>}
-          <Horizon>
+          <Column>
             {mvDetail &&
               !isLoading &&
               mvDetail.map((track, index) => (
@@ -286,7 +275,7 @@ const MusicSearch = () => {
                   picUrl={track.cover}
                 />
               ))}
-          </Horizon>
+          </Column>
         </>
       )}
     </Container>

@@ -29,21 +29,21 @@ export default function Playlist() {
       )
     : [];
 
-    const checkIsFavorited = async () => {
-      try {
-        const response = await axios.get(`${site.api}/playlist/detail/dynamic`, {
-          params: {
-            id: id,
-            cookie: cookie,
-          },
-        });
-  
-        setIsFavorited(response.data.subscribed)
-      } catch (error) {
-        // 处理错误
-        console.error(error);
-      }
-    };
+  const checkIsFavorited = async () => {
+    try {
+      const response = await axios.get(`${site.api}/playlist/detail/dynamic`, {
+        params: {
+          id: id,
+          cookie: cookie,
+        },
+      });
+
+      setIsFavorited(response.data.subscribed);
+    } catch (error) {
+      // 处理错误
+      console.error(error);
+    }
+  };
 
   const getPlaylistDetail = async () => {
     try {
@@ -62,15 +62,12 @@ export default function Playlist() {
 
   const getPlaylistTracks = async () => {
     try {
-      const response = await axios.get(
-        `${site.api}/playlist/track/all`,
-        {
-          params: {
-            id: id,
-            limit: 1000,
-          },
-        }
-      );
+      const response = await axios.get(`${site.api}/playlist/track/all`, {
+        params: {
+          id: id,
+          limit: 1000,
+        },
+      });
 
       setPlaylistTrack(response.data.songs);
     } catch (error) {
@@ -91,7 +88,9 @@ export default function Playlist() {
 
   async function handleFavoritePlaylist(type, id) {
     try {
-      const response = await axios.get(`${site.api}/playlist/subscribe?t=${type}&id=${id}&cookie=${cookie}`);
+      const response = await axios.get(
+        `${site.api}/playlist/subscribe?t=${type}&id=${id}&cookie=${cookie}`
+      );
       // 根据返回的响应结果更新收藏状态
       setIsFavorited(type === 1);
     } catch (error) {
@@ -112,27 +111,34 @@ export default function Playlist() {
   };
   return (
     <Container title={playlistDetail !== null && playlistDetail.name}>
-      <div className="flex flex-col md:flex-row sm:flex-row space-x-0 md:space-x-12 sm:space-x-12">
-        <CoverImg
-          picUrl={playlistDetail !== null && playlistDetail.coverImgUrl}
-        />
-        <div className="mt-4 relative w-full md:w-48 sm:w-[30rem] ">
+      <div className="mt-4 flex flex-col md:flex-row sm:flex-row space-x-0 md:space-x-12 sm:space-x-12">
+        <div className="w-80">
+          <CoverImg
+            picUrl={playlistDetail !== null && playlistDetail.coverImgUrl}
+          />
+        </div>
+
+        <div className="mt-4 relative w-full md:w-48 sm:w-[24rem] ">
           <Huge>{playlistDetail !== null && playlistDetail.name}</Huge>
           <p className="mt-6 line-clamp-[10] md:line-clamp-4 sm:line-clamp-[8] mb-24 md:mb-0 sm:mb-0">
             {playlistDetail !== null && playlistDetail.description}
-            {playlistDetail !== null && playlistDetail.description === null && '没有可显示的简介'}
+            {playlistDetail !== null &&
+              playlistDetail.description === null &&
+              "No Description Could Be Displayed"}
           </p>
 
           <div className="absolute bottom-0 flex flex-row space-x-4">
             <PlayAll onClick={handlePlayAll} />
-            <CollectButton onClick={() => handleFavoritePlaylist(isFavorited ? 2 : 1, id)} isFavorited={isFavorited} />
+            <CollectButton
+              onClick={() => handleFavoritePlaylist(isFavorited ? 2 : 1, id)}
+              isFavorited={isFavorited}
+            />
           </div>
-        
         </div>
       </div>
       <br />
-      {filteredTracks.length > 0 && <Medium>首屈一指</Medium>}
-      <Horizon>
+      {filteredTracks.length > 0 && <Medium>Priority</Medium>}
+      <Column>
         {filteredTracks.length > 0 &&
           filteredTracks
             .slice(0, 10)
@@ -148,17 +154,17 @@ export default function Playlist() {
                 name={track.name}
               />
             ))}
-      </Horizon>
+      </Column>
       <br />
       {filteredTracks.slice(10, 9999).length > 0 && (
-        <Medium>同样精彩，不容错过</Medium>
+        <Medium>Don't Miss the Rest Part</Medium>
       )}
       <Column>
         {filteredTracks.slice(10, 9999).length > 0 &&
           filteredTracks
             .slice(10, 9999)
             .map((track, index) => (
-              <SmSoCard
+              <SoCard
                 key={track.id}
                 picUrl={track.al.picUrl}
                 index={index}

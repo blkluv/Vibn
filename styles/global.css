@@ -12,7 +12,7 @@
 
 ::-webkit-scrollbar{
   @apply bg-black/0;
-  width: 14px;
+  width: 0px;
   height: 14px;
 }
 ::-webkit-scrollbar-thumb{

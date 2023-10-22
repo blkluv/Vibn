@@ -1,5 +1,6 @@
 import Container from "@/components/layout/Container";
 import Huge from "@/components/ui/headings/Huge";
+import SoCard from "@/components/ui/cards/SoCard";
 import SmSoCard from "@/components/ui/cards/SmSoCard";
 
 import { useState, useEffect, useContext } from "react";
@@ -44,8 +45,8 @@ export default function List() {
     addAllToPlaylist(trackIds); // 将所有歌曲ID传递给 addAllToPlaylist 函数
   };
   return (
-    <Container title="播放列表">
-      <Huge>播放列表({playlistDetails.length})</Huge>
+    <Container title="Playlist">
+      <Huge>Playlist({playlistDetails.length})</Huge>
 
       <div className="flex flex-row space-x-6 mt-6">
         <PlayAll onClick={handlePlayAll} />
@@ -53,7 +54,7 @@ export default function List() {
           className="rounded-lg border bg-neutral-100 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 px-10 py-2"
           onClick={handleRemoveAll}
         >
-          删除全部
+          Delete All
         </button>
       </div>
 
@@ -61,7 +62,7 @@ export default function List() {
         {playlistDetails.length > 0 &&
           playlistDetails.map((track, index) => {
             return (
-              <SmSoCard
+              <SoCard
                 key={track.id}
                 picUrl={track.al.picUrl}
                 index={index}
