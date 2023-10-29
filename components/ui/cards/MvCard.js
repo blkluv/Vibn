@@ -13,7 +13,7 @@ export default function MvCard({ picUrl, name, id, index, ar }) {
         <LazyLoadImage
           effect="opacity"
           src={`${picUrl}?param=576y320`}
-          className="bg-neutral-200 dark:bg-neutral-800 rounded-xl w-40 md:w-[11rem] sm:w-72 h-32 md:h-36 sm:h-40"
+          className="bg-neutral-200 dark:bg-neutral-800 rounded-xl w-40 md:w-[11rem] sm:w-72 h-28 md:h-32 sm:h-40"
         />
       </div>
 

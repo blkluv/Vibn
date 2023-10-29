@@ -13,7 +13,7 @@ export default function ArCard({ picUrl, name, id, index }) {
         <LazyLoadImage
           effect="opacity"
           src={`${picUrl}?param=192y192`}
-          className="bg-neutral-200 dark:bg-neutral-800 rounded-xl w-40 md:w-40 sm:w-48 h-32 md:h-40 sm:h-48"
+          className="bg-neutral-200 dark:bg-neutral-800 rounded-xl w-40 md:w-40 sm:w-48 h-40 md:h-40 sm:h-48"
         />
       </div>
 
