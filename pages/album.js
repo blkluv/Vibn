@@ -32,7 +32,7 @@ export default function Playlist() {
         },
       });
 
-      setIsFavorited(response.data.subscribed)
+      setIsFavorited(response.data.subscribed);
     } catch (error) {
       // 处理错误
       console.error(error);
@@ -63,7 +63,9 @@ export default function Playlist() {
 
   async function handleFavoriteAlbum(type, id) {
     try {
-      const response = await axios.get(`${site.api}/album/sub?t=${type}&id=${id}&cookie=${cookie}`);
+      const response = await axios.get(
+        `${site.api}/album/sub?t=${type}&id=${id}&cookie=${cookie}`
+      );
       // 根据返回的响应结果更新收藏状态
       setIsFavorited(type === 1);
     } catch (error) {
@@ -85,10 +87,8 @@ export default function Playlist() {
   return (
     <Container title={albumDetail !== null && albumDetail.album.name}>
       <div className="flex flex-col md:flex-row sm:flex-row space-x-0 md:space-x-12 sm:space-x-12">
-        <CoverImg
-          picUrl={albumDetail !== null && albumDetail.album.picUrl}
-        />
-        <div className="mt-4 relative w-full md:w-48 sm:w-[24rem] ">
+        <CoverImg picUrl={albumDetail !== null && albumDetail.album.picUrl} />
+        <div className="mt-4 relative w-full md:w-64 sm:w-[30rem] ">
           <Huge>{albumDetail !== null && albumDetail.album.name}</Huge>
           <p className="mt-6 text-sm line-clamp-[10] md:line-clamp-4 sm:line-clamp-[8] mb-24 md:mb-0 sm:mb-0">
             {albumDetail !== null && albumDetail.album.description}
@@ -96,48 +96,30 @@ export default function Playlist() {
 
           <div className="absolute bottom-0 flex flex-row space-x-4">
             <PlayAll onClick={handlePlayAll} />
-            <CollectButton onClick={() => handleFavoriteAlbum(isFavorited ? 0 : 1, id)} isFavorited={isFavorited} />
+            <CollectButton
+              onClick={() => handleFavoriteAlbum(isFavorited ? 0 : 1, id)}
+              isFavorited={isFavorited}
+            />
           </div>
         </div>
       </div>
       <br />
-      <Medium>Priority</Medium>
-      <Column>
+      <div className="columns-1 md:columns-2 sm:columns-2">
         {albumTrack &&
-          albumTrack[0]
-            .slice(0, 5)
-            .map((track, index) => (
-              <SoCard
-                key={track.id}
-                index={index}
-                id={track.id}
-                name={track.name}
-                duration={track.dt}
-                ar={track.ar.map((artist) => artist.name).join(" / ")}
-                picUrl={track.al.picUrl}
-                arid={track.ar[0].id}
-              />
-            ))}
-      </Column>
+          albumTrack[0].map((track, index) => (
+            <SmSoCard
+              key={track.id}
+              index={index}
+              id={track.id}
+              name={track.name}
+              duration={track.dt}
+              ar={track.ar.map((artist) => artist.name).join(" / ")}
+              picUrl={track.al.picUrl}
+              arid={track.ar[0].id}
+            />
+          ))}
+      </div>
       <br />
-      <Medium>Don't Miss the Rest Part</Medium>
-      <Column>
-        {albumTrack &&
-          albumTrack[0]
-            .slice(5, 10)
-            .map((track, index) => (
-              <SoCard
-                key={track.id}
-                index={index}
-                id={track.id}
-                name={track.name}
-                duration={track.dt}
-                ar={track.ar.map((artist) => artist.name).join(" / ")}
-                picUrl={track.al.picUrl}
-                arid={track.ar[0].id}
-              />
-            ))}
-      </Column>
     </Container>
   );
 }

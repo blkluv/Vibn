@@ -190,15 +190,13 @@ const MusicSearch = () => {
   };
 
   return (
-    <Container title="Search">
-      <Medium>
-        {isLoading && <div className="flex flex-row space-x-2"><Icon icon="svg-spinners:bars-rotate-fade" className="mt-1" loop={true} /> <span>Loading...</span></div>}
-      </Medium>
+    <Container title="搜索">
+        {isLoading && <div className="flex flex-row space-x-2"><Icon icon="svg-spinners:bars-rotate-fade" className="mt-1" loop={true} /> <span>仍在加载...</span></div>}
       <br />
       {songDetail.length > 0 && (
         <>
-          {songDetail && !isLoading && <Medium id="song">Single Songs</Medium>}
-          <Column>
+          {songDetail && !isLoading && <Medium id="song">单曲</Medium>}
+          <Column cols={6} smCols={2} mdCols={4}>
             {songDetail &&
               !isLoading &&
               songDetail.map((track, index) => (
@@ -214,8 +212,8 @@ const MusicSearch = () => {
               ))}
           </Column>
           <br />
-          {songDetail && !isLoading && <Medium id="artist">Artists</Medium>}
-          <Column>
+          {songDetail && !isLoading && <Medium id="artist">艺术家</Medium>}
+          <Column cols={6} smCols={2} mdCols={4}>
             {artistDetail &&
               !isLoading &&
               artistDetail.map((artist, index) => (
@@ -229,8 +227,8 @@ const MusicSearch = () => {
               ))}
           </Column>
           <br />
-          {songDetail && !isLoading && <Medium id="playlist">Playlists</Medium>}
-          <Column>
+          {songDetail && !isLoading && <Medium id="playlist">歌单</Medium>}
+          <Column cols={4} smCols={2} mdCols={4}>
             {playlistDetail.length > 0 &&
               !isLoading &&
               playlistDetail.map((pl, index) => (
@@ -240,13 +238,13 @@ const MusicSearch = () => {
                   picUrl={pl.coverImgUrl}
                   name={pl.name}
                   id={pl.id}
-                  signature={pl.description}
+                  playCount={pl.playCount}
                 />
               ))}
           </Column>
           <br />
-          {songDetail && !isLoading && <Medium id="album">Albums</Medium>}
-          <Column>
+          {songDetail && !isLoading && <Medium id="album">专辑</Medium>}
+          <Column cols={6} smCols={2} mdCols={4}>
             {albumDetail &&
               !isLoading &&
               albumDetail.map((al, index) => (

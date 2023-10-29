@@ -69,10 +69,10 @@ export default function Dashboard() {
   };
   return (
     <Container title="Dashboard">
-       <Huge>{userDetail !== null && userDetail.profile.nickname}'s Dashboard</Huge>
+       {userDetail !== null &&<Huge>{userDetail.profile.nickname}的仪表盘</Huge>}
       <br />
-      {playlists.length > 0 && <Medium>Created Playlists</Medium>}
-      <Column>
+      {playlists.length > 0 && <Medium>创建的歌单</Medium>}
+      <Column smCols={2} mdCols={4} cols={4}>
         {playlists.length > 0 &&
           playlists.map((pl, index) => (
             <PlCard
@@ -81,7 +81,7 @@ export default function Dashboard() {
               picUrl={pl.coverImgUrl}
               name={pl.name}
               id={pl.id}
-              signature={pl.creator.signature}
+              playCount={pl.playCount}
             />
           ))}
       </Column>

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { SongIdsContext } from "@/components/layout/SongIdsContext";
 import axios from "axios";
 import site from "@/lib/site.config";
+import { Icon } from "@iconify/react";
 
 import Huge from "@/components/ui/headings/Huge";
 import Medium from "@/components/ui/headings/Medium";
@@ -19,9 +20,11 @@ export default function ListenNow() {
   const [fm, setFm] = useState([]);
   const [songId, setSongId] = useState([]);
   const [songDetails, setSongDetails] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchNewPl = async () => {
     try {
+      setIsLoading(true);
       const response = await axios.get(
         `${site.api}/recommend/resource?cookie=${cookie}`
       );
@@ -62,6 +65,7 @@ export default function ListenNow() {
         setFm(data.data);
         setSongId(data.data.map((song) => song.id));
         fetchSongDetails(data.data.map((song) => song.id));
+        setIsLoading(false);
       } else {
         console.log("获取私人FM失败！");
       }
@@ -96,11 +100,11 @@ export default function ListenNow() {
   const cookie = localStorage.getItem("cookie");
   const userData = JSON.parse(userDataStr);
   return (
-    <Container title="Listen Now">
+    <Container title="现在就听">
       {userData && (
         <>
-          {playlist.length > 0 && <Medium>Daily Recommended Playlists</Medium>}
-          <Column>
+          {playlist.length > 0 && <Medium>日推精选歌单</Medium>}
+          <Column mdCols={4} smCols={2} cols={4}>
             {playlist &&
               playlist.length > 0 &&
               playlist.map((pl, index) => (
@@ -112,12 +116,13 @@ export default function ListenNow() {
                   id={pl.id}
                   copywriter={pl.copywriter}
                   signature={pl.creator.signature}
+                  playCount={pl.playcount}
                 />
               ))}
           </Column>
           <br />
-          {songs.length > 0 && <Medium>Daily Recommended Songs</Medium>}
-          <Column>
+          {songs.length > 0 && <Medium>日推精选歌曲</Medium>}
+          <Column mdCols={4} smCols={2} cols={6}>
             {songs &&
               songs.map((track, index) => (
                 <SoCard
@@ -134,8 +139,8 @@ export default function ListenNow() {
               ))}
           </Column>
           <br />
-          {songDetails.length > 0 && <Medium>Private FM</Medium>}
-          <Column>
+          {songDetails.length > 0 && <Medium>私人漫游</Medium>}
+          <Column mdCols={4} smCols={2} cols={6}>
             {songDetails &&
               songDetails.map((track, index) => (
                 <SoCard
@@ -152,7 +157,17 @@ export default function ListenNow() {
           </Column>
         </>
       )}
-
+      <br />
+      {isLoading && (
+        <div className="flex flex-row space-x-2">
+          <Icon
+            icon="svg-spinners:bars-rotate-fade"
+            className="mt-1"
+            loop={true}
+          />{" "}
+          <span>仍在加载...</span>
+        </div>
+      )}
       {!userData && <div>Please Login in Advance.</div>}
     </Container>
   );

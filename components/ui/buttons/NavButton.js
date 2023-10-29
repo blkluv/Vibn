@@ -2,7 +2,7 @@ export default function NavButton({ onClick, children }) {
   return (
     <button
       onClick={onClick}
-      className="text-xl md:text-lg sm:text-xl flex flex-row rounded-lg font-medium text-left py-2"
+      className="bg-neutral-200 dark:bg-neutral-800 rounded-lg p-2 text-neutral-600 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300"
     >
       {children}
     </button>

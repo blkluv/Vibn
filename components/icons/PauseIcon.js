@@ -7,7 +7,7 @@ export function Pause({ isFull }) {
         ("icon ",
         isFull === "true"
           ? "w-12 md:w-14 sm:w-16 h-16"
-          : "w-10 md:w-12 sm:w-14 mt-2 md:mt-1 sm:mt-1")
+          : "w-5 h-5")
       }
       viewBox="0 0 1024 1024"
       version="1.1"

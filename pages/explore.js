@@ -7,6 +7,7 @@ import PlCard from "@/components/ui/cards/PlCard";
 import SoCard from "@/components/ui/cards/SoCard";
 import Huge from "@/components/ui/headings/Huge";
 import Medium from "@/components/ui/headings/Medium";
+import { Icon } from "@iconify/react";
 
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -31,7 +32,7 @@ export default function Home() {
         setIsLoading(true);
 
         const responseHighQualityPlaylists = await fetch(
-          `${site.api}/personalized`
+          `${site.api}/personalized?limit=30`
         );
         const dataHighQualityPlaylists =
           await responseHighQualityPlaylists.json();
@@ -39,7 +40,7 @@ export default function Home() {
           setPlaylists(dataHighQualityPlaylists.result);
         }
         const responseNewSongs = await fetch(
-          `${site.api}/personalized/newsong?`
+          `${site.api}/personalized/newsong?limit=30`
         );
         const dataNewSongs = await responseNewSongs.json();
         if (dataNewSongs && dataNewSongs.code === 200) {
@@ -55,15 +56,12 @@ export default function Home() {
             setSongDetails(dataSongDetails.songs);
           }
         }
-        const responseNewAl = await fetch(`${site.api}/album/newest`);
+        const responseNewAl = await fetch(`${site.api}/album/newest?limit=30`);
         const dataNewAl = await responseNewAl.json();
         const alData = dataNewAl.albums;
         setNewAl(alData);
-        console.log(alData)
 
-        const responseNewMV = await fetch(
-          `${site.api}/personalized/mv`
-        );
+        const responseNewMV = await fetch(`${site.api}/personalized/mv`);
         const dataNewMV = await responseNewMV.json();
         if (dataNewMV && dataNewMV.code === 200) {
           setNewMv(dataNewMV.result);
@@ -85,9 +83,9 @@ export default function Home() {
   }, []);
 
   return (
-    <Container title="Explore">
-      {playlists.length > 0 && <Medium>Recommended Playlists</Medium>}
-      <Column>
+    <Container title="浏览">
+      {playlists.length > 0 && <Medium>推荐歌单</Medium>}
+      <Column mdCols={4} smCols={2} cols={4}>
         {playlists.length > 0 &&
           playlists.map((pl, index) => (
             <PlCard
@@ -96,33 +94,30 @@ export default function Home() {
               picUrl={pl.picUrl}
               name={pl.name}
               id={pl.id}
-              playCount="enabled"
-              signature={pl.playCount}
+              playCount={pl.playCount}
             />
           ))}
       </Column>
       <br />
-      {songDetails.length > 0 && <Medium>Newest Songs</Medium>}
-      <Column>
+      {songDetails.length > 0 && <Medium>新歌速递</Medium>}
+      <Column mdCols={4} smCols={2} cols={6}>
         {songDetails &&
-          songDetails
-            .slice(0, 12)
-            .map((track, index) => (
-              <SoCard
-                key={track.id}
-                index={index}
-                id={track.id}
-                name={track.name}
-                duration={track.durationTime}
-                ar={track.ar.map((artist) => artist.name).join(" / ")}
-                picUrl={track.al.picUrl}
-                arid={track.ar[0].id}
-              />
-            ))}
+          songDetails.map((track, index) => (
+            <SoCard
+              key={track.id}
+              index={index}
+              id={track.id}
+              name={track.name}
+              duration={track.durationTime}
+              ar={track.ar.map((artist) => artist.name).join(" / ")}
+              picUrl={track.al.picUrl}
+              arid={track.ar[0].id}
+            />
+          ))}
       </Column>
       <br />
-      {newAl.length > 0 && <Medium>Newest Albums</Medium>}
-      <Column>
+      {newAl.length > 0 && <Medium>新碟上架</Medium>}
+      <Column mdCols={4} smCols={2} cols={6}>
         {newAl &&
           newAl.map((al, index) => (
             <AlCard
@@ -136,8 +131,8 @@ export default function Home() {
           ))}
       </Column>
       <br />
-      {newAr.length > 0 && <Medium>Hot Artists</Medium>}
-      <Column>
+      {newAr.length > 0 && <Medium>热门歌手</Medium>}
+      <Column mdCols={4} smCols={2} cols={6}>
         {newAr &&
           newAr.map((ar, index) => (
             <ArCard
@@ -150,20 +145,7 @@ export default function Home() {
           ))}
       </Column>
       <br />
-      {newMv.length > 0 && <Medium>Recommended MV</Medium>}
-      <Column>
-        {newMv &&
-          newMv.map((track, index) => (
-            <MvCard
-              key={index}
-              index={index}
-              picUrl={track.picUrl}
-              name={track.name}
-              id={track.id}
-              ar={track.artists.map((artist) => artist.name).join(" / ")}
-            />
-          ))}
-      </Column>
+      {isLoading && <div className="flex flex-row space-x-2"><Icon icon="svg-spinners:bars-rotate-fade" className="mt-1" loop={true} /> <span>仍在加载...</span></div>}
     </Container>
   );
 }

@@ -6,7 +6,7 @@ export function Moon(props) {
       viewBox="0 0 24 24"
       width="24"
       height="24"
-      className="main-grid-item-icon mt-1 mr-2"
+      className="main-grid-item-icon"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"

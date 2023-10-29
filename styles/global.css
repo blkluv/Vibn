@@ -10,6 +10,25 @@
   font-weight: 300 900;
 }
 
+@font-face {
+  font-family: 'OPPO Sans';
+  src: url('/fonts/OPlusSans3-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'OPPO Sans';
+  src: url('/fonts/OPlusSans3-Medium.woff2') format('woff2');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'OPPO Sans';
+  src: url('/fonts/OPlusSans3-Bold.woff2') format('woff2');
+  font-weight: 600;
+}
+
+
 ::-webkit-scrollbar{
   @apply bg-black/0;
   width: 0px;
@@ -27,7 +46,7 @@
 }
 
 body {
-  font-family: "BDO Grotesk", "Noto Sans SC", sans-serif;
+  font-family: "OPPO Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   @apply bg-white dark:bg-black dark:selection:bg-neutral-700 dark:selection:text-neutral-300 selection:bg-neutral-300 selection:text-neutral-700 leading-relaxed;
   font-weight: 400;
@@ -42,7 +61,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "BDO Grotesk", "Noto Sans SC", sans-serif;
+  font-family: "OPPO Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 700;
   @apply mb-1;

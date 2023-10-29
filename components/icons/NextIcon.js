@@ -7,7 +7,7 @@ export function Next({ isFull }) {
         ("icon",
         isFull === "true"
           ? "w-10 md:w-11 sm:w-12 h-12"
-          : "w-10 md:w-11 sm:w-12 h-12 mt-2 md:mt-1 sm:mt-1")
+          : "w-5 h-5")
       }
       viewBox="0 0 1024 1024"
       version="1.1"

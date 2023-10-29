@@ -45,8 +45,8 @@ export default function List() {
     addAllToPlaylist(trackIds); // 将所有歌曲ID传递给 addAllToPlaylist 函数
   };
   return (
-    <Container title="Playlist">
-      <Huge>Playlist({playlistDetails.length})</Huge>
+    <Container title="播放列表">
+      <Huge>播放列表({playlistDetails.length})</Huge>
 
       <div className="flex flex-row space-x-6 mt-6">
         <PlayAll onClick={handlePlayAll} />
@@ -54,15 +54,15 @@ export default function List() {
           className="rounded-lg border bg-neutral-100 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 px-10 py-2"
           onClick={handleRemoveAll}
         >
-          Delete All
+          删除全部
         </button>
       </div>
 
-      <Column>
+      <div className="columns-1 md:columns-2 sm:columns-2">
         {playlistDetails.length > 0 &&
           playlistDetails.map((track, index) => {
             return (
-              <SoCard
+              <SmSoCard
                 key={track.id}
                 picUrl={track.al.picUrl}
                 index={index}
@@ -75,7 +75,7 @@ export default function List() {
               />
             );
           })}
-      </Column>
+      </div>
     </Container>
   );
 }

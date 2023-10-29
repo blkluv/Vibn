@@ -433,29 +433,83 @@ export default function Player() {
         <Drawer.Trigger asChild>
           <button
             type="button"
-            className="text-sm bg-black text-white dark:bg-white dark:text-black truncate rounded-full px-4 py-1  hover:bg-neutral-900 dark:hover:bg-neutral-100 dark:border-neutral-800 cursor-pointer"
+            className="text-base bg-neutral-200 dark:bg-neutral-800 truncate rounded-lg px-1 py-0 cursor-pointer text-neutral-600 dark:text-neutral-400"
           >
-            <div className="flex flex-row space-x-2 max-w-[10rem] ">
-              {songIds[currentSongIndex] === "" ? (
-                "Not Playing"
+            <div className="flex flex-row space-x-2 max-w-[36rem] sm:max-w-[16rem] w-auto">
+              {songIds[currentSongIndex] == "" ? (
+                "未在播放"
               ) : (
                 <div>
                   {songInfo.map((song) => (
-                    <>{song.name}</>
+                    <div className="flex flex-row py-1">
+                      <img
+                        src={`${song.al.picUrl}?param=448y448`}
+                        className="w-8 h-8 rounded-lg"
+                      />
+                      <div className="flex flex-col text-xs px-1 text-left">
+                        <p className="truncate w-16 my-0">{song.name}</p>
+                        <p className="opacity-75 truncate w-16 my-0">
+                          {song.ar.map((artist) => artist.name).join(" / ")}
+                        </p>
+                      </div>
+                      <div className="flex flex-row space-x-1 max-w-[16rem] mt-2">
+                        <button>
+                          <button
+                            onClick={(event) => {
+                              setCurrentSongIndex(
+                                (currentSongIndex - 1 + songIds.length) %
+                                  songIds.length
+                              );
+                              event.stopPropagation();
+                            }}
+                          >
+                            <Previous isFull="false" />
+                          </button>
+                          <motion.button
+                            initial={{ scale: 1 }}
+                            animate={{
+                              scale: isPlaying ? [0.85, 1] : [1, 0.85],
+                              transition: {
+                                type: "spring",
+                                stiffness: 220,
+                                damping: 10,
+                              },
+                            }}
+                            onClick={(event) => {
+                              setIsPlaying(!isPlaying);
+                              event.stopPropagation();
+                            }}
+                          >
+                            {isPlaying === true ? (
+                              <Pause isFull="false" />
+                            ) : (
+                              <Play isFull="false" />
+                            )}
+                          </motion.button>
+                          <button
+                            onClick={(event) => {
+                              setCurrentSongIndex(
+                                (currentSongIndex + 1) % songIds.length
+                              );
+                              event.stopPropagation();
+                            }}
+                          >
+                            <Next isFull="false" />
+                          </button>
+                        </button>
+                      </div>
+                    </div>
                   ))}
                 </div>
               )}
-              <div className="mt-1 ml-1">
-                <Icon icon="svg-spinners:bars-scale-middle"  loop={true} />
-              </div>
             </div>
           </button>
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay className="fixed inset-0 bg-black/40 dark:bg-white/10" />
-          <Drawer.Content className="z-[9999] bg-white dark:bg-black flex flex-col rounded-t-xl h-screen mt-24 fixed bottom-0 left-0 right-0">
-            <div className="p-4 bg-white dark:bg-black rounded-t-[10px] flex-1">
-              <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-8" />
+          <Drawer.Content className="z-[9999] bg-white dark:bg-black flex flex-col rounded-t-xl h-screen mt-24 fixed bottom-0 left-0 right-0 border-neutral-200 dark:border-neutral-800 focus:outline-none">
+            <div className="p-4 bg-white dark:bg-black flex-1">
+              <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-neutral-300 dark:bg-neutral-700 mb-8" />
               <div className="w-full flex flex-row">
                 <div className="w-full md:w-1/2 sm:w-1/2 px-4 md:px-6 sm:px-36 py-2">
                   {songInfo.map((song) => (
@@ -555,7 +609,7 @@ export default function Player() {
                                   )
                                 }
                               >
-                                <Previous isFull={isFull} />
+                                <Previous isFull='true' />
                               </button>
                               <motion.button
                                 initial={{ scale: 1 }}
@@ -570,9 +624,9 @@ export default function Player() {
                                 onClick={() => setIsPlaying(!isPlaying)}
                               >
                                 {isPlaying === true ? (
-                                  <Pause isFull={true} />
+                                  <Pause isFull='true' />
                                 ) : (
-                                  <Play isFull={true} />
+                                  <Play isFull='true' />
                                 )}
                               </motion.button>
                               <button
@@ -582,7 +636,7 @@ export default function Player() {
                                   )
                                 }
                               >
-                                <Next isFull={isFull} />
+                                <Next isFull='true' />
                               </button>
                             </div>
                           </div>
@@ -612,7 +666,7 @@ export default function Player() {
                     </div>
                   ))}
                 </div>
-                <div className="w-1/2 h-[85vh] overflow-y-auto">
+                <div className="hidden md:block sm:block w-1/2 h-[85vh] overflow-y-auto">
                   <div className="py-4 overflow-y-auto select-none">
                     <div ref={lyricsContainerRef} style={{ maxHeight: "100%" }}>
                       {lyrics.map((line, index) => {

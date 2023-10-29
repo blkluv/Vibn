@@ -112,19 +112,19 @@ export default function Playlist() {
   return (
     <Container title={playlistDetail !== null && playlistDetail.name}>
       <div className="mt-4 flex flex-col md:flex-row sm:flex-row space-x-0 md:space-x-12 sm:space-x-12">
-        <div className="w-80">
+        <div className="w-96">
           <CoverImg
             picUrl={playlistDetail !== null && playlistDetail.coverImgUrl}
           />
         </div>
 
-        <div className="mt-4 relative w-full md:w-48 sm:w-[24rem] ">
+        <div className="mt-4 relative w-full md:w-64 sm:w-[30rem] ">
           <Huge>{playlistDetail !== null && playlistDetail.name}</Huge>
           <p className="mt-6 line-clamp-[10] md:line-clamp-4 sm:line-clamp-[8] mb-24 md:mb-0 sm:mb-0">
             {playlistDetail !== null && playlistDetail.description}
             {playlistDetail !== null &&
               playlistDetail.description === null &&
-              "No Description Could Be Displayed"}
+              "没有可供显示的简介"}
           </p>
 
           <div className="absolute bottom-0 flex flex-row space-x-4">
@@ -137,45 +137,23 @@ export default function Playlist() {
         </div>
       </div>
       <br />
-      {filteredTracks.length > 0 && <Medium>Priority</Medium>}
-      <Column>
+      <div className="columns-1 md:columns-2 sm:columns-2">
         {filteredTracks.length > 0 &&
-          filteredTracks
-            .slice(0, 10)
-            .map((track, index) => (
-              <SoCard
-                key={track.id}
-                picUrl={track.al.picUrl}
-                index={index}
-                duration={track.dt}
-                id={track.id}
-                arid={track.ar[0].id}
-                ar={track.ar.map((artist) => artist.name).join(" / ")}
-                name={track.name}
-              />
-            ))}
-      </Column>
+          filteredTracks.map((track, index) => (
+            <SmSoCard
+              key={track.id}
+              picUrl={track.al.picUrl}
+              index={index}
+              duration={track.dt}
+              id={track.id}
+              arid={track.ar[0].id}
+              ar={track.ar.map((artist) => artist.name).join(" / ")}
+              name={track.name}
+            />
+          ))}
+      </div>
+
       <br />
-      {filteredTracks.slice(10, 9999).length > 0 && (
-        <Medium>Don't Miss the Rest Part</Medium>
-      )}
-      <Column>
-        {filteredTracks.slice(10, 9999).length > 0 &&
-          filteredTracks
-            .slice(10, 9999)
-            .map((track, index) => (
-              <SoCard
-                key={track.id}
-                picUrl={track.al.picUrl}
-                index={index}
-                duration={track.dt}
-                id={track.id}
-                arid={track.ar[0].id}
-                ar={track.ar.map((artist) => artist.name).join(" / ")}
-                name={track.name}
-              />
-            ))}
-      </Column>
     </Container>
   );
 }
