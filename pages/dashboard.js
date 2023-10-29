@@ -11,7 +11,7 @@ import Medium from "@/components/ui/headings/Medium";
 import PlCard from "@/components/ui/cards/PlCard";
 import Horizon from "@/components/layout/HorizonScroll";
 import CollectButton from "@/components/ui/buttons/collectButton";
-import Column from "@/components/layout/Column";
+import HugeColumn from "@/components/layout/HugeColumn";
 
 export default function Dashboard() {
   const [userDetail, setUserDetail] = useState(null);
@@ -69,22 +69,28 @@ export default function Dashboard() {
   };
   return (
     <Container title="Dashboard">
-       {userDetail !== null &&<Huge>{userDetail.profile.nickname}的仪表盘</Huge>}
+      {userDetail !== null && (
+        <Huge>{userDetail.profile.nickname}的仪表盘</Huge>
+      )}
       <br />
-      {playlists.length > 0 && <Medium>创建的歌单</Medium>}
-      <Column smCols={2} mdCols={4} cols={4}>
-        {playlists.length > 0 &&
-          playlists.map((pl, index) => (
-            <PlCard
-              key={pl.id}
-              index={index}
-              picUrl={pl.coverImgUrl}
-              name={pl.name}
-              id={pl.id}
-              playCount={pl.playCount}
-            />
-          ))}
-      </Column>
+      {playlists.length > 0 && (
+        <>
+          <Medium>创建的歌单</Medium>
+          <HugeColumn smCols="2" mdCols="4" cols="4">
+            {playlists.length > 0 &&
+              playlists.map((pl, index) => (
+                <PlCard
+                  key={pl.id}
+                  index={index}
+                  picUrl={pl.coverImgUrl}
+                  name={pl.name}
+                  id={pl.id}
+                  playCount={pl.playCount}
+                />
+              ))}
+          </HugeColumn>
+        </>
+      )}
     </Container>
   );
 }

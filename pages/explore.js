@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import site from "@/lib/site.config";
 import Column from "@/components/layout/Column";
+import HugeColumn from "@/components/layout/HugeColumn";
 
 export default function Home() {
   const router = useRouter();
@@ -84,68 +85,97 @@ export default function Home() {
 
   return (
     <Container title="浏览">
-      {playlists.length > 0 && <Medium>推荐歌单</Medium>}
-      <Column mdCols={4} smCols={2} cols={4}>
-        {playlists.length > 0 &&
-          playlists.map((pl, index) => (
-            <PlCard
-              key={pl.id}
-              index={index}
-              picUrl={pl.picUrl}
-              name={pl.name}
-              id={pl.id}
-              playCount={pl.playCount}
-            />
-          ))}
-      </Column>
+      {playlists.length > 0 && (
+        <>
+          <Medium>推荐歌单</Medium>
+          <HugeColumn>
+            {playlists.length > 0 &&
+              playlists.map((pl, index) => (
+                <PlCard
+                  key={pl.id}
+                  index={index}
+                  picUrl={pl.picUrl}
+                  name={pl.name}
+                  id={pl.id}
+                  playCount={pl.playCount}
+                  isLoading={isLoading}
+                />
+              ))}
+          </HugeColumn>
+        </>
+      )}
       <br />
-      {songDetails.length > 0 && <Medium>新歌速递</Medium>}
-      <Column mdCols={4} smCols={2} cols={6}>
-        {songDetails &&
-          songDetails.map((track, index) => (
-            <SoCard
-              key={track.id}
-              index={index}
-              id={track.id}
-              name={track.name}
-              duration={track.durationTime}
-              ar={track.ar.map((artist) => artist.name).join(" / ")}
-              picUrl={track.al.picUrl}
-              arid={track.ar[0].id}
-            />
-          ))}
-      </Column>
+      {songDetails.length > 0 && (
+        <>
+          <Medium>新歌速递</Medium>
+          <Column>
+            {songDetails &&
+              songDetails.map((track, index) => (
+                <SoCard
+                  key={track.id}
+                  index={index}
+                  id={track.id}
+                  name={track.name}
+                  duration={track.durationTime}
+                  ar={track.ar.map((artist) => artist.name).join(" / ")}
+                  picUrl={track.al.picUrl}
+                  arid={track.ar[0].id}
+                  isLoading={isLoading}
+                />
+              ))}
+          </Column>
+        </>
+      )}
       <br />
-      {newAl.length > 0 && <Medium>新碟上架</Medium>}
-      <Column mdCols={4} smCols={2} cols={6}>
-        {newAl &&
-          newAl.map((al, index) => (
-            <AlCard
-              key={index}
-              index={index}
-              picUrl={al.picUrl}
-              name={al.name}
-              ar={al.artists.map((artist) => artist.name).join(" / ")}
-              id={al.id}
-            />
-          ))}
-      </Column>
+      {newAl.length > 0 && (
+        <>
+          <Medium>新碟上架</Medium>
+          <Column mdCols={4} smCols={2} cols={6}>
+            {newAl &&
+              newAl.map((al, index) => (
+                <AlCard
+                  key={index}
+                  index={index}
+                  picUrl={al.picUrl}
+                  name={al.name}
+                  ar={al.artists.map((artist) => artist.name).join(" / ")}
+                  id={al.id}
+                  isLoading={isLoading}
+                />
+              ))}
+          </Column>
+        </>
+      )}
       <br />
-      {newAr.length > 0 && <Medium>热门歌手</Medium>}
-      <Column mdCols={4} smCols={2} cols={6}>
-        {newAr &&
-          newAr.map((ar, index) => (
-            <ArCard
-              key={index}
-              index={index}
-              picUrl={ar.picUrl}
-              name={ar.name}
-              id={ar.id}
-            />
-          ))}
-      </Column>
+      {newAr.length > 0 && (
+        <>
+          <Medium>热门歌手</Medium>
+          <Column mdCols={4} smCols={2} cols={6}>
+            {newAr &&
+              newAr.map((ar, index) => (
+                <ArCard
+                  key={index}
+                  index={index}
+                  picUrl={ar.picUrl}
+                  name={ar.name}
+                  id={ar.id}
+                  isLoading={isLoading}
+                />
+              ))}
+          </Column>
+        </>
+      )}
       <br />
-      {isLoading && <div className="flex flex-row space-x-2"><Icon icon="svg-spinners:bars-rotate-fade" className="mt-1" loop={true} /> <span>仍在加载...</span></div>}
+      {isLoading && (
+        <div className="flex flex-row space-x-2">
+          <Icon
+            icon="svg-spinners:bars-rotate-fade"
+            className="mt-1"
+            loop={true}
+          />{" "}
+          <span>仍在加载...</span>
+        </div>
+      )}
     </Container>
   );
 }

@@ -16,6 +16,7 @@ import Horizon from "@/components/layout/HorizonScroll";
 
 import site from "@/lib/site.config";
 import Column from "@/components/layout/Column";
+import HugeColumn from "@/components/layout/HugeColumn";
 
 const MusicSearch = () => {
   const router = useRouter();
@@ -191,90 +192,122 @@ const MusicSearch = () => {
 
   return (
     <Container title="搜索">
-        {isLoading && <div className="flex flex-row space-x-2"><Icon icon="svg-spinners:bars-rotate-fade" className="mt-1" loop={true} /> <span>仍在加载...</span></div>}
-      <br />
+      {songDetail.length > 0 && <Medium><span className="text-black dark:text-white">'{keywords}'</span>的搜索结果</Medium>}
       {songDetail.length > 0 && (
         <>
-          {songDetail && !isLoading && <Medium id="song">单曲</Medium>}
-          <Column cols={6} smCols={2} mdCols={4}>
-            {songDetail &&
-              !isLoading &&
-              songDetail.map((track, index) => (
-                <SoCard
-                  key={track.id}
-                  index={index}
-                  id={track.id}
-                  name={track.name}
-                  ar={track.ar.map((artist) => artist.name).join(" / ")}
-                  picUrl={track.al.picUrl}
-                  duration={track.dt}
-                />
-              ))}
-          </Column>
+          {songDetail && !isLoading && (
+            <>
+              <Medium id="song">单曲</Medium>
+              <Column cols={6} smCols={2} mdCols={4}>
+                {songDetail &&
+                  !isLoading &&
+                  songDetail.map((track, index) => (
+                    <SoCard
+                      key={track.id}
+                      index={index}
+                      id={track.id}
+                      name={track.name}
+                      ar={track.ar.map((artist) => artist.name).join(" / ")}
+                      picUrl={track.al.picUrl}
+                      duration={track.dt}
+                    />
+                  ))}
+              </Column>
+            </>
+          )}
           <br />
-          {songDetail && !isLoading && <Medium id="artist">艺术家</Medium>}
-          <Column cols={6} smCols={2} mdCols={4}>
-            {artistDetail &&
-              !isLoading &&
-              artistDetail.map((artist, index) => (
-                <ArCard
-                  key={artist.id}
-                  index={index}
-                  id={artist.id}
-                  picUrl={artist.picUrl}
-                  name={artist.name}
-                />
-              ))}
-          </Column>
+          {songDetail && !isLoading && (
+            <>
+              <Medium id="artist">艺术家</Medium>
+              <Column cols={6} smCols={2} mdCols={4}>
+                {artistDetail &&
+                  !isLoading &&
+                  artistDetail.map((artist, index) => (
+                    <ArCard
+                      key={artist.id}
+                      index={index}
+                      id={artist.id}
+                      picUrl={artist.picUrl}
+                      name={artist.name}
+                    />
+                  ))}
+              </Column>
+            </>
+          )}
           <br />
-          {songDetail && !isLoading && <Medium id="playlist">歌单</Medium>}
-          <Column cols={4} smCols={2} mdCols={4}>
-            {playlistDetail.length > 0 &&
-              !isLoading &&
-              playlistDetail.map((pl, index) => (
-                <PlCard
-                  key={pl.id}
-                  index={index}
-                  picUrl={pl.coverImgUrl}
-                  name={pl.name}
-                  id={pl.id}
-                  playCount={pl.playCount}
-                />
-              ))}
-          </Column>
+          {songDetail && !isLoading && (
+            <>
+              <Medium id="playlist">歌单</Medium>
+              <HugeColumn cols={4} smCols={2} mdCols={4}>
+                {playlistDetail.length > 0 &&
+                  !isLoading &&
+                  playlistDetail.map((pl, index) => (
+                    <PlCard
+                      key={pl.id}
+                      index={index}
+                      picUrl={pl.coverImgUrl}
+                      name={pl.name}
+                      id={pl.id}
+                      playCount={pl.playCount}
+                    />
+                  ))}
+              </HugeColumn>
+            </>
+          )}
           <br />
-          {songDetail && !isLoading && <Medium id="album">专辑</Medium>}
-          <Column cols={6} smCols={2} mdCols={4}>
-            {albumDetail &&
-              !isLoading &&
-              albumDetail.map((al, index) => (
-                <AlCard
-                  key={al.id}
-                  index={index}
-                  picUrl={al.picUrl}
-                  name={al.name}
-                  ar={al.artists.map((artist) => artist.name).join(" / ")}
-                  id={al.id}
-                />
-              ))}
-          </Column>
+          {songDetail && !isLoading && (
+            <>
+              <Medium id="album">专辑</Medium>
+              <Column cols={6} smCols={2} mdCols={4}>
+                {albumDetail &&
+                  !isLoading &&
+                  albumDetail.map((al, index) => (
+                    <AlCard
+                      key={al.id}
+                      index={index}
+                      picUrl={al.picUrl}
+                      name={al.name}
+                      ar={al.artists.map((artist) => artist.name).join(" / ")}
+                      id={al.id}
+                    />
+                  ))}
+              </Column>
+            </>
+          )}
           <br />
-          {songDetail && !isLoading && <Medium id="mv">MV</Medium>}
-          <Column>
-            {mvDetail &&
-              !isLoading &&
-              mvDetail.map((track, index) => (
-                <MvCard
-                  key={track.id}
-                  index={index}
-                  id={track.id}
-                  name={track.name}
-                  ar={track.artists.map((artist) => artist.name).join(" / ")}
-                  picUrl={track.cover}
-                />
-              ))}
-          </Column>
+          {songDetail && !isLoading && (
+            <>
+              <Medium id="mv">MV</Medium>
+              <HugeColumn>
+                {mvDetail &&
+                  !isLoading &&
+                  mvDetail.map((track, index) => (
+                    <MvCard
+                      key={track.id}
+                      index={index}
+                      id={track.id}
+                      name={track.name}
+                      ar={track.artists
+                        .map((artist) => artist.name)
+                        .join(" / ")}
+                      picUrl={track.cover}
+                    />
+                  ))}
+              </HugeColumn>
+            </>
+          )}
         </>
+      )}
+      <br />
+      {isLoading && (
+        <div className="flex flex-row space-x-2">
+          <Icon
+            icon="svg-spinners:bars-rotate-fade"
+            className="mt-1"
+            loop={true}
+          />{" "}
+          <span>仍在加载...</span>
+        </div>
       )}
     </Container>
   );

@@ -10,6 +10,7 @@ import Huge from "@/components/ui/headings/Huge";
 import Horizon from "@/components/layout/HorizonScroll";
 import SoCard from "@/components/ui/cards/SoCard";
 import Column from "@/components/layout/Column";
+import HugeColumn from "@/components/layout/HugeColumn";
 import SmSoCard from "@/components/ui/cards/SmSoCard";
 import MvCard from "@/components/ui/cards/MvCard";
 import AlCard from "@/components/ui/cards/AlCard";
@@ -125,56 +126,37 @@ export default function Artist() {
               <Huge>{arData.name}</Huge>
             </div>
           </div>
-          <p className="bg-neutral-200 dark:bg-neutral-800 rounded-xl opacity-75 my-8 px-6 py-4 w-full">
+          <p className="rounded-xl opacity-75 my-8 w-full">
             {arData.briefDesc}
           </p>
 
           {arSongs !== null && arSongs.slice(0, 10) && (
-            <Medium>50 Top Songs</Medium>
+            <>
+              <Medium>50首热门单曲</Medium>
+
+              <Column>
+                {arSongs !== null &&
+                  arSongs &&
+                  arSongs.map((track, index) => (
+                    <SoCard
+                      key={track.id}
+                      index={index}
+                      id={track.id}
+                      name={track.name}
+                      duration={track.dt}
+                      ar={track.ar.map((artist) => artist.name).join(" / ")}
+                      arid={track.ar[0].id}
+                      picUrl={track.al.picUrl}
+                    />
+                  ))}
+              </Column>
+            </>
           )}
-          <Column>
-            {arSongs !== null &&
-              arSongs.slice(0, 10) &&
-              arSongs
-                .slice(0, 10)
-                .map((track, index) => (
-                  <SoCard
-                    key={track.id}
-                    index={index}
-                    id={track.id}
-                    name={track.name}
-                    duration={track.dt}
-                    ar={track.ar.map((artist) => artist.name).join(" / ")}
-                    arid={track.ar[0].id}
-                    picUrl={track.al.picUrl}
-                  />
-                ))}
-          </Column>
           <br />
-          {arSongs !== null && arSongs.slice(10, 50) && (
-            <Medium>Don't Miss The Rest Part</Medium>
+          {arMVs !== null && arMVs && (
+            <Medium>艺术家MV</Medium>
           )}
-          <Column>
-            {arSongs !== null &&
-              arSongs.slice(10, 50) &&
-              arSongs
-                .slice(10, 50)
-                .map((track, index) => (
-                  <SoCard
-                    key={track.id}
-                    index={index}
-                    id={track.id}
-                    name={track.name}
-                    duration={track.dt}
-                    ar={track.ar.map((artist) => artist.name).join(" / ")}
-                    arid={track.ar[0].id}
-                    picUrl={track.al.picUrl}
-                  />
-                ))}
-          </Column>
-          <br />
-          {arMVs !== null && arMVs && <Medium>MV Presented by the Artist~</Medium>}
-          <Column>
+          <HugeColumn>
             {arMVs &&
               arMVs.map((track, index) => (
                 <MvCard
@@ -188,40 +170,47 @@ export default function Artist() {
                     .join(" / ")}
                 />
               ))}
-          </Column>
+          </HugeColumn>
           <br />
           {arAlbums !== null && arAlbums && (
-            <Medium>Album Presented by the Artist~</Medium>
+            <>
+              <Medium>艺术家专辑</Medium>
+
+              <Column>
+                {arAlbums &&
+                  arAlbums.map((al, index) => (
+                    <AlCard
+                      key={al.id}
+                      index={index}
+                      picUrl={al.picUrl}
+                      name={al.name}
+                      id={al.id}
+                      ar={al.artists.map((artist) => artist.name).join(" / ")}
+                    />
+                  ))}
+              </Column>
+            </>
           )}
-          <Column>
-            {arAlbums &&
-              arAlbums.map((al, index) => (
-                <AlCard
-                  key={al.id}
-                  index={index}
-                  picUrl={al.picUrl}
-                  name={al.name}
-                  id={al.id}
-                  ar={al.artists.map((artist) => artist.name).join(" / ")}
-                />
-              ))}
-          </Column>
           <br />
+
           {similarArtists !== null && similarArtists && (
-            <Medium>Similar Artist</Medium>
+            <>
+              <Medium>相似艺人</Medium>
+
+              <Column>
+                {similarArtists &&
+                  similarArtists.map((artist, index) => (
+                    <ArCard
+                      key={artist.id}
+                      picUrl={artist.picUrl}
+                      name={artist.name}
+                      id={artist.id}
+                      index={index}
+                    />
+                  ))}
+              </Column>
+            </>
           )}
-          <Column>
-            {similarArtists &&
-              similarArtists.map((artist, index) => (
-                <ArCard
-                  key={artist.id}
-                  picUrl={artist.picUrl}
-                  name={artist.name}
-                  id={artist.id}
-                  index={index}
-                />
-              ))}
-          </Column>
         </>
       )}
     </Container>

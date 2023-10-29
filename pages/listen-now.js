@@ -12,6 +12,7 @@ import Container from "@/components/layout/Container";
 import PlCard from "@/components/ui/cards/PlCard";
 import SoCard from "@/components/ui/cards/SoCard";
 import Column from "@/components/layout/Column";
+import HugeColumn from "@/components/layout/HugeColumn";
 
 export default function ListenNow() {
   const router = useRouter();
@@ -103,58 +104,73 @@ export default function ListenNow() {
     <Container title="现在就听">
       {userData && (
         <>
-          {playlist.length > 0 && <Medium>日推精选歌单</Medium>}
-          <Column mdCols={4} smCols={2} cols={4}>
-            {playlist &&
-              playlist.length > 0 &&
-              playlist.map((pl, index) => (
-                <PlCard
-                  key={pl.id}
-                  index={index}
-                  picUrl={pl.picUrl}
-                  name={pl.name}
-                  id={pl.id}
-                  copywriter={pl.copywriter}
-                  signature={pl.creator.signature}
-                  playCount={pl.playcount}
-                />
-              ))}
-          </Column>
+          {playlist.length > 0 && (
+            <>
+              <Medium>日推精选歌单</Medium>
+              <HugeColumn mdCols={4} smCols={2} cols={4}>
+                {playlist &&
+                  playlist.length > 0 &&
+                  playlist.map((pl, index) => (
+                    <PlCard
+                      key={pl.id}
+                      index={index}
+                      picUrl={pl.picUrl}
+                      name={pl.name}
+                      id={pl.id}
+                      copywriter={pl.copywriter}
+                      signature={pl.creator.signature}
+                      playCount={pl.playcount}
+                      isLoading={isLoading}
+                    />
+                  ))}
+              </HugeColumn>
+            </>
+          )}
           <br />
-          {songs.length > 0 && <Medium>日推精选歌曲</Medium>}
-          <Column mdCols={4} smCols={2} cols={6}>
-            {songs &&
-              songs.map((track, index) => (
-                <SoCard
-                  key={track.id}
-                  index={index}
-                  id={track.id}
-                  name={track.name}
-                  duration={track.durationTime}
-                  ar={track.ar.map((artist) => artist.name).join(" / ")}
-                  arid={track.ar[0].id}
-                  picUrl={track.al.picUrl}
-                  reason={track.reason}
-                />
-              ))}
-          </Column>
+          {songs.length > 0 && (
+            <>
+              <Medium>日推精选歌曲</Medium>
+              <Column mdCols={4} smCols={2} cols={6}>
+                {songs &&
+                  songs.map((track, index) => (
+                    <SoCard
+                      key={track.id}
+                      index={index}
+                      id={track.id}
+                      name={track.name}
+                      duration={track.durationTime}
+                      ar={track.ar.map((artist) => artist.name).join(" / ")}
+                      arid={track.ar[0].id}
+                      picUrl={track.al.picUrl}
+                      reason={track.reason}
+                      isLoading={isLoading}
+                    />
+                  ))}
+              </Column>
+            </>
+          )}
           <br />
-          {songDetails.length > 0 && <Medium>私人漫游</Medium>}
-          <Column mdCols={4} smCols={2} cols={6}>
-            {songDetails &&
-              songDetails.map((track, index) => (
-                <SoCard
-                  key={track.id}
-                  index={index}
-                  id={track.id}
-                  arid={track.ar[0].id}
-                  name={track.name}
-                  duration={track.dt}
-                  ar={track.ar.map((artist) => artist.name).join(" / ")}
-                  picUrl={track.al.picUrl}
-                />
-              ))}
-          </Column>
+          {songDetails.length > 0 && (
+            <>
+              <Medium>私人漫游</Medium>
+              <Column mdCols={4} smCols={2} cols={6}>
+                {songDetails &&
+                  songDetails.map((track, index) => (
+                    <SoCard
+                      key={track.id}
+                      index={index}
+                      id={track.id}
+                      arid={track.ar[0].id}
+                      name={track.name}
+                      duration={track.dt}
+                      ar={track.ar.map((artist) => artist.name).join(" / ")}
+                      picUrl={track.al.picUrl}
+                      isLoading={isLoading}
+                    />
+                  ))}
+              </Column>
+            </>
+          )}
         </>
       )}
       <br />

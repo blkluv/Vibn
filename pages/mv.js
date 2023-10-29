@@ -72,7 +72,7 @@ export default function Mv() {
           <div className="mt-6">
             <Huge>{mvData.name}</Huge>
             <div className="opacity-75 mt-2">
-              <Medium>{mvData.artistName}</Medium>
+              <Huge>{mvData.artistName}</Huge>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function Mv() {
       <br />
       {simiMv !== null && simiMv && (
         <>
-          <Medium>From the Same Artist</Medium>
+          <Medium>相似MV</Medium>
           <Horizon>
           {simiMv !== null && simiMv &&
               simiMv.map((track, index) => (

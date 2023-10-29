@@ -1,7 +1,7 @@
 import cn from "classnames";
 import React, { useState } from "react";
 
-export default function Column({ children, isLoading }) {
+export default function HugeColumn({ children, isLoading }) {
   const [more, setMore] = useState(false);
 
   return (
@@ -19,11 +19,11 @@ export default function Column({ children, isLoading }) {
 
       <div
         className={cn(
-          `grid grid-cols-2 md:grid-cols-4 sm:grid-cols-6`
+          `grid grid-cols-2 md:grid-cols-4 sm:grid-cols-4`
         )}
       >
         {React.Children.map(children, (child, index) => {
-          const shouldHide = more === false && index >= 12; // 隐藏元素
+          const shouldHide = more === false && index >= 8; // 隐藏元素
 
           return (
             <div

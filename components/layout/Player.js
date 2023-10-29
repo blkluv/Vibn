@@ -506,7 +506,7 @@ export default function Player() {
           </button>
         </Drawer.Trigger>
         <Drawer.Portal>
-          <Drawer.Overlay className="fixed inset-0 bg-black/40 dark:bg-white/10" />
+          <Drawer.Overlay className="fixed inset-0 bg-black/40 dark:bg-white/10 backdrop-blur-3xl" />
           <Drawer.Content className="z-[9999] bg-white dark:bg-black flex flex-col rounded-t-xl h-screen mt-24 fixed bottom-0 left-0 right-0 border-neutral-200 dark:border-neutral-800 focus:outline-none">
             <div className="p-4 bg-white dark:bg-black flex-1">
               <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-neutral-300 dark:bg-neutral-700 mb-8" />
@@ -520,7 +520,7 @@ export default function Player() {
                       />
 
                       <div className="flex flex-row justify-between w-full md:w-80 sm:w-96">
-                        <div className="flex flex-col text-xl font-medium mt-4 px-2 py-1.5 space-y-0.5">
+                        <div className="flex flex-col text-lg font-medium mt-4 px-2 py-1.5 space-y-0.5">
                           <h1>{song.name}</h1>
                           <h2 className="opacity-75">
                             {song.ar.map((artist) => artist.name).join(" / ")}
@@ -560,7 +560,7 @@ export default function Player() {
                           </Slider.Track>
                         </Slider.Root>
 
-                        <div className="flex mx-auto mt-3 flex-row justify-between font-normal">
+                        <div className="flex mx-auto mt-3 flex-row justify-between font-medium">
                           <div className="text-xs md:text-sm sm:text-sm opacity-75">
                             {formatTime(currentTime)}
                           </div>
